@@ -1,0 +1,166 @@
+<html>
+<head>
+<title>Ontology Alignment Evaluation Initiative::2015</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<style type="text/css">
+span.important { color:red; }
+</style>
+</head>
+<body>
+<div class="header">
+<a style="color: grey; line-height: 5mm;" href="http://oaei.ontologymatching.org/2015/">Ontology
+  Alignment Evaluation Initiative - SEALS platform evaluation modalities for OAEI 2015
+  Campaign</a><a href="http://oaei.ontologymatching.org/"><img src="../oaeismall.jpg" alt="OAEI"
+		   style="float:right; margin-left: 5pt; border-style:none;"/></a>
+</div>
+
+<h1>SEALS platform evaluation modalities for OAEI 2015</h1>
+
+<a href="http://www.seals-project.eu/"><img src="../seals-logo.jpg" alt="SEALS"
+		   style="float:right; margin-left: 5pt; border-style:none;"/></a>
+<p>
+
+The <a href="http://www.seals-project.eu">SEALS project</a> was
+dedicated to the evaluation of semantic web technologies. 
+To that extent, it created a platform for easing this evaluation,
+organizing evaluation campaigns, and building the community of tool
+providers and tool users around this evaluation activity.
+The SEALS platform has been progressively integrated within OAEI
+evaluation.
+It is now routingly used in ontology matching evaluation.
+</p>
+
+<p>
+To ease communication between participants and track organizers, this year we will have a OAEI contact point in the person of <b>Ernesto Jimenez-Ruiz</b>. The role of the contact point is defined below.
+</p>
+
+<h2>Process</h2>
+
+<p>
+Participants have to follow this procedure (some participants of OAEI 2010, 2011 and 2011.5 have already conducted the first two steps):
+<ol>
+  <li><b>Create a user account in the SEALS platform and register your matching tool.</b>
+    	Go to the SEALS portal (<a href="http://www.seals-project.eu/join-the-community">http://www.seals-project.eu/join-the-community</a>) and create a user account.  On the platform Logged in as a user, you can register a tool in the platform (click on the link 'Register your tool'). This requires that you shortly describe your tool and categorize it choosing the menu entry 'Ontology Mapping Tool'. It does not require that you upload the tool itself.
+        </li>
+
+  <li><b>Wrap the current version of your matching tool.</b>
+	This step is described in detail in a tutorial (see <a href="#tutorial">Section below</a>). It requires to create a small java class that acts as a bridge. Further, you have to put the libraries used by your tool in a certain folder structure.
+
+  <li><b>Upload a wrapped version of your matching tool and ask
+	for a dry run.</b> Note that an uploaded tool is available via
+	the web pages only for the organizers of the evaluation
+	campaign and for the owner of the tool itself.
+	</li>
+
+  <li><b>Inform the contact point that you intend to participate in OAEI 2015.</b> Send an email to the contact point with the following information: 
+<ul>
+<li>Tool name: MyMatcher</li>
+<li>Tool name short (max 8 chars): MyMatch</li>
+<li>Name and country of your institution: Max Planck Research School, Germany</li>
+<li>Contact person(s): Max Mueller, Paul Heinz</li>
+<li>Email(s): max@xyz.de, paul@xyz.de</li>
+<li>JDK version required by your tool: JDK 1.7</li>
+<li>Other software requirements: MYSQL, Gurobi, ...</li>
+<li>Tool-ID in SEALS Portal: i39d3e-r32932-...</li>
+<li>Tool-Version -ID in SEALS Portal: dh38dj-ofei44-...</li>
+</ul>
+	</li>
+
+  <li><b>Test your tool with the data sets available for each track.</b> Ids of data sets for testing your tool prior to the evaluation process are given in each track web page. Participants can test their tools with the <a href="#tutorial">SEALS client</a> on those data-sets until August 31th. For each track test, please inform the concerned track organizer about the status of your test. This will facilitate the final evaluation process. If you desire, you can send a copy of your e-mail to the OAEI contact point.
+	</li>
+
+  <li><b>Prepare, wrap and upload the final version of your matching tool.</b> 
+        <span class="important">(Final Deadline to be decided, usually end of August)</span>
+        Many system developers work hard till the final deadline is reached to improve their system. Please wrap the final version of your system as you did for a previous test version in Step 3. For the final evaluation we will use the final version that has been uploaded to the SEALS portal prior to the deadline. Please add a remark in the description of the version to indicate that you want to participate with this version in OAEI 2015, and inform the OAEI 2015 contact person on that.
+	</li>
+	
+</ol>
+</p>
+<p>
+Previously, some tracks had experienced problems for running all the the tools under the same JDK version. Most participants continue to use JDK 1.6.xx, but new participants tend to use JDK 1.7. To facilitate the evaluation process please try to run your tool under this version (JDK 1.7). If it is not possible for you, please keep us informed.
+</p>
+<p>
+Once these steps have been conducted, we run all systems on the SEALS platform and generate the results. Each track organizer will decide whether the results will finally be presented via the SEALS portal or if they will be presented via result pages (similar as in the years before), or both.
+</p>
+
+<a name="tutorial"/> 
+<h2>Tutorial on Tool Wrapping</h2>
+
+<p>We have prepared a comprehensive PDF-tutorial for wrapping an ontology matching tool and testing your tool. You can download it here:</p>
+
+<ul>
+	<li><a href="../2011.5/tutorial/tutorialv3.pdf">Download Tutorial (v3)</a> and 
+	<a href="../2011/tutorial/MatcherBridge.java">MatcherBridge.java</a> presented in the appendix.</li>
+</ul>
+
+<p>In the tutorial there are mentioned several additional materials that are available here.<p>
+
+<ul>
+	<li><a href="../2011/tutorial/linux/demomatcher-package.zip">Download demomatcher-package.zip</a> for LINUX (example of a tool correctly packaged)<br/>
+	or <a href="../2011/tutorial/windows/demomatcher-package.zip">download demomatcher-package.zip</a> for WINDOWS <br/>&nbsp;</li>
+	<li><a href="../2011/tutorial/seals-omt-validator.jar">Download seals-omt-validator.jar</a> (validates the structure and content of the zipped tool package)</li>
+	<li><a href="../2014/interactive/omt-client-2014.jar">Download seals-omt-client-v5.jar</a> (interfaces and client to execute the final tool package)</li>
+</ul>
+
+
+<p>We detected a few problems with previous versions of the client. We offer now the
+improved version available above. Note that this requires to refer to &quot;seals-omt-client-v4-1beta.jar&quot;
+in all command line examples given in the tutorial instead of &quot;seals-omt-client.jar&quot;.</p>
+<p>We encourage developers to use the <a href="http://alignapi.gforge.inria.fr/">Alignment API</a>. For developers using it, the following ant package is available for packaging and validating the wrapped tools: <p>
+
+<ul>
+	<li><a href="../2011/tutorial/package-template.zip">Download package-template.zip</a> Use 'ant pack' to generate the tool package.<br/>
+</ul>
+
+
+<p>
+Within the Tutorial we show how you can use your wrapped tool to run locally a full evaluation. Thus, you can compute precision and recall for all of those testsuites listed in the track web pages at any time in your development process.</p>
+xs
+<h2>Track specific participation</h2>
+
+<p>A system that plans to participate in one of the SEALS supported tracks, will be
+evaluated for all tracks supported by SEALS. This means that it is <span class="important">no longer allowed to
+participate in one track</span>, e.g., to participate in just the anatomy track. We know that this can be a problem for some systems that have specifically been developed for, e.g., matching biomedical ontologies. However, this point can still be 
+emphasized in the specific results paper that you have to write about your system. In other words, if
+the results generated for some specific track are not good at all, there is a place where this can be 
+explained in the appropriate way.
+</p>
+
+<!--
+<p>This rule holds only for the tracks supported by SEALS!</p>
+
+<h2>Web service based evaluation (used in 2010)</h2>
+
+<p>
+In its first simple presentation, the SEALS platform had allowed
+matchers to be evaluated as web services. Participants had
+to implement a very simple web service, provide its URL to the
+platform and could view results online. This service is still available
+under <a href="http://www.seals-project.eu/ontology-matching-evaluation-ui">
+http://www.seals-project.eu/ontology-matching-evaluation-ui</a>. It is still maintained,
+but it will not be used for generating the alignments and results of
+OAEI 2011.5. Note that using this service requires to have a user account in
+the SEALS platform.  The instructions for implementing your matcher as a web service are
+still hosted at <a href="http://alignapi.gforge.inria.fr/tutorial/tutorial5/">
+http://alignapi.gforge.inria.fr/tutorial/tutorial5/</a>
+</p>
+
+-->
+
+
+<h2>Contacts</h2>
+<p>
+Do not hesitate to contact Ernesto Jimenez-Ruiz : ernesto [.] jimenez [.] ruiz [at] gmail [.] com for any questions, which can be related to the overall procedure, to problems in tool-wrapping, and so on ... and do not forget to send us your evaluation request (the earlier, the better)!
+</p>
+
+<h3>Acknowledgement</h3>
+
+<p>While developing and improving the tutorial, we have been in contact with several matching tool developer to have some 'reference' matcher for testing our tutorial and the client that comes with it. Thanks go out to Hua Wei Khong Watson (Eff2match), Peigang Xu (Falcon-OA), Faycal Hamdi (Taxomap), Peng Wang (Lily), Zhichun Wang (RiMOM), and Cosmin Stroe (AgreementMaker).
+</p>
+
+
+<div class="address">
+<div class="footer">http://oaei.ontologymatching.org/2015/seals-eval.html</div>
+</div>
+</body>
+</html>

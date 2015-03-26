@@ -1,0 +1,216 @@
+<html>
+<head>
+<title>Ontology Alignment Evaluation Initiative::2015</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+<div class="header">
+<a style="color: grey; line-height: 5mm;" href="http://oaei.ontologymatching.org/2015/">Ontology Alignment Evaluation Initiative - OAEI 2015 Campaign</a><a href="http://oaei.ontologymatching.org/"><img src="../oaeismall.jpg" alt="OAEI"
+		   style="float:right; margin-left: 5pt; border-style:none;"/></a>
+</div>
+
+<div class="yellowbar">
+    Results available <a href="results/index.html">here</a>
+</div>
+
+<h1>Ontology Alignment Evaluation Initiative</h1>
+<h1>2015 Campaign</h1>
+
+<p>Since 2004, <a href="http://oaei.ontologymatching.org">OAEI</a> organises evaluation campaigns aiming at evaluating ontology matching technologies.
+</p>
+
+<h2>Problems</h2>
+
+<p>The OAEI 2015 campaign will once again confront ontology matchers to
+  ontology and data sources to be matched.
+This year, the following test sets are available:
+
+<dl compact="1">
+
+<dt><a href="benchmarks/index.html">benchmark</a> <a href="seals-eval.html"><img width="30" border="0" src="../seals-logo.jpg"/></a></dt><dd>
+  Like in previous campaigns, a <b>systematic benchmark series</b> has 
+  to be matched. The goal of this benchmark series is to identify the areas in 
+  which each alignment algorithm is strong and weak. The test is not
+  anymore based on the very same dataset that has been used from 2004
+  to 2010. We are now able to generate undisclosed tests with the same
+  structure. They provide strongly comparable results and allow for
+  testing scalability.</dd>
+
+<dt><a href="anatomy/index.html">anatomy</a> <a href="seals-eval.html"><img width="30" border="0" src="../seals-logo.jpg"/></a></dt><dd>The <b>anatomy</b>
+  real world case is about matching the Adult Mouse Anatomy (2744 classes) and the NCI Thesaurus (3304 classes) describing the human anatomy.</dd>
+
+<dt><a href="conference/index.html">conference</a> <a href="seals-eval.html"><img width="30" border="0" src="../seals-logo.jpg"/></a></dt>
+<dd>
+The goal of this track is to find alignments within a collection of ontologies describing the domain of organising conferences. Additionally, 'complex correspondences' are also very welcome. Alignments will be evaluated automatically against reference alignments. Summary results along with detail performance results for each ontology pair (test case) and comparison with tools' performance from last years will be provided.</dd>
+
+<dt><a href="multifarm/index.html">Multifarm</a> <a href="seals-eval.html"><img width="30" border="0" src="../seals-logo.jpg"/></a></dt>
+<dd>
+This dataset is composed of a subset of the Conference dataset, translated in eight different languages (Chinese, Czech, Dutch, French, German, Portuguese,  Russian, and Spanish) and the corresponding alignments between these ontologies. Based on these test cases, it is possible to evaluate and compare the performance of matching approaches with a special focus on multilingualism. 
+</dd>
+
+<dt><a href="library/index.html">Library</a> <a href="seals-eval.html"><img width="30" border="0" src="../seals-logo.jpg"/></a></dt>
+<dd>
+The library track is a real-word task to match the STW and the TheSoz social science thesauri in SKOS. The goal of this track is to find whether the matchers can handle these lightweight ontologies including a huge amount of concepts and additional descriptions. Results will be evaluated both against a reference alignment and through manual scrutiny of alignments.
+</dd>
+
+
+<dt><a href="interactive/index.html">Interactive matching evaluation</a>
+  (interactive) <a href="seals-eval.html"><img width="30" border="0" src="../seals-logo.jpg"/></a></dt>
+<dd>
+This track offers the possibility to compare different interactive matching tools which require user interaction. The goal is to show if user interaction can improve the matching results, which methods are most promising and how many interactions are necessary. All participating systems are evaluated using an oracle which bases on the reference alignment. As dataset, we use the ontologies of the <a href="conference/index.html">conference track</a>. Using the SEALS client, the matching system only needs to be slightly adapted to participate to this track.
+</dd>
+
+
+
+<dt><a href="http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/2015/">Large Biomedical Ontologies</a> (largebio) <a href="seals-eval.html"><img width="30" border="0" src="../seals-logo.jpg"/></a></dt>
+<dd>
+This track consists of finding alignments between the Foundational Model of
+Anatomy (FMA), SNOMED CT, and the National Cancer Institute Thesaurus (NCI).
+These ontologies are semantically rich and contain tens of thousands of
+classes. UMLS Metathesaurus has been selected as the basis for the track
+reference alignments.
+</dd>
+
+<a name="instance" />
+<dt><br/><a href="http://islab.di.unimi.it/im_oaei_2015/index.html">Instance Matching</a> (im) <a href="seals-eval.html"><img width="30" border="0" src="../seals-logo.jpg"/></a></dt>
+<dd>
+The instance data matching track aims at evaluating tools able to identify similar instances among different RDF and OWL datasets.
+The IM edition this year is articulated in two sub-tasks for identity recognition and similarity recognition. The evaluation will be 
+run with support of <a href="http://www.seals-project.eu/">SEALS</a>.
+The evaluation will be blind as described in details on the instance matching page.
+Participating systems are free to use any combination of matching techniques and background knowledge.
+Results, in the alignment format, will be evaluated according to standard precision and recall metrics.
+</dd>
+
+<a name="oa4qa" />
+<dt><br/><a href="http://www.cs.ox.ac.uk/isg/projects/Optique/oaei/oa4qa/">Ontology Alignment for Query Answering</a> (oa4qa) 
+<!--<a href="seals-eval.html">
+<img width="30" border="0" src="../seals-logo.jpg"/></a>-->
+</dt>
+<dd>
+This track will not follow the classical ontology alignment evaluation with respect to a set of reference alignments. Precision and Recall will be calculated with respect to the ability of the generated alignments to answer a set of queries in a ontology-based data access scenario where several ontologies exist. In the OAEI 2015 campaign the datasets will be based on the <a href="conference/index.html">Conference track</a>.
+</dd>
+</dl> 
+</p>
+
+<h2>Modalities</h2>
+
+<p>OAEI 2015 will continue the procedure of running on the SEALS
+  platform introduced in 2011. The results will be reported at
+  the <a href="http://om2015.ontologymatching.org">Ontology matching
+  workshop</a> of the <a href="http://iswc2015.semanticweb.org/">13th
+  International Semantic Web Conference</a> (ISWC 2015).
+</p>
+
+<p>
+The overall process of participation including how to accomplish tool
+bundling is <a href="seals-eval.html">described here</a>.
+</p>
+
+<p>
+Please note that a tool that participates in one of the tracks
+conducted with the SEALS modality, will be evaluated with respect to
+all of the other tracks under the SEALS modality even though the tool might be specialized for some specific kind of matching problems. We know that this can be a problem for some systems that have specifically been developed for, e.g., matching biomedical ontologies; but this point can still be emphasized in the specific results paper about the system in case the results generated for some specific track are not good at all.
+</p>
+
+<h3>SEALS evaluation process</h3>
+
+<p>
+Following the successful campaigns since 2011, most of the tests will be evaluated under the SEALS platform.  The evaluation process is detailed <a href="seals-eval.html">here</a>, and in general it follows the same pattern as in past years:
+<ol>
+<li>Participants wrap their tools as a <a href="seals-eval.html">SEALS platform package</a> and
+  register them to the <a href="http://www.seals-project.eu/">SEALS portal</a>;</li>
+<li>Participants can test their tools with the <a href="seals-eval.html#tutorial">SEALS client</a> on the
+ data-sets provided with reference alignments by each track organizer. The ids of those data-sets are given in each track web page;</li>
+<li>Organizers run the evaluation on the SEALS platform from the
+  tools registered in the platform and with both blind and published
+ datasets;</li>
+<li>For some tracks, results are (automatically) available on the <a href="http://www.seals-project.eu/">SEALS portal</a>. </li>
+</ol>
+</p>
+
+<h2><a name="schedule">Schedule</a></h2>
+
+<p>
+Provisional dates <strike></strike>
+<dl compact="1"><strike></strike>
+<dt><strike><b>June 30th</b></strike></dt><dd>datasets available (for presceening).</dd>
+<dt><strike><b>July 14th</b></strike></dt><dd>datasets are frozen.</dd>
+<dt><strike><b>August 31st</b></strike></dt><dd>participants send final versions of their tools.</dd>
+<dt><strike><b>September 28th</b></strike></dt><dd>evaluation is executed and results are analyzed.</dd>
+<dt><strike><b>October 5th</b></strike></dt><dd>final paper due.</dd>
+<dt><strike><b>October 20th</b></strike></dt><dd><a href="http://om2015.ontologymatching.org">Ontology matching workshop</a>.</dd>
+<dt><strike><b>November 16th</b></strike></dt><dd>Final version of system papers due (sharp).</dd>
+</dl>
+</p>
+
+<h2>Presentation</h2>
+
+<p>From the results of the experiments, participants are expected
+  to provide the organisers with a paper to be published in the proceedings   
+  of the Ontology matching workshop. 
+  The paper must be no more than 8 pages long and formatted using the
+  <a href="http://www.springer.com/lncs">LNCS Style</a>.
+  To ensure easy comparability among the participants it has to follow the given 
+  outline. <!-- A package with LaTeX and Word templates is available <a href="templates2014.zip">here</a>.-->
+  The above mentioned paper must be sent in PDF format before
+  September 30th to
+  Jerome . Euzenat (a) inria . fr with copy to
+  pavel (a) dit . unitn . it.</p>
+
+  
+<p>Participants may also submit a longer version of their paper,
+  with a length justified by its technical content,
+  to be published online in the CEUR-WS collection and on the OAEI web
+  site (this last paper will be due just before the workshop).</p>
+<p>The outline of the paper is as below (see templates for more details):
+<ol type="1">
+  <li>Presentation of the system<br />
+    <ol>
+      <li> State, purpose, general statement</li>
+      <li> Specific techniques used</li>
+
+      <li> Adaptations made for the evaluation</li>
+      <li> Link to the system and parameters file</li>
+      <li> Link to the set of provided alignments (in align format)</li>
+    </ol>
+  </li>
+  <li>Results<br />
+
+    <ul 1>
+      <li>2.x) a comment for each dataset performed</li>
+    </ul>
+  <li>General comments<br />
+    (not necessaryly by putting the section below but preferably in
+    this order).
+    <ol>
+      <li> Comments on the results (strength and weaknesses)</li>
+
+      <li> Discussions on the way to improve the proposed system</li>
+      <li> Comments on the OAEI procedure (including comments on the SEALS evaluation, if relevant)</li>
+      <li> Comments on the OAEI test cases</li>
+      <li> Comments on the OAEI measures</li>
+      <li> Proposed new measures</li>
+
+    </ol>
+  </li>
+  <li>Conclusions<br />
+  <li>References<br />
+</ol>
+</p>
+<p>
+These papers are not peer-reviewed and are here to keep track of the
+participants and the description of matchers which took part in the
+campaign.
+</p>
+<p>The results from both selected participants and organizers were presented 
+  at the <a href="http://om2015.ontologymatching.org">International Workshop on Ontology
+  Matching</a> collocated with <a href="http://iswc2015.semanticweb.org">ISWC 2015</a> taking
+  place at Bethleem (PA US) in October 22nd or 23rd, 2015.<!-- We hope to see you there.--></p>
+
+<div class="address">
+<div class="footer">http://oaei.ontologymatching.org/2015/</div>
+</div>
+</body>
+</html>
+
