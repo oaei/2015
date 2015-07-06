@@ -10,11 +10,11 @@
 <a style="color: grey; line-height: 5mm;" href="http://oaei.ontologymatching.org/2015/">Ontology
   Alignment Evaluation Initiative - OAEI-2015 Campaign</a>
   <a href="http://oaei.ontologymatching.org/">
-<img width="120px" src="../../oaeismall.jpg" style="float:right; margin-left: 15pt; border-style:none;"/></a>
+<img width="150px" src="../../oaeismall.jpg" style="float:right; margin-left: 15pt; border-style:none;"/></a>
   <a href="http://www.seals-project.eu/">
-<img  width="120px" src="../../seals-logo.jpg" style="clear:right;float:right; margin-left: 15pt; border-style:none;"/></a>
+<img  width="150px" src="../../seals-logo.jpg" style="clear:right;float:right; margin-left: 15pt; border-style:none;"/></a>
   <a href="http://web.informatik.uni-mannheim.de/multifarm/">
-<img width="120px" src="images/mf-logo.jpg" style="clear:right;float:right; margin-left: 15pt; border-style:none;"/></a>
+<img width="150px" src="images/mf-logo.jpg" style="clear:right;float:right; margin-left: 15pt; border-style:none;"/></a>
   </a>
 </div>
 
@@ -24,9 +24,9 @@
 <h1>MultiFarm</h1>
 
 <p>
-The goal of the MultiFarm track is to evaluate the ability of matcher systems to deal ontologies in different natural languages. It serves the
- purpose of evaluating the strength and weakness of matchers (by being progressive and wide coverage) and measuring the progress of
- matchers (by being stable and reusable over the years), with a special focus on multilingualism. 
+The goal of this track is to evaluate the ability of systems to deal with ontologies in different natural languages. It serves the
+purpose of evaluating the strengths and the weaknesses of matchers (by being progressive and wide coverage) and measuring the progress of
+matchers (by being stable and reusable over the years), with a focus on multilingualism. 
 </p>
 
 <!--
@@ -51,11 +51,9 @@ The goal of the MultiFarm track is to evaluate the ability of matcher systems to
 <a name="datasets"/> 
 <h2>Data set</h2>
 <p>
-The MultiFarm data set is composed of a set of 7 ontologies translated into 8 languages (+English) -- Chinese (cn), Czech (cz), Dutch (nl), French (fr), German (de), Portuguese (pt), Russian (ru), Spanish (es) -- and the corresponding cross-lingual alignments between these ontologies. This data set is based on the <a href="http://nb.vse.cz/~svabo/oaei2012/">OntoFarm data set</a>, which has been used successfully for several years in the <a href="http://nb.vse.cz/~svabo/oaei2012/">Conference track</a> in the OAEI campaigns. For details on Multifarm, please refer to the <a href="http://web.informatik.uni-mannheim.de/multifarm/">data set description page</a>.</p>
+The MultiFarm data set is composed of a set of 7 ontologies translated into 8 languages (+English) -- Chinese (cn), Czech (cz), Dutch (nl), French (fr), German (de), Portuguese (pt), Russian (ru), Spanish (es) -- and the corresponding cross-lingual alignments between them. This data set is based on the <a href="http://nb.vse.cz/~svabo/oaei2012/">OntoFarm data set</a>, which has been used successfully for several years in the <a href="http://nb.vse.cz/~svabo/oaei2012/">Conference track</a> in the OAEI campaigns. For details on Multifarm, please refer to the <a href="http://web.informatik.uni-mannheim.de/multifarm/">data set description page</a>.</p>
 
-<p>
-As last year, in order to provide a blind evaluation, we do not made available the translations on edas and ekaw ontologies in the current testing data set. The identifiers of the data set available for the test evaluation are given below (note that the URI of the repository and the identifiers of test suites have changed):
-</p>
+<p>The data set is available on the SEALS test repositories and is accessible through the SEALS client (see instructions <a href="http://oaei.ontologymatching.org/2015/seals-eval.html">here</a>). Alternatively, you can download the ontologies from the MultiFarm web page. For running the MultiFarm test suites you will have to use the following identifiers:</p>
 
 <p>
 <div class="testsuite">
@@ -69,23 +67,27 @@ As last year, in order to provide a blind evaluation, we do not made available t
 </p>
 
 <p>
-The <b>[pair-language]</b> refers to one of the 36 different language pairs: cn-en, cn-cz, cz-es, fr-pt, en-pt, cz-de, pt-ru, cn-pt, cz-ru, de-fr, de-pt, en-es, en-fr, cn-nl, de-ru, cn-de, cn-es, en-nl, cz-en, en-ru, cz-fr, es-ru, de-en, nl-ru, es-pt, de-es, fr-nl, de-nl, nl-pt, es-nl, fr-ru, cz-pt, es-fr, cn-ru, cn-fr, cz-nl. For instance, cn-cz-multifarm refers to the test cases involving the chinese-czech language.
+The <b>[pair-language]</b> refers to one of the 36 different language pairs: cn-en, cn-cz, cz-es, fr-pt, en-pt, cz-de, pt-ru, cn-pt, cz-ru, de-fr, de-pt, en-es, en-fr, cn-nl, de-ru, cn-de, cn-es, en-nl, cz-en, en-ru, cz-fr, es-ru, de-en, nl-ru, es-pt, de-es, fr-nl, de-nl, nl-pt, es-nl, fr-ru, cz-pt, es-fr, cn-ru, cn-fr, cz-nl. For instance, cn-cz refers to the test cases involving the Chinese-Czech language.
 </p>
 
 <p>
-These identifiers refer to the data set used in previous OAEI campaings and can be used for testing the tools. A new version of the data set will be available soon.
+These identifiers refer to the data set used in previous OAEI campaigns and can be used for testing the tools. A new version of the data set will be available soon.
 </p>
 
+<h2>Modalities</h2>
 <p>
-We encourage you to use the <a href="http://alignapi.gforge.inria.fr/">Alignment API</a> for manipulating and generating your alignments, and, in particular, for computing evaluation of your results.
-</p> 
+As last year, in order to provide a <b>blind evaluation</b>, we do not made available the translations on edas and ekaw ontologies in the current testing data set, described above. The evaluation is based on the well-know measures of precision, recall and F-measure. We compute as well the runtime.  
+</p>
 
 <a name="test"/> 
-<h3>Testing your tool</h3>
+<h2>Testing your tool</h2>
 <p>
-Please, refer to the <a href="http://oaei.ontologymatching.org/2015/seals-eval.html">instructions</a> on how you can test your tools. Following those instructions, you have to use the MultiFarm data set identifiers indicated
-above.
+Please, refer to the <a href="http://oaei.ontologymatching.org/2015/seals-eval.html">instructions</a> on how you can test your tools using the test data. Following those instructions, you have to use the MultiFarm data set identifiers indicated above.
 </p>
+
+<p>
+We encourage you to use the <a href="http://alignapi.gforge.inria.fr/">Alignment API</a> for manipulating and generating your alignments, and, in particular, for computing evaluation of your results. We use the API in order to compute the evaluation results. 
+</p> 
 
 <a name="contact"/> 
 <h3>Contacts</h3>
