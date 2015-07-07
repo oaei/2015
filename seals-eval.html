@@ -41,6 +41,7 @@ Participants have to follow this procedure (some participants of OAEI 2010, 2011
 <ol>
   <li><b>Create a user account in the SEALS platform and register your matching tool.</b>
     	Go to the SEALS portal (<a href="http://www.seals-project.eu/join-the-community">http://www.seals-project.eu/join-the-community</a>) and create a user account.  On the platform Logged in as a user, you can register a tool in the platform (click on the link 'Register your tool'). This requires that you shortly describe your tool and categorize it choosing the menu entry 'Ontology Mapping Tool'. It does not require that you upload the tool itself.
+    	<span class="important">Due to some technical reasons the seals-project.eu portal is not yet available</span>
         </li>
 
   <li><b>Wrap the current version of your matching tool.</b>
@@ -49,10 +50,11 @@ Participants have to follow this procedure (some participants of OAEI 2010, 2011
   <li><b>Upload a wrapped version of your matching tool and ask
 	for a dry run.</b> Note that an uploaded tool is available via
 	the web pages only for the organizers of the evaluation
-	campaign and for the owner of the tool itself.
+	campaign and for the owner of the tool itself. <span class="important">Due to some technical reasons the seals-project.eu portal is not yet available. If you are interested in a dry-run, please go 
+	to the next point and send the details of your tool to the OAEI 2015 contact person.</span>
 	</li>
 
-  <li><b>Inform the contact point that you intend to participate in OAEI 2015.</b> Send an email to the contact point with the following information: 
+  <li><b>Inform the contact point that you intend to participate in OAEI 2015.</b> Send an email to the contact point (Ernesto Jimenez-Ruiz) with the following information: 
 <ul>
 <li>Tool name: MyMatcher</li>
 <li>Tool name short (max 8 chars): MyMatch</li>
@@ -61,8 +63,9 @@ Participants have to follow this procedure (some participants of OAEI 2010, 2011
 <li>Email(s): max@xyz.de, paul@xyz.de</li>
 <li>JDK version required by your tool: JDK 1.7</li>
 <li>Other software requirements: MYSQL, Gurobi, ...</li>
-<li>Tool-ID in SEALS Portal: i39d3e-r32932-...</li>
-<li>Tool-Version -ID in SEALS Portal: dh38dj-ofei44-...</li>
+<li>URL where the system is available to download: http://mymatch.xyz.de</li>
+<li>Tool-ID in SEALS Portal: i39d3e-r32932-... (if seals-project.eu portal is available)</li>
+<li>Tool-Version -ID in SEALS Portal: dh38dj-ofei44-... (if seals-project.eu portal is available)</li>
 </ul>
 	</li>
 
@@ -99,14 +102,17 @@ Once these steps have been conducted, we run all systems on the SEALS platform a
 	<li><a href="../2011/tutorial/linux/demomatcher-package.zip">Download demomatcher-package.zip</a> for LINUX (example of a tool correctly packaged)<br/>
 	or <a href="../2011/tutorial/windows/demomatcher-package.zip">download demomatcher-package.zip</a> for WINDOWS <br/>&nbsp;</li>
 	<li><a href="../2011/tutorial/seals-omt-validator.jar">Download seals-omt-validator.jar</a> (validates the structure and content of the zipped tool package)</li>
-	<li><a href="../2014/interactive/omt-client-2014.jar">Download seals-omt-client-v5.jar</a> (interfaces and client to execute the final tool package)</li>
+	<li><a href="seals-omt-client-2015-v5.jar">Download seals-omt-client-2015-v5.jar</a> (interfaces and client to execute the final tool package)</li>
 </ul>
 
 
 <p>We detected a few problems with previous versions of the client. We offer now the
 improved version available above. Note that this requires to refer to &quot;seals-omt-client-v4-1beta.jar&quot;
 in all command line examples given in the tutorial instead of &quot;seals-omt-client.jar&quot;.</p>
-<p>We encourage developers to use the <a href="http://alignapi.gforge.inria.fr/">Alignment API</a>. For developers using it, the following ant package is available for packaging and validating the wrapped tools: <p>
+
+<p>We also detected some conflicts in the past when using libraries in conflict with the libraries used by the SEALS client. We encourage when possible to use the same versions as the <a href="seals-omt-client-2015-v5.jar">SEALS client</a>.</p>
+
+<p>We also encourage developers to use the <a href="http://alignapi.gforge.inria.fr/">Alignment API</a>. For developers using it, the following ant package is available for packaging and validating the wrapped tools: <p>
 
 <ul>
 	<li><a href="../2011/tutorial/package-template.zip">Download package-template.zip</a> Use 'ant pack' to generate the tool package.<br/>
@@ -115,7 +121,7 @@ in all command line examples given in the tutorial instead of &quot;seals-omt-cl
 
 <p>
 Within the Tutorial we show how you can use your wrapped tool to run locally a full evaluation. Thus, you can compute precision and recall for all of those testsuites listed in the track web pages at any time in your development process.</p>
-xs
+
 <h2>Track specific participation</h2>
 
 <p>A system that plans to participate in one of the SEALS supported tracks, will be
