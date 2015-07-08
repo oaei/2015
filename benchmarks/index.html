@@ -1,0 +1,205 @@
+<html>
+<head>
+<title>Ontology Alignment Evaluation Initiative::Benchmark</title>
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body bgcolor="white" face="tahoma, arial">
+
+<!--table width="100%">
+<tr BGCOLOR="yellow" ALIGN="center"><td>
+Preliminary results are available are available <a href="../results/benchmarks/index.html">here</a>.<br />
+</td></tr>
+</table-->
+
+
+<div class="header">
+<a style="color: grey; line-height: 5mm;" href="..">Ontology Alignment Evaluation Initiative - OAEI-2015 Campaign</a>
+  <a href="http://oaei.ontologymatching.org/">
+  <img width="200px" src="../../oaeismall.jpg" style="float:right; margin-left: 5pt; border-style:none;"/></a>
+
+  <a href="http://www.seals-project.eu/">
+<img  width="200px" src="../../seals-logo.jpg" style="clear:right;float:right; margin-left: 5pt; border-style:none;"/></a>
+</div>
+
+<h1>Benchmark test</h1>
+
+<p>
+The goal of the benchmark test is to offer a set of tests which are wide in feature coverage, progressive and stable. 
+It serves the purpose of evaluating the strength and weakness of matchers (by being progressive and wide coverage) and measuring the progress of matchers (by being stable and reusable over the years).
+</p>
+
+<p>
+Expected results of matchers are alignments between the named and properties in the namespace of the ontologies.
+Instances are not in the reference alignments.
+</p> 
+
+<a name="datasets"/> 
+<h2>Data sets</h2>
+<p>
+The benchmark test library consists of data sets that are built from reference ontologies of different sizes and from different domains.
+</p>
+<p>
+Since OAEI 2011, Benchmark test suites (or data sets) have been generated from seed ontologies [1].
+This year, in addition to the bibliographic ontology, we have used one large ontology:
+<dl>
+<dt>biblio</dt><dd> The bibliographic ontology described <a href="../../tests/">here</a> has been the main reference ontology since the beginning of OAEI campaigns. The usual bibliography ontology which concerns
+    bibliographic references and is inspired freely from BibTeX.
+</dd>
+<dt>ifc</dt><dd><a href="http://www.buildingsmart-tech.org/future/linked-data/ifcowl/IFC4.ttl/view">IFC4</a> is the release 4 of the
+    <a href="http://www.buildingsmart-tech.org/future/linked-data/linked-data">buildingsmart</a> Industry Foundation Classes in OWL. It has been
+    modified so as to suppress the Ifc prefixes and converted to OWL/RDF.</dd>
+<!--dt>cose</dt><dd><a href="http://casas.wsu.edu/owl/cose.owl">COSE</a> is the Casas Ontology for Smart Environments</dd>
+<dt>dog</dt><dd><a href="http://elite.polito.it/ontologies/dogont.owl">DogOnto</a> is an ontology describing aspects of intelligent domotic environments.</dd>
+</dl-->
+</p>
+
+<p>
+The following table summarizes the information about ontologies' sizes.
+
+<center>
+<table border="1" style="width: 30%">
+  <caption></caption>
+  <col />
+  <col />
+  <col />
+  <col />
+  <tbody>
+    <tr>
+      <td align='center'>Test set</td>
+      <td align='center'>biblio</td>
+      <td align='center'>ifc</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td colspan="5" align='center'>ontology size</td>
+    </tr>
+    <tr>
+      <td>classes+prop</td>
+      <td>97</td>
+      <td>1221+1576</td>
+    </tr>
+    <tr>
+      <td>instances</td>
+      <td>112</td>
+      <td>1624</td>
+    </tr>
+    <tr>
+      <td>entities</td>
+      <td>209</td>
+      <td>4421</td>
+    </tr>
+    <tr>
+      <td>triples</td>
+      <td>1332</td>
+      <td>38178</td>
+    </tr>
+  </tbody>
+</table>
+</table>
+</center>
+</p>
+
+
+<a name="test"/> 
+<h2>Testing your tool</h2> 
+<p>
+It is not necessary anymore to download the data sets (it has always been better to get it on the web). The <a href="../seals-eval.html">SEALS platform</a> will provide the data sets.
+</p>
+<!--p>
+Participants can test their tools using the standard  benchmark
+dataset described above, which can be
+downloaded <a href="../../2012/benchmarks/benchmarks.zip">here</a>. 
+They can enforce testing with a subset of data sets built with reference ontologies used in previous campaigns, which are stored in the Test Data Repository accessible through the <a href="http://www.seals-project.eu/">SEALS portal</a>. Note that two of these data sets were built based on the same reference ontologies (biblio and finance) which will be used in OAEI 2015.
+</p--> 
+
+<p>
+All those data sets maintain the structure explained in
+the <a href="../../tests/">Example of a complete benchmark data
+    set</a> section, and testing with those data sets can be done by
+using the <a href="../seals-eval.html#tutorial">SEALS client</a>. This
+client iterates over tests in a data set whose identifier is provided
+as a parameter. In all cases, the ontologies found in the data set
+directories are matched (either against the ontology found in
+101/onto.rdf, or both ontologies to match are in the same
+directory). The resulting alignments must be outputted in
+the <a href="http://alignapi.gforge.inria.fr/format.html">alignment
+    format</a>. They are placed in a local directory given also as a
+parameter to the client.
+</p> 
+ 
+<p>
+The identifiers of data sets for testing with the SEALS client are given below: 
+</p>
+
+<p>
+<div class="testsuite">
+<span class="title">Biblio data set</span></li>
+<ul>
+	<li>Repository: <span class="testsuiteid">http://repositories.seals-project.eu/tdrs/</span></li>
+	<li>Suite-ID: <span class="testsuiteid">2015benchmarks-biblio</span></li>
+	<li>Version-ID: <span class="testsuiteid">2015benchmarks-biblio-r1</span>, <span class="testsuiteid">2015benchmarks-biblio-r2</span>, <span class="testsuiteid">2015benchmarks-biblio-r3</span>, <span class="testsuiteid">2015benchmarks-biblio-r4</span>, <span class="testsuiteid">2015benchmarks-biblio-r5</span></li>
+</ul>
+</div>
+</p>
+<p>
+<div class="testsuite">
+<span class="title">IFC data set</span></li>
+<ul>
+	<li>Repository: <span class="testsuiteid">http://repositories.seals-project.eu/tdrs/</span></li>
+	<li>Suite-ID: <span class="testsuiteid">2015benchmarks-ifc</span></li>
+	<li>Version-ID: <span class="testsuiteid">2015benchmarks-ifc-r1</span>, <span class="testsuiteid">2015benchmarks-ifc-r2</span>, <span class="testsuiteid">2015benchmarks-ifc-r3</span>, <span class="testsuiteid">2015benchmarks-ifc-r4</span>, <span class="testsuiteid">2015benchmarks-ifc-r5</span></li>
+</ul>
+</div>
+</p>
+
+<p>
+We encourage you to use the <a href="http://alignapi.gforge.inria.fr/">Alignment API</a> for manipulating and generating your alignments, and, in particular, for computing evaluation of 
+your results.
+</p> 
+
+<!--<a name="resources"/> 
+<h2>Resources</a></h2>
+
+<p>Available soon.</p> 
+
+<p>A <a href="bench.zip">zip file</a> (bibliographic benchmark) contains all the data about the test. That is: 
+<ul compact="1"> 
+<li>This web page;</li> 
+<li>All ontology/alignment pairs in OWL/RDF/XML;</li> 
+<li>The prior known alignments in RDF/XML;</li> 
+<li>All ontology/alignment pairs in HTML;</li> 
+
+<li>XSLT stylesheet from ontologies and alignment to HTML;</li> 
+<li>The provided expected alignments in RDF/XML (for the systematic benchmark);</li> 
+<li>A directory with some reference ontologies (iCal, Foaf);</li> 
+</ul> 
+</p> 
+
+<p>We would like to find a simple converter from OWL/XML/RDF to 
+N3 (and maybe RDFS).</p> 
+
+<p>You can use the <a href="http://alignapi.gforge.inria.fr/format.html">Alignment API</a> for manipulating and 
+generating your alignments (in particular for computing evaluation of 
+your results).</p> 
+--> 
+
+<a name="contacts"/> 
+<h2>Contacts</h2>
+<p>Contact address is Jerome : Euzenat # inria : fr</p>
+
+<h2>References</h2>
+
+<p>
+[1] J&eacute;r&ocirc;me Euzenat, Maria Ro&#351;oiu, C&aacute;ssia
+Trojahn dos Santos. Ontology matching benchmarks: generation, 
+stability, and discriminability, <i>Journal of web semantics</i> 21:30-48,
+2013 [DOI:<a href="http://dx.doi.org/10.1016/j.websem.2013.05.002">10.1016/j.websem.2013.05.002</a>]
+</p>
+
+<div class="address">
+<div class="footer">http://oaei.ontologymatching.org/2015/benchmarks/</div>
+
+</div>
+</body>
+</html>
+
