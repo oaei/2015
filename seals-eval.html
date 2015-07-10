@@ -122,6 +122,31 @@ in all command line examples given in the tutorial instead of &quot;seals-omt-cl
 <p>
 Within the Tutorial we show how you can use your wrapped tool to run locally a full evaluation. Thus, you can compute precision and recall for all of those testsuites listed in the track web pages at any time in your development process.</p>
 
+
+<a name="interactive"></a>
+<h2>Additional methods for the interactive track</h2>
+
+The SEALS client for the <a href="interactive/index.html">interactive track</a> works exactly the same way as for the other tracks. 
+It only includes one additional Class "Oracle" in the "eu.sealsproject.omt.client.interactive" package.
+This class provides the method "check" which takes two strings and a relation as input (uri1, uri2, relation) which are the URIs of two concepts and 
+the relation can be one of these three: EQUIVALENCE, SUBSUMES, SUBSUMED_BY. The method returns true, if the correspondence between these 
+entities holds and false otherwise.
+<br/>
+<br/>
+An example call: Oracle.check("http://cmt#Paper", "http://ekaw#Paper", Oracle.Relation.EQUIVALENCE)
+<br/>
+<br/>
+For testing purposes you should include the SEALS client as a library. However <span class="important">you must not include the SEALS client jar file within your
+wrapped system</span>. 
+When starting the client itself, the class should be loaded without problems. 
+</br>
+<!--Whenever it is not an interactive track, which is encoded in the name of the SEALS repository name, it does not allow any interactions and the method 
+cannot be called.
+-->
+Not all tracks are interactive, to check whether the track is interactive, you can call the method Oracle.isInteractive(). This method returns a boolean value, 
+TRUE if it is an interactive track and false otherwise.
+
+
 <h2>Track specific participation</h2>
 
 <p>A system that plans to participate in one of the SEALS supported tracks, will be
