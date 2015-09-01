@@ -4,6 +4,7 @@
 <link rel="stylesheet" type="text/css" href="style.css" />
 <style type="text/css">
 span.important { color:red; }
+span.news { color:green; }
 </style>
 </head>
 <body>
@@ -37,7 +38,7 @@ To ease communication between participants and track organizers, this year we wi
 <h2>Process</h2>
 
 <p>
-Participants have to follow this procedure (some participants of OAEI 2010, 2011 and 2011.5 have already conducted the first two steps):
+Participants have to follow this procedure (some participants have already conducted the first two steps):
 <ol>
   <li><b>Create a user account in the SEALS platform and register your matching tool.</b>
     	Go to the SEALS portal (<a href="http://www.seals-project.eu/join-the-community">http://www.seals-project.eu/join-the-community</a>) and create a user account.  On the platform Logged in as a user, you can register a tool in the platform (click on the link 'Register your tool'). This requires that you shortly describe your tool and categorize it choosing the menu entry 'Ontology Mapping Tool'. It does not require that you upload the tool itself.
@@ -72,8 +73,8 @@ Participants have to follow this procedure (some participants of OAEI 2010, 2011
   <li><b>Test your tool with the data sets available for each track.</b> Ids of data sets for testing your tool prior to the evaluation process are given in each track web page. Participants can test their tools with the <a href="#tutorial">SEALS client</a> on those data-sets until August 31th. For each track test, please inform the concerned track organizer about the status of your test. This will facilitate the final evaluation process. If you desire, you can send a copy of your e-mail to the OAEI contact point.
 	</li>
 
-  <li><b>Prepare, wrap and upload the final version of your matching tool.</b> 
-        <span class="important">(Final Deadline to be decided, usually end of August)</span>
+  <li><b>Prepare, wrap and upload the final version of your matching tool (Deadline August 31).</b> 
+        </span>
         Many system developers work hard till the final deadline is reached to improve their system. Please wrap the final version of your system as you did for a previous test version in Step 3. For the final evaluation we will use the final version that has been uploaded to the SEALS portal prior to the deadline. Please add a remark in the description of the version to indicate that you want to participate with this version in OAEI 2015, and inform the OAEI 2015 contact person on that.
 	</li>
 	
@@ -89,11 +90,13 @@ Once these steps have been conducted, we run all systems on the SEALS platform a
 <a name="tutorial"/> 
 <h2>Tutorial on Tool Wrapping</h2>
 
-<p>We have prepared a comprehensive PDF-tutorial for wrapping an ontology matching tool and testing your tool (<span class="important">The -t parameters is currently non functional</span>). You can download it here:</p>
+<p>We have prepared a comprehensive PDF-tutorial for wrapping an ontology matching tool and testing your tool. You can download it here:</p>
 
 <ul>
-	<li><a href="../2011.5/tutorial/tutorialv3.pdf">Download Tutorial (v3)</a> and 
-	<a href="../2011/tutorial/MatcherBridge.java">MatcherBridge.java</a> presented in the appendix.</li>
+	<li><a href="tutorial/tutorialv4.pdf">Download Tutorial (v4) </a> <b><span class="news">NEW</span></b> and 
+	<a href="../2011/tutorial/MatcherBridge.java">MatcherBridge.java</a> presented in the appendix. <b>Note the addition of the  
+	The -i parameters to active interactivity and optionally indicate the error rate of the simulated user</b>.
+	</li>
 </ul>
 
 <p>In the tutorial there are mentioned several additional materials that are available here.<p>
@@ -102,15 +105,12 @@ Once these steps have been conducted, we run all systems on the SEALS platform a
 	<li><a href="../2011/tutorial/linux/demomatcher-package.zip">Download demomatcher-package.zip</a> for LINUX (example of a tool correctly packaged)<br/>
 	or <a href="../2011/tutorial/windows/demomatcher-package.zip">download demomatcher-package.zip</a> for WINDOWS <br/>&nbsp;</li>
 	<li><a href="../2011/tutorial/seals-omt-validator.jar">Download seals-omt-validator.jar</a> (validates the structure and content of the zipped tool package)</li>
-	<li><a href="seals-omt-client-2015-v5.jar">Download seals-omt-client-2015-v5.jar</a> (interfaces and client to execute the final tool package)</li>
+	<li><a href="tutorial/seals-omt-client.jar">Download seals-omt-client.jar (v6)</a> <span class="news"><b>NEW</b> (August 27, 2015)</span> (interfaces and client to execute the final tool package)</li>
 </ul>
 
 
-<p>We detected a few problems with previous versions of the client. We offer now the
-improved version available above. Note that this requires to refer to &quot;seals-omt-client-v4-1beta.jar&quot;
-in all command line examples given in the tutorial instead of &quot;seals-omt-client.jar&quot;.</p>
-
-<p>We also detected some conflicts in the past when using libraries in conflict with the libraries used by the SEALS client. We encourage when possible to use the same versions as the <a href="seals-omt-client-2015-v5.jar">SEALS client</a>.</p>
+<p>We detected some problems in the past when using libraries in conflict with the libraries used by the SEALS client. We encourage when possible to use the same versions as the <a href="tutorial/seals-omt-client.jar">SEALS client</a>.
+Please check the <b><i>maven</i> dependencies of the SEALS client</b> <a href="tutorial/pom.xml">here</a>.</p>
 
 <p>We also encourage developers to use the <a href="http://alignapi.gforge.inria.fr/">Alignment API</a>. For developers using it, the following ant package is available for packaging and validating the wrapped tools: <p>
 
@@ -126,25 +126,23 @@ Within the Tutorial we show how you can use your wrapped tool to run locally a f
 <a name="interactive"></a>
 <h2>Additional methods for the interactive track</h2>
 
-The SEALS client for the <a href="interactive/index.html">interactive track</a> works exactly the same way as for the other tracks. 
+<p>The SEALS client for the <a href="interactive/index.html">interactive track</a> works exactly the same way as for the other tracks. 
 It only includes one additional Class "Oracle" in the "eu.sealsproject.omt.client.interactive" package.
 This class provides the method "check" which takes two strings and a relation as input (uri1, uri2, relation) which are the URIs of two concepts and 
-the relation can be one of these three: EQUIVALENCE, SUBSUMES, SUBSUMED_BY. The method returns true, if the correspondence between these 
-entities holds and false otherwise.
-<br/>
-<br/>
-An example call: Oracle.check("http://cmt#Paper", "http://ekaw#Paper", Oracle.Relation.EQUIVALENCE)
-<br/>
-<br/>
-For testing purposes you should include the SEALS client as a library. However <span class="important">you must not include the SEALS client jar file within your
+the relation can be one of these three: "=" (equivalence), "<" (subsumed-by), ">" (subsumes). The method returns true, if the correspondence between these 
+entities holds and false otherwise.</p>
+
+<p>An example call: Oracle.check("http://cmt#Paper", "http://ekaw#Paper", "=")</p>
+
+<p>For testing purposes you should include the SEALS client as a library. However <span class="important">you must not include the SEALS client jar file within your
 wrapped system</span>. 
-When starting the client itself, the class should be loaded without problems. 
-</br>
+When starting the client itself, the class should be loaded without problems.</p> 
+
 <!--Whenever it is not an interactive track, which is encoded in the name of the SEALS repository name, it does not allow any interactions and the method 
 cannot be called.
 -->
-Not all tracks are interactive, to check whether the track is interactive, you can call the method Oracle.isInteractive(). This method returns a boolean value, 
-TRUE if it is an interactive track and false otherwise.
+<p>Not all tracks are interactive, to check whether the track is interactive, you can call the method Oracle.isInteractive(). This method returns a boolean value, 
+TRUE if it is an interactive track and false otherwise.</p>
 
 
 <h2>Track specific participation</h2>
@@ -155,6 +153,14 @@ participate in one track</span>, e.g., to participate in just the anatomy track.
 emphasized in the specific results paper that you have to write about your system. In other words, if
 the results generated for some specific track are not good at all, there is a place where this can be 
 explained in the appropriate way.
+</p>
+
+<p>
+Please note that, a matcher may want to behave differently given what it is 
+provided with as ontologies; however, this should not be based on features 
+specific of the tracks (e.g., there is a specific string in the URL, or a specific
+class name) but on features of the ontologies (e.g., there are no instances or
+labels are in German).
 </p>
 
 <!--
