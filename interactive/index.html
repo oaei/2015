@@ -123,7 +123,8 @@ Note that in this track we allow systems to interact with the SEALS client to ch
 <p>
 We will also simulate domain experts with variable error rate (see <a href="#references">(Jimenez-Ruiz et al., 2012)</a>) which reflects a more realistic scenario where a (simulated) user does 
 not necessarily provide always a correct answer. In these scenarios asking a large number of questions to the user may also have a negative impact. 
-The error rates that will be simulated are: 10%, 20% and 30%. This can be controlled as an input parameter when running the SEALS client, please refer to the <a href="../tutorial/tutorialv4.pdf">OAEI 2015 tutorial</a>.  
+The error rates (0..1) that will be simulated are: 0.1, 0.2 and 0.3. This can be controlled as an input parameter when 
+running the SEALS client, please refer to the <a href="../tutorial/tutorialv4.pdf">OAEI 2015 tutorial</a>.  
 </p>
 
  
@@ -138,8 +139,12 @@ The error rates that will be simulated are: 10%, 20% and 30%. This can be contro
 <p>The interactive track relies on the datasets of the OAEI 2015 <a href="../conference/">Conference</a>, <a href="../anatomy">Anatomy</a> and 
 <a href="http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/">Largebio</a> tracks.
 
-<p>This is the required input for the <a href="http://oaei.ontologymatching.org/2015/seals-eval.html">SEALS OMT client</a>:</p>
 
+<p>If you use the <a href="http://oaei.ontologymatching.org/2015/seals-eval.html">2015 version of the SEALS OMT client</a> please refer to the identifiers of each othe tracks 
+(<a href="../conference/">Conference</a>, <a href="../anatomy">Anatomy</a> and <a href="http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/">Largebio</a>) and use the <b>-i</b> parameter 
+as described in the <a href="../tutorial/tutorialv4.pdf">OAEI 2015 tutorial</a>.</p>
+
+<p>This is the required input if you use the <a href="http://oaei.ontologymatching.org/2014/seals-eval.html">2014 version of the SEALS OMT client</a>:</p>
 
 <p>
 <div class="testsuite">
@@ -152,6 +157,8 @@ The error rates that will be simulated are: 10%, 20% and 30%. This can be contro
 </p>
 
 
+
+
 <h3>Conference</h3>
 
  <p>This data set covers 16 ontologies describing the domain of conference organization. 
@@ -160,6 +167,8 @@ The error rates that will be simulated are: 10%, 20% and 30%. This can be contro
  This shows that there is significant room for improvement, which could be filled by interactive means.
 </p>
 
+
+<p>Id of the task if you use the <a href="http://oaei.ontologymatching.org/2014/seals-eval.html">2014 version of the SEALS OMT client</a>:</p>
 
 <p>
 <div class="testsuite">
@@ -173,6 +182,8 @@ The error rates that will be simulated are: 10%, 20% and 30%. This can be contro
 <h3>Anatomy</h3>
 
 <p>The Anatomy track consists of finding an alignment between the Adult Mouse Anatomy and a part of the NCI Thesaurus (describing the human anatomy).</p>
+
+<p>Id of the task if you use the <a href="http://oaei.ontologymatching.org/2014/seals-eval.html">2014 version of the SEALS OMT client</a>:</p>
 
 <p>
 <div class="testsuite">
@@ -190,6 +201,8 @@ This task consists of matching the whole FMA and NCI ontologies, which contains 
 The best results without interaction in terms of F-measure were achieved by YAM++ (87%) in <a href="http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/2013/results2013_fma2nci.html">2013</a>.
 </p>
 
+
+<p>Id of the task if you use the <a href="http://oaei.ontologymatching.org/2014/seals-eval.html">2014 version of the SEALS OMT client</a>:</p>
 
 <p>
 <div class="testsuite">
@@ -209,6 +222,8 @@ This task consists of matching the whole FMA that contains 78,989 classes with a
 The best results without interaction in terms of F-measure were achieved by YAM++ (82%) in <a href="http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/2013/results2013_fma2snomed.html">2013</a>. 
 </p>
 
+<p>Id of the task if you use the <a href="http://oaei.ontologymatching.org/2014/seals-eval.html">2014 version of the SEALS OMT client</a>:</p>
+
 <p>
 <div class="testsuite">
 <ul>
@@ -224,6 +239,8 @@ The best results without interaction in terms of F-measure were achieved by YAM+
 This task consists of matching the whole NCI that contains 66,724 classes with a large SNOMED fragment that contains 122,464 classes (40% of SNOMED).
 The best results without interaction in terms of F-measure were achieved by AML (75%) in <a href="http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/2014/results2014_snomed2nci.html">2014</a>. 
 </p>
+
+<p>Id of the task if you use the <a href="http://oaei.ontologymatching.org/2014/seals-eval.html">2014 version of the SEALS OMT client</a>:</p>
 
 <p>
 <div class="testsuite">
