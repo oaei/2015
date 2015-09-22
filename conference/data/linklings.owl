@@ -10,8 +10,8 @@
 ]>
 
 
-<rdf:RDF xmlns="http://linklings.owl#"
-     xml:base="http://linklings.owl"
+<rdf:RDF xmlns="http://linklings#"
+     xml:base="http://linklings"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
