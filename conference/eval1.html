@@ -18,18 +18,18 @@
 Web page content
 </p>
 <ul>
-<li><a href="#">Participants</a>
-<li><a href="#">Data</a>
-<li><a href="#">Evaluation modalities</a>
+<li><a href="#participants">Participants</a>
+<li><a href="#data">Data</a>
+<li><a href="#modalities">Evaluation modalities</a>
 <li><a href="#crisp-ra">Evaluation based on crisp reference alignments</a>
 <ul>
-<li><a href="#">Evaluation setting and tables description</a>
+<li><a href="#setting">Evaluation setting and tables description</a>
 <li><a href="#ref-comparison">Comparison of OAEI 2013, 2014 and 2015</a>
-<li><a href="#">Results visualization on precision/recall triangular graph for ra3-M3</a>
-<li><a href="#">Discussion for evaluation based on crisp reference alignments</a>
+<li><a href="#visualization">Results visualization on precision/recall triangular graph for ra3-M3</a>
+<li><a href="#discussion">Discussion for evaluation based on crisp reference alignments</a>
 </ul>
 <li><a href="#uncertain-ra">Evaluation based on the uncertain version of the reference alignment</a></h3>
-<li><a href="#logical">Results of evaluation based on logical reasoning</a>
+<li><a href="#logical">Evaluation based on logical reasoning</a>
 <li><a href="#organizers">Organizers</a>
 <li><a href="#references">References</a>
 </ul>
@@ -148,16 +148,15 @@ While XMap achieved the highest improvement between last two years (0.06 increas
 
 <img src="ra3-M3.png" alt="ra3-M3">
 
-<h4>Results visualization on precision/recall triangular graph for ra3-M3</h4>
+<h4><a name="visualization">Results visualization on precision/recall triangular graph for ra3-M3</a></h4>
 <p>
-TODO
-All tools are visualized in terms of their performance regarding an average F1-measure in the figure below. Tools are represented as squares or triangles. Baselines are represented as circles. Horizontal line depicts level of precision/recall while values of average F1-measure are depicted by areas bordered by corresponding lines F1-measure=0.[5|6|7].
+All tools except RSDLWB (precision and recall were below 0.5) are visualized in terms of their performance regarding an average F1-measure in the figure below. Tools are represented as squares or triangles. Baselines are represented as circles. Horizontal line depicts level of precision/recall while values of average F1-measure are depicted by areas bordered by corresponding lines F1-measure=0.[5|6|7].
 </p>
-<img src="triangular-F1measure.png" alt="precision/recall triangular graph for conference and F1-measure">
+<img src="triangular-ra3-M3.png" alt="precision/recall triangular graph for conference and F1-measure based on ra3-M3">
 
-<h4>Discussion for evaluation based on crisp reference alignments</h4>
+<h4><a name="discussion">Discussion for evaluation based on crisp reference alignments</a></h4>
 <p>
-With regard to two baselines we can group tools (three groups) according to matcher's position (above best edna baseline, above StringEquiv baseline, below StringEquiv baseline). While there are no difference in first two groups between ra1-M3 and ra2-M3 regarding tools position, there are two tools which went from first to the second group. However, the F1-measure below edna baseline is only 0.01. In all there are eight tools above edna baseline (AML, Mamba, LogMap-C, LogMap, XMAP, GMap, DKP-AOM, LogMapLite) for ra3 reference alignment which is considered as most correct and most difficult reference alignment. In comparison with last year there were only five tools in the first group. Considering ra2 reference alignment there are even 10 tools (COMMAND, ServOMBI).
+With regard to two baselines we can group tools according to matcher's position (above best edna baseline, above StringEquiv baseline, below StringEquiv baseline). While there are no difference in first two groups between ra1-M3 and ra2-M3 regarding tools position, there are two tools which went from first to the second group. However, the F1-measure below edna baseline is only 0.01. In all there are eight tools above edna baseline (AML, Mamba, LogMap-C, LogMap, XMAP, GMap, DKP-AOM, LogMapLite) for ra3 reference alignment which is considered as most correct and most difficult reference alignment. In comparison with last year there were only five tools in the first group. Considering ra2 reference alignment there are even 10 tools (COMMAND, ServOMBI).
 </p>
 <p>
 Considering M1 evaluation modality where matching is reduced to only match classes situation in first group above edna baseline is different. While LogMapLite performs slightly worse than edna baseline, RSDLWB performs better than StringEquiv and even edna baselines. However in all, RSDLWB was outperformed by StringEquiv (M3 evaluation modality). This can be explained by considering M2 evaluation modality where RSDLWB performs similarly to StringEquiv baseline. Further, while two tools do not match properties at all (Lily, DKP-AOM), COMMAND also matches properties with similar performance as StringEquiv baseline. This has an effect on overall tools performance within M3 evaluation modality.
@@ -166,7 +165,7 @@ Considering M1 evaluation modality where matching is reduced to only match class
 <h3><a name="uncertain-ra">Evaluation based on the uncertain version of the reference alignment</a></h3>
 TODO
 
-<h3><a name="logical">Results of evaluation based on logical reasoning</a></h3>
+<h3><a name="logical">Evaluation based on logical reasoning</a></h3>
 TODO
 
 <!--
