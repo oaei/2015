@@ -1,7 +1,21 @@
 <html><head><title>Ontology Alignment Evaluation Initiative::Conference track|evaluation</title>
 
 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-<link rel="stylesheet" type="text/css" href="../style.css"></head><body>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.css">
+<script type="text/javascript" language="javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../style.css">
+<style type="text/css" class="init">
+</style>
+<script type="text/javascript" class="init">
+    $(document).ready(function() {
+	$('#tab').dataTable({
+	  "paging":   false,
+	  "info":     false
+        });
+    } );
+</script>
+</head><body>
 
 <div class="header">
 <a style="color: grey; line-height: 5mm;" href="http://oaei.ontologymatching.org/2015/">Ontology
@@ -51,7 +65,7 @@ Tools have been evaluated based on</p>
 <ul>
 <li><a href="#crisp-ra">crisp reference alignments</a> where the confidence values for all matches are 1.0.
 <li><a href="#uncertain-ra">the uncertain version of the reference alignment</a> where confidence values reflect the degree of agreement of a group of twenty people on the validity of the match [1], 
-<li><a href="#logical">logical reasoning</a> using violations of conservativity principle (presented at OWLED 2014 and at ISWC 2014 [2,3]). 
+<li><a href="#logical">logical reasoning</a> using violations of consistency and conservativity principles (presented at OWLED 2014 and at ISWC 2014 [2,3]). 
 </ul>
 
 <h3><a name="crisp-ra">Evaluation based on crisp reference alignments</a></h3>
@@ -166,7 +180,240 @@ Considering M1 evaluation modality where matching is reduced to only match class
 TODO
 
 <h3><a name="logical">Evaluation based on logical reasoning</a></h3>
-TODO
+<p>
+For evaluation based on logical reasoning we applied detection of conservativity and consistency principles violations [2, 3]. While consistency principle proposes that correspondences should not lead to unsatisfiable classes in the merged ontology, conservativity principle proposes that correspondences should not introduce new semantic relationships between concepts from one of input ontologies [2].
+</p>
+<p>
+Table below summarizes statistics per matcher. There are number of ontologies in which unsatisfiable classes appeared after ontologies merge (right?) (#Unsat.Onto), number of all alignments (#Align.), total number of all conservativity principle violations within all alignments (#TotConser.Viol.) and its average per one alignment (#AvgConser.Viol.), total number of all consistency principle violations (#TotConsist.Viol.) and its average per one alignment (#AvgConsist.Viol.).
+</p>
+<p>
+Four tools (AML, DKP-AOM, LogMap and LogMap-C) have no consistency principle violation. The lowest number of conservativity principle violations has LogMap-C which has a repair technique for them. Further four tools have average of conservativity principle around 1 (DKP-AOM, JarvisOM, LogMap and AML). We should note that these conservativity principle violations can be "false positives" since the entailment in the aligned ontology can be correct although it was not derivable in the single input ontologies.
+</p>
+
+<table id="tab" class="display" cellspacing="0" width="100%">
+  <thead>
+   <tr>
+    <th>Matcher</th>
+    <th>#Unsat.Onto</th>
+    <th>#Align.</th>
+    <th>#TotConser.Viol.</th>
+    <th>#AvgConser.Viol.</th>
+    <th>#TotConsist.Viol.</th>
+    <th>#AvgConsist.Viol.</th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td>AML</td>
+    <td>0</td>
+    <td>21</td>
+    <td>39</td>
+    <td>1.86</td>
+    <td>0</td>
+    <td>0</td>
+   </tr>
+   <tr>
+    <td>COMMAND</td>
+    <td>1</td>
+    <td>21</td>
+    <td>505</td>
+    <td>25.25</td>
+    <td>235</td>
+    <td>11.75</td>
+   </tr>
+   <tr>
+    <td>CroMatcher</td>
+    <td>0</td>
+    <td>21</td>
+    <td>69</td>
+    <td>3.29</td>
+    <td>78</td>
+    <td>3.71</td>
+   </tr>
+   <tr>
+    <td>DKP-AOM</td>
+    <td>0</td>
+    <td>21</td>
+    <td>16</td>
+    <td>0.76</td>
+    <td>0</td>
+    <td>0</td>
+   </tr>
+   <tr>
+    <td>GMap</td>
+    <td>0</td>
+    <td>21</td>
+    <td>196</td>
+    <td>9.33</td>
+    <td>69</td>
+    <td>3.29</td>
+   </tr>
+   <tr>
+    <td>JarvisOM</td>
+    <td>0</td>
+    <td>21</td>
+    <td>27</td>
+    <td>1.29</td>
+    <td>7</td>
+    <td>0.33</td>
+   </tr>
+   <tr>
+    <td>Lily</td>
+    <td>1</td>
+    <td>21</td>
+    <td>140</td>
+    <td>7</td>
+    <td>124</td>
+    <td>6.2</td>
+   </tr>
+   <tr>
+    <td>LogMap</td>
+    <td>0</td>
+    <td>21</td>
+    <td>29</td>
+    <td>1.38</td>
+    <td>0</td>
+    <td>0</td>
+   </tr>
+   <tr>
+    <td>LogMap-C</td>
+    <td>0</td>
+    <td>21</td>
+    <td>5</td>
+    <td>0.24</td>
+    <td>0</td>
+    <td>0</td>
+   </tr>
+   <tr>
+    <td>LogMapLite</td>
+    <td>0</td>
+    <td>21</td>
+    <td>97</td>
+    <td>4.62</td>
+    <td>18</td>
+    <td>0.86</td>
+   </tr>
+   <tr>
+    <td>Mamba</td>
+    <td>0</td>
+    <td>21</td>
+    <td>85</td>
+    <td>4.05</td>
+    <td>16</td>
+    <td>0.76</td>
+   </tr>
+   <tr>
+    <td>RSDLWB</td>
+    <td>2</td>
+    <td>18</td>
+    <td>48</td>
+    <td>3</td>
+    <td>269</td>
+    <td>16.81</td>
+   </tr>
+   <tr>
+    <td>ServOMBI</td>
+    <td>2</td>
+    <td>21</td>
+    <td>1325</td>
+    <td>69.74</td>
+    <td>235</td>
+    <td>12.37</td>
+   </tr>
+  </tbody>
+</table>
+
+<h4>Statistics of consistency and conservativity principle violations</h4>
+<p>Here we list ten most frequent unsatisfiable classes appeared after ontologies merge by any tool. Two unsatisfiable classes were appeared for all nine tools which violated consistency principle at least once:</p>
+<pre>
+ekaw#Contributed_Talk - 9
+ekaw#Camera_Ready_Paper - 9
+iasted#Worker_non_speaker - 7
+iasted#Student_registration_fee - 7
+iasted#Student_non_speaker - 7
+iasted#Nonauthor_registration_fee - 7
+iasted#Non_speaker - 7
+ekaw#Poster_Paper - 7
+ekaw#Rejected_Paper - 6
+ekaw#Industrial_Session - 6
+</pre>
+
+<p>Here we list ten most frequent unsatisfiable classes appeared after ontologies merge by ontology pairs. Three unsatisfiable classes were appeared in all ontology pairs for given ontology:</p>
+<pre>
+edas#TwoLevelConference - 6
+edas#SingleLevelConference - 6
+edas#Conference - 6
+sigkdd#Author_of_paper - 5
+ekaw#Contributed_Talk - 5
+ekaw#Camera_Ready_Paper - 5
+cmt#PaperFullVersion - 5
+cmt#PaperAbstract - 5
+cmt#Paper - 5
+cmt#ExternalReviewer - 5
+</pre>
+
+<p>Here we list ten most frequent caused new semantic relationships between concepts within input ontologies by any tool:</p>
+<pre>
+iasted#Record_of_attendance, iasted#City - 10
+        edas-iasted
+iasted#Sponzorship, iasted#Fee - 9
+        iasted-sigkdd
+iasted#Session_chair, iasted#Speaker - 9
+        iasted-sigkdd
+        ekaw-iasted
+conference#Invited_speaker, conference#Conference_participant - 9
+        conference-ekaw
+        conference-iasted
+iasted#Video_presentation, iasted#Item - 8
+        ekaw-iasted
+        conference-iasted
+iasted#Sponzorship, iasted#Registration_fee - 8
+        iasted-sigkdd
+iasted#Presentation, iasted#Item - 8
+        ekaw-iasted
+        conference-iasted
+iasted#PowerPoint_presentation, iasted#Item - 8
+        ekaw-iasted
+        conference-iasted
+iasted#Hotel_fee, iasted#Registration_fee - 8
+        iasted-sigkdd
+iasted#Fee_for_extra_trip, iasted#Registration_fee - 8
+        iasted-sigkdd
+</pre>
+
+<p>Here we list ten most frequent caused new semantic relationships between concepts within input ontologies by ontology pairs:</p>
+<pre>
+iasted#Worker_lecturer, iasted#Place - 4
+        ServOMBI
+        COMMAND
+iasted#Tutorial_speaker, iasted#Place - 4
+        ServOMBI
+        COMMAND
+iasted#Student_lecturer, iasted#Place - 4
+        ServOMBI
+        COMMAND
+iasted#Reviewer, iasted#Place - 4
+        ServOMBI
+        COMMAND
+iasted#Plenary_lecture_speaker, iasted#Place - 4
+        ServOMBI
+        COMMAND
+iasted#Lecturer, iasted#Place - 4
+        ServOMBI
+        COMMAND
+iasted#Author_cd_proceedings_included, iasted#Place - 4
+        ServOMBI
+        COMMAND
+iasted#Author_book_proceedings_included, iasted#Place - 4
+        ServOMBI
+        COMMAND
+iasted#Author, iasted#Place - 4
+        ServOMBI
+        COMMAND
+conference#Publisher, conference#Conference_document - 4
+        ServOMBI
+        Lily
+</pre>
 
 <!--
 <p>
