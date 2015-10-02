@@ -184,7 +184,7 @@ TODO
 For evaluation based on logical reasoning we applied detection of conservativity and consistency principles violations [2, 3]. While consistency principle proposes that correspondences should not lead to unsatisfiable classes in the merged ontology, conservativity principle proposes that correspondences should not introduce new semantic relationships between concepts from one of input ontologies [2].
 </p>
 <p>
-Table below summarizes statistics per matcher. There are number of ontologies that are unsatisfiable after ontologies merge (#Unsat.Onto), number of all alignments (#Align.), total number of all conservativity principle violations within all alignments (#TotConser.Viol.) and its average per one alignment (#AvgConser.Viol.), total number of all consistency principle violations (#TotConsist.Viol.) and its average per one alignment (#AvgConsist.Viol.).
+Table below summarizes statistics per matcher. There are number of ontologies that are inconsistent after ontologies merge (#Inc.Onto), number of all alignments (#Align.), total number of all conservativity principle violations within all alignments (#TotConser.Viol.) and its average per one alignment (#AvgConser.Viol.), total number of all consistency principle violations (#TotConsist.Viol.) and its average per one alignment (#AvgConsist.Viol.).
 </p>
 <p>
 Five tools (AML, DKP-AOM, LogMap, LogMap-C and XMAP) have no consistency principle violation. The lowest number of conservativity principle violations has LogMap-C which has a repair technique for them. Further four tools have average of conservativity principle around 1 (DKP-AOM, JarvisOM, LogMap and AML). We should note that these conservativity principle violations can be "false positives" since the entailment in the aligned ontology can be correct although it was not derivable in the single input ontologies.
@@ -194,7 +194,7 @@ Five tools (AML, DKP-AOM, LogMap, LogMap-C and XMAP) have no consistency princip
   <thead>
    <tr>
     <th>Matcher</th>
-    <th>#Unsat.Onto</th>
+    <th>#Inc.Onto</th>
     <th>#Align.</th>
     <th>#TotConser.Viol.</th>
     <th>#AvgConser.Viol.</th>
