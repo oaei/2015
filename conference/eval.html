@@ -39,7 +39,7 @@ Web page content
 <ul>
 <li><a href="#setting">Evaluation setting and tables description</a>
 <li><a href="#ref-comparison">Comparison of OAEI 2013, 2014 and 2015</a>
-<li><a href="#visualization">Results visualization on precision/recall triangular graph for ra3-M3</a>
+<li><a href="#visualization">Results visualization on precision/recall triangular graph for rar2-M3</a>
 <li><a href="#discussion">Discussion for evaluation based on crisp reference alignments</a>
 </ul>
 <li><a href="#uncertain-ra">Evaluation based on the uncertain version of the reference alignment</a></h3>
@@ -75,7 +75,7 @@ We have three variants of crisp reference alignments (the confidence values for 
 <ul>
 <li><b>ra1</b> is the original reference alignment which can be <a href="data/reference-alignment.zip">downloaded</a> - please let us know how you use this reference-alignment (outside the OAEI context) and data set (ondrej.zamazal at vse dot cz).
 <li><b>ra2</b> is entailed reference alignment (ra2) generated as a transitive closure computed on the original reference alignment (ra1). In order to obtain coherent reference alignment set,  conflicting correspondences have been inspected and resolved by evaluators. As a result the degree of correctness and completeness of ra2 is probaly slightly better than for ra1. However, the differences are relatively restricted.
-<li><b>ra3</b> is violation free version of reference alignment (ra2). First violating correspondences have been detected using approach from [2, 3] and then carefully resolved by an evaluator. This is the first year of using this violation free reference alignment.
+<li><b>rar2</b> is violation free version of reference alignment (ra2). First violating correspondences have been detected using approach from [2, 3] and then carefully resolved by an evaluator. This is the first year of using this violation free reference alignment.
 </ul>
 
 <p>For each reference alignment we provide three evaluation modalities</p>
@@ -85,10 +85,10 @@ We have three variants of crisp reference alignments (the confidence values for 
 <li><b>M3</b> contains classes and properties, i.e. M3 = M1 + M2.
 </ul>
 <table border="1">
-<tr><td></td><td>ra1</td><td>ra2</td><td>ra3</td></tr>
-<tr><td>M1</td><td><a href="#ra1-M1">ra1-M1</a></td><td><a href="#ra2-M1">ra2-M1</a></td><td><a href="#ra3-M1">ra3-M1</a></td></tr>
-<tr><td>M2</td><td><a href="#ra1-M2">ra1-M2</a></td><td><a href="#ra2-M2">ra2-M2</a></td><td><a href="#ra3-M2">ra3-M2</a></td></tr>
-<tr><td>M3</td><td><a href="#ra1-M3">ra1-M3</a></td><td><a href="#ra2-M3">ra2-M3</a></td><td><a href="#ra3-M3">ra3-M3</a></td></tr>
+<tr><td></td><td>ra1</td><td>ra2</td><td>rar2</td></tr>
+<tr><td>M1</td><td><a href="#ra1-M1">ra1-M1</a></td><td><a href="#ra2-M1">ra2-M1</a></td><td><a href="#rar2-M1">rar2-M1</a></td></tr>
+<tr><td>M2</td><td><a href="#ra1-M2">ra1-M2</a></td><td><a href="#ra2-M2">ra2-M2</a></td><td><a href="#rar2-M2">rar2-M2</a></td></tr>
+<tr><td>M3</td><td><a href="#ra1-M3">ra1-M3</a></td><td><a href="#ra2-M3">ra2-M3</a></td><td><a href="#rar2-M3">rar2-M3</a></td></tr>
 </table>
 
 <h4><a name="setting">Evaluation setting and tables description</a></h4>
@@ -147,30 +147,30 @@ While XMap achieved the highest improvement between last two years (0.06 increas
 
 <img src="comparison2-ra2-M3.png" alt="Difference between 2013, 2014 and 2015 results">
 
-<h4><a name="ra3-M1">ra3-M1</a></h4>
+<h4><a name="rar2-M1">rar2-M1</a></h4>
 <p><a href="#crisp-ra">[back to explanation]</a></p>
 
-<img src="ra3-M1.png" alt="ra3-M1">
+<img src="rar2-M1.png" alt="rar2-M1">
 
-<h4><a name="ra3-M2">ra3-M2</a></h4>
+<h4><a name="rar2-M2">rar2-M2</a></h4>
 <p><a href="#crisp-ra">[back to explanation]</a></p>
 
-<img src="ra3-M2.png" alt="ra3-M2">
+<img src="rar2-M2.png" alt="rar2-M2">
 
-<h4><a name="ra3-M3">ra3-M3</a></h4>
+<h4><a name="rar2-M3">rar2-M3</a></h4>
 <p><a href="#crisp-ra">[back to explanation]</a></p>
 
-<img src="ra3-M3.png" alt="ra3-M3">
+<img src="rar2-M3.png" alt="rar2-M3">
 
-<h4><a name="visualization">Results visualization on precision/recall triangular graph for ra3-M3</a></h4>
+<h4><a name="visualization">Results visualization on precision/recall triangular graph for rar2-M3</a></h4>
 <p>
 All tools except RSDLWB (precision and recall were below 0.5) are visualized in terms of their performance regarding an average F1-measure in the figure below. Tools are represented as squares or triangles. Baselines are represented as circles. Horizontal line depicts level of precision/recall while values of average F1-measure are depicted by areas bordered by corresponding lines F1-measure=0.[5|6|7].
 </p>
-<img src="triangular-ra3-M3.png" alt="precision/recall triangular graph for conference and F1-measure based on ra3-M3">
+<img src="triangular-rar2-M3.png" alt="precision/recall triangular graph for conference and F1-measure based on rar2-M3">
 
 <h4><a name="discussion">Discussion for evaluation based on crisp reference alignments</a></h4>
 <p>
-With regard to two baselines we can group tools according to matcher's position (above best edna baseline, above StringEquiv baseline, below StringEquiv baseline). While there are no difference in first two groups between ra1-M3 and ra2-M3 regarding tools position, there are two tools which went from first to the second group. However, the F1-measure below edna baseline is only 0.01. In all there are eight tools above edna baseline (AML, Mamba, LogMap-C, LogMap, XMAP, GMap, DKP-AOM, LogMapLite) for ra3 reference alignment which is considered as most correct and most difficult reference alignment. In comparison with last year there were only five tools in the first group. Considering ra2 reference alignment there are even 10 tools (COMMAND, ServOMBI). Since ra3 is not only consistency violation free (as ra2) but also conservativity violation free we consider the ra3 as main reference alignment for this year. It will also be used within the synthesis paper. 
+With regard to two baselines we can group tools according to matcher's position (above best edna baseline, above StringEquiv baseline, below StringEquiv baseline). While there are no difference in first two groups between ra1-M3 and ra2-M3 regarding tools position, there are two tools which went from first to the second group. However, the F1-measure below edna baseline is only 0.01. In all there are eight tools above edna baseline (AML, Mamba, LogMap-C, LogMap, XMAP, GMap, DKP-AOM, LogMapLite) for rar2 reference alignment which is considered as most correct and most difficult reference alignment. In comparison with last year there were only five tools in the first group. Considering ra2 reference alignment there are even 10 tools (COMMAND, ServOMBI). Since rar2 is not only consistency violation free (as ra2) but also conservativity violation free we consider the rar2 as main reference alignment for this year. It will also be used within the synthesis paper. 
 </p>
 <p>
 Considering M1 evaluation modality where matching is reduced to only match classes situation in first group above edna baseline is different. While LogMapLite performs slightly worse than edna baseline, RSDLWB performs better than StringEquiv and even edna baselines. However in all, RSDLWB was outperformed by StringEquiv (M3 evaluation modality). This can be explained by considering M2 evaluation modality where RSDLWB performs similarly to StringEquiv baseline. Further, while two tools do not match properties at all (Lily, DKP-AOM), COMMAND also matches properties with similar performance as StringEquiv baseline. This has an effect on overall tools performance within M3 evaluation modality.
