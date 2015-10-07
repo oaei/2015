@@ -1,0 +1,303 @@
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Ontology Alignment Evaluation Initiative::MultiFarm</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div class="header">
+<a style="color: grey; line-height: 5mm;" href="http://oaei.ontologymatching.org/2015/">
+Ontology Alignment Evaluation Initiative - OAEI 2015 Campaign</a>
+<a href="http://oaei.ontologymatching.org/">
+        <img width="120px" src="../../../oaeismall.jpg" 
+                           style="float:right; margin-left: 15pt; border-style:none;">
+</a>
+
+<a href="http://www.seals-project.eu/">
+        <img width="120px" src="../../../seals-logo.jpg" 
+             style="clear:right;float:right; margin-left: 15pt; border-style:none;">
+</a>
+
+<a href="http://web.informatik.uni-mannheim.de/multifarm/">
+        <img width="120px" src="./../images/mf-logo.jpg" 
+             style="clear:right;float:right; margin-left: 15pt; border-style:none;">
+</a>
+ 
+</div>
+
+<h1>MultiFarm Preliminary Results for OAEI 2015</h1>
+
+<p>
+<i>In this page one can find the results of the OAEI 2015 campaign for the MultiFarm track. 
+The details on this data set can be found at <a href="http://web.informatik.uni-mannheim.de/multifarm/">MultiFarm data set</a>.
+<font color="red">If you notice any kind of error (wrong numbers, incorrect information on a matching system, etc.)
+do not hesitate to contact us (for the mail see below in the last paragraph on this page).</font> </i></p>
+
+<h2>Experimental setting</h2>
+
+<p>
+Since 2014, part of the data set is used for a kind of blind evaluation. This subset includes all matching tasks involving the edas and ekaw ontologies (resulting in 55x24 matching tasks -- including Arabic and Italian translations), which were not used in previous campaigns. We refer to this blind evaluation as <em>edas and ekaw based evaluation</em> in the following. Participants were able to test their systems on the available subset of matching tasks (<em>open evaluation</em>), available via the SEALS repository. The open subset counts on 45x25 tasks (does not include Italian translations). 
+</p>
+
+<p>
+We can distinguish two types of matching tasks : (i) those tasks where two different ontologies (cmt-confOf, for instance) have been translated into two different languages; and (ii) those tasks where the same ontology (cmt-cmt) has been translated into two different languages. For the tasks of type (ii), good results are not directly related to the use of specific techniques for dealing with cross-lingual ontologies, but on the ability to exploit the fact that both ontologies have an identical structure.
+</p>
+
+<p>
+This year, 5 systems implement cross-lingual matching strategies: AML, CLONA, LogMap, LYAM++ and XMap. This number increased with respect to the last campaign (3 in 2014, 7 in 2013, and 7 in 2012). Most of them integrate a translation module in their implementations (AML, CLONA, LogMap and XMap) and one of them applies an alternative strategy by making use of the multilingual resource BabelNet (LYAM++).</p>
+
+<h2>Evaluation results</h2>
+
+<h3>Open evaluation</h3>
+
+<h4>Execution setting and runtime</h4>
+
+<p>The systems have been executed on a Debian Linux VM configured with four processors and 20GB of RAM running under a Dell PowerEdge T610 with 2*Intel Xeon Quad Core 2.26GHz E5607 processors. All measurements are based on a single run. Some systems have been executed in a different setting (MAMBA due to the issues with Gurobi optimizer, LogMap due to network problems when accessing the translator servers, and LYAM++ due to the issues with BabelNet license). 
+</p>
+
+<p>
+We can observe large differences between the time required for a system to complete the 45x25 matching tasks. However, we have experimented some problems when accessing the SEALS test repositories due to the many accesses to the server (i.e., tracks running their evaluations in parallel). Hence, the reported runtime may not reflect the real execution runtime required for completing the tasks.</p>
+
+<div align="center">
+  <img src="time.png">
+</div>
+
+<h4>Overall results</h4>
+<p>
+The table below presents the aggregated results for the open subset, for the test cases of type (i) and (ii). The results have been computed using the Alignment API 4.6. We do not apply any threshold on the confidence measure. We observe significant differences between the results obtained for each type of matching task, specially in terms of precision, for most systems, with lower differences in terms of recall. As expected, in terms of F-measure, the systems implementing cross-lingual techniques outperform the non-cross-lingual systems for test cases of type (i). For these cases, non-specific matchers have good precision but generating very few correspondences. While LogMap has the best precision (at the expense of recall), AML has similar results in terms of precision and recall and outperforms the other systems in terms of F-measure (what is the case for both types of tasks). For type (ii), CroMatcher takes advantage of the ontology structure and performs better than some specific cross-lingual systems. The reader can refer to the <a href="http://om2015.ontologymatching.org/"> OAEI paper</a> for a more detailed discussion on these results. 
+</p>
+
+<table border='2' frame='sides' rules='groups' align='center'">
+<colgroup align='center'/>
+<colgroup align='center'/>
+<colgroup align='center'/>
+<colgroup align='center' span='4' />
+<colgroup align='center' span='4' />
+<thead valign='top'>
+
+<tr>
+  <th></th> 
+  <th></th> 
+  <th></th> 
+  <th colspan="4" >Different ontologies (i)</th>
+  <th colspan="4" >Same ontologies (ii)</th>
+</tr>
+<tbody>
+<tr class="header"><th>System</td>
+    <th>Time</td>
+    <th>#pairs</td>
+    <th >Size</td>
+    <th >Prec.</td>
+    <th >F-m.</td>
+    <th >Rec.</td>
+    <th >Size</td>
+    <th >Prec.</td>
+    <th >F-m.</td>
+    <th >Rec.</td>
+</tr>
+<tr class="even"><td>
+AML    </td><td> 10   </td><td> 45 </td><td > 11.58  </td><td > .53(.53) </td><td > .51(.51) </td><td > .50(.50) </td><td > 58.29 </td><td > .93(.93) </td><td > .64(.64) </td><td > .50(.50) </td></tr> 
+
+<tr class="odd"><td>
+CLONA  </td><td> 1629 </td><td> 45 </td><td > 9.45     </td><td > .46(.46)    </td><td > .39(.39)   </td><td > .35(.35)  
+                                        </td><td > 50.89 </td><td > .91(.91) </td><td > .58(.58) </td><td > .42(.42) </td></tr> 
+
+<tr class="even"><td>
+LogMap* </td><td> 36  </td><td> 45 </td><td > 6.37  </td><td > .75(.75)  </td><td > .41(.41)  </td><td > .29(.29)  
+                                        </td><td > 42.83 </td><td > .95(.95) </td><td > .45(.45) </td><td > .30(.30) </td></tr> 
+
+<tr class="odd"><td>
+LYAM++* </td><td> -  </td><td> 13 </td><td > 12.29 </td><td > .14(.50)   </td><td > .14(.49)  </td><td > .14(.44)  </td><td > 64.20 </td><td > .26(.90) </td><td > .19(.66) </td><td > .15(.53) </td></tr>
+
+<tr class="even"><td>
+XMap   </td><td> 4012 </td><td> 45  </td><td > 36.39 </td><td > .22(.23) </td><td > .24(.25)  </td><td > .27(.28)  </td><td > 61.65 </td><td > .66(.69) </td><td > .37(.39) </td><td > .27(.29) </td></tr>
+
+<tr class="odd"><td>
+CroMatcher                  </td><td> 257 </td><td> 45 </td><td > 10.72 </td><td > .30(.30)   </td><td > .07(.07)  </td><td > .04(.04)  </td><td > 66.02 </td><td > .78(.78) </td><td > .55(.55) </td><td > .45(.45) </td></tr>
+
+<tr class="even"><td>
+DKP-AOM                     </td><td> 11   </td><td> 19 </td><td > 2.53  </td><td > .39(.92)   </td><td > .03(.08)  </td><td > .01(.04)  </td><td > 4.23  </td><td > .50(.99) </td><td > .01(.02) </td><td > .01(.01)</td></tr> 
+
+<tr class="odd"><td>
+GMap                        </td><td> 2069 </td><td> 21 </td><td > 1.69 </td><td > .37(.80)  </td><td > .03(.06)  </td><td > .01(.03)  </td><td > 3.13 </td><td > .67(.98) </td><td > .01(.02) </td><td > .01(.01) </td></tr>
+
+<tr><td>
+LogMap-C                    </td><td> 56   </td><td> 19 </td><td > 1.41  </td><td > .38(.90)  </td><td > .03(.09)  </td><td > .02(.04)  </td><td > 3.68 </td><td > .35(.56) </td><td > .01(.03) </td><td > .01(.01) </td></tr>
+
+<tr class="even"><td>
+LogMapLite                  </td><td> 13   </td><td> 19 </td><td > 1.29 </td><td > .39(.91)  </td><td > .04(.08)  </td><td > .02(.04)  </td><td > 3.70 </td><td > .32(.57) </td><td > .01(.03) </td><td > .01(.01) </td></tr>
+
+<tr class="odd"><td>
+ Mamba*                      </td><td> 297 </td><td> 21 </td><td > 1.52 </td><td > .36(.78) </td><td > .06(.13)  </td><td > .03(.07)  </td><td > 3.68  </td><td > .48.(99) </td><td > .02(.05) </td><td > .01(.03) </td></tr>
+
+<tr class="even"><td>
+ RSDLWB                      </td><td> 14   </td><td> 44 </td><td > 30.71  </td><td > .01(.01)  </td><td > .01(.01) </td><td > .01(.01) </td><td > 43.71 </td><td > .20(.20) </td><td > .11(.11) </td><td > .08(.08) </td></tr>
+</tbody>
+<caption>MultiFarm aggregated results per matcher, for each type of matching task -- different ontologies (i) and same ontologies (ii). Time is measured in minutes. Tools marked with an * have been executed in a different setting. \#pairs indicates the number of pairs of languages the tool is able to generated (non empty) alignments. Size indicates the average of the number of generated correspondences for the tests where an (non empty) alignment has been generated. Two kinds of results are reported : those do not distinguishing empty and erroneous (or not generated) alignments and those -- indicated between parenthesis -- considering only non empty generated alignments for a pair of languages.</caption>
+<table>
+
+<h4>Language specific results (type i) </h4>
+
+<p>Table below presents the results per pair of language, involving matching different ontologies (test cases of type i). With exception of CroMatcher and RSDLWB, non-specific systems are not able to deal with all pairs of languages, in particular those involving Arabic, Chinese and Russian. They take instead advantage of the similarities in the vocabulary of some languages, in the absence of specific strategies. This can be corroborated by the fact that most of them generate their best F-measure for the pairs es-pt (followed by de-en): CroMatcher (es-pt .28, de-en .23), DKP-AOM (es-pt .25, de-en .22), GMap (es-pt .21, fr-nl .20), LogMap-C (es-pt .26, de-en .18), LogMapLite (es-pt .25, de-en .22), and Mamba (es-pt .29, en-nl .23, de-en .22). This behavior has been also observed last year. On the other hand, although it is likely harder to find correspondences between cz-pt than es-pt, for some non-specific systems this pair is present in their top-3 F-measure (with exception of Mamba – es-pt, en-nl, de-en, en-es, de-nl).
+</p>
+
+<p>
+For the group of systems implementing cross-lingual strategies, some pairs involving Czech (cz-en, cz-es, cz-pt, cz-de, cz-ru) are again present in the top-5 F-measure
+of 4 systems (out of 5, the exception is LYAM++ ): AML – cz-en (.63), cz-ru (.62), cz-es (.61), cz-nl (.60), en-es (.59), CLONA – es-ru (.53), cz-es (.51), es-pt (.51), cz-en (.50) and cz-ru (.49), LogMap – cz-de (.55), cz-pt (.54), cz-ru (.53), cz-nl and cz-en (.52), XMAP – cz-es (.52), cz-pt (.50), en-es (.48), cz-ru (.45), and de-es (.45). LYAM++ is the exception, once it was not able to generate alignments for some of these pairs : es-fr (.56), en-es (.53), es-pt (.52), en-ru (.52) and en-fr (.52). A different behavior is observed for the tasks of type (ii), for which these systems perform better for the pairs en-pt, es-fr, en-fr, de-en and es-pt. The exception is LogMap (es-ru, es-nl and fr-nl).
+</p>
+
+<table border='2' frame='sides' rules='groups' align='center'">
+<caption>MultiFarm results per pair of languages (H-mean) for the test cases of type (i)</caption>
+<colgroup align='center'/>
+<colgroup align='center' span='3' />
+<colgroup align='center' span='3' />
+<colgroup align='center' span='3' />
+<colgroup align='center' span='3' />
+<colgroup align='center' span='3' />
+<colgroup align='center' span='3' />
+<colgroup align='center' span='3' />
+<colgroup align='center' span='3' />
+<colgroup align='center' span='3' />
+<colgroup align='center' span='3' />
+<colgroup align='center' span='3' />
+<colgroup align='center' span='3' />
+<thead valign='top'>
+<tr class="header">
+<th></th>
+<th colspan='3'>AML</th>
+<th colspan='3'>CLONA</th>
+<th colspan='3'>LogMap</th>
+<th colspan='3'>LYAM++</th>
+<th colspan='3'>XMap</th>
+<th colspan='3'>CroMatcher</th>
+<th colspan='3'>DKP-AOM</th>
+<th colspan='3'>GMap</th>
+<th colspan='3'>LogMap-C</th>
+<th colspan='3'>LogMap-Lite</th>
+<th colspan='3'>Mamba</th>
+<th colspan='3'>RSDLWB</th>
+</tr>
+<tbody>
+<tr class="even"><td class="text">ar-cn  </td><td> 0.46 </td><td> 0.33 </td><td> 0.26 </td><td> 0.44 </td><td> 0.29 </td><td> 0.22 </td><td> 0.75 </td><td> 0.25 </td><td> 0.15 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.15 </td><td> 0.17 </td><td> 0.18 </td><td> 0.02 </td><td> 0.02 </td><td> 0.03 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.00 </td><td> 0.00 </td><td> 0.01 </td></tr>
+
+<tr class="odd"><td class="text">ar-cz  </td><td> 0.51 </td><td> 0.50 </td><td> 0.49 </td><td> 0.47 </td><td> 0.36 </td><td> 0.29 </td><td> 0.82 </td><td> 0.44 </td><td> 0.30 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.25 </td><td> 0.27 </td><td> 0.29 </td><td> 0.02 </td><td> 0.03 </td><td> 0.03 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.00 </td><td> 0.01 </td><td> 0.01 </td></tr>
+
+<tr class="even"><td class="text">ar-de  </td><td> 0.32 </td><td> 0.30 </td><td> 0.29 </td><td> 0.29 </td><td> 0.22 </td><td> 0.18 </td><td> 0.46 </td><td> 0.21 </td><td> 0.14 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.14 </td><td> 0.15 </td><td> 0.15 </td><td> 0.02 </td><td> 0.02 </td><td> 0.03 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.00 </td><td> 0.00 </td><td> 0.01 </td></tr>
+
+<tr class="odd"><td class="text">ar-en  </td><td> 0.56 </td><td> 0.56 </td><td> 0.56 </td><td> 0.44 </td><td> 0.33 </td><td> 0.27 </td><td> 0.77 </td><td> 0.44 </td><td> 0.31 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.21 </td><td> 0.24 </td><td> 0.28 </td><td> 0.02 </td><td> 0.02 </td><td> 0.03 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.00 </td><td> 0.01 </td><td> 0.01 </td></tr>
+
+<tr class="even"><td class="text">ar-es  </td><td> 0.45 </td><td> 0.46 </td><td> 0.48 </td><td> 0.45 </td><td> 0.37 </td><td> 0.32 </td><td> 0.74 </td><td> 0.43 </td><td> 0.30 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.28 </td><td> 0.29 </td><td> 0.30 </td><td> 0.02 </td><td> 0.02 </td><td> 0.03 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.01 </td><td> 0.01 </td><td> 0.02 </td></tr>
+
+<tr class="odd"><td class="text">ar-fr  </td><td> 0.12 </td><td> 0.12 </td><td> 0.11 </td><td> 0.14 </td><td> 0.12 </td><td> 0.10 </td><td> 0.18 </td><td> 0.09 </td><td> 0.06 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.04 </td><td> 0.05 </td><td> 0.05 </td><td> 0.00 </td><td> 0.00 </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.00 </td><td> NaN </td><td> 0.00 </td></tr>
+
+<tr class="even"><td class="text">ar-nl  </td><td> 0.47 </td><td> 0.45 </td><td> 0.43 </td><td> 0.36 </td><td> 0.26 </td><td> 0.20 </td><td> 0.81 </td><td> 0.43 </td><td> 0.30 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.22 </td><td> 0.24 </td><td> 0.26 </td><td> 0.02 </td><td> 0.03 </td><td> 0.03 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.00 </td><td> 0.00 </td><td> 0.01 </td></tr>
+
+<tr class="odd"><td class="text">ar-pt  </td><td> 0.50 </td><td> 0.50 </td><td> 0.49 </td><td> 0.48 </td><td> 0.38 </td><td> 0.31 </td><td> 0.84 </td><td> 0.45 </td><td> 0.31 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.29 </td><td> 0.28 </td><td> 0.28 </td><td> 0.02 </td><td> 0.02 </td><td> 0.03 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.01 </td><td> 0.01 </td><td> 0.02 </td></tr>
+
+<tr class="even"><td class="text">ar-ru  </td><td> 0.48 </td><td> 0.44 </td><td> 0.41 </td><td> 0.44 </td><td> 0.33 </td><td> 0.26 </td><td> 0.79 </td><td> 0.46 </td><td> 0.32 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.18 </td><td> 0.20 </td><td> 0.23 </td><td> 0.02 </td><td> 0.03 </td><td> 0.03 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.00 </td><td> 0.00 </td><td> 0.00 </td></tr>
+
+<tr class="odd"><td class="text">cn-cz  </td><td> 0.58 </td><td> 0.45 </td><td> 0.36 </td><td> 0.48 </td><td> 0.36 </td><td> 0.28 </td><td> 0.86 </td><td> 0.39 </td><td> 0.26 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.28 </td><td> 0.29 </td><td> 0.29 </td><td> 0.02 </td><td> 0.02 </td><td> 0.03 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.00 </td><td> 0.01 </td><td> 0.01 </td></tr>
+
+<tr class="even"><td class="text">cn-de  </td><td> 0.58 </td><td> 0.49 </td><td> 0.42 </td><td> 0.49 </td><td> 0.34 </td><td> 0.26 </td><td> 0.78 </td><td> 0.27 </td><td> 0.16 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.27 </td><td> 0.28 </td><td> 0.29 </td><td> 0.02 </td><td> 0.02 </td><td> 0.02 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.00 </td><td> 0.00 </td><td> 0.01 </td></tr>
+
+<tr class="odd"><td class="text">cn-en  </td><td> 0.60 </td><td> 0.55 </td><td> 0.50 </td><td> 0.39 </td><td> 0.29 </td><td> 0.23 </td><td> 0.89 </td><td> 0.29 </td><td> 0.17 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.25 </td><td> 0.27 </td><td> 0.30 </td><td> 0.02 </td><td> 0.02 </td><td> 0.03 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.01 </td><td> 0.02 </td><td> 0.03 </td></tr>
+
+<tr class="even"><td class="text">cn-es  </td><td> 0.58 </td><td> 0.53 </td><td> 0.49 </td><td> 0.47 </td><td> 0.39 </td><td> 0.34 </td><td> 0.73 </td><td> 0.34 </td><td> 0.22 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.30 </td><td> 0.30 </td><td> 0.30 </td><td> 0.02 </td><td> 0.02 </td><td> 0.03 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.01 </td><td> 0.01 </td><td> 0.02 </td></tr>
+
+<tr class="odd"><td class="text">cn-fr  </td><td> 0.57 </td><td> 0.52 </td><td> 0.48 </td><td> 0.42 </td><td> 0.36 </td><td> 0.32 </td><td> 0.73 </td><td> 0.31 </td><td> 0.20 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.30 </td><td> 0.31 </td><td> 0.33 </td><td> 0.02 </td><td> 0.02 </td><td> 0.02 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.02 </td><td> 0.02 </td><td> 0.04 </td></tr>
+
+<tr class="even"><td class="text">cn-nl  </td><td> 0.48 </td><td> 0.34 </td><td> 0.27 </td><td> 0.40 </td><td> 0.30 </td><td> 0.24 </td><td> 0.79 </td><td> 0.28 </td><td> 0.17 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.22 </td><td> 0.23 </td><td> 0.24 </td><td> 0.02 </td><td> 0.02 </td><td> 0.03 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.01 </td><td> 0.01 </td><td> 0.02 </td></tr>
+
+<tr class="odd"><td class="text">cn-pt  </td><td> 0.56 </td><td> 0.50 </td><td> 0.46 </td><td> 0.48 </td><td> 0.35 </td><td> 0.28 </td><td> 0.81 </td><td> 0.31 </td><td> 0.19 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.28 </td><td> 0.27 </td><td> 0.26 </td><td> 0.02 </td><td> 0.02 </td><td> 0.02 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.01 </td><td> 0.01 </td><td> 0.02 </td></tr>
+
+<tr class="even"><td class="text">cn-ru  </td><td> 0.50 </td><td> 0.39 </td><td> 0.32 </td><td> 0.42 </td><td> 0.34 </td><td> 0.28 </td><td> 0.78 </td><td> 0.41 </td><td> 0.28 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.23 </td><td> 0.25 </td><td> 0.28 </td><td> 0.01 </td><td> 0.01 </td><td> 0.02 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.01 </td><td> 0.01 </td><td> 0.02 </td></tr>
+
+<tr class="odd"><td class="text">cz-de  </td><td> 0.55 </td><td> 0.52 </td><td> 0.49 </td><td> 0.50 </td><td> 0.42 </td><td> 0.37 </td><td> 0.82 </td><td> 0.55 </td><td> 0.41 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.39 </td><td> 0.42 </td><td> 0.45 </td><td> 0.46 </td><td> 0.11 </td><td> 0.07 </td><td> 0.85 </td><td> 0.08 </td><td> 0.04 </td><td> 1.00 </td><td> 0.04 </td><td> 0.02 </td><td> 0.85 </td><td> 0.08 </td><td> 0.04 </td><td> 0.85 </td><td> 0.08 </td><td> 0.04 </td><td> 1.00 </td><td> 0.11 </td><td> 0.06 </td><td> 0.00 </td><td> 0.00 </td><td> 0.01 </td></tr>
+
+<tr class="even"><td class="text">cz-en  </td><td> 0.61 </td><td> 0.63 </td><td> 0.65 </td><td> 0.53 </td><td> 0.50 </td><td> 0.46 </td><td> 0.82 </td><td> 0.52 </td><td> 0.39 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.37 </td><td> 0.43 </td><td> 0.52 </td><td> 0.59 </td><td> 0.12 </td><td> 0.07 </td><td> 1.00 </td><td> 0.05 </td><td> 0.02 </td><td> 1.00 </td><td> 0.06 </td><td> 0.03 </td><td> 1.00 </td><td> 0.06 </td><td> 0.03 </td><td> 1.00 </td><td> 0.07 </td><td> 0.04 </td><td> 0.79 </td><td> 0.19 </td><td> 0.11 </td><td> 0.01 </td><td> 0.01 </td><td> 0.02 </td></tr>
+
+<tr class="odd"><td class="text">cz-es  </td><td> 0.58 </td><td> 0.61 </td><td> 0.65 </td><td> 0.52 </td><td> 0.51 </td><td> 0.50 </td><td> 0.74 </td><td> 0.50 </td><td> 0.38 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.48 </td><td> 0.52 </td><td> 0.59 </td><td> 0.40 </td><td> 0.10 </td><td> 0.06 </td><td> 1.00 </td><td> 0.12 </td><td> 0.07 </td><td> 1.00 </td><td> 0.06 </td><td> 0.03 </td><td> 1.00 </td><td> 0.12 </td><td> 0.07 </td><td> 1.00 </td><td> 0.12 </td><td> 0.07 </td><td> 1.00 </td><td> 0.16 </td><td> 0.09 </td><td> 0.00 </td><td> 0.01 </td><td> 0.01 </td></tr>
+
+<tr class="even"><td class="text">cz-fr  </td><td> 0.57 </td><td> 0.57 </td><td> 0.57 </td><td> 0.46 </td><td> 0.42 </td><td> 0.39 </td><td> 0.77 </td><td> 0.49 </td><td> 0.36 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.41 </td><td> 0.45 </td><td> 0.50 </td><td> 0.18 </td><td> 0.02 </td><td> 0.01 </td><td> 1.00 </td><td> 0.02 </td><td> 0.01 </td><td> 1.00 </td><td> 0.02 </td><td> 0.01 </td><td> 1.00 </td><td> 0.02 </td><td> 0.01 </td><td> 1.00 </td><td> 0.02 </td><td> 0.01 </td><td> 0.75 </td><td> 0.09 </td><td> 0.05 </td><td> 0.01 </td><td> 0.01 </td><td> 0.02 </td></tr>
+
+<tr class="odd"><td class="text">cz-nl  </td><td> 0.60 </td><td> 0.60 </td><td> 0.60 </td><td> 0.48 </td><td> 0.44 </td><td> 0.40 </td><td> 0.77 </td><td> 0.52 </td><td> 0.39 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.39 </td><td> 0.43 </td><td> 0.49 </td><td> 0.82 </td><td> 0.11 </td><td> 0.06 </td><td> 1.00 </td><td> 0.04 </td><td> 0.02 </td><td> 0.56 </td><td> 0.07 </td><td> 0.04 </td><td> 1.00 </td><td> 0.04 </td><td> 0.02 </td><td> 1.00 </td><td> 0.06 </td><td> 0.03 </td><td> 0.61 </td><td> 0.10 </td><td> 0.06 </td><td> 0.00 </td><td> 0.01 </td><td> 0.01 </td></tr>
+
+<tr class="even"><td class="text">cz-pt  </td><td> 0.57 </td><td> 0.59 </td><td> 0.62 </td><td> 0.49 </td><td> 0.47 </td><td> 0.46 </td><td> 0.80 </td><td> 0.54 </td><td> 0.41 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.46 </td><td> 0.50 </td><td> 0.54 </td><td> 0.80 </td><td> 0.20 </td><td> 0.11 </td><td> 1.00 </td><td> 0.14 </td><td> 0.07 </td><td> 1.00 </td><td> 0.11 </td><td> 0.06 </td><td> 1.00 </td><td> 0.14 </td><td> 0.07 </td><td> 1.00 </td><td> 0.14 </td><td> 0.08 </td><td> 1.00 </td><td> 0.18 </td><td> 0.10 </td><td> 0.01 </td><td> 0.02 </td><td> 0.03 </td></tr>
+
+<tr class="odd"><td class="text">cz-ru  </td><td> 0.63 </td><td> 0.62 </td><td> 0.62 </td><td> 0.53 </td><td> 0.49 </td><td> 0.45 </td><td> 0.81 </td><td> 0.53 </td><td> 0.39 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.39 </td><td> 0.45 </td><td> 0.52 </td><td> 0.02 </td><td> 0.02 </td><td> 0.02 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.01 </td><td> 0.02 </td><td> 0.03 </td></tr>
+
+<tr class="even"><td class="text">de-en  </td><td> 0.53 </td><td> 0.54 </td><td> 0.55 </td><td> 0.43 </td><td> 0.38 </td><td> 0.35 </td><td> 0.79 </td><td> 0.50 </td><td> 0.36 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.37 </td><td> 0.41 </td><td> 0.46 </td><td> 0.62 </td><td> 0.23 </td><td> 0.14 </td><td> 1.00 </td><td> 0.22 </td><td> 0.12 </td><td> 1.00 </td><td> 0.04 </td><td> 0.02 </td><td> 1.00 </td><td> 0.18 </td><td> 0.10 </td><td> 1.00 </td><td> 0.22 </td><td> 0.12 </td><td> 0.91 </td><td> 0.22 </td><td> 0.13 </td><td> 0.01 </td><td> 0.01 </td><td> 0.02 </td></tr>
+
+<tr class="odd"><td class="text">de-es  </td><td> 0.51 </td><td> 0.52 </td><td> 0.52 </td><td> 0.51 </td><td> 0.45 </td><td> 0.40 </td><td> 0.79 </td><td> 0.48 </td><td> 0.34 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.46 </td><td> 0.45 </td><td> 0.45 </td><td> 0.61 </td><td> 0.16 </td><td> 0.09 </td><td> 1.00 </td><td> 0.06 </td><td> 0.03 </td><td> 1.00 </td><td> 0.03 </td><td> 0.02 </td><td> 1.00 </td><td> 0.11 </td><td> 0.06 </td><td> 1.00 </td><td> 0.06 </td><td> 0.03 </td><td> 0.92 </td><td> 0.17 </td><td> 0.09 </td><td> 0.01 </td><td> 0.01 </td><td> 0.02 </td></tr>
+
+<tr class="even"><td class="text">de-fr  </td><td> 0.52 </td><td> 0.53 </td><td> 0.55 </td><td> 0.49 </td><td> 0.44 </td><td> 0.40 </td><td> 0.76 </td><td> 0.44 </td><td> 0.31 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.37 </td><td> 0.39 </td><td> 0.42 </td><td> 0.40 </td><td> 0.06 </td><td> 0.03 </td><td> 0.80 </td><td> 0.03 </td><td> 0.02 </td><td> 1.00 </td><td> 0.01 </td><td> 0.00 </td><td> 0.80 </td><td> 0.03 </td><td> 0.02 </td><td> 0.80 </td><td> 0.03 </td><td> 0.02 </td><td> 0.62 </td><td> 0.06 </td><td> 0.03 </td><td> 0.01 </td><td> 0.01 </td><td> 0.02 </td></tr>
+
+<tr class="odd"><td class="text">de-nl  </td><td> 0.54 </td><td> 0.50 </td><td> 0.46 </td><td> 0.48 </td><td> 0.40 </td><td> 0.35 </td><td> 0.80 </td><td> 0.44 </td><td> 0.30 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.32 </td><td> 0.33 </td><td> 0.35 </td><td> 0.83 </td><td> 0.17 </td><td> 0.10 </td><td> 0.86 </td><td> 0.05 </td><td> 0.02 </td><td> 0.67 </td><td> 0.03 </td><td> 0.02 </td><td> 0.86 </td><td> 0.05 </td><td> 0.02 </td><td> 0.86 </td><td> 0.05 </td><td> 0.02 </td><td> 0.91 </td><td> 0.21 </td><td> 0.12 </td><td> 0.01 </td><td> 0.01 </td><td> 0.01 </td></tr>
+
+<tr class="even"><td class="text">de-pt  </td><td> 0.50 </td><td> 0.50 </td><td> 0.50 </td><td> 0.52 </td><td> 0.46 </td><td> 0.41 </td><td> 0.75 </td><td> 0.47 </td><td> 0.35 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.42 </td><td> 0.43 </td><td> 0.43 </td><td> 0.90 </td><td> 0.14 </td><td> 0.07 </td><td> 1.00 </td><td> 0.08 </td><td> 0.04 </td><td> 1.00 </td><td> 0.04 </td><td> 0.02 </td><td> 1.00 </td><td> 0.08 </td><td> 0.04 </td><td> 1.00 </td><td> 0.08 </td><td> 0.04 </td><td> 1.00 </td><td> 0.09 </td><td> 0.05 </td><td> 0.00 </td><td> 0.01 </td><td> 0.01 </td></tr>
+
+<tr class="odd"><td class="text">de-ru  </td><td> 0.56 </td><td> 0.51 </td><td> 0.47 </td><td> 0.50 </td><td> 0.42 </td><td> 0.36 </td><td> 0.79 </td><td> 0.46 </td><td> 0.33 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.36 </td><td> 0.39 </td><td> 0.42 </td><td> 0.01 </td><td> 0.02 </td><td> 0.02 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.00 </td><td> 0.00 </td><td> 0.01 </td></tr>
+
+<tr class="even"><td class="text">en-es  </td><td> 0.56 </td><td> 0.59 </td><td> 0.62 </td><td> 0.49 </td><td> 0.46 </td><td> 0.44 </td><td> 0.81 </td><td> 0.43 </td><td> 0.29 </td><td> 0.48 </td><td> 0.53 </td><td> 0.59 </td><td> 0.45 </td><td> 0.48 </td><td> 0.52 </td><td> 0.63 </td><td> 0.14 </td><td> 0.08 </td><td> 1.00 </td><td> 0.05 </td><td> 0.02 </td><td> 1.00 </td><td> 0.06 </td><td> 0.03 </td><td> 1.00 </td><td> 0.14 </td><td> 0.08 </td><td> 1.00 </td><td> 0.05 </td><td> 0.02 </td><td> 0.91 </td><td> 0.21 </td><td> 0.12 </td><td> 0.01 </td><td> 0.01 </td><td> 0.02 </td></tr>
+
+<tr class="odd"><td class="text">en-fr  </td><td> 0.52 </td><td> 0.55 </td><td> 0.57 </td><td> 0.45 </td><td> 0.43 </td><td> 0.41 </td><td> 0.74 </td><td> 0.38 </td><td> 0.26 </td><td> 0.45 </td><td> 0.51 </td><td> 0.58 </td><td> 0.37 </td><td> 0.42 </td><td> 0.48 </td><td> 0.42 </td><td> 0.06 </td><td> 0.03 </td><td> 0.63 </td><td> 0.04 </td><td> 0.02 </td><td> 0.61 </td><td> 0.10 </td><td> 0.06 </td><td> 0.44 </td><td> 0.03 </td><td> 0.02 </td><td> 0.45 </td><td> 0.04 </td><td> 0.02 </td><td> 0.62 </td><td> 0.17 </td><td> 0.10 </td><td> 0.01 </td><td> 0.01 </td><td> 0.02 </td></tr>
+
+<tr class="even"><td class="text">en-nl  </td><td> 0.56 </td><td> 0.57 </td><td> 0.58 </td><td> 0.44 </td><td> 0.39 </td><td> 0.34 </td><td> 0.82 </td><td> 0.39 </td><td> 0.26 </td><td> 0.51 </td><td> 0.50 </td><td> 0.49 </td><td> 0.01 </td><td> 0.02 </td><td> 0.04 </td><td> 0.75 </td><td> 0.19 </td><td> 0.11 </td><td> 0.83 </td><td> 0.08 </td><td> 0.04 </td><td> 0.76 </td><td> 0.12 </td><td> 0.07 </td><td> 0.73 </td><td> 0.08 </td><td> 0.04 </td><td> 0.80 </td><td> 0.12 </td><td> 0.07 </td><td> 0.89 </td><td> 0.23 </td><td> 0.13 </td><td> 0.00 </td><td> 0.00 </td><td> 0.00 </td></tr>
+
+<tr class="odd"><td class="text">en-pt  </td><td> 0.56 </td><td> 0.58 </td><td> 0.61 </td><td> 0.49 </td><td> 0.46 </td><td> 0.43 </td><td> 0.82 </td><td> 0.52 </td><td> 0.38 </td><td> 0.48 </td><td> 0.50 </td><td> 0.52 </td><td> 0.02 </td><td> 0.03 </td><td> 0.05 </td><td> 0.88 </td><td> 0.17 </td><td> 0.09 </td><td> 1.00 </td><td> 0.06 </td><td> 0.03 </td><td> 0.91 </td><td> 0.08 </td><td> 0.04 </td><td> 1.00 </td><td> 0.06 </td><td> 0.03 </td><td> 1.00 </td><td> 0.09 </td><td> 0.04 </td><td> 0.87 </td><td> 0.10 </td><td> 0.05 </td><td> 0.01 </td><td> 0.02 </td><td> 0.03 </td></tr>
+
+<tr class="even"><td class="text">en-ru  </td><td> 0.59 </td><td> 0.59 </td><td> 0.59 </td><td> 0.44 </td><td> 0.39 </td><td> 0.35 </td><td> 0.79 </td><td> 0.46 </td><td> 0.33 </td><td> 0.60 </td><td> 0.52 </td><td> 0.46 </td><td> 0.01 </td><td> 0.01 </td><td> 0.02 </td><td> 0.02 </td><td> 0.03 </td><td> 0.03 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.01 </td><td> 0.01 </td><td> 0.02 </td></tr>
+
+<tr class="odd"><td class="text">es-fr  </td><td> 0.54 </td><td> 0.57 </td><td> 0.60 </td><td> 0.47 </td><td> 0.48 </td><td> 0.49 </td><td> 0.67 </td><td> 0.32 </td><td> 0.21 </td><td> 0.50 </td><td> 0.56 </td><td> 0.64 </td><td> 0.01 </td><td> 0.02 </td><td> 0.09 </td><td> 0.62 </td><td> 0.18 </td><td> 0.11 </td><td> 1.00 </td><td> 0.02 </td><td> 0.01 </td><td> 0.78 </td><td> 0.05 </td><td> 0.03 </td><td> 0.91 </td><td> 0.08 </td><td> 0.04 </td><td> 1.00 </td><td> 0.02 </td><td> 0.01 </td><td> 0.69 </td><td> 0.07 </td><td> 0.04 </td><td> 0.01 </td><td> 0.01 </td><td> 0.02 </td></tr>
+
+<tr class="even"><td class="text">es-nl  </td><td> 0.57 </td><td> 0.59 </td><td> 0.62 </td><td> 0.48 </td><td> 0.46 </td><td> 0.43 </td><td> 0.68 </td><td> 0.39 </td><td> 0.27 </td><td> 0.50 </td><td> 0.47 </td><td> 0.45 </td><td> 0.00 </td><td> 0.01 </td><td> 0.04 </td><td> 0.46 </td><td> 0.05 </td><td> 0.02 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.17 </td><td> 0.01 </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.29 </td><td> 0.02 </td><td> 0.01 </td><td> 0.00 </td><td> 0.00 </td><td> 0.01 </td></tr>
+
+<tr class="odd"><td class="text">es-pt  </td><td> 0.54 </td><td> 0.57 </td><td> 0.59 </td><td> 0.50 </td><td> 0.51 </td><td> 0.52 </td><td> 0.74 </td><td> 0.51 </td><td> 0.39 </td><td> 0.50 </td><td> 0.52 </td><td> 0.54 </td><td> 0.05 </td><td> 0.08 </td><td> 0.28 </td><td> 0.70 </td><td> 0.28 </td><td> 0.17 </td><td> 0.79 </td><td> 0.25 </td><td> 0.15 </td><td> 0.70 </td><td> 0.21 </td><td> 0.13 </td><td> 0.76 </td><td> 0.26 </td><td> 0.16 </td><td> 0.73 </td><td> 0.25 </td><td> 0.15 </td><td> 0.71 </td><td> 0.29 </td><td> 0.18 </td><td> 0.00 </td><td> 0.00 </td><td> 0.00 </td></tr>
+
+<tr class="even"><td class="text">es-ru  </td><td> 0.56 </td><td> 0.57 </td><td> 0.57 </td><td> 0.55 </td><td> 0.53 </td><td> 0.50 </td><td> 0.66 </td><td> 0.39 </td><td> 0.27 </td><td> 0.51 </td><td> 0.51 </td><td> 0.50 </td><td> 0.00 </td><td> 0.01 </td><td> 0.02 </td><td> 0.01 </td><td> 0.02 </td><td> 0.02 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.00 </td><td> 0.00 </td><td> 0.00 </td></tr>
+
+<tr class="odd"><td class="text">fr-nl  </td><td> 0.55 </td><td> 0.55 </td><td> 0.56 </td><td> 0.48 </td><td> 0.46 </td><td> 0.44 </td><td> 0.70 </td><td> 0.30 </td><td> 0.19 </td><td> 0.46 </td><td> 0.44 </td><td> 0.41 </td><td> 0.02 </td><td> 0.03 </td><td> 0.15 </td><td> 0.62 </td><td> 0.13 </td><td> 0.07 </td><td> 0.82 </td><td> 0.13 </td><td> 0.07 </td><td> 0.88 </td><td> 0.20 </td><td> 0.11 </td><td> 0.82 </td><td> 0.13 </td><td> 0.07 </td><td> 0.82 </td><td> 0.13 </td><td> 0.07 </td><td> 0.82 </td><td> 0.13 </td><td> 0.07 </td><td> 0.00 </td><td> 0.01 </td><td> 0.01 </td></tr>
+
+<tr class="even"><td class="text">fr-pt  </td><td> 0.55 </td><td> 0.56 </td><td> 0.57 </td><td> 0.50 </td><td> 0.47 </td><td> 0.45 </td><td> 0.74 </td><td> 0.44 </td><td> 0.32 </td><td> 0.48 </td><td> 0.48 </td><td> 0.48 </td><td> 0.01 </td><td> 0.03 </td><td> 0.11 </td><td> 0.85 </td><td> 0.08 </td><td> 0.04 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.50 </td><td> 0.03 </td><td> 0.02 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.69 </td><td> 0.07 </td><td> 0.04 </td><td> 0.01 </td><td> 0.01 </td><td> 0.02 </td></tr>
+
+<tr class="odd"><td class="text">fr-ru  </td><td> 0.57 </td><td> 0.57 </td><td> 0.57 </td><td> 0.42 </td><td> 0.40 </td><td> 0.39 </td><td> 0.67 </td><td> 0.38 </td><td> 0.26 </td><td> 0.54 </td><td> 0.46 </td><td> 0.41 </td><td> 0.01 </td><td> 0.01 </td><td> 0.08 </td><td> 0.01 </td><td> 0.01 </td><td> 0.02 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.00 </td><td> 0.01 </td><td> 0.01 </td></tr>
+
+<tr class="even"><td class="text">nl-pt  </td><td> 0.56 </td><td> 0.57 </td><td> 0.58 </td><td> 0.52 </td><td> 0.46 </td><td> 0.41 </td><td> 0.76 </td><td> 0.43 </td><td> 0.30 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.01 </td><td> 0.01 </td><td> 0.06 </td><td> 0.65 </td><td> 0.10 </td><td> 0.05 </td><td> 1.00 </td><td> 0.02 </td><td> 0.01 </td><td> 0.33 </td><td> 0.04 </td><td> 0.02 </td><td> 1.00 </td><td> 0.02 </td><td> 0.01 </td><td> 1.00 </td><td> 0.02 </td><td> 0.01 </td><td> 0.50 </td><td> 0.03 </td><td> 0.02 </td><td> 0.01 </td><td> 0.01 </td><td> 0.02 </td></tr>
+
+<tr class="odd"><td class="text">nl-ru  </td><td> 0.57 </td><td> 0.55 </td><td> 0.54 </td><td> 0.46 </td><td> 0.41 </td><td> 0.37 </td><td> 0.79 </td><td> 0.48 </td><td> 0.34 </td><td> 0.52 </td><td> 0.47 </td><td> 0.42 </td><td> 0.00 </td><td> 0.01 </td><td> 0.03 </td><td> 0.01 </td><td> 0.01 </td><td> 0.02 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.00 </td><td> 0.00 </td><td> 0.01 </td></tr>
+
+<tr class="even"><td class="text">pt-ru  </td><td> 0.54 </td><td> 0.52 </td><td> 0.50 </td><td> 0.50 </td><td> 0.47 </td><td> 0.45 </td><td> 0.75 </td><td> 0.51 </td><td> 0.38 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.00 </td><td> 0.01 </td><td> 0.02 </td><td> 0.02 </td><td> 0.03 </td><td> 0.03 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> NaN </td><td> NaN </td><td> 0.00 </td><td> 0.00 </td><td> 0.00 </td><td> 0.01 </td></tr>
+</tbody>
+</table>
+
+<!--
+<h4>Comparison with previous years</h4>
+
+<!--
+<p>Table below presents a comparison, in terms of F-measure, of the systems implementing some cross-lingual strategy in at least one OAEI campaign. For the results marked with one *, the corresponding system version has not implemented specific strategies for the corresponding year. Best F-measures for cases (i) and (ii) over the years are indicated in bold face.</p>
+
+<div align="center">
+  <img src="comparison.png">
+</div>
+-->
+
+<h4>Generated alignments and additional table of results</h4>
+
+<p>You can download the complete set of <a href="http://www.irit.fr/~Cassia.Trojahn/OAEI2015/alignments-multifarm-OAEI-2015.zip">generated alignments</a>. These alignments have been generated by executing the tools with the help of the SEALS infrastructure. All results presented above were based on these alignments. You can download as well additional <a href="http://www.irit.fr/~Cassia.Trojahn/OAEI2015/tables-multifarm-results-OAEI-2015.zip">tables of results</a> (including precision and recall for each matching task), for both types of matching task (i) and (ii).<p>
+
+<h3>Edas and ekaw based evaluation</h3>
+
+TBA.
+
+<h3>References</h3>
+
+<p>[1] Christian Meilicke, Raul Garcia-Castro, Fred Freitas, Willem Robert van Hage, Elena Montiel-Ponsoda, Ryan Ribeiro de Azevedo, Heiner Stuckenschmidt, Ondrej Svab-Zamazal, Vojtech Svatek, Andrei Tamilin, Cassia Trojahn, Shenghui Wang. MultiFarm: A Benchmark for Multilingual Ontology Matching. Accepted for publication at the Journal of Web Semantics. </p>
+
+<p>An authors version of the paper can be found at the <a href="http://www.irit.fr/recherches/MELODI/multifarm/">MultiFarm homepage</a>, where the data set is described in details.</p>
+
+</p><h3>Contact</h3>
+
+<p>This track is organised by Cassia Trojahn dos Santos. If you have any problems working with the ontologies, any questions or suggestions, feel free to write an email to cassia [.] trojahn [at] irit [.] fr.</p>
+
+</body></html>
+
