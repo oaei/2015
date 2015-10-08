@@ -39,10 +39,15 @@ Web page content
 <ul>
 <li><a href="#setting">Evaluation setting and tables description</a>
 <li><a href="#ref-comparison">Comparison of OAEI 2013, 2014 and 2015</a>
-<li><a href="#visualization">Results visualization on precision/recall triangular graph for ra3-M3</a>
+<li><a href="#visualization">Results visualization on precision/recall triangular graph for rar2-M3</a>
 <li><a href="#discussion">Discussion for evaluation based on crisp reference alignments</a>
 </ul>
 <li><a href="#uncertain-ra">Evaluation based on the uncertain version of the reference alignment</a></h3>
+<ul>
+<li><a href="#uncsetting">Evaluation setting</a>
+<li><a href="#uncresults">Results</a>
+<li><a href="#uncdiscussion">Discussion for evaluation based on the uncertain reference alignments</a>
+</ul>
 <li><a href="#logical">Evaluation based on logical reasoning</a>
 <li><a href="#organizers">Organizers</a>
 <li><a href="#references">References</a>
@@ -75,7 +80,7 @@ We have three variants of crisp reference alignments (the confidence values for 
 <ul>
 <li><b>ra1</b> is the original reference alignment which can be <a href="data/reference-alignment.zip">downloaded</a> - please let us know how you use this reference-alignment (outside the OAEI context) and data set (ondrej.zamazal at vse dot cz).
 <li><b>ra2</b> is entailed reference alignment (ra2) generated as a transitive closure computed on the original reference alignment (ra1). In order to obtain coherent reference alignment set,  conflicting correspondences have been inspected and resolved by evaluators. As a result the degree of correctness and completeness of ra2 is probaly slightly better than for ra1. However, the differences are relatively restricted.
-<li><b>ra3</b> is violation free version of reference alignment (ra2). First violating correspondences have been detected using approach from [2, 3] and then carefully resolved by an evaluator. This is the first year of using this violation free reference alignment.
+<li><b>rar2</b> is violation free version of reference alignment (ra2). First violating correspondences have been detected using approach from [2, 3] and then carefully resolved by an evaluator. This is the first year of using this violation free reference alignment.
 </ul>
 
 <p>For each reference alignment we provide three evaluation modalities</p>
@@ -85,10 +90,10 @@ We have three variants of crisp reference alignments (the confidence values for 
 <li><b>M3</b> contains classes and properties, i.e. M3 = M1 + M2.
 </ul>
 <table border="1">
-<tr><td></td><td>ra1</td><td>ra2</td><td>ra3</td></tr>
-<tr><td>M1</td><td><a href="#ra1-M1">ra1-M1</a></td><td><a href="#ra2-M1">ra2-M1</a></td><td><a href="#ra3-M1">ra3-M1</a></td></tr>
-<tr><td>M2</td><td><a href="#ra1-M2">ra1-M2</a></td><td><a href="#ra2-M2">ra2-M2</a></td><td><a href="#ra3-M2">ra3-M2</a></td></tr>
-<tr><td>M3</td><td><a href="#ra1-M3">ra1-M3</a></td><td><a href="#ra2-M3">ra2-M3</a></td><td><a href="#ra3-M3">ra3-M3</a></td></tr>
+<tr><td></td><td>ra1</td><td>ra2</td><td>rar2</td></tr>
+<tr><td>M1</td><td><a href="#ra1-M1">ra1-M1</a></td><td><a href="#ra2-M1">ra2-M1</a></td><td><a href="#rar2-M1">rar2-M1</a></td></tr>
+<tr><td>M2</td><td><a href="#ra1-M2">ra1-M2</a></td><td><a href="#ra2-M2">ra2-M2</a></td><td><a href="#rar2-M2">rar2-M2</a></td></tr>
+<tr><td>M3</td><td><a href="#ra1-M3">ra1-M3</a></td><td><a href="#ra2-M3">ra2-M3</a></td><td><a href="#rar2-M3">rar2-M3</a></td></tr>
 </table>
 
 <h4><a name="setting">Evaluation setting and tables description</a></h4>
@@ -147,37 +152,56 @@ While XMap achieved the highest improvement between last two years (0.06 increas
 
 <img src="comparison2-ra2-M3.png" alt="Difference between 2013, 2014 and 2015 results">
 
-<h4><a name="ra3-M1">ra3-M1</a></h4>
+<h4><a name="rar2-M1">rar2-M1</a></h4>
 <p><a href="#crisp-ra">[back to explanation]</a></p>
 
-<img src="ra3-M1.png" alt="ra3-M1">
+<img src="rar2-M1.png" alt="rar2-M1">
 
-<h4><a name="ra3-M2">ra3-M2</a></h4>
+<h4><a name="rar2-M2">rar2-M2</a></h4>
 <p><a href="#crisp-ra">[back to explanation]</a></p>
 
-<img src="ra3-M2.png" alt="ra3-M2">
+<img src="rar2-M2.png" alt="rar2-M2">
 
-<h4><a name="ra3-M3">ra3-M3</a></h4>
+<h4><a name="rar2-M3">rar2-M3</a></h4>
 <p><a href="#crisp-ra">[back to explanation]</a></p>
 
-<img src="ra3-M3.png" alt="ra3-M3">
+<img src="rar2-M3.png" alt="rar2-M3">
 
-<h4><a name="visualization">Results visualization on precision/recall triangular graph for ra3-M3</a></h4>
+<h4><a name="visualization">Results visualization on precision/recall triangular graph for rar2-M3</a></h4>
 <p>
 All tools except RSDLWB (precision and recall were below 0.5) are visualized in terms of their performance regarding an average F1-measure in the figure below. Tools are represented as squares or triangles. Baselines are represented as circles. Horizontal line depicts level of precision/recall while values of average F1-measure are depicted by areas bordered by corresponding lines F1-measure=0.[5|6|7].
 </p>
-<img src="triangular-ra3-M3.png" alt="precision/recall triangular graph for conference and F1-measure based on ra3-M3">
+<img src="triangular-rar2-M3.png" alt="precision/recall triangular graph for conference and F1-measure based on rar2-M3">
 
 <h4><a name="discussion">Discussion for evaluation based on crisp reference alignments</a></h4>
 <p>
-With regard to two baselines we can group tools according to matcher's position (above best edna baseline, above StringEquiv baseline, below StringEquiv baseline). While there are no difference in first two groups between ra1-M3 and ra2-M3 regarding tools position, there are two tools which went from first to the second group. However, the F1-measure below edna baseline is only 0.01. In all there are eight tools above edna baseline (AML, Mamba, LogMap-C, LogMap, XMAP, GMap, DKP-AOM, LogMapLite) for ra3 reference alignment which is considered as most correct and most difficult reference alignment. In comparison with last year there were only five tools in the first group. Considering ra2 reference alignment there are even 10 tools (COMMAND, ServOMBI). Since ra3 is not only consistency violation free (as ra2) but also conservativity violation free we consider the ra3 as main reference alignment for this year. It will also be used within the synthesis paper. 
+With regard to two baselines we can group tools according to matcher's position (above best edna baseline, above StringEquiv baseline, below StringEquiv baseline). While there are no difference in first two groups between ra1-M3 and ra2-M3 regarding tools position, there are two tools which went from first to the second group. However, the F1-measure below edna baseline is only 0.01. In all there are eight tools above edna baseline (AML, Mamba, LogMap-C, LogMap, XMAP, GMap, DKP-AOM, LogMapLite) for rar2 reference alignment which is considered as most correct and most difficult reference alignment. In comparison with last year there were only five tools in the first group. Considering ra2 reference alignment there are even 10 tools (COMMAND, ServOMBI). Since rar2 is not only consistency violation free (as ra2) but also conservativity violation free we consider the rar2 as main reference alignment for this year. It will also be used within the synthesis paper. 
 </p>
 <p>
 Considering M1 evaluation modality where matching is reduced to only match classes situation in first group above edna baseline is different. While LogMapLite performs slightly worse than edna baseline, RSDLWB performs better than StringEquiv and even edna baselines. However in all, RSDLWB was outperformed by StringEquiv (M3 evaluation modality). This can be explained by considering M2 evaluation modality where RSDLWB performs similarly to StringEquiv baseline. Further, while two tools do not match properties at all (Lily, DKP-AOM), COMMAND also matches properties with similar performance as StringEquiv baseline. This has an effect on overall tools performance within M3 evaluation modality.
 </p>
 
 <h3><a name="uncertain-ra">Evaluation based on the uncertain version of the reference alignment</a></h3>
-TODO
+<h4><a name="uncsetting">Evaluation setting</a></h4>
+<p>The confidence values of all matches in the standard (sharp) reference alignments for the Conference track are all 1.0. For the uncertain version of this track, the confidence value of a match has been set equal to the percentage of a group of people who agreed with the match in question (this uncertain version is based on reference alignment labelled as <b>ra1</b>). One key thing to note is that the group was only asked to validate matches that were already present in the existing reference alignments – so some matches had their confidence value reduced from 1.0 to a number near 0, but no new matches were added.</p>
+<p>There are two ways that we can evaluate alignment systems according to these “uncertain” reference alignments, which we refer to as discrete and continuous. The discrete evaluation considers any match in the reference alignment with a confidence value of 0.5 or greater to be fully correct and those with a confidence less than 0.5 to be fully incorrect. Similarly, an alignment system’s match is considered a “yes” if the confidence value is greater than or equal to the system’s threshold and a “no” otherwise. In essence, this is the same as the “sharp” evaluation approach, except that some matches have been removed because less than half of the crowdsourcing group agreed with them. The continuous evaluation strategy penalizes an alignment system more if it misses a match on which most people agree than if it misses a more controversial match. For instance, if A = B with a confidence of 0.85 in the reference alignment and an alignment algorithm gives that match a confidence of 0.40, then that is counted as 0.85 * 0.40 = 0.34 of a true positive and 0.85 – 0.40 = 0.45 of a false negative.</p>
+<h4><a name="uncresults">Results</a></h4>
+<p>Below is a graph showing the F-measure, precision, and recall of the different alignment systems when evaluated using the sharp (s), discrete uncertain (d) and continuous uncertain (c) metrics, along with a table containing the same information. The results from this year follow the same general pattern as the results from the 2013 systems discussed in [1].</p>
+<img src="uncertainGraph.png" alt="graph for uncertain reference alignment based evalation">
+<img src="uncra1-M3.png" alt="results for uncertain reference alignment based evalation">
+<p>
+Out of the 14 alignment systems, five (DKP-AOM, Jarvis, LogMapLite, Mamba, and RSDLWB) use 1.0 as the confidence values for all matches they identify. Two (ServOMBI and XMAP) of the remaining nine have some variation in confidence values, though the majority are 1.0. The rest of the system have a fairly wide variation of confidence values. Most of these are near the upper end of the [0,1] range. The exception is Lily, which produces many matches with confidence values around 0.5.
+</p>
+<h4><a name="uncdiscussion">Discussion for evaluation based on the uncertain reference alignments</a></h4>
+<p>
+In most cases precision using the uncertain version of the benchmark is the same or less than in the sharp version, while recall is slightly greater with the uncertain version. This is because no new matches were added to the reference alignments, but controversial ones were removed.
+</p>
+<p>
+Regarding differences between the discrete and continuous evaluations using the uncertain reference alignments, they are in general quite small for precision. This is because of the fairly high confidence values assigned by the systems. COMMAND’s continuous precision is much lower because it assigns very low confidence values to some matches in which the labels are equivalent strings, which many crowdsourcers agreed with unless there was a compelling contextual reason not to. Applying a low threshold value (0.53) for the matcher hides this issue in the discrete case, but the continuous evaluation metrics do not use a threshold. 
+</p>
+<p>
+Recall measures vary more widely between the discrete and continuous metrics. One particularly notable thing is that the alignment systems that set all confidence values to 1.0 see the biggest gains between the discrete and continuous recall on the uncertain version of the benchmark. This is because in the discrete case incorrect matches produced by those systems are counted as a whole false positive, whereas in the continuous version, they are penalized a fraction of that if not many people agreed with the match. While this is interesting in itself, this is a one-time gain in improvement. Improvement on this metric from year-to-year will only be possible if developers modify their systems to produce meaningful confidence values. Another thing to note is the large drop in Lily’s recall between the discrete and continuous approaches. This is because the confidence values assigned by that alignment system are in a somewhat narrow range and universally low, which apparently does not correspond well to human evaluation of the match quality.
+</p>
 
 <h3><a name="logical">Evaluation based on logical reasoning</a></h3>
 <p>
@@ -187,7 +211,7 @@ For evaluation based on logical reasoning we applied detection of conservativity
 Table below summarizes statistics per matcher. There are number of ontologies that have unsatisfiable TBox after ontologies merge (#Unsat.Onto), number of all alignments (#Align.), total number of all conservativity principle violations within all alignments (#TotConser.Viol.) and its average per one alignment (#AvgConser.Viol.), total number of all consistency principle violations (#TotConsist.Viol.) and its average per one alignment (#AvgConsist.Viol.).
 </p>
 <p>
-Five tools (AML, DKP-AOM, LogMap, LogMap-C and XMAP) have no consistency principle violation. The lowest number of conservativity principle violations has LogMap-C which has a repair technique for them. Further four tools have average of conservativity principle around 1 (DKP-AOM, JarvisOM, LogMap and AML). We should note that these conservativity principle violations can be "false positives" since the entailment in the aligned ontology can be correct although it was not derivable in the single input ontologies.
+Five tools (AML, DKP-AOM, LogMap, LogMap-C and XMAP) have no consistency principle violation and two tools (JarvisOM and Mamba) generated only two incoherent alignments. The lowest number of conservativity principle violations has LogMap-C which has a repair technique for them. Further four tools have average of conservativity principle around 1 (DKP-AOM, JarvisOM, LogMap and AML). We should note that these conservativity principle violations can be "false positives" since the entailment in the aligned ontology can be correct although it was not derivable in the single input ontologies.
 </p>
 
 <table id="tab" class="display" cellspacing="0" width="100%">
@@ -196,6 +220,7 @@ Five tools (AML, DKP-AOM, LogMap, LogMap-C and XMAP) have no consistency princip
     <th>Matcher</th>
     <th>#Unsat.Onto</th>
     <th>#Align.</th>
+    <th>#Incoh.Align.</th>
     <th>#TotConser.Viol.</th>
     <th>#AvgConser.Viol.</th>
     <th>#TotConsist.Viol.</th>
@@ -207,6 +232,7 @@ Five tools (AML, DKP-AOM, LogMap, LogMap-C and XMAP) have no consistency princip
     <td>AML</td>
     <td>0</td>
     <td>21</td>
+    <td>0</td>
     <td>39</td>
     <td>1.86</td>
     <td>0</td>
@@ -216,6 +242,7 @@ Five tools (AML, DKP-AOM, LogMap, LogMap-C and XMAP) have no consistency princip
     <td>COMMAND</td>
     <td>1</td>
     <td>21</td>
+    <td>14</td>
     <td>505</td>
     <td>25.25</td>
     <td>235</td>
@@ -225,6 +252,7 @@ Five tools (AML, DKP-AOM, LogMap, LogMap-C and XMAP) have no consistency princip
     <td>CroMatcher</td>
     <td>0</td>
     <td>21</td>
+    <td>6</td>
     <td>69</td>
     <td>3.29</td>
     <td>78</td>
@@ -234,6 +262,7 @@ Five tools (AML, DKP-AOM, LogMap, LogMap-C and XMAP) have no consistency princip
     <td>DKPAOM</td>
     <td>0</td>
     <td>21</td>
+    <td>0</td>
     <td>16</td>
     <td>0.76</td>
     <td>0</td>
@@ -243,6 +272,7 @@ Five tools (AML, DKP-AOM, LogMap, LogMap-C and XMAP) have no consistency princip
     <td>GMap</td>
     <td>0</td>
     <td>21</td>
+    <td>8</td>
     <td>196</td>
     <td>9.33</td>
     <td>69</td>
@@ -252,6 +282,7 @@ Five tools (AML, DKP-AOM, LogMap, LogMap-C and XMAP) have no consistency princip
     <td>JarvisOM</td>
     <td>0</td>
     <td>21</td>
+    <td>2</td>
     <td>27</td>
     <td>1.29</td>
     <td>7</td>
@@ -261,6 +292,7 @@ Five tools (AML, DKP-AOM, LogMap, LogMap-C and XMAP) have no consistency princip
     <td>Lily</td>
     <td>1</td>
     <td>21</td>
+    <td>9</td>
     <td>140</td>
     <td>7</td>
     <td>124</td>
@@ -270,6 +302,7 @@ Five tools (AML, DKP-AOM, LogMap, LogMap-C and XMAP) have no consistency princip
     <td>LogMap</td>
     <td>0</td>
     <td>21</td>
+    <td>0</td>
     <td>29</td>
     <td>1.38</td>
     <td>0</td>
@@ -279,6 +312,7 @@ Five tools (AML, DKP-AOM, LogMap, LogMap-C and XMAP) have no consistency princip
     <td>LogMapC</td>
     <td>0</td>
     <td>21</td>
+    <td>0</td>
     <td>5</td>
     <td>0.24</td>
     <td>0</td>
@@ -288,6 +322,7 @@ Five tools (AML, DKP-AOM, LogMap, LogMap-C and XMAP) have no consistency princip
     <td>LogMapLite</td>
     <td>0</td>
     <td>21</td>
+    <td>3</td>
     <td>97</td>
     <td>4.62</td>
     <td>18</td>
@@ -297,6 +332,7 @@ Five tools (AML, DKP-AOM, LogMap, LogMap-C and XMAP) have no consistency princip
     <td>Mamba</td>
     <td>0</td>
     <td>21</td>
+    <td>2</td>
     <td>85</td>
     <td>4.05</td>
     <td>16</td>
@@ -306,6 +342,7 @@ Five tools (AML, DKP-AOM, LogMap, LogMap-C and XMAP) have no consistency princip
     <td>RSDLWB</td>
     <td>2</td>
     <td>18</td>
+    <td>11</td>
     <td>48</td>
     <td>3</td>
     <td>269</td>
@@ -315,6 +352,7 @@ Five tools (AML, DKP-AOM, LogMap, LogMap-C and XMAP) have no consistency princip
     <td>ServOMBI</td>
     <td>2</td>
     <td>21</td>
+    <td>11</td>
     <td>1325</td>
     <td>69.74</td>
     <td>235</td>
@@ -324,6 +362,7 @@ Five tools (AML, DKP-AOM, LogMap, LogMap-C and XMAP) have no consistency princip
     <td>XMAP</td>
     <td>0</td>
     <td>21</td>
+    <td>0</td>
     <td>19</td>
     <td>0.9</td>
     <td>0</td>

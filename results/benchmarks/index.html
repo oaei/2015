@@ -1,0 +1,1199 @@
+<html>
+<head>
+<title>Ontology Alignment Evaluation Initiative 2015::Benchmarks results</title>
+<link rel="stylesheet" type="text/css" href="../../style.css" />
+
+<style type="text/css">
+td { text-align:center; }
+td.text { text-align:left; }
+td.res { text-align: left; }
+td.important {
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+}
+td.bleft { border-left: 1px solid black; }
+td.right { border-right: 1px solid black; }
+tr.header td  { background-color:#CCC; }
+tr.odd td  { background-color:#FFD; }
+tr.even td  { background-color:#FDF }
+tr.break td  { background-color:#EEE; }
+span.small { font-size:smaller; }
+caption { caption-side:bottom; } 
+</style>
+
+</head>
+<body>
+
+<div class="header">
+<a style="color: grey; line-height: 5mm;" href="http://oaei.ontologymatching.org/2011.5/">Ontology
+  Alignment Evaluation Initiative - OAEI 2015 Campaign</a>
+  <a href="http://oaei.ontologymatching.org/">
+<img width="150px" src="../../../oaeismall.jpg" style="float:right; margin-left: 15pt; border-style:none;"/></a>
+  <a href="http://www.seals-project.eu/">
+<img  width="150px" src="../../../seals-logo.jpg" style="clear:right;float:right; margin-left: 15pt; border-style:none;"/></a>
+</div>
+
+<h1>Preliminary benchmark results for OAEI 2015</h1>
+
+<p>In the following, are the (very preliminary) results of the OAEI 2015 evaluation of the benchmarks track.</p>
+
+<h2>Experimental setting</h2>
+
+<p>
+All tests have been run entirely from the SEALS platform with the
+strict same protocol.
+</p>
+<p>
+This year we run a campaign with <a href="../../benchmarks/index.html">two new generated tests</a>.
+</p>
+<p>
+The initially generated tests with the IFC4 ontology which was
+provided to participants was found to be "somewhat erroneous" as the
+reference alignments contained only entities in the prime ontology
+namespace. We thus generated another test called energy.
+</p>
+
+<h2>Participation</h2>
+
+<p>
+Evaluations were run on a Debian Linux virtual machine configured with four processors and 8GB of RAM running under a
+Dell PowerEdge T610 with 2*Intel Xeon Quad Core 2.26GHz E5607 processors and 32GB of RAM, under Linux ProxMox 2 (Debian).
+</p>
+<p>
+All matchers where run under the SEALS client using Java 1.8 and a
+maximum heap size of 8GB.
+</p>
+<p>
+However we encountered problems with one very slow matcher (LogMapBio)
+that has been eliminated from the pool of matcher and AML has been
+unable to match the second run of the energy data set. We have stopped
+it for this track.
+No timeout was explicitly set.
+</p>
+<p>
+Reported figures are the average of 5 runs. As has already been shown
+in [1], there is not much variance in compliance measures across runs.
+This is not necessarily the case for time measurements so we report
+standard deviations with time measurements.
+</p>
+
+<p>
+From the 21 systems listed in the <a href="../index.html">2015
+results page</a>, we were so far able to evaluate 10 systems.
+We plan to increase this data set with more systems.
+</p>
+
+<h2>Results</h2>
+
+<p>
+Globally results are far better on the biblio test than the energy
+one.
+This may be due either on system overfit to biblio or the energy
+dataset being erroneous. We have to investigate on this. In
+particular, many of the energy run have made several matchers to
+fail (run 2 and 3 seems to be easier, howver, apparently 2 made AML to
+go in a loop).
+<!--p>
+The following table presents the harmonic means of precision,
+F-measure and recall for the test suites for all the participants,
+along with their confidence-weighted values. The table also shows
+measures provided by edna, a simple edit distance algorithm on labels
+which is used as a baseline. 
+</p-->
+
+<center>
+<table border="1" cellpadding="4" cellspacing="0" rules="COLS">
+<caption>Aggregated results: Harmonic means of precision, F-measure
+  and recall, along with their confidence-weighted values (*: uncompleted results).</caption>
+<tr class="header">
+<td class="text"></td>
+<td colspan="3">biblio</td>
+<td colspan="3">energy</td>
+</tr>
+<tr class="header"><td  class="text">Matching system</td>
+<td>Prec.</td><td>F-m.</td><td>Rec.</td>
+<td>Prec.</td><td>F-m.</td><td>Rec.</td>
+</tr>
+<tr class="even"><td class="text">edna</td>
+<td>.35(.58)</td><td>.41(.54)</td><td>.51(.50)</td>
+<td>.50(.)</td><td>.42(.)</td><td>.15(.)</td>
+</tr>
+<tr class="odd"><td class="text">AML2014</td>
+<td>.92(.94)</td><td>.55(.55)</td><td>.39(.39</td>
+<td>.97(.)</td><td>.70(.)</td><td>.23</td>
+</tr>
+<tr class="even"><td class="text">AML</td>
+<td>.99</td><td>.57</td><td>.40</td>
+<td>1.0</td><td>.18</td><td>.02</td>
+</tr>
+<tr class="odd"><td class="text">CroMatcher</td>
+<td>.94(.68)</td><td>.88(.62)</td><td>.82(.57)</td>
+<td>.96(.)</td><td>.67(.)</td><td>.21</td>
+</tr>
+<tr class="even"><td class="text">GMap</td>
+<td>.93(.74)</td><td>.68(.53)</td><td>.53(.41)</td>
+<td>.32(.)</td><td>.11(.)</td><td>.02(.)</td>
+</tr>
+<tr class="odd"><td class="text">Lily</td>
+<td>.97(.45)</td><td>.88(.40)</td><td>.83(.36)</td>
+<td>.(.)</td><td>.(.)</td><td>.</td>
+</tr>
+<tr class="even"><td class="text">LogMap-C</td>
+<td>.42(.)</td><td>.41(.)</td><td>.39(.)</td>
+<td>.(.)</td><td>.(.)</td><td>.(.)</td>
+</tr>
+<tr class="odd"><td class="text">LogMapLite</td>
+<td>.43</td><td>.46</td><td>.50</td>
+<td>.74</td><td>.77</td><td>.81</td>
+</tr>
+<tr class="even"><td class="text">LogMap</td>
+<td>.93(.91)</td><td>.55(.52)</td><td>.40(.37)</td>
+<td>.(.)</td><td>.(.)</td><td>.(.)</td>
+</tr>
+<tr class="odd"><td class="text">XMap</td>
+<td>1.0</td><td>.57</td><td>.40</td>
+<td>1.0</td><td>.51</td><td>.22</td>
+</tr>
+</table>
+</center>
+
+<!--p>
+Some system have had constant problems with the most strongly altered
+tests to the point of not outputing results: LogMap-C, LogMap,
+MaasMtch.
+Problems were also encountered to a smaller extent by XMap2.
+OMReasoner failed to return any answer on dog, and RSDLWB on cose.
+</p-->
+<p>
+Concerning F-measure results, 
+all tested systems are above edna with LogMap-C been lower (we
+excluded LogMapIM which is definitely dedicated to instance matching
+only). Lily and CroMatcher achieve an impresive 88% F-measure. Not
+only these systems achieve a high precision but a high recall of 83%
+as well. CroMatcher maintains its good results on energy (while Lily
+cannot cope with the test), however LogMapLite obtain the best
+F-measure (of 77%) on energy.
+</p>
+<p>
+Last year we noted that the F-measure was lower than the previous year
+(with a 89% from YAM++ and already a 88% from CroMatcher in
+2013). This year this level is reached again.
+</p>
+
+<p>
+Like last year, we can consider that we have high-precision matchers,
+at least on biblio, AML and XMap achieving near perfect to perfect precision.
+</p>
+
+
+<p>
+We draw the triangle graphs for the biblio tests. It confirms that
+systems are more precision-oriented than ever: no balaced system is
+visible in the middle of the graph (although for the two best systems,
+CroMatcher and Lily, they are not far from this).
+</p>
+
+<div style="text-align: center;">
+<img src="triangles.png" 
+     width="500"
+     alt="Underwear display for biblio (run 5)." 
+     style="border-style: none; float: center; margin-left: 5pt;">
+<br />
+<caption>Triangle display for biblio (run 5).
+Note that system with F-measure under .5 cannot be displayed.</caption>
+</div>
+
+<p>
+The computation of confidence-weighted measures is supposed to reward
+systems able to provide accurate confidence values. However, we
+observe that, in general, it tends to lower the score of systems
+returning confidence measures.
+</p>
+
+<!-- TIME -->
+
+<!--p>
+There is a large discrepancy between matchers concerning the time
+spent from less than a minute for LogMapLite and AML (we do not count
+StringsAuto which failed to perform many tests) to nearly three hours
+for OntoK. In fact, OntoK takes as much time as all the other matchers
+together. Beside these large differences, we also observed large
+deviations across runs.
+</p-->
+
+<!--center>
+<table border="1" cellpadding="4" cellspacing="0" rules="COLS">
+<caption>Aggregated benchmark results: Time (in second), standard deviation on time and points of F-measure per second spent on the three data sets (*: uncompleted results).</caption>
+<tr class="header">
+<td class="text"></td>
+<td colspan="3">biblio</td>
+<td colspan="3">cose</td>
+<td colspan="3">dog</td>
+</tr>
+<tr class="header"><td  class="text">Matching system</td>
+<td>s.</td><td>stdev</td><td>F-m./s.</td>
+<td>s.</td><td>stdev</td><td>F-m./s.</td>
+<td>s.</td><td>stdev</td><td>F-m./s.</td>
+</tr>
+<tr class="odd"><td class="text">AML</td>
+<td>48.96</td><td>0.59</td><td>1.12</td><td>140.29</td><td>1.37</td><td>0.33</td><td>1506.16</td><td>81.66</td><td>0.05</td>
+</tr>
+<tr class="even"><td class="text">AOT_2014</td>
+<td>166.91</td><td>1.85</td><td>0.38</td><td>194.02</td><td>1.31</td><td>0.30</td><td>10638.27</td><td>82.37</td><td>0.01</td>
+</tr>
+<tr class="odd"><td class="text">AOTL</td>
+<td>741.98</td><td>8.37</td><td>0.09</td><td>386.18</td><td>7.50</td><td>0.17</td><td>18618.60</td><td>268.90</td><td>0.00</td>
+</tr>
+<tr class="even"><td class="text">LogMap</td>
+<td>106.68</td><td>0.90</td><td>0.37</td><td>123.44</td><td>1.79</td><td>0.33</td><td>472.31</td><td>74.00</td><td>0.03</td>
+</tr>
+<tr class="odd"><td class="text">LogMap-C</td>
+<td>158.36</td><td>0.84</td><td>0.26</td><td>188.30</td><td>2.29</td><td>0.22</td><td>953.56</td><td>180.58</td><td>0.02</td>
+</tr>
+<tr class="even"><td class="text">LogMapLite</td>
+<td>61.43</td><td>0.65</td><td>0.75</td><td>62.67</td><td>0.93</td><td>0.69</td><td>370.32</td><td>90.76</td><td>0.19</td>
+</tr>
+<tr class="odd"><td class="text">MaasMtch</td>
+<td>122.50</td><td>2.75</td><td>0.46</td><td>392.43</td><td>6.97</td><td>0.12</td><td>7338.92</td><td>135.61</td><td>0.01</td>
+</tr>
+<tr class="even"><td class="text">OMReasoner</td>
+<td>60.01</td><td>0.26</td><td>0.98</td><td>98.17</td><td>0.89</td><td>0.14</td><td>331.65</td><td>196.85</td><td>*</td>
+</tr>
+<tr class="odd"><td class="text">RSDLWB</td>
+<td>86.22</td><td>1.75</td><td>0.77</td><td>*</td><td>*</td><td>*</td><td>14417.32</td><td>285.51</td><td>0.01</td>
+</tr>
+<tr class="even"><td class="text">XMap2</td>
+<td>68.67</td><td>0.65</td><td>0.83</td><td>31.39</td><td>12.24</td><td>0.89</td><td>221.83</td><td>122.99</td><td>0.14</td>
+</tr>
+</table>
+</center-->
+
+
+<!--p>
+We provide the average time, times standard deviation and F-measure point provided per second by
+matchers.
+Standard deviation should be better reported in percentage of the
+total time.
+The F-measure point provided per second shows that efficient matchers
+are XMap2 and LogMapLite followed by AML (these results are consistent
+on cose and dog, biblio is a bit different but certainly due to errors
+reported above).
+</p-->
+
+
+<h2>Raw results</h2>
+
+<p>
+You can obtain the detailed results, tests by tests, by clicking on
+the test run number.
+</p>
+<table border='2' frame='sides' rules='groups'>
+<colgroup align='center' />
+<colgroup align='center' span='3' />
+<colgroup align='center' span='3' />
+<colgroup align='center' span='3' />
+<colgroup align='center' span='3' />
+<colgroup align='center' span='3' />
+<colgroup align='center' span='3' />
+<colgroup align='center' span='3' />
+<colgroup align='center' span='3' />
+<colgroup align='center' span='3' />
+<colgroup align='center' span='3' />
+<colgroup align='center' span='3' />
+<colgroup align='center' span='3' />
+<thead valign='top'><tr><th>algo</th>
+<th colspan='3'>refalign</th>
+<th colspan='3'>edna</th>
+<th colspan='3'>AML2014</th>
+<th colspan='3'>AML</th>
+<th colspan='3'>CroMatcher</th>
+<th colspan='3'>GMap</th>
+<th colspan='3'>Lily</th>
+<th colspan='3'>LogMap-C</th>
+<th colspan='3'>LogMapIM</th>
+<th colspan='3'>LogMapLite</th>
+<th colspan='3'>LogMap</th>
+<th colspan='3'>XMAP</th>
+</tr></thead><tbody><tr><td>test</td>
+<td>Prec.</td>
+<td>FMeas.</td>
+<td>Rec.</td>
+<td>Prec.</td>
+<td>FMeas.</td>
+<td>Rec.</td>
+<td>Prec.</td>
+<td>FMeas.</td>
+<td>Rec.</td>
+<td>Prec.</td>
+<td>FMeas.</td>
+<td>Rec.</td>
+<td>Prec.</td>
+<td>FMeas.</td>
+<td>Rec.</td>
+<td>Prec.</td>
+<td>FMeas.</td>
+<td>Rec.</td>
+<td>Prec.</td>
+<td>FMeas.</td>
+<td>Rec.</td>
+<td>Prec.</td>
+<td>FMeas.</td>
+<td>Rec.</td>
+<td>Prec.</td>
+<td>FMeas.</td>
+<td>Rec.</td>
+<td>Prec.</td>
+<td>FMeas.</td>
+<td>Rec.</td>
+<td>Prec.</td>
+<td>FMeas.</td>
+<td>Rec.</td>
+<td>Prec.</td>
+<td>FMeas.</td>
+<td>Rec.</td>
+</tr></tbody><tbody>
+<tr bgcolor="yellow"><td>Biblio</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0,35</td>
+<td>0,41</td>
+<td>0,506</td>
+<td>0,918</td>
+<td>0,548</td>
+<td>0,388</td>
+<td>0,99</td>
+<td>0,566</td>
+<td>0,396</td>
+<td>0,94</td>
+<td>0,88</td>
+<td>0,82</td>
+<td>0,93</td>
+<td>0,676</td>
+<td>0,53</td>
+<td>0,968</td>
+<td>0,898</td>
+<td>0,834</td>
+<td>0,422</td>
+<td>0,406</td>
+<td>0,392</td>
+<td>#DIV/0!</td>
+<td>#DIV/0!</td>
+<td>0</td>
+<td>0,43</td>
+<td>0,46</td>
+<td>0,5</td>
+<td>0,928</td>
+<td>0,552</td>
+<td>0,392</td>
+<td>1</td>
+<td>0,574</td>
+<td>0,402</td>
+</tr>
+<tr><td><a href="biblio/1.html">1</a></td><td>1,00</td>
+<td>1,00</td>
+<td>1,00</td>
+<td>0,35</td>
+<td>0,41</td>
+<td>0,51</td>
+<td>0,92</td>
+<td>0,55</td>
+<td>0,39</td>
+<td>0,99</td>
+<td>0,57</td>
+<td>0,40</td>
+<td>0,94</td>
+<td>0,88</td>
+<td>0,82</td>
+<td>0,93</td>
+<td>0,67</td>
+<td>0,53</td>
+<td>0,96</td>
+<td>0,89</td>
+<td>0,83</td>
+<td>0,42</td>
+<td>0,42</td>
+<td>0,41</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>0,43</td>
+<td>0,46</td>
+<td>0,50</td>
+<td>0,93</td>
+<td>0,57</td>
+<td>0,41</td>
+<td>1,00</td>
+<td>0,57</td>
+<td>0,40</td>
+</tr>
+<tr><td><a href="biblio/2.html">2</a></td><td>1,00</td>
+<td>1,00</td>
+<td>1,00</td>
+<td>0,35</td>
+<td>0,41</td>
+<td>0,51</td>
+<td>0,92</td>
+<td>0,54</td>
+<td>0,38</td>
+<td>0,99</td>
+<td>0,56</td>
+<td>0,39</td>
+<td>0,94</td>
+<td>0,88</td>
+<td>0,82</td>
+<td>0,93</td>
+<td>0,68</td>
+<td>0,53</td>
+<td>0,97</td>
+<td>0,90</td>
+<td>0,84</td>
+<td>0,43</td>
+<td>0,41</td>
+<td>0,39</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>0,43</td>
+<td>0,46</td>
+<td>0,50</td>
+<td>0,94</td>
+<td>0,55</td>
+<td>0,39</td>
+<td>1,00</td>
+<td>0,57</td>
+<td>0,40</td>
+</tr>
+<tr><td><a href="biblio/3.html">3</a></td><td>1,00</td>
+<td>1,00</td>
+<td>1,00</td>
+<td>0,35</td>
+<td>0,41</td>
+<td>0,50</td>
+<td>0,92</td>
+<td>0,56</td>
+<td>0,40</td>
+<td>0,99</td>
+<td>0,57</td>
+<td>0,40</td>
+<td>0,94</td>
+<td>0,88</td>
+<td>0,82</td>
+<td>0,93</td>
+<td>0,68</td>
+<td>0,53</td>
+<td>0,97</td>
+<td>0,90</td>
+<td>0,83</td>
+<td>0,42</td>
+<td>0,40</td>
+<td>0,38</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>0,43</td>
+<td>0,46</td>
+<td>0,50</td>
+<td>0,92</td>
+<td>0,54</td>
+<td>0,38</td>
+<td>1,00</td>
+<td>0,58</td>
+<td>0,41</td>
+</tr>
+<tr><td><a href="biblio/4.html">4</a></td><td>1,00</td>
+<td>1,00</td>
+<td>1,00</td>
+<td>0,35</td>
+<td>0,41</td>
+<td>0,51</td>
+<td>0,91</td>
+<td>0,54</td>
+<td>0,38</td>
+<td>0,99</td>
+<td>0,56</td>
+<td>0,39</td>
+<td>0,94</td>
+<td>0,88</td>
+<td>0,82</td>
+<td>0,93</td>
+<td>0,68</td>
+<td>0,53</td>
+<td>0,97</td>
+<td>0,90</td>
+<td>0,83</td>
+<td>0,43</td>
+<td>0,40</td>
+<td>0,39</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>0,43</td>
+<td>0,46</td>
+<td>0,50</td>
+<td>0,93</td>
+<td>0,55</td>
+<td>0,39</td>
+<td>1,00</td>
+<td>0,57</td>
+<td>0,40</td>
+</tr>
+<tr><td><a href="biblio/5.html">5</a></td><td>1,00</td>
+<td>1,00</td>
+<td>1,00</td>
+<td>0,35</td>
+<td>0,41</td>
+<td>0,50</td>
+<td>0,92</td>
+<td>0,55</td>
+<td>0,39</td>
+<td>0,99</td>
+<td>0,57</td>
+<td>0,40</td>
+<td>0,94</td>
+<td>0,88</td>
+<td>0,82</td>
+<td>0,93</td>
+<td>0,67</td>
+<td>0,53</td>
+<td>0,97</td>
+<td>0,90</td>
+<td>0,84</td>
+<td>0,41</td>
+<td>0,40</td>
+<td>0,39</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>0,43</td>
+<td>0,46</td>
+<td>0,50</td>
+<td>0,92</td>
+<td>0,55</td>
+<td>0,39</td>
+<td>1,00</td>
+<td>0,58</td>
+<td>0,40</td>
+</tr>
+<tr bgcolor="yellow"><td>Biblio weighted</td>
+<td></td>
+</tr>
+<tr><td><a href="biblio/1-w.html">1</a></td><td>1,00</td>
+<td>1,00</td>
+<td>1,00</td>
+<td>0,58</td>
+<td>0,54</td>
+<td>0,50</td>
+<td>0,94</td>
+<td>0,55</td>
+<td>0,39</td>
+<td>0,99</td>
+<td>0,57</td>
+<td>0,40</td>
+<td>0,68</td>
+<td>0,62</td>
+<td>0,57</td>
+<td>0,74</td>
+<td>0,53</td>
+<td>0,41</td>
+<td>0,45</td>
+<td>0,40</td>
+<td>0,36</td>
+<td>0,41</td>
+<td>0,40</td>
+<td>0,39</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>0,43</td>
+<td>0,46</td>
+<td>0,50</td>
+<td>0,90</td>
+<td>0,54</td>
+<td>0,39</td>
+<td>1,00</td>
+<td>0,57</td>
+<td>0,40</td>
+</tr>
+<tr><td><a href="biblio/2-w.html">2</a></td><td>1,00</td>
+<td>1,00</td>
+<td>1,00</td>
+<td>0,58</td>
+<td>0,54</td>
+<td>0,50</td>
+<td>0,94</td>
+<td>0,55</td>
+<td>0,38</td>
+<td>0,99</td>
+<td>0,56</td>
+<td>0,39</td>
+<td>0,68</td>
+<td>0,62</td>
+<td>0,57</td>
+<td>0,73</td>
+<td>0,53</td>
+<td>0,41</td>
+<td>0,45</td>
+<td>0,40</td>
+<td>0,36</td>
+<td>0,42</td>
+<td>0,39</td>
+<td>0,37</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>0,43</td>
+<td>0,46</td>
+<td>0,50</td>
+<td>0,91</td>
+<td>0,52</td>
+<td>0,37</td>
+<td>1,00</td>
+<td>0,57</td>
+<td>0,40</td>
+</tr>
+<tr><td><a href="biblio/3-w.html">3</a></td><td>1,00</td>
+<td>1,00</td>
+<td>1,00</td>
+<td>0,58</td>
+<td>0,54</td>
+<td>0,50</td>
+<td>0,94</td>
+<td>0,56</td>
+<td>0,40</td>
+<td>0,99</td>
+<td>0,57</td>
+<td>0,40</td>
+<td>0,68</td>
+<td>0,62</td>
+<td>0,57</td>
+<td>0,74</td>
+<td>0,53</td>
+<td>0,41</td>
+<td>0,45</td>
+<td>0,40</td>
+<td>0,36</td>
+<td>0,42</td>
+<td>0,39</td>
+<td>0,37</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>0,43</td>
+<td>0,46</td>
+<td>0,50</td>
+<td>0,91</td>
+<td>0,52</td>
+<td>0,37</td>
+<td>1,00</td>
+<td>0,58</td>
+<td>0,41</td>
+</tr>
+<tr><td><a href="biblio/4-w.html">4</a></td><td>1,00</td>
+<td>1,00</td>
+<td>1,00</td>
+<td>0,58</td>
+<td>0,54</td>
+<td>0,50</td>
+<td>0,94</td>
+<td>0,54</td>
+<td>0,38</td>
+<td>0,99</td>
+<td>0,56</td>
+<td>0,39</td>
+<td>0,68</td>
+<td>0,62</td>
+<td>0,57</td>
+<td>0,74</td>
+<td>0,53</td>
+<td>0,41</td>
+<td>0,45</td>
+<td>0,41</td>
+<td>0,37</td>
+<td>0,41</td>
+<td>0,39</td>
+<td>0,36</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>0,43</td>
+<td>0,46</td>
+<td>0,50</td>
+<td>0,91</td>
+<td>0,52</td>
+<td>0,37</td>
+<td>1,00</td>
+<td>0,57</td>
+<td>0,40</td>
+</tr>
+<tr><td><a href="biblio/5-w.html">5</a></td><td>1,00</td>
+<td>1,00</td>
+<td>1,00</td>
+<td>0,58</td>
+<td>0,54</td>
+<td>0,50</td>
+<td>0,94</td>
+<td>0,55</td>
+<td>0,39</td>
+<td>0,99</td>
+<td>0,56</td>
+<td>0,40</td>
+<td>0,68</td>
+<td>0,62</td>
+<td>0,57</td>
+<td>0,74</td>
+<td>0,53</td>
+<td>0,41</td>
+<td>0,45</td>
+<td>0,40</td>
+<td>0,37</td>
+<td>0,40</td>
+<td>0,38</td>
+<td>0,36</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>0,43</td>
+<td>0,46</td>
+<td>0,50</td>
+<td>0,90</td>
+<td>0,52</td>
+<td>0,37</td>
+<td>1,00</td>
+<td>0,58</td>
+<td>0,40</td>
+</tr>
+<tr bgcolor="yellow"><td>Energy</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0,5</td>
+<td>0,42</td>
+<td>0,148</td>
+<td>0,975</td>
+<td>0,705</td>
+<td>0,228</td>
+<td>1</td>
+<td>0,18</td>
+<td>0,02</td>
+<td>0,96</td>
+<td>0,675</td>
+<td>0,214</td>
+<td>0,324</td>
+<td>0,11</td>
+<td>0,024</td>
+<td>#DIV/0!</td>
+<td>#DIV/0!</td>
+<td>0</td>
+<td>#DIV/0!</td>
+<td>#DIV/0!</td>
+<td>0</td>
+<td>#DIV/0!</td>
+<td>#DIV/0!</td>
+<td>0</td>
+<td>0,74</td>
+<td>0,77</td>
+<td>0,81</td>
+<td>#DIV/0!</td>
+<td>#DIV/0!</td>
+<td>0</td>
+<td>1</td>
+<td>0,5133333333</td>
+<td>0,224</td>
+</tr>
+<tr><td><a href="energy/1.html">1</a></td><td>1,00</td>
+<td>1,00</td>
+<td>1,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>0,74</td>
+<td>0,77</td>
+<td>0,81</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>1,00</td>
+<td>0,65</td>
+<td>0,49</td>
+</tr>
+<tr><td><a href="energy/2.html">2</a></td><td>1,00</td>
+<td>1,00</td>
+<td>1,00</td>
+<td>0,50</td>
+<td>0,35</td>
+<td>0,27</td>
+<td>0,97</td>
+<td>0,58</td>
+<td>0,41</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>0,96</td>
+<td>0,55</td>
+<td>0,39</td>
+<td>0,73</td>
+<td>0,09</td>
+<td>0,05</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>0,74</td>
+<td>0,77</td>
+<td>0,81</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+</tr>
+<tr><td><a href="energy/3.html">3</a></td><td>1,00</td>
+<td>1,00</td>
+<td>1,00</td>
+<td>0,50</td>
+<td>0,49</td>
+<td>0,47</td>
+<td>0,98</td>
+<td>0,83</td>
+<td>0,73</td>
+<td>1,00</td>
+<td>0,18</td>
+<td>0,10</td>
+<td>0,96</td>
+<td>0,80</td>
+<td>0,68</td>
+<td>0,89</td>
+<td>0,13</td>
+<td>0,07</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>0,74</td>
+<td>0,77</td>
+<td>0,81</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+</tr>
+<tr><td><a href="energy/4.html">4</a></td><td>1,00</td>
+<td>1,00</td>
+<td>1,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>0,74</td>
+<td>0,77</td>
+<td>0,81</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>1,00</td>
+<td>0,24</td>
+<td>0,14</td>
+</tr>
+<tr><td><a href="energy/5.html">5</a></td><td>1,00</td>
+<td>1,00</td>
+<td>1,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>0,74</td>
+<td>0,77</td>
+<td>0,81</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>1,00</td>
+<td>0,65</td>
+<td>0,49</td>
+</tr>
+<tr bgcolor="yellow"><td>Energy weighted</td></tr>
+<tr><td><a href="energy/1-w.html">1</a></td><td>1,00</td>
+<td>1,00</td>
+<td>1,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>0,26</td>
+<td>0,00</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>0,74</td>
+<td>0,77</td>
+<td>0,81</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>1,00</td>
+<td>0,65</td>
+<td>0,49</td>
+</tr>
+<tr><td><a href="energy/2-w.html">2</a></td><td>1,00</td>
+<td>1,00</td>
+<td>1,00</td>
+<td>0,72</td>
+<td>0,39</td>
+<td>0,27</td>
+<td>0,95</td>
+<td>0,56</td>
+<td>0,40</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>0,72</td>
+<td>0,40</td>
+<td>0,28</td>
+<td>0,62</td>
+<td>0,07</td>
+<td>0,04</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>0,74</td>
+<td>0,77</td>
+<td>0,81</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+</tr>
+<tr><td><a href="energy/3-w.html">3</a></td><td>1,00</td>
+<td>1,00</td>
+<td>1,00</td>
+<td>0,75</td>
+<td>0,58</td>
+<td>0,47</td>
+<td>0,95</td>
+<td>0,81</td>
+<td>0,70</td>
+<td>0,96</td>
+<td>0,18</td>
+<td>0,10</td>
+<td>0,72</td>
+<td>0,59</td>
+<td>0,50</td>
+<td>0,70</td>
+<td>0,09</td>
+<td>0,05</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>0,74</td>
+<td>0,77</td>
+<td>0,81</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+</tr>
+<tr><td><a href="energy/4-w.html">4</a></td><td>1,00</td>
+<td>1,00</td>
+<td>1,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>0,25</td>
+<td>0,00</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>0,74</td>
+<td>0,77</td>
+<td>0,81</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>1,00</td>
+<td>0,24</td>
+<td>0,14</td>
+</tr>
+<tr><td><a href="energy/5-w.html">5</a></td><td>1,00</td>
+<td>1,00</td>
+<td>1,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>0,25</td>
+<td>0,00</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>0,74</td>
+<td>0,77</td>
+<td>0,81</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0,00</td>
+<td>1,00</td>
+<td>0,65</td>
+<td>0,49</td>
+</tr>
+</tbody></table>
+<p><small>n/a: result alignment not provided or not readable<br />
+NaN: division per zero, likely due to empty alignment.</small></p>
+
+<h2>Contact</h2>
+
+<p>This track has been performed by J&eacute;r&ocirc;me Euzenat.
+If you have any problems working with the ontologies, any questions or suggestions,
+feel free to contact him</p>
+
+<h2>References</h2>
+
+<p>
+[1] J&eacute;r&ocirc;me Euzenat, Maria Ro&#351;oiu, C&aacute;ssia
+Trojahn dos Santos. Ontology matching benchmarks: generation, 
+stability, and discriminability, <i>Journal of web semantics</i> 21:30-48,
+2013 [DOI:<a href="http://dx.doi.org/10.1016/j.websem.2013.05.002">10.1016/j.websem.2013.05.002</a>]
+</p>
+
+<div class="address">
+<div class="footer">http://oaei.ontologymatching.org/2015/results/benchmarks/index.html</div>
+<!--$Id$-->
+</div>
+</body>
+</html>
