@@ -74,6 +74,31 @@ var conference3 = new Array(
 "ServOMBI","0.664","0.559","0.427","0.590","0.520","0.574","1.000","0.627","0.770","589.7","308.0","105.0","103.7","48.0","51.3","50"
 );
 
+var largeBio0 = new Array(
+"AML","0.943","0.905","0.771","0.754","0.845","0.819","0.943","0.771","0.845","10217","10217","5126","5091","0","0","2877",
+"LogMap","0.971","0.903","0.725","0.714","0.826","0.794","0.971","0.725","0.826","27436","27436","17050","10386","0","0","3803",
+"ServOMBI*","1.000","0.965","0.737","0.735","0.847","0.833","1.000","0.737","0.847","21416","9424","8685","739","0","0","726"
+);
+
+var largeBio1 = new Array(
+"AML","0.931","0.905","0.761","0.754","0.835","0.819","0.944","0.769","0.845","10217","10217","4624","4658","485","450","2913",
+"LogMap","0.939","0.903","0.701","0.714","0.798","0.794","0.944","0.704","0.803","28890","28890","15753","10659","1181","1297","3963",
+"ServOMBI*","0.995","0.965","0.666","0.735","0.796","0.833","1.000","0.716","0.832","22920","9502","8063","726","85","628","695"
+);
+
+var largeBio2 = new Array(
+"AML","0.917","0.905","0.753","0.754","0.824","0.819","0.944","0.769","0.845","10217","10217","4196","4081","1049","891","2930",
+"LogMap","0.915","0.903","0.684","0.714","0.778","0.794","0.907","0.676","0.771","30426","30426","14286","10707","2669","2764","3912",
+"ServOMBI*","0.987","0.965","0.592","0.735","0.739","0.833","1.000","0.688","0.813","23968","9541","7431","661","192","1257","713"
+);
+
+var largeBio3 = new Array(
+"AML","0.906","0.905","0.745","0.754","0.815","0.819","0.943","0.771","0.845","10217","10217","3737","3637","1537","1306","2959",
+"LogMap","0.898","0.903","0.681","0.714","0.769","0.794","0.868","0.649","0.739","31504","31504","13035","10147","4307","4015","3874",
+"ServOMBI*","0.983","0.965","0.523","0.735","0.681","0.833","1.000","0.660","0.792","25580","9600","6818","652","256","1874","618"
+);
+
+
 <!-- array in which the sorted data is located -->
 <!--var sort_data = new Array(data.length);-->
 
@@ -83,6 +108,8 @@ var anatomyHeadings = new Array("Tool","Precision","Precision non","F-Measure","
   
   
 var conferenceHeadings = new Array("Tool","Precision","Precision non","Recall","Recall non","F-measure","F-measure non","Precision Oracle","Recall Oracle","F-measure Oracle","Total Requests","Distinct Requests","True Positives","True Negatives","False Positives","False Negatives","Run Time"); 
+
+var largeBioHeadings = new Array("Tool","Precision","Precision non","Recall","Recall non","F-measure","F-measure non","Precision Oracle","Recall Oracle","F-measure Oracle","Total Requests","Distinct Requests","True Positives","True Negatives","False Positives","False Negatives","Run Time"); 
 
 <!-- determine the number of columns -->
 <!--var columns = headings.length; -->
@@ -104,6 +131,10 @@ var columnsFormatting = new Array(
 
 <!-- for every column the sort type is set, e.g. alphabetical if the column should be sorted alphabetically -->
 var conferenceSortTypes = new Array(
+ "alphabetical","numerical","numerical","numerical","numerical","numerical","numerical", "numerical", "numerical", "numerical", "numerical", "numerical", "numerical", "numerical","numerical", "numerical", "numerical"
+);
+
+var largeBioSortTypes = new Array(
  "alphabetical","numerical","numerical","numerical","numerical","numerical","numerical", "numerical", "numerical", "numerical", "numerical", "numerical", "numerical", "numerical","numerical", "numerical", "numerical"
 );
 
@@ -312,7 +343,7 @@ function NumsortInverse(a,b){
 <title>table</title>
 </head>
 <!--<body onLoad="createSortedLine(-1,'',data); writeTable(data);">-->
- <body onLoad="writeTable(anatomy0,anatomyHeadings,-1,'','anatomy0',anatomySortTypes);writeTable(anatomy1,anatomyHeadings,-1,'','anatomy1',anatomySortTypes);writeTable(anatomy2,anatomyHeadings,-1,'','anatomy2',anatomySortTypes);writeTable(anatomy3,anatomyHeadings,-1,'','anatomy3',anatomySortTypes);writeTable(conference0,conferenceHeadings,-1,'','conference0',conferenceSortTypes);writeTable(conference1,conferenceHeadings,-1,'','conference1',conferenceSortTypes);writeTable(conference2,conferenceHeadings,-1,'','conference2',conferenceSortTypes);writeTable(conference3,conferenceHeadings,-1,'','conference3',conferenceSortTypes);">    
+ <body onLoad="writeTable(anatomy0,anatomyHeadings,-1,'','anatomy0',anatomySortTypes);writeTable(anatomy1,anatomyHeadings,-1,'','anatomy1',anatomySortTypes);writeTable(anatomy2,anatomyHeadings,-1,'','anatomy2',anatomySortTypes);writeTable(anatomy3,anatomyHeadings,-1,'','anatomy3',anatomySortTypes);writeTable(conference0,conferenceHeadings,-1,'','conference0',conferenceSortTypes);writeTable(conference1,conferenceHeadings,-1,'','conference1',conferenceSortTypes);writeTable(conference2,conferenceHeadings,-1,'','conference2',conferenceSortTypes);writeTable(conference3,conferenceHeadings,-1,'','conference3',conferenceSortTypes);writeTable(largeBio0,largeBioHeadings,-1,'','largeBio0',largeBioSortTypes);writeTable(largeBio1,largeBioHeadings,-1,'','largeBio1',largeBioSortTypes);writeTable(largeBio2,largeBioHeadings,-1,'','largeBio2',largeBioSortTypes);writeTable(largeBio3,largeBioHeadings,-1,'','largeBio3',largeBioSortTypes);">    
 <br/>
 <div class="header">
 <a style="color: grey; line-height: 5mm;" href="http://oaei.ontologymatching.org/2015/">Ontology
@@ -460,8 +491,12 @@ The results will be presented for each data set separately. A request is conside
  ServOMBI performance in terms of F-measure and Recall drops below the non-interactive results already in the 0.1 case, but the precision is higher in all cases. 
  In contrast JarvisOM still performs better in the 0.3 case on all measures than in the non-interactive Anatomy track where it achieved very low values for all measures.
  It is also worth noting the large drop in precision (40%) for JarvisOM with the growing error rates in comparison to the other three systems where the drop in precision is between 1 to 5%. This could be explained by the fact that JarvisOM asks only few questions and is therefore very sensitive to false positives and false negatives. </p> 
+ 
+ <p>
+ Another interesting observation is that, with the exception of AML, the performance of the systems also declines as the error increases with regard to the Oracle reference (i.e., the reference as modified by the errors introduced in the Oracle). This means that the impact of the errors is linear for AML (i.e., one erroneous response from the oracle, leads to only one error from AML) but supralinear for the other systems.
+ </p>
   
-  <p>AML shows stable performance in connection to the size of the alignment and the number of (distinct) requests to the oracle generated with different error rates. 
+  <p>AML also shows stable performance in connection to the size of the alignment and the number of (distinct) requests to the oracle generated with different error rates. 
   As discussed it does not present the same question again to the user. The same observation regarding the unique requests applies to JarvisOM and LogMap as well. 
   It should be noted that JarvisOM uses very few requests to the oracle and this number is stable across the different error rates. 
   Another notable difference is the varying size of the alignment generated by JarvisOM which almost doubles in the 0.2 case comparing to the all-knowing oracle. 
@@ -505,7 +540,8 @@ The results will be presented for each data set separately. A request is conside
  </figure>   
 
 <p>
-We first focus on the performance of the systems with an all-knowing oracle. In this case, all systems improve their results compared to the non-interactive version of the Conference track. The biggest improvement in F-measure is achieved by ServOMBI 20%. Other systems also show substantial improvements, AML improves the F-measure by around 8%, JarvisOM by around 13% and LogMap by around 4%. Closer inspection shows that for different systems the improvement of F-measure can be attributed to different factors. For example, in the case of ServOMBI and LogMap interaction with the user improved precision while recall experienced only slight improvement. On the other hand, JarvisOM improved recall substantially while keeping similar level of precision. Finally, AML improved both precision and recall by more than 6 percent which attributed to a higher F-measure. As expected, the results start deteriorating when introducing the error in the oracle's answers. Interestingly, even with the error rate of 0.3 most systems perform similar (with respect to the F-measure) to the non-interactive version of the system. For example, AML's F-measure in the case with 0.3 error rate is only 0.5% worse than the non-interactive one. The most substantial difference is in the case of ServOMBI with an oracle with the error rate of 0.3 where the system achieves around 5% worse result than in the non-interactive version. Again closer inspection shows that different systems are affected in different ways when errors are introduced. For example, if we compare the 0.0 and 0.3 case, we can see that for AML, precision is affected by 10% and recall by 6%. In the case of JarvisOM, precision drops by 20% while recall drops by only 3%. LogMap is affected in the similar manner and its precision drops by 10% while the recall  drops by only 2%. Finally, the most substantial change is in the case of ServOMBI where the precision drops from 100% to around 66% and recall shows a drop of 22%. Similar as in the anatomy case, this could be attributed to the small number of questions to the oracle and high sensitivity to false positives and false negatives.
+We first focus on the performance of the systems with an all-knowing oracle. In this case, all systems improve their results compared to the non-interactive version of the Conference track. The biggest improvement in F-measure is achieved by ServOMBI with 20%. Other systems also show substantial improvements, AML improves the F-measure by around 8%, JarvisOM by around 13% and LogMap by around 4%. Closer inspection shows that for different systems the improvement of F-measure can be attributed to different factors. For example, in the case of ServOMBI and LogMap interaction with the user improved precision while recall experienced only slight improvement. On the other hand, JarvisOM improved recall substantially while keeping similar level of precision. Finally, AML improved both precision and recall by more than 6 percent which contributed to a higher F-measure. As expected, the results start deteriorating when introducing the error in the oracle's answers. Interestingly, even with the error rate of 0.3 most systems perform similar (with respect to the F-measure) to their non-interactive version. For example, AML's F-measure in the case with 0.3 error rate is only 0.5% worse than the non-interactive one. The most substantial difference is in the case of ServOMBI with an oracle with the error rate of 0.3 where the system achieves around 5% worse result than in the non-interactive version. Again closer inspection shows that different systems are affected in different ways when errors are introduced. For example, if we compare the 0.0 and 0.3 case, we can see that for AML, precision is affected by 10% and recall by 6%. In the case of JarvisOM, precision drops by 20% while recall drops by only 3%. LogMap is affected in the similar manner and its precision drops by 10% while the recall  drops by only 2%. Finally, the most substantial change is in the case of ServOMBI where the precision drops from 100% to around 66% and recall shows a drop of 22%. Like in the Anatomy dataset, LogMap and ServOMBI also show a drop in performance in relation to the Oracle reference with the increase of the error rate, which indicates a supralinear impact of the errors. AML again shows a constant performance that reflects a linear impact of the errors. Surprisingly, JarvisOM also shows a constant performance, which is a different behaviour than what it showed in Anatomy.
+
 </p>
 <p>
 When it comes to number of request to the oracle, we can see that 3 out of 4 systems do around 150 requests while ServOMBI does most requests, namely 550. AML, JarvisOM and LogMap do not repeat their requests while around 40% of requests done by ServOMBI are repeated requests. Across the three runs and different error rates the AML and LogMap mean times between requests are less than 3 ms. On the other hand, mean time between requests for ServOMBI and JarvisOM are around 30 and 10 ms respectively. While in most cases there is little to no delay between requests, there are some outliers. These are most prominent for ServOMBI where some requests were delayed for around 2 seconds which is substaintally longer than the mean.
@@ -515,20 +551,40 @@ When it comes to number of request to the oracle, we can see that 3 out of 4 sys
 This year we have two systems which competed in the last year's campaign, i.e., AML and LogMap. When comparing to the results of last year (perfect oracle), AML improved its F-measure by around 2%. This increase can be accounted to increased precision (increase of around 3%). On the other hand, LogMap shows a slight decrease in recall and precision, and hence, in F-measure.
 </p>
 
+<h3>LargeBio track</h3> 
+ <h4>Error Rate 0.0</h4> 
+ <div id="largeBio0"></div>
+ <h4>Error Rate 0.1</h4> 
+ <div id="largeBio1"></div>  
+ <h4>Error Rate 0.2</h4> 
+ <div id="largeBio2"></div>    
+ <h4>Error Rate 0.3</h4> 
+ <div id="largeBio3"></div>      
+<p>
+Of the four systems participating in this track this year, only AML and LogMap were able to complete the full Large Biomedical Ontologies dataset. ServOMBI was only able to match the FMA-NCI small fragments and FMA-SNOMED small fragments, whereas JarvisOM was unable to complete any of the tasks. Therefore, ServOMBI's results are partial, and not directly comparable with those of the other systems (marked with * in the results table).
+</p>
+<p>
+With an all-knowing Oracle, AML, LogMap and ServOMBI all improved their performance in comparison with the non-interactive version of the Large Biomedical Ontologies track. The biggest improvement in F-measure was achieved by LogMap with 3.2%, followed by AML with 2.6%, then ServOMBI with 1.4%. AML showed the greatest improvement in terms of recall, but also increased its precision substantially; LogMap had the greatest improvement in terms of precision, but also showed a significant increase in recall; and ServOMBI improved essentially only with regard to precision, obtaining 100% as in the other datasets.
+</p>
+<p>
+The introduction of (simulated) user errors had a very different effect on the three systems: AML shows a slight drop in performance of 3% F-measure between 0 and 30% error, and is only slightly worse than its non-interactive version at 30% error; LogMap shows a more pronounced drop of 5.7% F-measure; and ServOMBI shows a substantial drop of 16.6% F-measure. Unlike in the other datasets, all systems are affected significantly by the error with regard to both precision and recall. Like in the other datasets, AML shows a constant performance in relation to the Oracle reference, indicating a linear impact of the errors, whereas the other two systems decrease in performance as the error increases, indicating a supralinear impact of the errors.
+</p>
+<p>
+Regarding the number of request to the oracle, AML was the more sparing system, with only 10,217, whereas LogMap made almost three times as many requests (27,436). ServOMBI was again the more inquisitive system, with 21,416 requests on only the two smallest tasks in the dataset (for comparison, AML made only 1,823 requests on these two tasks and LogMap made 6,602). As in the other datasets, ServOMBI was the only system to make redundant requests to the Oracle. Interestingly, both LogMap and ServOMBI increased the number of requests with the error, whereas AML had a constant number of requests.
+</p>
 
-
-
- <h3>Largebio Track</h3>
- 
-<p>Results coming soon.</p> 
-
-
-<br/>
 
 <h2>Discussion</h2>
 <p>
-This year is the first time we have considered a non-perfect domain expert, i.e., a domain expert which can provide wrong answers. As expected, the performance of the systems deteriorated with the increase of the error rate. However, an interesting observation is that the errors had different impact on different systems. In some cases erroneous answers from the oracle had the highest impact on the recall, in some cases on the precision and in some cases such as AML both measures were affected.  
+This year is the first time we have considered a non-perfect domain expert, i.e., a domain expert which can provide wrong answers. As expected, the performance of the systems deteriorated with the increase of the error rate. However, an interesting observation is that the errors had different impact on different systems reflecting the different interactive strategies employed by the systems. In some cases erroneous answers from the oracle had the highest impact on the recall, in other cases on the precision, and in others still both measures were significantly affected. Also interesting is the fact that the impact of the errors was linear in some systems and supralinear in others, as reflected by their performance in relation to the Oracle alignment. A supralinear impact of the errors indicates that the system is making inferences from the user and thus deciding on the classification of multiple mapping candidates based on user feedback about only one mapping. This is an effective strategy for reducing the burden on the user, but alas leaves the matching system more susceptible to user errors. An extreme example of this is JarvisOM on the Anatomy dataset, as it uses an active-learning approach based on solely 7 user requests, and consequently is profoundly affected when faced with user errors given the size of the Anatomy alignment. Curiously, this system behaves very differently in the Conference dataset, showing a linear impact of the errors, as in this case 7 requests (which is the average number it makes per task) represent a much more substantial portion of the Conference alignments (~50%) and thus leads to less inferences and consequently less impact of errors.
 </p>
+<p>
+Apart from JarvisOM, the other systems all make use of user interactions exclusively in post-matching steps to filter their candidate mappings. LogMap and AML both request feedback on only selected mapping candidates (based on their similarity patterns or their involvement in unsatisfiabilities). By contrast, ServOMBI employs the user to validate all its mapping candidates (after two distinct matching stages), which corresponds to user validation rather than interactive matching. Consequently, it makes a much greater number of user requests than the other systems, and in being the system most dependent on the user, is also the one most affected by user errors.
+</p>
+<p>
+With regard still to the number of user requests, it is interesting to note that both ServOMBI and LogMap generally increased the number of requests with the error, whereas AML and JarvisOM kept their number approximately constant. The increase is natural, as user errors can lead to more complex decision trees when interaction is used in filtering steps and inferences are drawn from the user feedback (such as during alignment repair) which leads to an increased number of subsequent requests. JarvisOM is not affected by this because it uses interaction during matching and makes a fixed 7-8 requests per matching task, whereas AML prevents it by employing a maximum query limit and stringent stopping criteria.
+</p>
+<!--
 <p>
 Experiments have also shown that there should be a balance in the number of questions to the oracle. While too many questions can unnecessarily burden the user, asking too little questions cam also mean that the system is more sensitive to false positives and false negatives which can then substaintally hurt the results. 
 </p>
@@ -539,6 +595,7 @@ ServOMBI interacts with the user at the end of each of the two phases to validat
 In this version of the system it asks the user for any candidate found which results in huge number of questions. 
 Its approach corresponds to user validation rather than an interactive matching.
 </p>
+-->
 <p>
 Two models for system response times are frequently used in the literature <a href="#references">(Dabrowski et al., 2011)</a>: Shneiderman and Seow take different approaches to categorize the response times. 
 Shneiderman takes task-centred view and sort out the response times in  four categories according to task complexity: typing, mouse movement (50-150 ms), 
