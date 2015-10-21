@@ -1,68 +1,382 @@
-<html><head>
-<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
 
-<title>OAEI 2015::Interactive Track</title>
-<link rel="stylesheet" type="text/css" href="../style.css">
-</head><body>
+<html>
+<head>
+<title>Ontology Alignment Evaluation Initiative::Interactive</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<style type="text/css">
+#Kopfbereich { position:absolute; top:20px; left:30px; }
+#table { position:static; top:100px; left:30px; }
+body { background-color:#FFFFFF; }
+th,td { padding:1px; }
+td { font-family:Courier New,courier; text-align:center; border:solid 1px #808080 }
+table { border:solid 1px }
+</style>
+<script type="text/javascript">
 
+<!-- array containg all data -->
+<!--corresponds to error rate 0.0-->
+var anatomy0 = new Array( 
+"AML","0.970","0.956","0.962","0.944","0.954","0.931","0.878","0.820","1491.0","312.0","312.0","73.0","239.0","0.0","0.0","49","0.970","0.954","0.962","0.970","0.954","0.962",
+"JarvisOM","0.867","0.365","0.755","0.169","0.668","0.110","0.154","0.010","1168.0","7.0","7.0","4.0","3.0","0.0","0.0","213","0.864","0.668","0.753","0.864","0.668","0.753",
+"LogMap","0.988","0.918","0.912","0.880","0.846","0.846","0.595","0.593","1298.0","590","590","287","303","0","0","24","0.982","0.846","0.909","0.982","0.846","0.909",
+"ServOMBI","1.000","0.963","0.763","0.752","0.617","0.617","0.099","0.099","935.0","2136.0","1128.0","955.0","173.0","0.0","0.0","711","1.000","0.617","0.763","1.000","0.617","0.763"
+);
+
+<!--corresponds to error rate 0.1-->
+var anatomy1 = new Array( 
+"AML","0.955","0.956","0.950","0.944","0.946","0.931","0.859","0.820","1502.0","317.3","317.3","66.3","218.0","23.0","10.0","45","0.955","0.946","0.950","0.970","0.953","0.961",
+"JarvisOM","0.764","0.365","0.684","0.169","0.666","0.110","0.219","0.010","1467.7","7.0","7.0","3.3","3.0","0.3","0.3","214","0.760","0.666","0.682","0.760","0.667","0.682",
+"LogMap","0.966","0.918","0.894","0.880","0.832","0.846","0.569","0.593","1306.0","609","609","261.3","288.3","33.7","25.7","25","0.96","0.832","0.891","0.964","0.831","0.893",
+"ServOMBI","0.996","0.963","0.712","0.752","0.553","0.617","0.084","0.099","842.7","2198.7","1128.0","857.3","156.3","16.7","97.7","563","0.996","0.553","0.711","1.000","0.587","0.740"
+);
+
+<!--corresponds to error rate 0.2-->
+var anatomy2 = new Array( 
+"AML","0.936","0.956","0.939","0.944","0.942","0.931","0.851","0.820","1525.0","321.7","321.7","66.3","186.7","52.3","16.3","47","0.936","0.942","0.939","0.971","0.954","0.962",
+"JarvisOM","0.529","0.365","0.601","0.169","0.710","0.110","0.376","0.010","2045.3","8.0","8.0","4.7","1.0","1.3","1.0","214","0.526","0.710","0.600","0.527","0.711","0.600",
+"LogMap","0.953","0.918","0.884","0.880","0.824","0.846","0.557","0.593","1311.7","630","630","233","274","69","54","24","0.947","0.824","0.881","0.945","0.814","0.875",
+"ServOMBI","0.989","0.963","0.659","0.752","0.494","0.617","0.081","0.099","757.0","2257.0","1128.0","767.3","131.3","41.7","187.7","571","0.988","0.494","0.658","1.000","0.553","0.712"
+);
+
+<!--corresponds to error rate 0.3-->
+var anatomy3 = new Array( 
+"AML","0.931","0.956","0.934","0.944","0.936","0.931","0.837","0.820","1526.0","306.0","306.0","54.0","168.7","61.3","22.0","48","0.931","0.936","0.933","0.971","0.953","0.961",
+"JarvisOM","0.511","0.365","0.493","0.169","0.530","0.110","0.251","0.010","1501.7","7.3","7.3","4.0","1.7","1.0","0.7","214","0.508","0.530","0.492","0.509","0.531","0.493",
+"LogMap","0.941","0.918","0.875","0.880","0.818","0.846","0.539","0.593","1317.0","663","663","200.7","270.7","105.3","86.3","24","0.936","0.818","0.873","0.924","0.797","0.856",
+"ServOMBI","0.986","0.963","0.597","0.752","0.428","0.617","0.069","0.099","658.3","2329.7","1128.3","663.3","129.0","44.3","291.7","447","0.986","0.428","0.597","1.000","0.519","0.683"
+);
+
+var conference0 = new Array(
+"AML","0.940","0.841","0.724","0.659","0.818","0.739","0.940","0.724","0.818","147.0","147.0","53.0","94.0","0.0","0.0","28",
+"JarvisOM","0.810","0.838","0.546","0.374","0.652","0.517","0.810","0.546","0.652","154.0","154.0","38.0","116.0","0.0","0.0","39",
+"LogMap","0.874","0.801","0.615","0.593","0.722","0.681","0.874","0.615","0.722","157.0","157.0","52.0","105.0","0.0","0.0","27",
+"ServOMBI","1.000","0.559","0.650","0.590","0.788","0.574","1.000","0.650","0.788","535.0","295.0","156.0","139.0","0.0","0.0","50"
+);
+
+var conference1 = new Array(
+"AML","0.905","0.841","0.707","0.659","0.794","0.739","0.941","0.727","0.820","147.3","147.3","48.3","85.3","8.7","5.0","27",
+"JarvisOM","0.725","0.838","0.533","0.374","0.614","0.517","0.771","0.552","0.643","154.0","154.0","34.3","107.0","10.3","2.3","38",
+"LogMap","0.827","0.801","0.598","0.593","0.694","0.681","0.836","0.592","0.694","157.7","157.7","45.7","93.3","12.3","6.3","27",
+"ServOMBI","0.887","0.559","0.573","0.590","0.696","0.574","1.000","0.637","0.778","555.3","299.3","137.7","126.3","16.7","18.7","51"
+);
+
+var conference2 = new Array(
+"AML","0.869","0.841","0.690","0.659","0.769","0.739","0.941","0.730","0.822","149.0","149.0","45.0","76.3","17.3","10.3","27",
+"JarvisOM","0.669","0.838","0.519","0.374","0.583","0.517","0.765","0.562","0.647","155.0","155.0","28.7","97.3","22.7","6.3","38",
+"LogMap","0.809","0.801","0.593","0.593","0.685","0.681","0.813","0.578","0.676","158.7","158.7","40.0","84.7","22.0","12.0","27",
+"ServOMBI","0.797","0.559","0.496","0.590","0.611","0.574","1.000","0.622","0.767","554.7","295.7","122.0","110.7","29.0","34.0","50"
+);
+
+var conference3 = new Array(
+"AML","0.833","0.841","0.656","0.659","0.734","0.739","0.936","0.727","0.818","148.7","148.7","35.3","68.0","24.7","20.7","27",
+"JarvisOM","0.616","0.838","0.511","0.374","0.559","0.517","0.743","0.575","0.648","154.3","154.3","24.3","88.0","32.0","10.0","39",
+"LogMap","0.781","0.801","0.592","0.593","0.674","0.681","0.789","0.566","0.659","154.0","154.0","37.7","70.7","31.3","14.3","27",
+"ServOMBI","0.664","0.559","0.427","0.590","0.520","0.574","1.000","0.627","0.770","589.7","308.0","105.0","103.7","48.0","51.3","50"
+);
+
+var largeBio0 = new Array(
+"AML","0.943","0.905","0.771","0.754","0.845","0.819","0.943","0.771","0.845","10217","10217","5126","5091","0","0","2877",
+"LogMap","0.971","0.903","0.725","0.714","0.826","0.794","0.971","0.725","0.826","27436","27436","17050","10386","0","0","3803",
+"ServOMBI*","1.000","0.965","0.737","0.735","0.847","0.833","1.000","0.737","0.847","21416","9424","8685","739","0","0","726"
+);
+
+var largeBio1 = new Array(
+"AML","0.931","0.905","0.761","0.754","0.835","0.819","0.944","0.769","0.845","10217","10217","4624","4658","485","450","2913",
+"LogMap","0.939","0.903","0.701","0.714","0.798","0.794","0.944","0.704","0.803","28890","28890","15753","10659","1181","1297","3963",
+"ServOMBI*","0.995","0.965","0.666","0.735","0.796","0.833","1.000","0.716","0.832","22920","9502","8063","726","85","628","695"
+);
+
+var largeBio2 = new Array(
+"AML","0.917","0.905","0.753","0.754","0.824","0.819","0.944","0.769","0.845","10217","10217","4196","4081","1049","891","2930",
+"LogMap","0.915","0.903","0.684","0.714","0.778","0.794","0.907","0.676","0.771","30426","30426","14286","10707","2669","2764","3912",
+"ServOMBI*","0.987","0.965","0.592","0.735","0.739","0.833","1.000","0.688","0.813","23968","9541","7431","661","192","1257","713"
+);
+
+var largeBio3 = new Array(
+"AML","0.906","0.905","0.745","0.754","0.815","0.819","0.943","0.771","0.845","10217","10217","3737","3637","1537","1306","2959",
+"LogMap","0.898","0.903","0.681","0.714","0.769","0.794","0.868","0.649","0.739","31504","31504","13035","10147","4307","4015","3874",
+"ServOMBI*","0.983","0.965","0.523","0.735","0.681","0.833","1.000","0.660","0.792","25580","9600","6818","652","256","1874","618"
+);
+
+
+<!-- array in which the sorted data is located -->
+<!--var sort_data = new Array(data.length);-->
+
+<!-- define the headings, headings[x][0] are the names of the upper headings and all others for subheadings -->
+<!-- below a certain upper heading -->
+var anatomyHeadings = new Array("Tool","Precision","Precision non","F-Measure","F-measure non","Recall","Recall non","Recall+","Recall+ non","Size Alignment","Total Requests","Distinct Requests","True Positives","True Negatives","False Positives","False Negatives","Run Time","Precision","Recall","F-measure","Precision Oracle","Recall Oracle","F-measure Oracle");  
+  
+  
+var conferenceHeadings = new Array("Tool","Precision","Precision non","Recall","Recall non","F-measure","F-measure non","Precision Oracle","Recall Oracle","F-measure Oracle","Total Requests","Distinct Requests","True Positives","True Negatives","False Positives","False Negatives","Run Time"); 
+
+var largeBioHeadings = new Array("Tool","Precision","Precision non","Recall","Recall non","F-measure","F-measure non","Precision Oracle","Recall Oracle","F-measure Oracle","Total Requests","Distinct Requests","True Positives","True Negatives","False Positives","False Negatives","Run Time"); 
+
+<!-- determine the number of columns -->
+<!--var columns = headings.length; -->
+<!--var rows = data.length/columns; -->
+
+<!-- different heading formats according to the number of subheadings --> 
+var headingColumnsFormatting = new Array(
+ "colspan=\"1\" valign=\"top\" style=\"text-align:center; border:solid 1px #808080\"",
+ "colspan=\"6\" valign=\"top\" style=\"text-align:center; border:solid 1px #808080\"",
+ "colspan=\"1\" valign=\"top\" style=\"text-align:center; border:solid 1px #808080\""
+ 
+);
+
+<!-- set the style of all other columns-->
+var columnsFormatting = new Array(
+ "width=\"75\" style=\"font-family:Courier New,courier; text-align:center; border:solid 1px #808080\"",
+ "width=\"75\" bgcolor=\"#00FFFF\" style=\"font-family:Courier New,courier; text-align:center; border:solid 1px #808080\""
+);
+
+<!-- for every column the sort type is set, e.g. alphabetical if the column should be sorted alphabetically -->
+var conferenceSortTypes = new Array(
+ "alphabetical","numerical","numerical","numerical","numerical","numerical","numerical", "numerical", "numerical", "numerical", "numerical", "numerical", "numerical", "numerical","numerical", "numerical", "numerical"
+);
+
+var largeBioSortTypes = new Array(
+ "alphabetical","numerical","numerical","numerical","numerical","numerical","numerical", "numerical", "numerical", "numerical", "numerical", "numerical", "numerical", "numerical","numerical", "numerical", "numerical"
+);
+
+var anatomySortTypes = new Array(
+ "alphabetical","numerical","numerical","numerical","numerical","numerical","numerical", "numerical", "numerical", "numerical", "numerical", "numerical", "numerical", "numerical", "numerical", "numerical", "numerical", "numerical", "numerical", "numerical", "numerical", "numerical", "numerical"
+);
+
+<!-- table format -->
+var tableFormatting = "border=\"1\" style=\"border:solid 1px #808080\" cellspacing=\"0\"";
+
+<!-- load the arrow pictures -->
+var ArrowUp = "<img src=\"arrowUp.jpg\" width=\"14\" height=\"12\" border=\"0\" alt=\"\">";
+var ArrowDown = "<img src=\"arrowDown.jpg\" width=\"14\" height=\"12\" border=\"0\" alt=\"\">";
+var ArrowUpSorted = "<img src=\"arrowUpSorted.jpg\" width=\"14\" height=\"12\" border=\"0\" alt=\"\">";
+var ArrowDownSorted = "<img src=\"arrowDownSorted.jpg\" width=\"14\" height=\"12\" border=\"0\" alt=\"\">";
+
+<!--var sortedLine = "";-->
+
+function stringifyArray(Array){
+	var arrayAsString = "[";
+	for(var i=0;i < Array.length;i++)
+	{
+		arrayAsString+="'" + Array[i] + "'";
+		if(!((i+1) == Array.length))
+		{
+		arrayAsString+=","
+		}
+	}
+	
+	arrayAsString+= "]";
+	return arrayAsString;
+}
+
+
+<!-- function to sort a certain line in a certain direction. Number presents the lien number. -->
+function createSortedLine(number,headings,direction,array,divElementIDToWrite,columnSortTypes) {
+ var sortedLine = "<tr>";
+ var columns = headings.length;
+ var rows = array.length/columns;
+ for(var j = 0; j < columns; ++j) {
+  sortedLine += "<th " + columnsFormatting[0] + ">";
+  
+  <!-- sort ascending and print the right arrow in red--> 
+  if(direction == "ascending" && j == number) {
+   sortedLine += ArrowUpSorted + " ";
+   sortedLine += "<a href=\"javascript:sortColumns(" + j + ","+ columns+","+rows+",'"+columnSortTypes[j] + "','descending'," + stringifyArray(array) + "," + stringifyArray(headings) + ",'" + divElementIDToWrite + "'," + stringifyArray(columnSortTypes) + ")\">" + ArrowDown + "</a>";
+  }
+  <!-- sort descending and print the right arrow in red--->
+  else if(direction == "descending" && j == number) {
+   sortedLine += "<a href=\"javascript:sortColumns(" + j + ","+ columns+","+rows+",'"+ columnSortTypes[j] + "','ascending'," + stringifyArray(array) + "," + stringifyArray(headings) + ",'" + divElementIDToWrite + "'," + stringifyArray(columnSortTypes) + ")\">" + ArrowUp + "</a>";
+   sortedLine += " " + ArrowDownSorted;
+  }
+  <!-- print all other columns -->
+  else {
+   sortedLine += "<a href=\"javascript:sortColumns(" + j + ","+ columns+","+rows+",'"+  columnSortTypes[j] + "','ascending'," + stringifyArray(array) + "," +  stringifyArray(headings) + ",'" + divElementIDToWrite + "'," + stringifyArray(columnSortTypes) + ")\">" + ArrowUp + "</a> ";
+   sortedLine += "<a href=\"javascript:sortColumns(" + j + ","+ columns+","+rows+",'"+  columnSortTypes[j] + "','descending'," + stringifyArray(array) + "," +  stringifyArray(headings) + ",'" + divElementIDToWrite + "'," + stringifyArray(columnSortTypes) + ")\">" + ArrowDown + "</a><\/td>";
+  }
+ sortedLine += "<\/th>";
+ }
+ sortedLine += "<tr>";
+ return sortedLine;
+}
+
+<!-- function to really sort the columns according to a certain line number, type and direction -->
+function sortColumns(number,columns,rows,type,direction,array,headings,divElementIDToWrite,columnSortTypes) {
+ var sort_data = new Array();
+ var columnsData = new Array();
+ var dataToCompare = new Array();
+ var index = new Array();
+ <!-- get the according data -->
+ for(var i = 0; i < rows; ++i)
+  columnsData[i] = dataToCompare[i] = array[i * columns + number];
+ if(type == "alphabetical") columnsData.sort();
+ if(type == "numerical") columnsData.sort(Numsort);
+ if(type == "numericalInverse") columnsData.sort(NumsortInverse);
+ if(type== "star") columnsData.sort(starSort);
+ if(direction == "descending") columnsData.reverse();
+ <!--- determine and set the according index -->
+ var alreadySet = false;
+ for(i = 0; i < rows; ++i)
+  for(var j = 0; j < rows; ++j)
+   if(columnsData[i] == dataToCompare[j]) {
+   <!-- check whether the current j is already set as index to avoid problems with same numbers -->
+	for(var k=0; k<index.length; k++) {
+	 if(index[k]==j) alreadySet=true;
+	 }
+     if(alreadySet==false) index[i] = j;
+	 else alreadySet=false;
+   }
+   	
+ <!-- create the sorted line and write it --> 
+ for(i = 0; i < rows; ++i)
+  for(j = 0; j < columns; ++j)
+   sort_data[i * columns + j] = array[index[i] * columns + j];
+ <!--createSortedLine(number,headings,direction,array,divElementIDToWrite);-->
+ writeTable(sort_data,headings,number,direction,divElementIDToWrite,columnSortTypes);
+}
+
+<!-- write the whole table with specified columns -->
+function writeTable(array,headings,number,direction,divElementIDToWrite,columnSortTypes) {
+ columns = headings.length;
+ rows=array.length/columns;
+ var content = "";
+ content += "<table " + tableFormatting + ">";
+ content += "<thead><tr>";
+ for(var j = 0; j < headings.length; ++j) 
+  content += "<th " + headingColumnsFormatting[0] + "bgcolor=\"CCCCCC\">" + headings[j] + "<\/th>";
+  content += "<\/tr>";
+<!--  content += "<tr>"; -->
+  <!--for(var j = 0; j < headings.length; ++j) {-->
+  
+<!--	for(var k = 1; k < headings[j].length; ++k)-->
+<!--		content += "<th " + headingColumnsFormatting[5] + ">" + headings[j][k] + "<\/th>"; -->
+	
+<!--  } -->  
+<!--  content += "<\/tr>";	-->
+ content += createSortedLine(number,headings,direction,array,divElementIDToWrite,columnSortTypes);
+ content += "<\/thead>";
+ content += "<tfoot><\/tfoot>";
+ content += "<tbody>";
+ for(var i = 0; i < rows; ++i) { 
+	  if(i%2 == 0) {
+          content += "<tr bgcolor=\"FFFFDD\">";
+      } 
+	  else {
+          content += "<tr bgcolor=\"FFDDFF\">";
+      }
+	  if(array[i * columns] == array[14]) {
+          content += "<tr bgcolor=\"DCDCDC\">";
+      } 
+	  if(array[i * columns] == array[28]) {
+          content += "<tr bgcolor=\"DCDCDC\">";
+      } 
+  for(var j = 0; j < columns; ++j)
+   content += "<td " + columnsFormatting[0] + ">" + array[i * columns + j] + "<\/td>";
+  content += "<\/tr>";
+ }
+ content += "<\/tbody>";
+ content += "<\/table>";
+ var element = document.getElementById(divElementIDToWrite);
+ if(element!=null)
+ {
+  document.getElementById(divElementIDToWrite).innerHTML = content;
+ }
+ else if(document.all)
+ {
+  document.all.table.innerHTML = content;
+  }
+ else if(document.layers) {
+  document.table.document.open();
+  document.table.document.write(content);
+  document.table.document.close();
+ }
+}
+<!-- sorting for numerical values-->
+function Numsort(a,b){
+    if(a=="-") {
+        return -1;
+    }
+    if(b=="-") {
+        return 1;
+    }
+    return a-b; 
+}
+
+function starSort(a,b){
+	if(a.indexOf("*")!=-1) {
+		a=a.replace("*","");
+	}
+	if(a.indexOf("*")!=-1) {
+		a=a.replace("*","");
+	}
+	if(b.indexOf("*")!=-1) {
+		b=b.replace("*","");
+	}
+	if(b.indexOf("*")!=-1) {
+		b=b.replace("*","");
+	}
+	var result = Numsort(a,b);
+	return result;
+}
+
+<!-- sorting for inverse numerical values-->
+function NumsortInverse(a,b){
+    if(a=="-") {
+        return -1;
+    }
+    if(b=="-") {
+        return 1;
+    }
+	if(a=='X') {
+		return -1;
+	}
+	if(b=='X') {
+		return 1;
+	}
+	if(a=='T') {
+		return -1;
+	}
+	if(b=='T') {
+		return 1;
+	}
+    return b-a; 
+}
+</script>
+<title>table</title>
+</head>
+<!--<body onLoad="createSortedLine(-1,'',data); writeTable(data);">-->
+ <body onLoad="writeTable(anatomy0,anatomyHeadings,-1,'','anatomy0',anatomySortTypes);writeTable(anatomy1,anatomyHeadings,-1,'','anatomy1',anatomySortTypes);writeTable(anatomy2,anatomyHeadings,-1,'','anatomy2',anatomySortTypes);writeTable(anatomy3,anatomyHeadings,-1,'','anatomy3',anatomySortTypes);writeTable(conference0,conferenceHeadings,-1,'','conference0',conferenceSortTypes);writeTable(conference1,conferenceHeadings,-1,'','conference1',conferenceSortTypes);writeTable(conference2,conferenceHeadings,-1,'','conference2',conferenceSortTypes);writeTable(conference3,conferenceHeadings,-1,'','conference3',conferenceSortTypes);writeTable(largeBio0,largeBioHeadings,-1,'','largeBio0',largeBioSortTypes);writeTable(largeBio1,largeBioHeadings,-1,'','largeBio1',largeBioSortTypes);writeTable(largeBio2,largeBioHeadings,-1,'','largeBio2',largeBioSortTypes);writeTable(largeBio3,largeBioHeadings,-1,'','largeBio3',largeBioSortTypes);">    
+<br/>
 <div class="header">
 <a style="color: grey; line-height: 5mm;" href="http://oaei.ontologymatching.org/2015/">Ontology
   Alignment Evaluation Initiative - OAEI-2015 Campaign</a>
-  <a href="http://oaei.ontologymatching.org/2015">
-  <img src="../../oaeismall.jpg" style="float: right; margin-left: 10pt; margin-right: 10pt; margin-bottom: 10pt; border-style: none;" width="175px"></a>
-  <a href="http://www.seals-project.eu/">
-<img src="../../seals-logo.jpg" style="clear: right; float: right; margin-right: 20pt; margin-left: 10pt; margin-bottom: 10pt; border-style: none;" width="150px"></a>
+  <a href="http://oaei.ontologymatching.org/">
+  <br/>
+  <br/>
+  <br/>
+  <img  width="150px" src="oaei.jpg" style="clear:left;float:left; margin-left: 1pt; border-style:none;"/></a>
+  <img width="150px" src="http://oaei.ontologymatching.org/oaeismall.jpg" style="float:right; margin-left: 5pt; border-style:none;"/></a>
+ <a href="http://www.seals-project.eu/">
+<img  width="200px" src="Seals-logo-5.png" style="clear:right;float:right; margin-left: 5pt; border-style:none;"/></a>
 </div>
+<br/>
+<center>
 
-<!--
-<div class="yellowbar">
-    The results of the OAEI 2015, for the Interactive track are available 
-    <a href="results2014.html">here</a>
-</div>
+<h1>Results for OAEI 2015 - Interactive Track</h1>
+</center>
+<br/>
+<br/>
 
-<p><b><a href="../index.html">Large BioMed Track</a></b></p>
+<p><i>The following content is (mainly) based on the final version of the interactive section in the OAEI results paper.<br/> If you notice any kind of error (wrong numbers, incorrect information on a matching system) do not hesitate to contact us.</i></p>
 
--->
-
-<h1>OAEI 2015::Interactive Track</h1>
-
-
-<!--
-<p><b>NEWS:</b>
-<ul>
-	<li><b><a href="results2015.html">2015 results available now!</a></b></li>
-</ul>
+<br/>
+<h2>Description</h2>
+<!-- p>
+A lot of Ontology Matching systems have been developed over the last years. After several years of experience, the results can only be slightly improved in terms of the alignment quality (precision/recall resp. F-Measure). Based on this insight, it is clear that fully automatic ontology matching systems slowly reach an upper bound of the results they can achieve. By incorporating user interaction, we expect to improve the alignments even further and to push this upper boundary. Semi-automatic ontology matching approaches are quite promising since humans can really help the systems, for example by detecting incorrect correspondences. 
 </p>
-</br />
--->
-
-
-<!--
-<a href="http://oaei.ontologymatching.org/">
-<img src="./undercons.jpg" style="border-style: none;" width="175px"></a>
-<a href="http://oaei.ontologymatching.org/">
-<img src="./undercons2.gif" style="border-style: none;" width="140px"></a>
-
-<br />
-
-<p><FONT COLOR="red">The description is still under construction.</FONT></p>
--->
-
-
-
-
-<h2><a name="description"><u>Description</u></a></h2>
-
-<!--<p>Many Ontology Matching systems have been developed over the last years. After several years of experience, the results can only 
-be slightly improved in terms of the alignment quality (precision/recall resp. F-Measure). Based on this insight, it is clear that 
-fully automatic ontology matching systems slowly reach an upper bound of the results they can achieve. By incorporating user interaction, 
-we expect to improve the alignments even further and to push this upper boundary. Semi-automatic ontology matching 
-approaches are quite promising since humans can really help the systems, for example by detecting incorrect correspondences.</p>-->
-
-<!--<p>Whenever the user is directly involved, all required efforts of the human have taken into account and it has to be in an appropriate proportion to 
-the result. Thus, beside the quality of the alignment, other measures like the number of interactions are interesting and meaningful 
-to decide which matching system is best suitable for a certain matching task.</p> -->
-
+<p>
+Whenever the user is directly involved, all required efforts of the human have taken into account and it has to be in an appropriate proportion to the result. Thus, beside the quality of the alignment, other measures like the number of interactions are interesting and meaningful to decide which matching system is best suitable for a certain matching task. 
+By now, all OAEI tracks focus on fully automatic matching and semi-automatic matching is not evaluated although such systems already exist, e.g. LogMap2 (Jiménez-Ruiz et al., 2011) As long as the evaluation of such systems is not driven forward, it is hardly possible to systematically compare the quality of interactive matching approaches.
+With this track, we like to change this unfavorable situation by explicitly offering a <b>systematic, automated evaluation of matching systems with user interaction</b>.
+</p-->
 <p>The growth of the ontology alignment area in the past ten years has led to the development of many ontology alignment tools. 
 After several years of experience in the OAEI, we observed that the results can only be slightly improved in terms of the 
 alignment quality (precision/recall resp. F-Measure). Based on this insight, it is clear that fully automatic ontology matching 
@@ -83,184 +397,231 @@ fully automatic matching and semi-automatic matching is not evaluated although s
 overview in <a href="#references">(Ivanova et al., 2015)</a>. As long as the evaluation of such systems is not driven forward, 
 it is hardly possible to systematically compare the quality of interactive matching approaches.</p> 
 
- 
+<br/>
+<h2>Data Set</h2>
+<p>
+In this third edition of the interactive track we use three OAEI data sets, namely Conference, Anatomy and Large Bio data set. 
+The conference dataset covers 16 ontologies describing the domain of conference organization. 
+We only use the test cases for which an alignment is publicly available (altogether 21 alignments). 
+The Anatomy data set includes two ontologies, the Adult Mouse Anatomy ontology and a part of the NCI Thesaurus (describing the human anatomy). 
+Finally, LARGE BIO...
+
+The quality of the generated alignments in Conference, Anatomy and LargeBio tracks has been constantly increasing but in most cases only by a small amount (by a few percent). 
+For example, in the Conference track in 2013, the best system according to F-Measure (YAM++) achieved a value of 70% <a href="#references">(Cuenca Grau et al., 2013)</a>. On the other hand, while 
+the best results according to F-measure for the Anatomy track was achieved last year by AML with 94% there has been very little improvement over previous few campaigns 
+(only few percent). This shows that there is room for improvement, which could be filled by interactive means.
+</p>
+
+
+<h2>Experimental Setting</h2>
+<p>
+The interactive matching track was organized at OAEI 2015 for the third time. The goal of this evaluation is to simulate interactive matching <a href="#references">(Paulheim et al., 2013)</a>, 
+where a human expert is involved to validate mappings found by the matching system. In the evaluation, we look at how interacting with the user improves the matching results. The SEALS client was modified to allow interactive matchers to ask an oracle. The interactive matcher can present a correspondence to the oracle, which then tells the system whether the correspondence is right or wrong.
+This year, in addition to emulating the perfect user, we also consider domain experts with variable error rates which reflects a more realistic scenario where a (simulated) user does not necessarily provide a correct answer. We experiment with three different error rates, 0.1, 0.2 and 0.3. The errors were randomly introduced into the reference alignment with given rates. Each system was run three times and the final result of a system for each error rate represents the average of these runs.
+The interactive Conference and Anatomy track were run on a server with 3.46 GHz (6 cores) and 8GB RAM allocated to the matching systems. This is the same configuration which was used in the non-interactive version of the Anatomy track and runtimes in the interactive version of this track are therefore comparable.
+
+For the <a href="http://oaei.ontologymatching.org/2014/conference/eval.html">conference dataset<a/> with the ra1 alignment, we considered macro-average of precision and recall of different ontology pairs, while the number of interactions represent the total number of interactions in all sub-tasks. Finally, the three runs are averaged. All matchers participating in the interactive track support both interactive and non-interactive matching. This allows us to analyze how much benefit the interaction brings for the individual matchers.
+</p>
+<p>
+Overall, four systems participated in the interactive matching track: <i>AML</i>, <i>JarvisOm</i>, <i>LogMap</i>, and <i>ServOMBI</i>. 
+The systems AML and LogMap have been further developed compared to last year, the other two participated in this track for the first time.
+</p>
+
+<p> 
+The interactivity in systems is done in different ways and in different points of the execution. Therefore, we describe how the interaction is done by each system. 
+AML starts interacting with the user during the Selection and Repairing phases (for the LargeBio task only non-interactive repair is employed) at the end of the matching process. 
+The user input is employed to filter the mappings included in the final alignment and AML does not generate new mappings or adjust matching parameters based on it. 
+<!-- During the Interactive Selection phase the system chooses which mappings to show to the user using fixed patterns from different matching algorithms, during the Interactive 
+Repairing phase it asks the user about all mappings involved in conflicts --> AML avoids asking the same question more than once by keeping track of already asked questions and uses a query limit and other strategies 
+to stop asking the user and reverts to non-interactive mode. JarvisOM is based on an active learning strategy known as query-by-committee. In this strategy, informative instances are those where the committee members (classifiers; 
+3 in this campaign) disagree most. In order to initialize the classifiers committee sample entity pairs are selected using the heuristic of the Farthest First algorithm. 
+JarvisOM asks the user at every iteration for pairs of entities that have the most value for the vote entropy measure 
+(disagreement between committee members) and lower average euclidean distance. In the last iteration, the classifiers committee is used to generate the alignment 
+between the ontologies. ServOMBI uses various similarity measures during the Terminological phase and the results are presented to the user. 
+The user input is then used in the Contextual phase which employs machine learning techniques. 
+The user is then asked again to validate the newly generated candidate mappings (according to given threshold).
+At the end an algorithm is run to determine the mappings in the final alignment. LogMap generates candidate mappings first and then employs different techniques (lexical, structural and reasoning-based) to discard some of them during the Assessment phase. 
+During this phase in the interactive mode it interacts with the user and presents to him/her these mappings which are not clear-cut cases. </p>
+
+
+<h2>Results</h2>
+
+The results will be presented for each data set separately. A request is considered distinct if one of the concepts or the relationship in a mapping have changed in comparison with previous requests.
+
+<noscript>
+<p>Java-Script need to be enabled!</p>
+</noscript>
+   
  <br/>
-
-<h2><a name="goal"><u>Goal</u></a></h2>
-
-
-<p>The OAEI's interactive track aims at offering a <b>systematic and automated evaluation of matching systems with user interaction</b> to
-compare the quality of interactive matching approaches in terms of F-measure and number of required interactions. 
-To this end we rely on the datasets of the OAEI 2015 <a href="../conference/">Conference</a>, <a href="../anatomy">Anatomy</a> and 
-<a href="http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/">Largebio</a> tracks. We have used the reference alignments of each track as <i>oracles</i> in order 
-to simulate the interaction with a domain expert (see <a href="#references">(Jimenez-Ruiz et al., 2012)</a> and <a href="#references">(Paulheim et al., 2013)</a>).</p>
-
-
-<p>In this track we currently focus on one of the challenges regarding user interaction. 
-The goal of this track is to show in general that the exploitation of user interaction allows further 
-improving the results of ontology matching systems in terms of F-measure. We would also like to see which semi-automatic methods exist, 
-which ones perform best, and which ones need the smallest amount of interactions, i.e., make best use of the scarce resource of users' time. 
-Beside the amount of user interactions, the type of the interaction and the involvement time is interesting. 
-Do matching systems involve the user interaction before or during the process? Do they ask the user only to verify single 
-correspondences or complete alignments? Altogether, we aim to promote the development of semi-automatic 
-ontology matching systems and methods to overcome the limitations which are caused by fully automatic techniques. 
-Furthermore, the track will encourage a discussion of different interactive matching techniques as well as a set of relevant interaction primitives.
-Currently, this track does not evaluate the user experience or the user interfaces of the systems.</p>
+ <h3>Anatomy Track</h3> 
  
-<br/>
-
-
-<h2><a name="evaluation"><u>Evaluation</u></a></h2>
-
-<p>
-The evaluation of this track will also be run with support of <a href="http://www.seals-project.eu/">SEALS</a>. 
-This requires that you wrap your matching system in a way that allows us to execute it on the 
-SEALS platform (see <a href="http://oaei.ontologymatching.org/2015/seals-eval.html">OAEI 2015 evaluation details</a>). 
-Note that in this track we allow systems to interact with the SEALS client to check if a given alignment is correct or not 
-(see <a href="http://oaei.ontologymatching.org/2015/seals-eval.html#interactive">additional methods for the interactive track</a>).</p>
-</p>
-
-<p>
-We will also simulate domain experts with variable error rate (see <a href="#references">(Jimenez-Ruiz et al., 2012)</a>) which reflects a more realistic scenario where a (simulated) user does 
-not necessarily provide always a correct answer. In these scenarios asking a large number of questions to the user may also have a negative impact. 
-The error rates (0..1) that will be simulated are: 0.1, 0.2 and 0.3. This can be controlled as an input parameter when 
-running the SEALS client, please refer to the <a href="../tutorial/tutorialv4.pdf">OAEI 2015 tutorial</a>.  
-</p>
-
+  <p>The four tables below present the results for the anatomy data set with four different error rates.
+  The first six columns in each of the tables present the adjusted (the trivial correspondences in the oboInOwlnamespace have been removed 
+  as well as correspondences expressing relations different from equivalence) results obtained in this and the non-interactive Anatomy track. 
+  The measure recall+ indicates the amount of detected non-trivial correspondences (trivial correspondences are those with the same normalized label).
+  The precision, recall and F-measure columns at the far right end of the table present the results as calculated by the SEALS client prior to the adjustment.
+  The last three columns contain the evaluation results "according to the Oracle", meaning against the Oracle's alignment 
+  (i.e., the reference alignment as modified by the randomly introduced errors).
+  </p>
  
+ 
+ <h4>Error Rate 0.0</h4> 
+ <div id="anatomy0"></div>
+ <h4>Error Rate 0.1</h4> 
+ <div id="anatomy1"></div>  
+ <h4>Error Rate 0.2</h4> 
+ <div id="anatomy2"></div>    
+ <h4>Error Rate 0.3</h4> 
+ <div id="anatomy3"></div>      
+  
 
+ <p> We first compare the performance of the four systems with an all-knowing oracle (0.0 error rate), in terms of precision, recall and F-measure, to the results obtained in
+ the non-interactive Anatomy track (these are the first 6 columns in the corresponding tables). The effect of introducing interactions with the oracle/user 
+ is mostly pronounced for the precision measure (except JarvisOM see below). In the interactive track (and 0.0 error rate) the precision for all four systems improves and, 
+ consequently, so does the F-measure. At the same time the recall improves 
+ for AML and JarvisOM and does not change for LogMap and ServOMBI. AML achieves the best F-measure and recall among the four with a perfect oracle. Out of all systems, JarvisOM displays the largest improvements when user interactions are brought in - the F-measure improves almost 4,5 
+ times together with the recall which improves 6 times and the precision goes up 2,5 times. 
+ The size of the alignment generated by the system also grows around 2,5 times. 
+ With introduction of an erroneous oracle/user and moving towards higher error rates, obviously, the systems 
+ performance starts to slightly deteriorate in comparison to the all-knowing oracle. 
+ We can, however, observe that the changes in the error rates influence the four systems differently in comparison to the non-interactive results. 
+ While the AML performance with an all-knowing oracle is better on all measures with respect to the non-interactive results, the F-measure drops in the 0.2 and 0.3 cases, 
+ while the recall stays higher than the non-interactive results for all error rates. 
+ LogMap behaves similarly - the F-measure in the 0.2 and 0.3 cases drops below the non-interactive results, while the precision stays higher in all error rates. 
+ ServOMBI performance in terms of F-measure and Recall drops below the non-interactive results already in the 0.1 case, but the precision is higher in all cases. 
+ In contrast JarvisOM still performs better in the 0.3 case on all measures than in the non-interactive Anatomy track where it achieved very low values for all measures.
+ It is also worth noting the large drop in precision (40%) for JarvisOM with the growing error rates in comparison to the other three systems where the drop in precision is between 1 to 5%. This could be explained by the fact that JarvisOM asks only few questions and is therefore very sensitive to false positives and false negatives. </p> 
+ 
+ <p>
+ Another interesting observation is that, with the exception of AML, the performance of the systems also declines as the error increases with regard to the Oracle reference (i.e., the reference as modified by the errors introduced in the Oracle). This means that the impact of the errors is linear for AML (i.e., one erroneous response from the oracle, leads to only one error from AML) but supralinear for the other systems.
+ </p>
+  
+  <p>AML also shows stable performance in connection to the size of the alignment and the number of (distinct) requests to the oracle generated with different error rates. 
+  As discussed it does not present the same question again to the user. The same observation regarding the unique requests applies to JarvisOM and LogMap as well. 
+  It should be noted that JarvisOM uses very few requests to the oracle and this number is stable across the different error rates. 
+  Another notable difference is the varying size of the alignment generated by JarvisOM which almost doubles in the 0.2 case comparing to the all-knowing oracle. 
+  The number of requests grows with the error rate for LogMap together with a slight grow in the alignment size. 
+  As we noted above ServOMBI asks the user for every mapping found and the number of distinct requests for ServOMBI stays stable for the different rates. The total number 
+ of requests is almost double the distinct ones but at the same time the size of the alignment drops when introducing higher error rates. 
+ The run times between the different error rates slightly
+ change for AML while there is no significant change for LogMap and JarvisOM. The ServOMBI run time decreases with the increase of the error rate. In comparison to the non-interactive track, LogMap's and JarvisOM's run times 
+ do not change and AML's run time changes between 10% to 20%. ServOMBI run time is higher in the non-interactive track.</p> <!-- coherence ? -->
+ 
+ <p> For an interactive system the time intervals at which the user is involved in an interaction are important. 
+ Fig. 1 presents a comparison between the systems regarding the time periods at which the system presents a question to the user. 
+ Across the three runs and different error rates the AML and LogMap requests intervals are around 1 millisecond. On the other hand, while the requests periods for ServOMBI are under 10 ms in most of the cases we see that there are some outliers requiring more than a second. 
+ Furthermore a manual inspection of the intervals showed that in several cases it takes more than 10 seconds between the questions to the user and in one extreme case --- 250 seconds. 
+ It can also be seen that the requests intervals increase at the last 50-100 questions. JarvisOM also displays delay in requests. The average interval at which a question is presented to the user is 1 second with about half of the requests to the user taking more than 1,5 seconds.</p>
+ 
+ <p> The take away of this analyses is the large improvement for JarvisOM in all measures and error rates with respect to its non-interactive results. 
+ The growth of the error rate impacts different measures in the different systems. 
+ The effect of introducing interactions with the oracle/user is mostly pronounced for the precision measure - the precision for all systems (except AML) in the different error rates 
+ was better than their precision in the non-interactive anatomy evaluation.</p> 
+ <figure style="text-align:center;">
+  <img src="anatomy_boxplot_per_error_rate_multiple_runs.png"><br/>
+  <figcaption style="font-size:22px;margin: 40px 0 0 0;">Fig1. - The Y axis depicts the time intervals between the requests to the user/oracle (whiskers: Q1-1,5IQR, Q3+1,5IQR, IQR=Q3-Q1). 
+  The labels under the system names show the average number of requests and the mean time between the requests for the three runs.</figcaption>
+ </figure>
 
-
-<br/>
-
-
-<h2><a name="datasets"><u>Data sets</u></a></h2>
-
-<p>The interactive track relies on the datasets of the OAEI 2015 <a href="../conference/">Conference</a>, <a href="../anatomy">Anatomy</a> and 
-<a href="http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/">Largebio</a> tracks.
-
-
-<p>If you use the <a href="http://oaei.ontologymatching.org/2015/seals-eval.html">2015 version of the SEALS OMT client</a> please refer to the identifiers of each othe tracks 
-(<a href="../conference/">Conference</a>, <a href="../anatomy">Anatomy</a> and <a href="http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/">Largebio</a>) and use the <b>-i</b> parameter 
-as described in the <a href="../tutorial/tutorialv4.pdf">OAEI 2015 tutorial</a>.</p>
-
-<p>This is the required input if you use the <a href="http://oaei.ontologymatching.org/2014/seals-eval.html">2014 version of the SEALS OMT client</a>:</p>
-
-<p>
-<div class="testsuite">
-<ul>
-<li><b>Repository:</b>  <span class="testsuiteid">http://repositories.seals-project.eu/tdrs/</span></li>
-<li><b>Suite-ID:</b>  <span class="testsuiteid">interactive</span></li>
-<li><b>Version-ID:</b>  <span class="testsuiteid"><i>see specific task</i></span></li>
-</ul>
-</div>
-</p>
-
-
-
-
-<h3>Conference</h3>
-
- <p>This data set covers 16 ontologies describing the domain of conference organization. 
- Over the last years, the quality of the generated alignments has been constantly increased but only to small amount (by a few percent). 
- In <a href="http://oaei.ontologymatching.org/2013/results/conference/">2013</a>, the best system according to F-Measure (YAM++) achieves a value of 71%. 
- This shows that there is significant room for improvement, which could be filled by interactive means.
-</p>
-
-
-<p>Id of the task if you use the <a href="http://oaei.ontologymatching.org/2014/seals-eval.html">2014 version of the SEALS OMT client</a>:</p>
-
-<p>
-<div class="testsuite">
-<ul>
-<li><b>Version-ID:</b> <span class="testsuiteid">interactive-conference_2015</span></li>
-</ul>
-</div>
-</p>
-
-
-<h3>Anatomy</h3>
-
-<p>The Anatomy track consists of finding an alignment between the Adult Mouse Anatomy and a part of the NCI Thesaurus (describing the human anatomy).</p>
-
-<p>Id of the task if you use the <a href="http://oaei.ontologymatching.org/2014/seals-eval.html">2014 version of the SEALS OMT client</a>:</p>
-
-<p>
-<div class="testsuite">
-<ul>
-<li><b>Version-ID:</b> <span class="testsuiteid">interactive-anatomy_2015</span></li>
-</ul>
-</div>
-</p>
-
-
-<h3>LargeBio: FMA-NCI</h3>
-
-<p>
-This task consists of matching the whole FMA and NCI ontologies, which contains 78,989 and 66,724 classes, respectively. 
-The best results without interaction in terms of F-measure were achieved by YAM++ (87%) in <a href="http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/2013/results2013_fma2nci.html">2013</a>.
-</p>
-
-
-<p>Id of the task if you use the <a href="http://oaei.ontologymatching.org/2014/seals-eval.html">2014 version of the SEALS OMT client</a>:</p>
-
-<p>
-<div class="testsuite">
-<ul>
-<li><b>Version-ID:</b> <span class="testsuiteid">interactive-largebio_fma_nci_whole_2015</span></li>
-</ul>
-</div>
-</p>
-
-
-
-
-<h3>LargeBio: FMA-SNOMED</h3>
+ <h3>Conference Track</h3> 
+ <h4>Error Rate 0.0</h4> 
+ <div id="conference0"></div>
+ <h4>Error Rate 0.1</h4> 
+ <div id="conference1"></div>  
+ <h4>Error Rate 0.2</h4> 
+ <div id="conference2"></div>    
+ <h4>Error Rate 0.3</h4> 
+ <div id="conference3"></div>      
+   
+ <figure style="text-align:center;">
+	<img src="conference_boxplot_per_error_rate_multiple_runs.png">   
+	<figcaption style="font-size:22px;margin: 40px 0 0 0;">Fig2. - The Y axis depicts the average time between the requests per task in the conference dataset (whiskers: Q1-1,5IQR, Q3+1,5IQR, IQR=Q3-Q1). 
+  The labels under the system names show the average number of requests and the mean time between the requests for the three runs and all tasks.</figcaption>
+ </figure>   
 
 <p>
-This task consists of matching the whole FMA that contains 78,989 classes with a large SNOMED fragment that contains 122,464 classes (40% of SNOMED).
-The best results without interaction in terms of F-measure were achieved by YAM++ (82%) in <a href="http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/2013/results2013_fma2snomed.html">2013</a>. 
+We first focus on the performance of the systems with an all-knowing oracle. In this case, all systems improve their results compared to the non-interactive version of the Conference track. The biggest improvement in F-measure is achieved by ServOMBI with 20%. Other systems also show substantial improvements, AML improves the F-measure by around 8%, JarvisOM by around 13% and LogMap by around 4%. Closer inspection shows that for different systems the improvement of F-measure can be attributed to different factors. For example, in the case of ServOMBI and LogMap interaction with the user improved precision while recall experienced only slight improvement. On the other hand, JarvisOM improved recall substantially while keeping similar level of precision. Finally, AML improved both precision and recall by more than 6 percent which contributed to a higher F-measure. As expected, the results start deteriorating when introducing the error in the oracle's answers. Interestingly, even with the error rate of 0.3 most systems perform similar (with respect to the F-measure) to their non-interactive version. For example, AML's F-measure in the case with 0.3 error rate is only 0.5% worse than the non-interactive one. The most substantial difference is in the case of ServOMBI with an oracle with the error rate of 0.3 where the system achieves around 5% worse result than in the non-interactive version. Again closer inspection shows that different systems are affected in different ways when errors are introduced. For example, if we compare the 0.0 and 0.3 case, we can see that for AML, precision is affected by 10% and recall by 6%. In the case of JarvisOM, precision drops by 20% while recall drops by only 3%. LogMap is affected in the similar manner and its precision drops by 10% while the recall  drops by only 2%. Finally, the most substantial change is in the case of ServOMBI where the precision drops from 100% to around 66% and recall shows a drop of 22%. Like in the Anatomy dataset, LogMap and ServOMBI also show a drop in performance in relation to the Oracle reference with the increase of the error rate, which indicates a supralinear impact of the errors. AML again shows a constant performance that reflects a linear impact of the errors. Surprisingly, JarvisOM also shows a constant performance, which is a different behaviour than what it showed in Anatomy.
+
 </p>
-
-<p>Id of the task if you use the <a href="http://oaei.ontologymatching.org/2014/seals-eval.html">2014 version of the SEALS OMT client</a>:</p>
-
 <p>
-<div class="testsuite">
-<ul>
-<li><b>Version-ID:</b> <span class="testsuiteid">interactive-largebio_fma_snomed_whole_2015</span></li>
-</ul>
-</div>
+When it comes to number of request to the oracle, we can see that 3 out of 4 systems do around 150 requests while ServOMBI does most requests, namely 550. AML, JarvisOM and LogMap do not repeat their requests while around 40% of requests done by ServOMBI are repeated requests. Across the three runs and different error rates the AML and LogMap mean times between requests are less than 3 ms. On the other hand, mean time between requests for ServOMBI and JarvisOM are around 30 and 10 ms respectively. While in most cases there is little to no delay between requests, there are some outliers. These are most prominent for ServOMBI where some requests were delayed for around 2 seconds which is substaintally longer than the mean.
 </p>
-
-
-<h3>LargeBio: SNOMED-NCI</h3>
-
+</p>
 <p>
-This task consists of matching the whole NCI that contains 66,724 classes with a large SNOMED fragment that contains 122,464 classes (40% of SNOMED).
-The best results without interaction in terms of F-measure were achieved by AML (75%) in <a href="http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/2014/results2014_snomed2nci.html">2014</a>. 
+This year we have two systems which competed in the last year's campaign, i.e., AML and LogMap. When comparing to the results of last year (perfect oracle), AML improved its F-measure by around 2%. This increase can be accounted to increased precision (increase of around 3%). On the other hand, LogMap shows a slight decrease in recall and precision, and hence, in F-measure.
 </p>
 
-<p>Id of the task if you use the <a href="http://oaei.ontologymatching.org/2014/seals-eval.html">2014 version of the SEALS OMT client</a>:</p>
-
+<h3>LargeBio track</h3> 
+ <h4>Error Rate 0.0</h4> 
+ <div id="largeBio0"></div>
+ <h4>Error Rate 0.1</h4> 
+ <div id="largeBio1"></div>  
+ <h4>Error Rate 0.2</h4> 
+ <div id="largeBio2"></div>    
+ <h4>Error Rate 0.3</h4> 
+ <div id="largeBio3"></div>      
 <p>
-<div class="testsuite">
-<ul>
-<li><b>Version-ID:</b> <span class="testsuiteid">interactive-largebio_snomed_nci_whole_2015</span></li>
-</ul>
-</div>
+Of the four systems participating in this track this year, only AML and LogMap were able to complete the full Large Biomedical Ontologies dataset. ServOMBI was only able to match the FMA-NCI small fragments and FMA-SNOMED small fragments, whereas JarvisOM was unable to complete any of the tasks. Therefore, ServOMBI's results are partial, and not directly comparable with those of the other systems (marked with * in the results table).
+</p>
+<p>
+With an all-knowing Oracle, AML, LogMap and ServOMBI all improved their performance in comparison with the non-interactive version of the Large Biomedical Ontologies track. The biggest improvement in F-measure was achieved by LogMap with 3.2%, followed by AML with 2.6%, then ServOMBI with 1.4%. AML showed the greatest improvement in terms of recall, but also increased its precision substantially; LogMap had the greatest improvement in terms of precision, but also showed a significant increase in recall; and ServOMBI improved essentially only with regard to precision, obtaining 100% as in the other datasets.
+</p>
+<p>
+The introduction of (simulated) user errors had a very different effect on the three systems: AML shows a slight drop in performance of 3% F-measure between 0 and 30% error, and is only slightly worse than its non-interactive version at 30% error; LogMap shows a more pronounced drop of 5.7% F-measure; and ServOMBI shows a substantial drop of 16.6% F-measure. Unlike in the other datasets, all systems are affected significantly by the error with regard to both precision and recall. Like in the other datasets, AML shows a constant performance in relation to the Oracle reference, indicating a linear impact of the errors, whereas the other two systems decrease in performance as the error increases, indicating a supralinear impact of the errors.
+</p>
+<p>
+Regarding the number of request to the oracle, AML was the more sparing system, with only 10,217, whereas LogMap made almost three times as many requests (27,436). ServOMBI was again the more inquisitive system, with 21,416 requests on only the two smallest tasks in the dataset (for comparison, AML made only 1,823 requests on these two tasks and LogMap made 6,602). As in the other datasets, ServOMBI was the only system to make redundant requests to the Oracle. Interestingly, both LogMap and ServOMBI increased the number of requests with the error, whereas AML had a constant number of requests.
 </p>
 
 
+<h2>Discussion</h2>
+<p>
+This year is the first time we have considered a non-perfect domain expert, i.e., a domain expert which can provide wrong answers. As expected, the performance of the systems deteriorated with the increase of the error rate. However, an interesting observation is that the errors had different impact on different systems reflecting the different interactive strategies employed by the systems. In some cases erroneous answers from the oracle had the highest impact on the recall, in other cases on the precision, and in others still both measures were significantly affected. Also interesting is the fact that the impact of the errors was linear in some systems and supralinear in others, as reflected by their performance in relation to the Oracle alignment. A supralinear impact of the errors indicates that the system is making inferences from the user and thus deciding on the classification of multiple mapping candidates based on user feedback about only one mapping. This is an effective strategy for reducing the burden on the user, but alas leaves the matching system more susceptible to user errors. An extreme example of this is JarvisOM on the Anatomy dataset, as it uses an active-learning approach based on solely 7 user requests, and consequently is profoundly affected when faced with user errors given the size of the Anatomy alignment. Curiously, this system behaves very differently in the Conference dataset, showing a linear impact of the errors, as in this case 7 requests (which is the average number it makes per task) represent a much more substantial portion of the Conference alignments (~50%) and thus leads to less inferences and consequently less impact of errors.
+</p>
+<p>
+Apart from JarvisOM, the other systems all make use of user interactions exclusively in post-matching steps to filter their candidate mappings. LogMap and AML both request feedback on only selected mapping candidates (based on their similarity patterns or their involvement in unsatisfiabilities). By contrast, ServOMBI employs the user to validate all its mapping candidates (after two distinct matching stages), which corresponds to user validation rather than interactive matching. Consequently, it makes a much greater number of user requests than the other systems, and in being the system most dependent on the user, is also the one most affected by user errors.
+</p>
+<p>
+With regard still to the number of user requests, it is interesting to note that both ServOMBI and LogMap generally increased the number of requests with the error, whereas AML and JarvisOM kept their number approximately constant. The increase is natural, as user errors can lead to more complex decision trees when interaction is used in filtering steps and inferences are drawn from the user feedback (such as during alignment repair) which leads to an increased number of subsequent requests. JarvisOM is not affected by this because it uses interaction during matching and makes a fixed 7-8 requests per matching task, whereas AML prevents it by employing a maximum query limit and stringent stopping criteria.
+</p>
+<!--
+<p>
+Experiments have also shown that there should be a balance in the number of questions to the oracle. While too many questions can unnecessarily burden the user, asking too little questions cam also mean that the system is more sensitive to false positives and false negatives which can then substaintally hurt the results. 
+</p>
+<p>
+Another point for discussion is the stage in the alignment process where the user interactions are performed. Both LogMap and AML interact with the user as a post-processing 
+step after an alignment has been generated. In contrast  JarvisOM uses an active-learning approach which results in much lower number of interactions. 
+ServOMBI interacts with the user at the end of each of the two phases to validate currently generated candidate mappings. 
+In this version of the system it asks the user for any candidate found which results in huge number of questions. 
+Its approach corresponds to user validation rather than an interactive matching.
+</p>
+-->
+<p>
+Two models for system response times are frequently used in the literature <a href="#references">(Dabrowski et al., 2011)</a>: Shneiderman and Seow take different approaches to categorize the response times. 
+Shneiderman takes task-centred view and sort out the response times in  four categories according to task complexity: typing, mouse movement (50-150 ms), 
+simple frequent tasks (1 s), common tasks (2-4 s) and complex tasks	(8-12 s). He suggests that the user is more tolerable to delays with 
+the growing complexity of the task at hand. Unfortunately no clear definition is given for how to define the task complexity.
+The Seow's model looks at the problem from a user-centred perspective by considering the user expectations towards the execution of a task: instantaneous (100-200 ms), 
+immediate (0.5-1 s), continuous (2-5 s), captive (7-10 s);
+Ontology alignment is a cognitively demanding task and can fall into the third or forth categories in both models.
+In this regard the response times (request intervals as we call them above) observed with the anatomy data set (with the exception of several measurements for ServOMBI) 
+fall into the tolerable and acceptable response times in both models. 
+The request intervals for the conference data set are lower than those discussed for the anatomy data set. 
+It could be the case however that the user could not take advantage of very low response times 
+ because the task complexity may result in higher user response time 
+(analogically it measures the time the user needs to respond to the system after the system is ready).
+LargeBio will be probably very interesting.</p>
 
 
-
-<br />
 
 <a name="references">
-<h2><u>Relevant references</u></h2>
+<h2>References</h2>
 </a>
 
-
+<p>
+Bernardo Cuenca Grau , Zlatan Dragisic , Kai Eckert & et al. "Results of the Ontology Alignment Evaluation Initiative 2013" 
+OM 2013. <a href="http://oaei.ontologymatching.org/2013/results/oaei2013.pdf">[pdf]</a>
+</p>
 <p>
 Heiko Paulheim, Sven Hertling, Dominique Ritze. "Towards Evaluating Interactive Ontology Matching Tools". 
 ESWC 2013. <a href="http://eswc-conferences.org/sites/default/files/papers2013/paulheim.pdf">[pdf]</a>
@@ -281,9 +642,12 @@ Algorithms and Implementation". ECAI 2012. <a href="https://www.cs.ox.ac.uk/file
  <a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6104044&tag=1">[publisher page]</a> 
 </p>
 
-<br />
+<p>
+ Jim Dabrowski, Ethan V. Munson. "40 years of searching for the best computer system response time". Interacting with Computers 2011.
+ <a href="http://www.sciencedirect.com/science/article/pii/S0953543811000579">[publisher page]</a> 
+</p>
 
-<h2><u>Contact</u></h2>
+<h2>Contact</h2>
 
 <p>This track is currently organized by 
 <a href="http://www.ida.liu.se/department/contact/contactcard.en.shtml?zladr41">Zlatan Dragisic</a>,
@@ -299,7 +663,7 @@ related to this track, feel free to write an email to ernesto
 
 <br />
 
-<h2><u>Acknowledgements</u></h2>
+<h2>Acknowledgements</h2>
 
 <p>We thank Dominique Ritze and Heiko Paulheim, the organisers of 
 the <a href="../../2013/interactive/">2013</a> and <a href="../../2014/interactive/">2014</a> editions 
@@ -310,25 +674,13 @@ of this track, who were very helpful in the setting up of the 2015 edition.
 The track is partially supported by the <a href="http://www.optique-project.eu/">Optique</a> project.
 </p>
 
-
-
-
-
-
-
-
-<br />
-<br />
-
-
-<div class="address">
-<div class="footer">
-Contact: ernesto [.] jimenez [.] ruiz [at] gmail [.] com <br />
-<a href="http://oaei.ontologymatching.org/2015/interactive/">http://oaei.ontologymatching.org/2015/interactive/</a></div>
-<!--$Id$-->
+<!-- <h2>References</h2>
+Jiménez-Ruiz, E., Grau, B. C., & Yujiao, Z. (2011). LogMap 2.0: towards logic-based, scalable and interactive ontology matching. Proceedings of the 4th International Workshop on Semantic Web Applications and Tools for the Life Sciences, (S. 45-46).<br/><br/>
+Paulheim, H., Hertling, S., & Ritze, D. (2013). Towards Evaluating Interactive Ontology Matching Tools. Proceedings of the 10th Extended Semantic Web Conference, (S. 31-45).<br/><br/>
+Ritze, D. & Paulheim, H. (2011). Towards an automatic parameterization of ontology matching tools based on example mappings. Proceesings of the 6th Ontology Matching Workshop, (S.37-48).<br/><br/>
+ -->
 </div>
-</body></html>
-
-
+</body>
+</html>
 
 
