@@ -33,16 +33,12 @@ caption { caption-side:bottom; }
 <img  width="150px" src="../../../seals-logo.jpg" style="clear:right;float:right; margin-left: 15pt; border-style:none;"/></a>
 </div>
 
-<h1>Preliminary benchmark results for OAEI 2015</h1>
+<h1>Benchmark results for OAEI 2015</h1>
 
-<p>In the following, are the (very preliminary) results of the OAEI 2015 evaluation of the benchmarks track.</p>
+<p>In the following, are the results of the OAEI 2015 evaluation of the benchmarks track.</p>
 
 <h2>Experimental setting</h2>
 
-<p>
-All tests have been run entirely from the SEALS platform with the
-strict same protocol.
-</p>
 <p>
 This year we run a campaign with <a href="../../benchmarks/index.html">two new generated tests</a>.
 </p>
@@ -50,24 +46,71 @@ This year we run a campaign with <a href="../../benchmarks/index.html">two new g
 The initially generated tests with the IFC4 ontology which was
 provided to participants was found to be "somewhat erroneous" as the
 reference alignments contained only entities in the prime ontology
-namespace. We thus generated another test called energy.
+namespace. We thus generated another test called energy. This test has
+also created problems with some systems, but we decided to keep it as
+an example, especially that some other systems have worked on it
+regularly with decent results. Hence, it is useful for developer to
+understand why this is the case.
+</p>
+<p>
+Contrary to previous years, we have not been able to
+evaluate the systems in a uniform setting. This is mostly due to
+relaxing the policy for systems which were not properly packaged under
+the SEALS interface so that they could be seamlessly evaluated.
+Systems required extra software installation and extra software
+licenses which rendrered evaluation uneasy.
+</p>
+<p>
+Another reason of this situation is the limited availability of evaluators for
+installing software for the purpose of evaluation.
+</p>
+<p>
+It was actually the goal of the SEALS project to automate this
+evaluation so that the tool installation burden was put on tool
+developers and the evaluation burden on evaluators. This also reflects
+the idea that a good tool is a tool easy to install, so in which the
+user does not have many reasons to not using that tool.
+</p>
+<p>
+It would be useful to tighten the rules for evaluation so that the
+we can again write:
+<blockquote>
+"All tests have been run entirely from the SEALS platform with the
+strict same protocol."
+</blockquote>
+and we do not end up with one evaluation setting taylored for each system.
+This does not mean that we should come back to the exact setting of
+two years ago, but that evaluators and tool developers should decide
+for one setting and stick to it.
+Otherwise, this whole exercise of system comparison does not really
+make sense.
 </p>
 
 <h2>Participation</h2>
 
 <p>
-Evaluations were run on a Debian Linux virtual machine configured with four processors and 8GB of RAM running under a
-Dell PowerEdge T610 with 2*Intel Xeon Quad Core 2.26GHz E5607 processors and 32GB of RAM, under Linux ProxMox 2 (Debian).
+As a consequence, systems have been evaluated in three different
+machine configurations:
+<ul>
+<li>edna, AML2014, AML, CroMatcher, GMap, Lily,
+  LogMap-C, LogMapLite, LogMap and XMap were run on a Debian Linux virtual machine configured with four processors and 8GB of RAM running under a
+Dell PowerEdge T610 with 2*Intel Xeon Quad Core 2.26GHz E5607
+  processors and 32GB of RAM, under Linux ProxMox 2 (Debian). All matchers where run under the SEALS client using Java 1.8 and a
+maximum heap size of 8GB.</li>
+<li>DKP-AOM, JarvisOM, RSDLWB and ServOMBI were run on a Debian Linux virtual machine configured with four processors and 20GB of RAM running under a
+Dell PowerEdge T610 with 2*Intel Xeon Quad Core 2.26GHz E5607 processors and 32GB of RAM, under Linux ProxMox 2 (Debian).</li>
+<li>Mamba</li>
+</ul>
+In such condition, we cannot compare systems on the basis of their speed.
 </p>
 <p>
-All matchers where run under the SEALS client using Java 1.8 and a
-maximum heap size of 8GB.
+
 </p>
 <p>
 However we encountered problems with one very slow matcher (LogMapBio)
-that has been eliminated from the pool of matcher and AML has been
-unable to match the second run of the energy data set. We have stopped
-it for this track.
+that has been eliminated from the pool of matcher and AML and ServOMBI
+which had to be killed while they were unable to match the second run
+of the energy data set.
 No timeout was explicitly set.
 </p>
 <p>
@@ -76,11 +119,9 @@ in [1], there is not much variance in compliance measures across runs.
 This is not necessarily the case for time measurements so we report
 standard deviations with time measurements.
 </p>
-
 <p>
 From the 21 systems listed in the <a href="../index.html">2015
-results page</a>, we were so far able to evaluate 10 systems.
-We plan to increase this data set with more systems.
+results page</a>, we were so far able to evaluate 15 systems.
 </p>
 
 <h2>Results</h2>
@@ -116,41 +157,61 @@ which is used as a baseline.
 </tr>
 <tr class="even"><td class="text">edna</td>
 <td>.35(.58)</td><td>.41(.54)</td><td>.51(.50)</td>
-<td>.50(.)</td><td>.42(.)</td><td>.15(.)</td>
+<td>.50(.74)</td><td>.42(.49)</td><td>.15(.15)</td>
 </tr>
 <tr class="odd"><td class="text">AML2014</td>
 <td>.92(.94)</td><td>.55(.55)</td><td>.39(.39</td>
-<td>.97(.)</td><td>.70(.)</td><td>.23</td>
+<td>.98(.95)</td><td>.71(.69)</td><td>.23(.22)</td>
 </tr>
 <tr class="even"><td class="text">AML</td>
-<td>.99</td><td>.57</td><td>.40</td>
-<td>1.0</td><td>.18</td><td>.02</td>
+<td>.99(.99)</td><td>.57(.56)</td><td>.40(.40)</td>
+<td>1.0(.96)</td><td>.17(.16)</td><td>.04(.04)</td>
 </tr>
 <tr class="odd"><td class="text">CroMatcher</td>
 <td>.94(.68)</td><td>.88(.62)</td><td>.82(.57)</td>
-<td>.96(.)</td><td>.67(.)</td><td>.21</td>
+<td>.96(.76)</td><td>.68(.50)</td><td>.21(.16)</td>
 </tr>
-<tr class="even"><td class="text">GMap</td>
+<tr class="even"><td class="text">DKP-AOM</td>
+<td>NaN</td><td>NaN</td><td>0.</td>
+<td>.67</td><td>.59</td><td>.21</td>
+</tr>
+<tr class="odd"><td class="text">GMap</td>
 <td>.93(.74)</td><td>.68(.53)</td><td>.53(.41)</td>
-<td>.32(.)</td><td>.11(.)</td><td>.02(.)</td>
+<td>.32(.42)</td><td>.11(.03)</td><td>.02(.02)</td>
 </tr>
-<tr class="odd"><td class="text">Lily</td>
-<td>.97(.45)</td><td>.88(.40)</td><td>.83(.36)</td>
-<td>.(.)</td><td>.(.)</td><td>.</td>
+<!--tr class="even"><td class="text">JarvisOM</td>
+<td>NaN</td><td>NaN</td><td>0.</td>
+<td>NaN</td><td>NaN</td><td>0.</td>
+</tr-->
+<tr class="even"><td class="text">Lily</td>
+<td>.97(.45)</td><td>.90(.40)</td><td>.83(.36)</td>
+<td>NaN</td><td>NaN</td><td>0.</td>
 </tr>
-<tr class="even"><td class="text">LogMap-C</td>
-<td>.42(.)</td><td>.41(.)</td><td>.39(.)</td>
-<td>.(.)</td><td>.(.)</td><td>.(.)</td>
+<tr class="odd"><td class="text">LogMap-C</td>
+<td>.42(.41)</td><td>.41(.39)</td><td>.39(.37)</td>
+<td>NaN</td><td>NaN</td><td>0.</td>
 </tr>
-<tr class="odd"><td class="text">LogMapLite</td>
+<tr class="even"><td class="text">LogMapLite</td>
 <td>.43</td><td>.46</td><td>.50</td>
 <td>.74</td><td>.77</td><td>.81</td>
 </tr>
-<tr class="even"><td class="text">LogMap</td>
+<tr class="odd"><td class="text">LogMap</td>
 <td>.93(.91)</td><td>.55(.52)</td><td>.40(.37)</td>
-<td>.(.)</td><td>.(.)</td><td>.(.)</td>
+<td>NaN</td><td>NaN</td><td>0.</td>
 </tr>
-<tr class="odd"><td class="text">XMap</td>
+<tr class="even"><td class="text">Mamba</td>
+<td>.78</td><td>.56</td><td>.44</td>
+<td>.83</td><td>.25</td><td>.06</td>
+</tr>
+<!--tr class="even"><td class="text">RSDLWD</td>
+<td>NaN</td><td>NaN</td><td>0.</td>
+<td>NaN</td><td>NaN</td><td>0.</td>
+</tr-->
+<tr class="odd"><td class="text">ServOMBI</td>
+<td>NaN</td><td>NaN</td><td>0.</td>
+<td>.94</td><td>.06</td><td>.01</td>
+</tr>
+<tr class="even"><td class="text">XMap</td>
 <td>1.0</td><td>.57</td><td>.40</td>
 <td>1.0</td><td>.51</td><td>.22</td>
 </tr>
@@ -168,7 +229,9 @@ OMReasoner failed to return any answer on dog, and RSDLWB on cose.
 Concerning F-measure results, 
 all tested systems are above edna with LogMap-C been lower (we
 excluded LogMapIM which is definitely dedicated to instance matching
-only). Lily and CroMatcher achieve an impresive 88% F-measure. Not
+only as well as JarvisOM and RSDLWD which outputed no useful
+results). 
+Lily and CroMatcher achieve impresive 90% and 88% F-measure. Not
 only these systems achieve a high precision but a high recall of 83%
 as well. CroMatcher maintains its good results on energy (while Lily
 cannot cope with the test), however LogMapLite obtain the best
@@ -182,15 +245,14 @@ Last year we noted that the F-measure was lower than the previous year
 
 <p>
 Like last year, we can consider that we have high-precision matchers,
-at least on biblio, AML and XMap achieving near perfect to perfect precision.
+AML and XMap, achieving near perfect to perfect precision on both tests.
 </p>
 
 
 <p>
 We draw the triangle graphs for the biblio tests. It confirms that
 systems are more precision-oriented than ever: no balaced system is
-visible in the middle of the graph (although for the two best systems,
-CroMatcher and Lily, they are not far from this).
+visible in the middle of the graph (only Mamba has a more balanced behaviour).
 </p>
 
 <div style="text-align: center;">
@@ -301,18 +363,27 @@ the test run number.
 <colgroup align='center' span='3' />
 <colgroup align='center' span='3' />
 <colgroup align='center' span='3' />
+<colgroup align='center' span='3' />
+<colgroup align='center' span='3' />
+<colgroup align='center' span='3' />
+<colgroup align='center' span='3' />
 <thead valign='top'><tr><th>algo</th>
 <th colspan='3'>refalign</th>
 <th colspan='3'>edna</th>
 <th colspan='3'>AML2014</th>
 <th colspan='3'>AML</th>
 <th colspan='3'>CroMatcher</th>
+<th colspan='3'>DKP-AOM</th>
 <th colspan='3'>GMap</th>
+<th colspan='3'>JarvisOM</th>
 <th colspan='3'>Lily</th>
 <th colspan='3'>LogMap-C</th>
 <th colspan='3'>LogMapIM</th>
 <th colspan='3'>LogMapLite</th>
 <th colspan='3'>LogMap</th>
+<th colspan='3'>Mamba</th>
+<th colspan='3'>RSDLWD</th>
+<th colspan='3'>ServOMBI</th>
 <th colspan='3'>XMAP</th>
 </tr></thead><tbody><tr><td>test</td>
 <td>Prec.</td>
@@ -351,834 +422,57 @@ the test run number.
 <td>Prec.</td>
 <td>FMeas.</td>
 <td>Rec.</td>
+<td>Prec.</td>
+<td>FMeas.</td>
+<td>Rec.</td>
+<td>Prec.</td>
+<td>FMeas.</td>
+<td>Rec.</td>
+<td>Prec.</td>
+<td>FMeas.</td>
+<td>Rec.</td>
+<td>Prec.</td>
+<td>FMeas.</td>
+<td>Rec.</td>
+<td>Prec.</td>
+<td>FMeas.</td>
+<td>Rec.</td>
 </tr></tbody><tbody>
-<tr bgcolor="yellow"><td>Biblio</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0,35</td>
-<td>0,41</td>
-<td>0,506</td>
-<td>0,918</td>
-<td>0,548</td>
-<td>0,388</td>
-<td>0,99</td>
-<td>0,566</td>
-<td>0,396</td>
-<td>0,94</td>
-<td>0,88</td>
-<td>0,82</td>
-<td>0,93</td>
-<td>0,676</td>
-<td>0,53</td>
-<td>0,968</td>
-<td>0,898</td>
-<td>0,834</td>
-<td>0,422</td>
-<td>0,406</td>
-<td>0,392</td>
-<td>#DIV/0!</td>
-<td>#DIV/0!</td>
-<td>0</td>
-<td>0,43</td>
-<td>0,46</td>
-<td>0,5</td>
-<td>0,928</td>
-<td>0,552</td>
-<td>0,392</td>
-<td>1</td>
-<td>0,574</td>
-<td>0,402</td>
-</tr>
-<tr><td><a href="biblio/1.html">1</a></td><td>1,00</td>
-<td>1,00</td>
-<td>1,00</td>
-<td>0,35</td>
-<td>0,41</td>
-<td>0,51</td>
-<td>0,92</td>
-<td>0,55</td>
-<td>0,39</td>
-<td>0,99</td>
-<td>0,57</td>
-<td>0,40</td>
-<td>0,94</td>
-<td>0,88</td>
-<td>0,82</td>
-<td>0,93</td>
-<td>0,67</td>
-<td>0,53</td>
-<td>0,96</td>
-<td>0,89</td>
-<td>0,83</td>
-<td>0,42</td>
-<td>0,42</td>
-<td>0,41</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>0,43</td>
-<td>0,46</td>
-<td>0,50</td>
-<td>0,93</td>
-<td>0,57</td>
-<td>0,41</td>
-<td>1,00</td>
-<td>0,57</td>
-<td>0,40</td>
-</tr>
-<tr><td><a href="biblio/2.html">2</a></td><td>1,00</td>
-<td>1,00</td>
-<td>1,00</td>
-<td>0,35</td>
-<td>0,41</td>
-<td>0,51</td>
-<td>0,92</td>
-<td>0,54</td>
-<td>0,38</td>
-<td>0,99</td>
-<td>0,56</td>
-<td>0,39</td>
-<td>0,94</td>
-<td>0,88</td>
-<td>0,82</td>
-<td>0,93</td>
-<td>0,68</td>
-<td>0,53</td>
-<td>0,97</td>
-<td>0,90</td>
-<td>0,84</td>
-<td>0,43</td>
-<td>0,41</td>
-<td>0,39</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>0,43</td>
-<td>0,46</td>
-<td>0,50</td>
-<td>0,94</td>
-<td>0,55</td>
-<td>0,39</td>
-<td>1,00</td>
-<td>0,57</td>
-<td>0,40</td>
-</tr>
-<tr><td><a href="biblio/3.html">3</a></td><td>1,00</td>
-<td>1,00</td>
-<td>1,00</td>
-<td>0,35</td>
-<td>0,41</td>
-<td>0,50</td>
-<td>0,92</td>
-<td>0,56</td>
-<td>0,40</td>
-<td>0,99</td>
-<td>0,57</td>
-<td>0,40</td>
-<td>0,94</td>
-<td>0,88</td>
-<td>0,82</td>
-<td>0,93</td>
-<td>0,68</td>
-<td>0,53</td>
-<td>0,97</td>
-<td>0,90</td>
-<td>0,83</td>
-<td>0,42</td>
-<td>0,40</td>
-<td>0,38</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>0,43</td>
-<td>0,46</td>
-<td>0,50</td>
-<td>0,92</td>
-<td>0,54</td>
-<td>0,38</td>
-<td>1,00</td>
-<td>0,58</td>
-<td>0,41</td>
-</tr>
-<tr><td><a href="biblio/4.html">4</a></td><td>1,00</td>
-<td>1,00</td>
-<td>1,00</td>
-<td>0,35</td>
-<td>0,41</td>
-<td>0,51</td>
-<td>0,91</td>
-<td>0,54</td>
-<td>0,38</td>
-<td>0,99</td>
-<td>0,56</td>
-<td>0,39</td>
-<td>0,94</td>
-<td>0,88</td>
-<td>0,82</td>
-<td>0,93</td>
-<td>0,68</td>
-<td>0,53</td>
-<td>0,97</td>
-<td>0,90</td>
-<td>0,83</td>
-<td>0,43</td>
-<td>0,40</td>
-<td>0,39</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>0,43</td>
-<td>0,46</td>
-<td>0,50</td>
-<td>0,93</td>
-<td>0,55</td>
-<td>0,39</td>
-<td>1,00</td>
-<td>0,57</td>
-<td>0,40</td>
-</tr>
-<tr><td><a href="biblio/5.html">5</a></td><td>1,00</td>
-<td>1,00</td>
-<td>1,00</td>
-<td>0,35</td>
-<td>0,41</td>
-<td>0,50</td>
-<td>0,92</td>
-<td>0,55</td>
-<td>0,39</td>
-<td>0,99</td>
-<td>0,57</td>
-<td>0,40</td>
-<td>0,94</td>
-<td>0,88</td>
-<td>0,82</td>
-<td>0,93</td>
-<td>0,67</td>
-<td>0,53</td>
-<td>0,97</td>
-<td>0,90</td>
-<td>0,84</td>
-<td>0,41</td>
-<td>0,40</td>
-<td>0,39</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>0,43</td>
-<td>0,46</td>
-<td>0,50</td>
-<td>0,92</td>
-<td>0,55</td>
-<td>0,39</td>
-<td>1,00</td>
-<td>0,58</td>
-<td>0,40</td>
-</tr>
-<tr bgcolor="yellow"><td>Biblio weighted</td>
-<td></td>
-</tr>
-<tr><td><a href="biblio/1-w.html">1</a></td><td>1,00</td>
-<td>1,00</td>
-<td>1,00</td>
-<td>0,58</td>
-<td>0,54</td>
-<td>0,50</td>
-<td>0,94</td>
-<td>0,55</td>
-<td>0,39</td>
-<td>0,99</td>
-<td>0,57</td>
-<td>0,40</td>
-<td>0,68</td>
-<td>0,62</td>
-<td>0,57</td>
-<td>0,74</td>
-<td>0,53</td>
-<td>0,41</td>
-<td>0,45</td>
-<td>0,40</td>
-<td>0,36</td>
-<td>0,41</td>
-<td>0,40</td>
-<td>0,39</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>0,43</td>
-<td>0,46</td>
-<td>0,50</td>
-<td>0,90</td>
-<td>0,54</td>
-<td>0,39</td>
-<td>1,00</td>
-<td>0,57</td>
-<td>0,40</td>
-</tr>
-<tr><td><a href="biblio/2-w.html">2</a></td><td>1,00</td>
-<td>1,00</td>
-<td>1,00</td>
-<td>0,58</td>
-<td>0,54</td>
-<td>0,50</td>
-<td>0,94</td>
-<td>0,55</td>
-<td>0,38</td>
-<td>0,99</td>
-<td>0,56</td>
-<td>0,39</td>
-<td>0,68</td>
-<td>0,62</td>
-<td>0,57</td>
-<td>0,73</td>
-<td>0,53</td>
-<td>0,41</td>
-<td>0,45</td>
-<td>0,40</td>
-<td>0,36</td>
-<td>0,42</td>
-<td>0,39</td>
-<td>0,37</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>0,43</td>
-<td>0,46</td>
-<td>0,50</td>
-<td>0,91</td>
-<td>0,52</td>
-<td>0,37</td>
-<td>1,00</td>
-<td>0,57</td>
-<td>0,40</td>
-</tr>
-<tr><td><a href="biblio/3-w.html">3</a></td><td>1,00</td>
-<td>1,00</td>
-<td>1,00</td>
-<td>0,58</td>
-<td>0,54</td>
-<td>0,50</td>
-<td>0,94</td>
-<td>0,56</td>
-<td>0,40</td>
-<td>0,99</td>
-<td>0,57</td>
-<td>0,40</td>
-<td>0,68</td>
-<td>0,62</td>
-<td>0,57</td>
-<td>0,74</td>
-<td>0,53</td>
-<td>0,41</td>
-<td>0,45</td>
-<td>0,40</td>
-<td>0,36</td>
-<td>0,42</td>
-<td>0,39</td>
-<td>0,37</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>0,43</td>
-<td>0,46</td>
-<td>0,50</td>
-<td>0,91</td>
-<td>0,52</td>
-<td>0,37</td>
-<td>1,00</td>
-<td>0,58</td>
-<td>0,41</td>
-</tr>
-<tr><td><a href="biblio/4-w.html">4</a></td><td>1,00</td>
-<td>1,00</td>
-<td>1,00</td>
-<td>0,58</td>
-<td>0,54</td>
-<td>0,50</td>
-<td>0,94</td>
-<td>0,54</td>
-<td>0,38</td>
-<td>0,99</td>
-<td>0,56</td>
-<td>0,39</td>
-<td>0,68</td>
-<td>0,62</td>
-<td>0,57</td>
-<td>0,74</td>
-<td>0,53</td>
-<td>0,41</td>
-<td>0,45</td>
-<td>0,41</td>
-<td>0,37</td>
-<td>0,41</td>
-<td>0,39</td>
-<td>0,36</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>0,43</td>
-<td>0,46</td>
-<td>0,50</td>
-<td>0,91</td>
-<td>0,52</td>
-<td>0,37</td>
-<td>1,00</td>
-<td>0,57</td>
-<td>0,40</td>
-</tr>
-<tr><td><a href="biblio/5-w.html">5</a></td><td>1,00</td>
-<td>1,00</td>
-<td>1,00</td>
-<td>0,58</td>
-<td>0,54</td>
-<td>0,50</td>
-<td>0,94</td>
-<td>0,55</td>
-<td>0,39</td>
-<td>0,99</td>
-<td>0,56</td>
-<td>0,40</td>
-<td>0,68</td>
-<td>0,62</td>
-<td>0,57</td>
-<td>0,74</td>
-<td>0,53</td>
-<td>0,41</td>
-<td>0,45</td>
-<td>0,40</td>
-<td>0,37</td>
-<td>0,40</td>
-<td>0,38</td>
-<td>0,36</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>0,43</td>
-<td>0,46</td>
-<td>0,50</td>
-<td>0,90</td>
-<td>0,52</td>
-<td>0,37</td>
-<td>1,00</td>
-<td>0,58</td>
-<td>0,40</td>
-</tr>
-<tr bgcolor="yellow"><td>Energy</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0,5</td>
-<td>0,42</td>
-<td>0,148</td>
-<td>0,975</td>
-<td>0,705</td>
-<td>0,228</td>
-<td>1</td>
-<td>0,18</td>
-<td>0,02</td>
-<td>0,96</td>
-<td>0,675</td>
-<td>0,214</td>
-<td>0,324</td>
-<td>0,11</td>
-<td>0,024</td>
-<td>#DIV/0!</td>
-<td>#DIV/0!</td>
-<td>0</td>
-<td>#DIV/0!</td>
-<td>#DIV/0!</td>
-<td>0</td>
-<td>#DIV/0!</td>
-<td>#DIV/0!</td>
-<td>0</td>
-<td>0,74</td>
-<td>0,77</td>
-<td>0,81</td>
-<td>#DIV/0!</td>
-<td>#DIV/0!</td>
-<td>0</td>
-<td>1</td>
-<td>0,5133333333</td>
-<td>0,224</td>
-</tr>
-<tr><td><a href="energy/1.html">1</a></td><td>1,00</td>
-<td>1,00</td>
-<td>1,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>0,74</td>
-<td>0,77</td>
-<td>0,81</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>1,00</td>
-<td>0,65</td>
-<td>0,49</td>
-</tr>
-<tr><td><a href="energy/2.html">2</a></td><td>1,00</td>
-<td>1,00</td>
-<td>1,00</td>
-<td>0,50</td>
-<td>0,35</td>
-<td>0,27</td>
-<td>0,97</td>
-<td>0,58</td>
-<td>0,41</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>0,96</td>
-<td>0,55</td>
-<td>0,39</td>
-<td>0,73</td>
-<td>0,09</td>
-<td>0,05</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>0,74</td>
-<td>0,77</td>
-<td>0,81</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-</tr>
-<tr><td><a href="energy/3.html">3</a></td><td>1,00</td>
-<td>1,00</td>
-<td>1,00</td>
-<td>0,50</td>
-<td>0,49</td>
-<td>0,47</td>
-<td>0,98</td>
-<td>0,83</td>
-<td>0,73</td>
-<td>1,00</td>
-<td>0,18</td>
-<td>0,10</td>
-<td>0,96</td>
-<td>0,80</td>
-<td>0,68</td>
-<td>0,89</td>
-<td>0,13</td>
-<td>0,07</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>0,74</td>
-<td>0,77</td>
-<td>0,81</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-</tr>
-<tr><td><a href="energy/4.html">4</a></td><td>1,00</td>
-<td>1,00</td>
-<td>1,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>0,74</td>
-<td>0,77</td>
-<td>0,81</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>1,00</td>
-<td>0,24</td>
-<td>0,14</td>
-</tr>
-<tr><td><a href="energy/5.html">5</a></td><td>1,00</td>
-<td>1,00</td>
-<td>1,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>0,74</td>
-<td>0,77</td>
-<td>0,81</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>1,00</td>
-<td>0,65</td>
-<td>0,49</td>
-</tr>
-<tr bgcolor="yellow"><td>Energy weighted</td></tr>
-<tr><td><a href="energy/1-w.html">1</a></td><td>1,00</td>
-<td>1,00</td>
-<td>1,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>0,26</td>
-<td>0,00</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>0,74</td>
-<td>0,77</td>
-<td>0,81</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>1,00</td>
-<td>0,65</td>
-<td>0,49</td>
-</tr>
-<tr><td><a href="energy/2-w.html">2</a></td><td>1,00</td>
-<td>1,00</td>
-<td>1,00</td>
-<td>0,72</td>
-<td>0,39</td>
-<td>0,27</td>
-<td>0,95</td>
-<td>0,56</td>
-<td>0,40</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>0,72</td>
-<td>0,40</td>
-<td>0,28</td>
-<td>0,62</td>
-<td>0,07</td>
-<td>0,04</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>0,74</td>
-<td>0,77</td>
-<td>0,81</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-</tr>
-<tr><td><a href="energy/3-w.html">3</a></td><td>1,00</td>
-<td>1,00</td>
-<td>1,00</td>
-<td>0,75</td>
-<td>0,58</td>
-<td>0,47</td>
-<td>0,95</td>
-<td>0,81</td>
-<td>0,70</td>
-<td>0,96</td>
-<td>0,18</td>
-<td>0,10</td>
-<td>0,72</td>
-<td>0,59</td>
-<td>0,50</td>
-<td>0,70</td>
-<td>0,09</td>
-<td>0,05</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>0,74</td>
-<td>0,77</td>
-<td>0,81</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-</tr>
-<tr><td><a href="energy/4-w.html">4</a></td><td>1,00</td>
-<td>1,00</td>
-<td>1,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>0,25</td>
-<td>0,00</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>0,74</td>
-<td>0,77</td>
-<td>0,81</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>1,00</td>
-<td>0,24</td>
-<td>0,14</td>
-</tr>
-<tr><td><a href="energy/5-w.html">5</a></td><td>1,00</td>
-<td>1,00</td>
-<td>1,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>0,25</td>
-<td>0,00</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>0,74</td>
-<td>0,77</td>
-<td>0,81</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0,00</td>
-<td>1,00</td>
-<td>0,65</td>
-<td>0,49</td>
-</tr>
+<tr bgcolor="yellow"><td>biblio</td><td>1,00</td><td>1,00</td><td>1,00</td><td>0,35</td><td>0,41</td><td>0,51</td><td>0,92</td><td>0,55</td><td>0,39</td><td>0,99</td><td>0,57</td><td>0,40</td><td>0,94</td><td>0,88</td><td>0,82</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,93</td><td>0,68</td><td>0,53</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,97</td><td>0,90</td><td>0,83</td><td>0,42</td><td>0,41</td><td>0,39</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,43</td><td>0,46</td><td>0,50</td><td>0,93</td><td>0,55</td><td>0,39</td><td>0,78</td><td>0,56</td><td>0,44</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>1,00</td><td>0,57</td><td>0,40</td></tr>
+<tr><td><a href="biblio/1.html">1</td><td>1,00</td><td>1,00</td><td>1,00</td><td>0,35</td><td>0,41</td><td>0,51</td><td>0,92</td><td>0,55</td><td>0,39</td><td>0,99</td><td>0,57</td><td>0,40</td><td>0,94</td><td>0,88</td><td>0,82</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,93</td><td>0,67</td><td>0,53</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,96</td><td>0,89</td><td>0,83</td><td>0,42</td><td>0,42</td><td>0,41</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,43</td><td>0,46</td><td>0,50</td><td>0,93</td><td>0,57</td><td>0,41</td><td>0,78</td><td>0,56</td><td>0,44</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>1,00</td><td>0,57</td><td>0,40</td></tr>
+<tr><td><a href="biblio/2.html">2</td><td>1,00</td><td>1,00</td><td>1,00</td><td>0,35</td><td>0,41</td><td>0,51</td><td>0,92</td><td>0,54</td><td>0,38</td><td>0,99</td><td>0,56</td><td>0,39</td><td>0,94</td><td>0,88</td><td>0,82</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,93</td><td>0,68</td><td>0,53</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,97</td><td>0,90</td><td>0,84</td><td>0,43</td><td>0,41</td><td>0,39</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,43</td><td>0,46</td><td>0,50</td><td>0,94</td><td>0,55</td><td>0,39</td><td>0,78</td><td>0,56</td><td>0,44</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>1,00</td><td>0,57</td><td>0,40</td></tr>
+<tr><td><a href="biblio/3.html">3</td><td>1,00</td><td>1,00</td><td>1,00</td><td>0,35</td><td>0,41</td><td>0,50</td><td>0,92</td><td>0,56</td><td>0,40</td><td>0,99</td><td>0,57</td><td>0,40</td><td>0,94</td><td>0,88</td><td>0,82</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,93</td><td>0,68</td><td>0,53</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,97</td><td>0,90</td><td>0,83</td><td>0,42</td><td>0,40</td><td>0,38</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,43</td><td>0,46</td><td>0,50</td><td>0,92</td><td>0,54</td><td>0,38</td><td>0,78</td><td>0,56</td><td>0,44</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>1,00</td><td>0,58</td><td>0,41</td></tr>
+<tr><td><a href="biblio/4.html">4</td><td>1,00</td><td>1,00</td><td>1,00</td><td>0,35</td><td>0,41</td><td>0,51</td><td>0,91</td><td>0,54</td><td>0,38</td><td>0,99</td><td>0,56</td><td>0,39</td><td>0,94</td><td>0,88</td><td>0,82</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,93</td><td>0,68</td><td>0,53</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,97</td><td>0,90</td><td>0,83</td><td>0,43</td><td>0,40</td><td>0,39</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,43</td><td>0,46</td><td>0,50</td><td>0,93</td><td>0,55</td><td>0,39</td><td>0,78</td><td>0,56</td><td>0,44</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>1,00</td><td>0,57</td><td>0,40</td></tr>
+<tr><td><a href="biblio/5.html">5</td><td>1,00</td><td>1,00</td><td>1,00</td><td>0,35</td><td>0,41</td><td>0,50</td><td>0,92</td><td>0,55</td><td>0,39</td><td>0,99</td><td>0,57</td><td>0,40</td><td>0,94</td><td>0,88</td><td>0,82</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,93</td><td>0,67</td><td>0,53</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,97</td><td>0,90</td><td>0,84</td><td>0,41</td><td>0,40</td><td>0,39</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,43</td><td>0,46</td><td>0,50</td><td>0,92</td><td>0,55</td><td>0,39</td><td>0,78</td><td>0,56</td><td>0,44</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>1,00</td><td>0,58</td><td>0,40</td></tr>
+<tr bgcolor="yellow"><td>biblio weighted</td><td>1,00</td><td>1,00</td><td>1,00</td><td>0,58</td><td>0,54</td><td>0,50</td><td>0,94</td><td>0,55</td><td>0,39</td><td>0,99</td><td>0,56</td><td>0,40</td><td>0,68</td><td>0,62</td><td>0,57</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,74</td><td>0,53</td><td>0,41</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,45</td><td>0,40</td><td>0,36</td><td>0,41</td><td>0,39</td><td>0,37</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,43</td><td>0,46</td><td>0,50</td><td>0,91</td><td>0,52</td><td>0,37</td><td>0,78</td><td>0,56</td><td>0,44</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>1,00</td><td>0,57</td><td>0,40</td></tr>
+<tr><td><a href="biblio/1-w.html">1</td><td>1,00</td><td>1,00</td><td>1,00</td><td>0,58</td><td>0,54</td><td>0,50</td><td>0,94</td><td>0,55</td><td>0,39</td><td>0,99</td><td>0,57</td><td>0,40</td><td>0,68</td><td>0,62</td><td>0,57</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,74</td><td>0,53</td><td>0,41</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,45</td><td>0,40</td><td>0,36</td><td>0,41</td><td>0,40</td><td>0,39</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,43</td><td>0,46</td><td>0,50</td><td>0,90</td><td>0,54</td><td>0,39</td><td>0,78</td><td>0,56</td><td>0,44</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>1,00</td><td>0,57</td><td>0,40</td></tr>
+<tr><td><a href="biblio/2-w.html">2</td><td>1,00</td><td>1,00</td><td>1,00</td><td>0,58</td><td>0,54</td><td>0,50</td><td>0,94</td><td>0,55</td><td>0,38</td><td>0,99</td><td>0,56</td><td>0,39</td><td>0,68</td><td>0,62</td><td>0,57</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,73</td><td>0,53</td><td>0,41</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,45</td><td>0,40</td><td>0,36</td><td>0,42</td><td>0,39</td><td>0,37</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,43</td><td>0,46</td><td>0,50</td><td>0,91</td><td>0,52</td><td>0,37</td><td>0,78</td><td>0,56</td><td>0,44</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>1,00</td><td>0,57</td><td>0,40</td></tr>
+<tr><td><a href="biblio/3-w.html">3</td><td>1,00</td><td>1,00</td><td>1,00</td><td>0,58</td><td>0,54</td><td>0,50</td><td>0,94</td><td>0,56</td><td>0,40</td><td>0,99</td><td>0,57</td><td>0,40</td><td>0,68</td><td>0,62</td><td>0,57</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,74</td><td>0,53</td><td>0,41</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,45</td><td>0,40</td><td>0,36</td><td>0,42</td><td>0,39</td><td>0,37</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,43</td><td>0,46</td><td>0,50</td><td>0,91</td><td>0,52</td><td>0,37</td><td>0,78</td><td>0,56</td><td>0,44</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>1,00</td><td>0,58</td><td>0,41</td></tr>
+<tr><td><a href="biblio/4-w.html">4</td><td>1,00</td><td>1,00</td><td>1,00</td><td>0,58</td><td>0,54</td><td>0,50</td><td>0,94</td><td>0,54</td><td>0,38</td><td>0,99</td><td>0,56</td><td>0,39</td><td>0,68</td><td>0,62</td><td>0,57</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,74</td><td>0,53</td><td>0,41</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,45</td><td>0,41</td><td>0,37</td><td>0,41</td><td>0,39</td><td>0,36</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,43</td><td>0,46</td><td>0,50</td><td>0,91</td><td>0,52</td><td>0,37</td><td>0,78</td><td>0,56</td><td>0,44</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>1,00</td><td>0,57</td><td>0,40</td></tr>
+<tr><td><a href="biblio/5-w.html">5</td><td>1,00</td><td>1,00</td><td>1,00</td><td>0,58</td><td>0,54</td><td>0,50</td><td>0,94</td><td>0,55</td><td>0,39</td><td>0,99</td><td>0,56</td><td>0,40</td><td>0,68</td><td>0,62</td><td>0,57</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,74</td><td>0,53</td><td>0,41</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,45</td><td>0,40</td><td>0,37</td><td>0,40</td><td>0,38</td><td>0,36</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,43</td><td>0,46</td><td>0,50</td><td>0,90</td><td>0,52</td><td>0,37</td><td>0,78</td><td>0,56</td><td>0,44</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>1,00</td><td>0,58</td><td>0,40</td></tr>
+<tr bgcolor="yellow"><td>energy</td><td>1,00</td><td>1,00</td><td>1,00</td><td>0,50</td><td>0,42</td><td>0,15</td><td>0,98</td><td>0,71</td><td>0,23</td><td>1,00</td><td>0,17</td><td>0,04</td><td>0,96</td><td>0,68</td><td>0,21</td><td>0,67</td><td>0,59</td><td>0,21</td><td>0,32</td><td>0,11</td><td>0,02</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,74</td><td>0,77</td><td>0,81</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,83</td><td>0,25</td><td>0,06</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,94</td><td>0,06</td><td>0,01</td><td>1,00</td><td>0,51</td><td>0,22</td></tr>
+<tr><td><a href="energy/1.html">1</td><td>1,00</td><td>1,00</td><td>1,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,00</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,74</td><td>0,77</td><td>0,81</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>1,00</td><td>0,65</td><td>0,49</td></tr>
+<tr><td><a href="energy/2.html">2</td><td>1,00</td><td>1,00</td><td>1,00</td><td>0,50</td><td>0,35</td><td>0,27</td><td>0,97</td><td>0,58</td><td>0,41</td><td>1,00</td><td>0,15</td><td>0,08</td><td>0,96</td><td>0,55</td><td>0,39</td><td>0,47</td><td>0,42</td><td>0,39</td><td>0,73</td><td>0,09</td><td>0,05</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,74</td><td>0,77</td><td>0,81</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,81</td><td>0,23</td><td>0,14</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,94</td><td>0,06</td><td>0,03</td><td>NaN</td><td>NaN</td><td>0,00</td></tr>
+<tr><td><a href="energy/3.html">3</td><td>1,00</td><td>1,00</td><td>1,00</td><td>0,50</td><td>0,49</td><td>0,47</td><td>0,98</td><td>0,83</td><td>0,73</td><td>1,00</td><td>0,18</td><td>0,10</td><td>0,96</td><td>0,80</td><td>0,68</td><td>0,86</td><td>0,75</td><td>0,66</td><td>0,89</td><td>0,13</td><td>0,07</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,74</td><td>0,77</td><td>0,81</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,85</td><td>0,26</td><td>0,15</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,94</td><td>0,05</td><td>0,02</td><td>NaN</td><td>NaN</td><td>0,00</td></tr>
+<tr><td><a href="energy/4.html">4</td><td>1,00</td><td>1,00</td><td>1,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,00</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,74</td><td>0,77</td><td>0,81</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>1,00</td><td>0,24</td><td>0,14</td></tr>
+<tr><td><a href="energy/5.html">5</td><td>1,00</td><td>1,00</td><td>1,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,00</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,74</td><td>0,77</td><td>0,81</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>1,00</td><td>0,65</td><td>0,49</td></tr>
+<tr bgcolor="yellow"><td>energy weighted</td><td>1,00</td><td>1,00</td><td>1,00</td><td>0,74</td><td>0,49</td><td>0,15</td><td>0,95</td><td>0,69</td><td>0,22</td><td>0,96</td><td>0,16</td><td>0,04</td><td>0,72</td><td>0,50</td><td>0,16</td><td>0,67</td><td>0,59</td><td>0,21</td><td>0,42</td><td>0,03</td><td>0,02</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,74</td><td>0,77</td><td>0,81</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,83</td><td>0,25</td><td>0,06</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,94</td><td>0,06</td><td>0,01</td><td>1,00</td><td>0,51</td><td>0,22</td></tr>
+<tr><td><a href="energy/1-w.html">1</td><td>1,00</td><td>1,00</td><td>1,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,26</td><td>0,00</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,74</td><td>0,77</td><td>0,81</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>1,00</td><td>0,65</td><td>0,49</td></tr>
+<tr><td><a href="energy/2-w.html">2</td><td>1,00</td><td>1,00</td><td>1,00</td><td>0,72</td><td>0,39</td><td>0,27</td><td>0,95</td><td>0,56</td><td>0,40</td><td>0,96</td><td>0,14</td><td>0,08</td><td>0,72</td><td>0,40</td><td>0,28</td><td>0,47</td><td>0,42</td><td>0,39</td><td>0,62</td><td>0,07</td><td>0,04</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,74</td><td>0,77</td><td>0,81</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,81</td><td>0,23</td><td>0,14</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,94</td><td>0,06</td><td>0,03</td><td>NaN</td><td>NaN</td><td>0,00</td></tr>
+<tr><td><a href="energy/3-w.html">3</td><td>1,00</td><td>1,00</td><td>1,00</td><td>0,75</td><td>0,58</td><td>0,47</td><td>0,95</td><td>0,81</td><td>0,70</td><td>0,96</td><td>0,18</td><td>0,10</td><td>0,72</td><td>0,59</td><td>0,50</td><td>0,86</td><td>0,75</td><td>0,66</td><td>0,70</td><td>0,09</td><td>0,05</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,74</td><td>0,77</td><td>0,81</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,85</td><td>0,26</td><td>0,15</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,94</td><td>0,05</td><td>0,02</td><td>NaN</td><td>NaN</td><td>0,00</td></tr>
+<tr><td><a href="energy/4-w.html">4</td><td>1,00</td><td>1,00</td><td>1,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,25</td><td>0,00</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,74</td><td>0,77</td><td>0,81</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>1,00</td><td>0,24</td><td>0,14</td></tr>
+<tr><td><a href="energy/5-w.html">5</td><td>1,00</td><td>1,00</td><td>1,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,25</td><td>0,00</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>0,74</td><td>0,77</td><td>0,81</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>NaN</td><td>NaN</td><td>0,00</td><td>1,00</td><td>0,65</td><td>0,49</td></tr>
 </tbody></table>
 <p><small>n/a: result alignment not provided or not readable<br />
 NaN: division per zero, likely due to empty alignment.</small></p>
 
+<p>
+The full set of resulting alignments can be found
+at <a href="biblio.zip">biblio.zip</a> and <a href="energy.zip">energy.zip</a>.</p>
+
 <h2>Contact</h2>
 
-<p>This track has been performed by J&eacute;r&ocirc;me Euzenat.
+<p>This track has been performed by J&eacute;r&ocirc;me Euzenat with the invaluable help of C&aacute;ssia Trojahn dos Santos.
 If you have any problems working with the ontologies, any questions or suggestions,
 feel free to contact him</p>
 
