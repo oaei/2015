@@ -43,13 +43,13 @@ caption { caption-side:bottom; }
 This year we run a campaign with <a href="../../benchmarks/index.html">two new generated tests</a>.
 </p>
 <p>
-The initially generated tests with the IFC4 ontology which was
+The initially generated tests from the IFC4 ontology which was
 provided to participants was found to be "somewhat erroneous" as the
 reference alignments contained only entities in the prime ontology
 namespace. We thus generated another test called energy. This test has
-also created problems with some systems, but we decided to keep it as
+also created problems for some systems, but we decided to keep it as
 an example, especially that some other systems have worked on it
-regularly with decent results. Hence, it is useful for developer to
+regularly with decent results. Hence, it may be useful for developers to
 understand why this is the case.
 </p>
 <p>
@@ -69,7 +69,7 @@ It was actually the goal of the SEALS project to automate this
 evaluation so that the tool installation burden was put on tool
 developers and the evaluation burden on evaluators. This also reflects
 the idea that a good tool is a tool easy to install, so in which the
-user does not have many reasons to not using that tool.
+user does not have many reasons to not using it.
 </p>
 <p>
 It would be useful to tighten the rules for evaluation so that the
@@ -99,17 +99,15 @@ Dell PowerEdge T610 with 2*Intel Xeon Quad Core 2.26GHz E5607
 maximum heap size of 8GB.</li>
 <li>DKP-AOM, JarvisOM, RSDLWB and ServOMBI were run on a Debian Linux virtual machine configured with four processors and 20GB of RAM running under a
 Dell PowerEdge T610 with 2*Intel Xeon Quad Core 2.26GHz E5607 processors and 32GB of RAM, under Linux ProxMox 2 (Debian).</li>
-<li>Mamba</li>
+<li>Mamba was run under Ubuntu 14.04 on a Intel Core i7-3537U 2.00GHz
+ ×4  CPU with 8GB of RAM.</li>
 </ul>
 In such condition, we cannot compare systems on the basis of their speed.
 </p>
 <p>
-
-</p>
-<p>
 However we encountered problems with one very slow matcher (LogMapBio)
-that has been eliminated from the pool of matcher and AML and ServOMBI
-which had to be killed while they were unable to match the second run
+that has been eliminated from the pool of matchers. AML and ServOMBI
+had to be killed while they were unable to match the second run
 of the energy data set.
 No timeout was explicitly set.
 </p>
@@ -127,11 +125,13 @@ results page</a>, we were so far able to evaluate 15 systems.
 <p>
 Globally results are far better on the biblio test than the energy
 one.
-This may be due either on system overfit to biblio or the energy
-dataset being erroneous. We have to investigate on this. In
-particular, many of the energy run have made several matchers to
-fail (run 2 and 3 seems to be easier, however, apparently 2 made AML to
-go in a loop).
+This may be due either to system overfit to biblio or to the energy
+dataset being erroneous. We have to investigate this. 
+However, 5 systems obtained best overall F-measure on the energy data set (this is comparable to the results obtained in 2014).
+It seems that run 1, 4 and 5 of energy generated ontologies found
+erroneous by some parsers (the matchers did not return any results),
+but some matchers where able to return relevant results. Curiously
+XMAP did only work properly on tests 2 and 3.
 <!--p>
 The following table presents the harmonic means of precision,
 F-measure and recall for the test suites for all the participants,
