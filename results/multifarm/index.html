@@ -131,7 +131,7 @@ LogMapLite                  </td><td> 13   </td><td> 19 </td><td > 1.29 </td><td
  Mamba*                      </td><td> 297 </td><td> 21 </td><td > 1.52 </td><td > .36(.78) </td><td > .06(.13)  </td><td > .03(.07)  </td><td > 3.68  </td><td > .48.(99) </td><td > .02(.05) </td><td > .01(.03) </td></tr>
 
 <tr class="even"><td>
- RSDLWB                      </td><td> 14   </td><td> 44 </td><td > 30.71  </td><td > .01(.01)  </td><td > .01(.01) </td><td > .01(.01) </td><td > 43.71 </td><td > .20(.20) </td><td > .11(.11) </td><td > .08(.08) </td></tr>
+ RSDLWB                      </td><td> 14   </td><td> 45 </td><td > 30.71  </td><td > .01(.01)  </td><td > .01(.01) </td><td > .01(.01) </td><td > 43.71 </td><td > .20(.20) </td><td > .11(.11) </td><td > .08(.08) </td></tr>
 </tbody>
 <caption>MultiFarm aggregated results per matcher, for each type of matching task -- different ontologies (i) and same ontologies (ii). Time is measured in minutes. Tools marked with an * have been executed in a different setting. \#pairs indicates the number of pairs of languages the tool is able to generated (non empty) alignments. Size indicates the average of the number of generated correspondences for the tests where an (non empty) alignment has been generated. Two kinds of results are reported : those do not distinguishing empty and erroneous (or not generated) alignments and those -- indicated between parenthesis -- considering only non empty generated alignments for a pair of languages.</caption>
 <table>
@@ -296,7 +296,57 @@ of 4 systems (out of 5, the exception is LYAM++ ): AML – cz-en (.63), cz-ru (.
 
 <h3>Edas and ekaw based evaluation</h3>
 
-TBA.
+<p>The table belows presents the aggregated results for the matching tasks involving edas and ekaw ontologies. LYAM++ has participated only in the open test. The overall results here are close to what has been observed for the open evaluation. For both types of tasks, LogMap outperforms all systems in terms of precision and AML in terms of F-measure. Both of them required more time for finishing the tasks due to the fact that new translations were computed on the fly (for Italian). For CLONA, its runtime can be explained by the fact that it may have experimented no (concurrent) problems to access the SEALS repositories. Note again that runtimes this year may not reflect the real time required for finishing the tasks.</p>
+
+
+<table border='2' frame='sides' rules='groups' align='center'">
+<colgroup align='center'/>
+<colgroup align='center'/>
+<colgroup align='center'/>
+<colgroup align='center' span='4' />
+<colgroup align='center' span='4' />
+<thead valign='top'>
+
+<tr>
+  <th></th> 
+  <th></th> 
+  <th></th> 
+  <th colspan="4" >Different ontologies (i)</th>
+  <th colspan="4" >Same ontologies (ii)</th>
+</tr>
+<tbody>
+<tr class="header"><th>System</td>
+    <th>Time</td>
+    <th>#pairs</td>
+    <th >Size</td>
+    <th >Prec.</td>
+    <th >F-m.</td>
+    <th >Rec.</td>
+    <th >Size</td>
+    <th >Prec.</td>
+    <th >F-m.</td>
+    <th >Rec.</td>
+</tr>
+<tr class="even"><td>AML</td><td>128</td><td>55</td><td>13.33</td><td>.52(.52)</td><td>.47(.47)</td><td>.42(.42)</td><td>68.62</td><td>.93(.93)</td><td>.64(.64)</td><td>.49(.49) </td></tr>
+<tr class="odd"><td>CLONA*</td><td>931</td><td>55</td><td>9.62</td><td>.40(.40)</td><td>.29(.29)</td><td>.23(.23)</td><td>61.98</td><td>.88(.88)</td><td>.57(.57)</td><td>.42(.42) </td></tr>
+<tr class="even"><td>LogMap*</td><td>253</td><td>55</td><td>7.43</td><td>.71(.71)</td><td>.38(.38)</td><td>.27(.27)</td><td>52.69</td><td>.97(.97) </td><td>.44(.44)</td><td>.30(.30) </td></tr>
+<tr class="odd"><td>LYAM++**</td><td>-</td><td>- </td><td> - </td><td> -  </td><td>-  </td><td>-  </td><td> - </td><td>- </td><td> -</td><td>-</td></tr>
+<tr class="even"><td>XMap</td><td>11877</td><td>52</td><td> 182.55</td><td>.14(.15)</td><td>.13(.13)</td><td>.17(.18)</td><td>285.53</td><td>.40(.44)</td><td>.22(.24)</td><td>.19(.21) </td></tr>
+</td></tr>
+<tr class="odd"><td>CroMatcher</td><td>297</td><td>55</td><td>13.53</td><td>.32(.32)</td><td>.09(.09)</td><td>.06(.06)</td><td>75.08</td><td>.81(.81) </td><td>.54(.54) </td><td>.44(.44) </td></tr>
+<tr class="even"><td>DKP-AOM</td><td>20</td><td>24</td><td>2.58</td><td>.43(.98)</td><td>.04(.09)</td><td>.02(.05)</td><td>4.37</td><td>.49(1.0)</td><td>.02(.03)</td><td>.01(.01) </td></tr>
+<tr class="odd"><td>GMap</td><td>2968</td><td>27</td><td>1.81</td><td>.45(.92)</td><td>.05(.11)</td><td>.03(.06)</td><td>4.4</td><td>.49(.99)</td><td>.02(.05)</td><td>.01(.02) </td></tr>
+<tr class="even"><td>LogMap-C</td><td>73</td><td>26</td><td>1.24</td><td>.38(.81)</td><td>.05(.10)</td><td>.03(.05)</td><td>93.69</td><td>.02(.04)</td><td>.01(.03)</td><td>.01(.02) </td></tr>
+<tr class="odd"><td>LogMapLite</td><td>17</td><td>25</td><td>1.16</td><td>.36(.78)</td><td>.04(.09)</td><td>.02(.05)</td><td>94.5</td><td>.02(.04)</td><td>.01(.03)</td><td>.01(.02) </td></tr>
+<tr class="even"><td>Mamba*</td><td>383</td><td>28</td><td>1.81</td><td>.48(.93)</td><td>.08(.15)</td><td>.04(.09)</td><td>3.74</td><td>.59(.99)</td><td>.03(.05)</td><td>.01(.02) </td></tr>
+<tr class="odd"><td>RSDLWB</td><td>19</td><td>55</td><td>32.12</td><td>.01(.01)</td><td>.01(.01)</td><td>.01(.01)</td><td>43.31</td><td>.19(.10)</td><td>.10(.10)</td><td>.06(.06) </td></tr>
+</tbody>
+<caption>MultiFarm aggregated results per matcher for the edas and ekaw based evaluation, for each type of matching task -- different ontologies (i) and same ontologies (ii). Time is measured in minutes (for completing the 55x24 matching tasks). Tools marked with an * have been executed in a different setting.</caption>
+<table>
+
+<p>Looking for the overall results of non-specific systems, for cases of type (i), DKP-OAM still generates good values of precision but has been outperformed by GMap and Mamba. For cases of type (ii), CroMatcher corroborates the good results obtained by its structural strategy, while LogMap-C and LogMap-Lite decrease their precision, considerably increasing the number of generated correspondences (in particular for edas-edas task).</p>
+
+<p>With respect to the pairs of languages for test cases of type (i), although the overall results remain relatively stable, new pairs of languages take place in the top-3 F-measure. For non specific systems, it is the case for the pairs es-it and it-pt : CroMatcher (es-it .25, it-pt .25, en-it .24, and en-nl .21), DKP-AOM (es-pt .20, de-en .20, it-pt .17, es-it .16), GMap (it-pt .31, en-it .25, en-fr .19), LogMap-C (de-en .23, es-pt .21, it-pt .20, es-it .19), LogMapLite (de-en .20, es-pt .20, it-pt .17, es-it .16), and Mamba (de-en .27, en-it .26, en-nl .25, it-pt .24). For the group of systems implementing cross-lingual strategies, this fact has been observed for 2 (AML and XMAP) out of 4 systems. For those systems, some pairs involving Czech (cn-cz, cz-de, cz-en ou cz-ru) are again present in the top-5 F-measure of 3 out of 4 systems: AML (es-it .58, en-pt .58 en-nl .57 cz-en .57 nl-pt .57 es-nl .56, cz-nl .55, en-es .55, cz-es .54), CLONA (cn-cz .38, cz-pt .38, de-pt .38, de-en .37, fr-pt .37, pt-ru .36, es-pt .36, es-ru .35, fr-ru .35, cz-de .35), LogMap (en-nl .53, en-pt .51, cz-en .49, en-ru .48, cz-nl .46, cz-ru .46). The exception is XMAP (nl-pt .53, nl-ru .43, it-pt .41, pt-ru .37, fr-ru .37). Finally, with respect to type (ii), the pair it-pt appears in the top-3 F-measure of AML and CLONA. </p>
 
 <h3>References</h3>
 
