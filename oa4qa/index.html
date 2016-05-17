@@ -1,0 +1,103 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>OAEI 2015::OA4QA Track</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head><body>
+
+<div class="header">
+<a style="color: grey; line-height: 5mm;" href="http://oaei.ontologymatching.org/2015/">Ontology
+  Alignment Evaluation Initiative - OAEI-2015 Campaign</a>
+  <a href="http://oaei.ontologymatching.org/2015">
+  <img src="../../oaeismall.jpg" style="float: right; margin-left: 10pt; margin-right: 10pt; margin-bottom: 10pt; border-style: none;" width="175px"></a>
+  <a href="http://www.seals-project.eu/">
+<img src="../../seals-logo.jpg" style="clear: right; float: right; margin-right: 20pt; margin-left: 10pt; margin-bottom: 10pt; border-style: none;" width="150px"></a>
+</div>
+
+<h1>Ontology Alignment for Query Answering <i>(OA4QA)</i></h1>
+
+<h2>General description</h2>
+
+<p>This track will not follow the classical ontology alignment evaluation with respect to a set of reference alignments.
+Precision and recall will be calculated with respect to the ability of the generated alignments to answer a set of queries
+in a ontology-based data access scenario where several ontologies exist.</p>
+
+<!--<p>Given a query and an ontology pair, a model (or reference) answer set will be computed using the correspondent reference alignment for the ontology pair. 
+Precision and Recall will be calculated with respect to these model answer sets.</p>-->
+
+<h2>Dataset and queries</h2>
+
+<p>In the OAEI 2015 campaign the dataset is based on the <a href="../2015/conference/index.html" target="_blank">Conference track</a>. We have 
+populated some of the Conference ontologies with (synthetic) ABoxes extracted from the <a href="http://dblp.uni-trier.de/xml/" target="_blank">DBLP dataset</a> 
+and we have defined a set of queries over these ABoxes.
+For example, given the query <b>Q(x):=Author(x)</b> expressed using the vocabulary of <b>Cmt</b> ontology, <b>Ekaw</b> ontology 
+has been enriched with synthetic data; the query <b>Q(x)</b> is executed over the aligned ontology <b>Cmt &cup; Ekaw &cup; M</b> where M
+is an alignment between Cmt and Ekaw conference ontologies.
+</p>
+
+<p>
+We differentiate three categories of queries: (i) basic queries that should be successful for most of the systems, 
+(ii) queries for which the semantic consequences of the aligned ontology will be critical, and (iii) 
+advanced queries for which nontrivial mappings are required.
+</p>
+
+
+<p><b>The evaluation framework together with a subset of the dataset and queries that will compose the OA4QA evaluation can be 
+found <a href="oaei2015_oa4qa_bundle.zip">here</a></b> (23Mb) 
+<FONT COLOR="red">(last modified: 14/06/2015)</FONT>.</p>
+
+<!--
+<p><b>The evaluation framework together with a subset of the dataset and queries that will compose the OA4QA evaluation will be available by August 1.</b> </p>
+-->
+
+<h2>Query evaluation engine</h2>
+
+<p>
+The evaluation engine considered is an extensions of the OWL 2 reasoner HermiT, known as 
+<a href="https://code.google.com/p/owl-bgp/" target="_blank">OWL-BGP</a> [1]. 
+OWL-BGP is able to process SPARQL queries in the SPARQL-OWL fragment, under the <a href="http://www.w3.org/TR/2010/WD-sparql11-entailment-20100126/#id45013" target="_blank">
+OWL 2 Direct Semantics entailment regime</a>. The queries employed in the OA4QA track are standard conjunctive queries, 
+that are fully supported by the more expressive SPARQL-OWL fragment. 
+</p>
+
+<h2>Evaluation metrics and reference answer set</h2>
+
+<p>The evaluation metrics used for the OA4QA track are the classic information retrieval ones (i.e., precision, recall and f-measure), but 
+on the result set of the query evaluation. In order to compute
+a reference or model answer set for the query results, the publicly available reference alignment (RA1) of the 
+<a href="../conference/index.html" target="_blank">Conference track</a> has been used.
+For example, given a query and an ontology pair (e.g. cmt and ekaw), a model (or reference) answer set will be computed using the correspondent 
+reference alignment for the ontology pair (e.g. ra1_cmt_ekaw).</p>
+
+<p>An alternative reference answer set has also been computed after repairing the reference alignment RA1 
+from conservativity and consistency violations [2]. The repaired RA1 is called RAR1.</p>
+ 
+<p>Precision and recall are calculated with respect to these aforementioned model answer sets, i.e. 
+for each ontology pair (O1 and O2) and query Q(x), and for each alignment M computed by the different matching systems 
+participating in the <a href="../conference/index.html" target="_blank">Conference track</a>. We compare 
+(in terms of precision and recall) the answer set of Q(X) executed over <b>O1 &cup; O2 &cup; M</b> with respect to the result sets 
+of running the same query Q(x) over <b>O1 &cup; O2 &cup; RA1</b> and <b>O1 &cup; O2 &cup; RAR1</b>.
+</p>
+
+<p>
+Note that the occurrence of <b>unsatisfiable classes</b> in <b>O1 &cup; O2 &cup; M</b> will have a critical impact in the query answering process. 
+</p>
+
+<h2>References</h2>
+
+<ol>
+<li>Ilianna Kollia, Birte Glimm, Ian Horrocks: SPARQL query answering over OWL ontologies. In: The Semantic Web: Research and Applications. Springer. 2011. 
+[<a href="http://www.cs.ox.ac.uk/ian.horrocks/Publications/download/2011/KoGH11a.pdf">pdf</a>]</li>
+
+<li>Alessandro Solimando, Ernesto Jimenez-Ruiz, and Giovanna Guerrini. <i>Detecting and Correcting Conservativity Principle Violations in Ontology-to-Ontology Mappings</i>. International Semantic Web Conference (ISWC). 2014. [<a href="http://www.cs.ox.ac.uk/files/6647/conservativityLogMap.pdf">pdf</a>]</li>
+
+</ol>
+
+<p>Contact: alessandro [.] solimando [at] unige [.] it or ernesto 
+[at] cs [.] ox [.] ac [.] uk</p>
+
+<div class="address">
+Original page: <a href="http://www.cs.ox.ac.uk/isg/projects/Optique/oaei/oa4qa/2015/index.html">http://www.cs.ox.ac.uk/isg/projects/Optique/oaei/oa4qa/2015/index.html</a> [cached: 13/05/2016]
+<div class="footer">http://oaei.ontologymatching.org/2015/oa4qa/index.html</div>
+</div>
+</body></html>
+

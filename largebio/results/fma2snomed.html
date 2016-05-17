@@ -1,0 +1,269 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+<title>OAEI 2015::Large BioMed Track</title>
+<link rel="stylesheet" type="text/css" href="http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/style.css">
+</head><body>
+
+<div class="header">
+<a style="color: grey; line-height: 5mm;" href="http://oaei.ontologymatching.org/2015/">Ontology
+  Alignment Evaluation Initiative - OAEI-2015 Campaign</a>
+  <a href="http://oaei.ontologymatching.org/2015">
+  <img src="http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/oaeismall.jpg" style="float: right; margin-left: 10pt; margin-right: 10pt; margin-bottom: 10pt; border-style: none;" width="175px"></a>
+  <a href="http://www.seals-project.eu/">
+<img src="http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/Seals-logo-5.png" style="clear: right; float: right; margin-right: 20pt; margin-left: 10pt; margin-bottom: 10pt; border-style: none;" width="150px"></a>
+</div>
+
+
+<p><b><a href="index.html">Results OAEI 2015::Large BioMed Track</a></b></p>
+
+<h2><u>Results of the FMA-SNOMED matching problem</u></h2>
+
+<p>The following tables summarize the results for the tasks in the FMA-SNOMED matching problem.</p>
+
+
+<p><b>XMAP-BK</b> provided the best results in terms of both Recall and F-measure in 
+Task 3 and Task 4. Precision of <b>XMAP-BK</b> in Task 2 was lower than the other top systems but Recall was much higher than the others.   
+</p>
+
+<p>
+As in the FMA-NCI tasks, the use of the UMLS-Metathesaurus in <b>XMAP-BK</b> has an important impact.
+</p>
+
+<p>Overall, the results were less positive than in the FMA-NCI matching problem. 
+As in the FMA-NCI matching problem, efficiency also decreases as the ontology size increases. 
+The most important variations were suffered by LogMapBio and XMap in terms of precision.
+Furthermore, LiLy, DKP-AOM-Lite and DKP-AOM could not complete neither Task 3 nor Task 4,  
+while ServOMBI and CroMatcher could not complete Task 4 within the permitted time.
+</p>
+
+<p><b>* Uses background knowledge based on the UMLS-Metathesaurus as the LargeBio reference alignments.</b></p>
+
+
+<br/>
+
+<h3>Task 3: FMA-SNOMED small fragments</h3>
+
+
+<table cellpadding="4" cellspacing="0">
+
+<tr class="header">
+<td  class="header" rowspan="2"> System </td>
+<td  class="header" rowspan="2" colspan="1"> Time (s) </td>
+<td  class="header" rowspan="2" colspan="1"> # Mappings </td> </td>
+<td  class="header" colspan="3"> Scores </td>
+<td  class="header" colspan="2"> Incoherence Analysis</td>
+</tr>
+
+
+<tr class="header">
+<td  class="header"> Precision </td><td  class="header"> &nbsp;Recall&nbsp; </td> <td  class="header"> F-measure </td> 
+<td  class="header"> Unsat.</td> <td  class="header"> Degree </td> 
+</tr>
+
+
+
+<tr class="red">
+<td class="text">XMAP-BK *</td>
+<td> 49 </td><td> 7,920 </td>
+<td> 0.968 </td> <td> 0.847 </td> <td class="bold"> 0.903 </td>
+<td> 12,848 </td><td class="right"> 54.4&#37</td></tr>
+
+
+<tr class="even">
+<td class="text">AML</td>
+<td> 79 </td><td> 6,791 </td>
+<td> 0.926 </td> <td> 0.742 </td> <td class="bold"> 0.824 </td>
+<td> 0 </td><td class="right"> 0.000&#37</td></tr>
+
+
+<tr class="odd">
+<td class="text">LogMapBio</td>
+<td> 1,204 </td><td> 6,485 </td>
+<td> 0.935 </td> <td> 0.700 </td> <td class="bold"> 0.801 </td>
+<td> 1 </td><td class="right"> 0.004&#37</td></tr>
+
+
+<tr class="even">
+<td class="text">LogMap</td>
+<td> 78 </td><td> 6,282 </td>
+<td> 0.948 </td> <td> 0.690 </td> <td class="bold"> 0.799 </td>
+<td> 1 </td><td class="right"> 0.004&#37</td></tr>
+
+
+<tr class="odd">
+<td class="text">ServOMBI</td>
+<td> 532 </td><td> 6,329 </td>
+<td> 0.960 </td> <td> 0.664 </td> <td class="bold"> 0.785 </td>
+<td> 12,155 </td><td class="right"> 51.5&#37</td></tr>
+
+
+<tr class="even">
+<td class="text">XMAP</td>
+<td> 46 </td><td> 6,133 </td>
+<td> 0.958 </td> <td> 0.647 </td> <td class="bold"> 0.772 </td>
+<td> 12,368 </td><td class="right"> 52.4&#37</td></tr>
+
+
+<tr class="base">
+<td class="header">Average</td>
+<td> 1,527 </td><td> 5,328 </td>
+<td> 0.919 </td> <td> 0.561 </td> <td class="bold"> 0.664 </td>
+<td> 5,902 </td><td class="right"> 25.0&#37</td></tr>
+
+
+<tr class="even">
+<td class="text">LogMapC</td>
+<td> 156 </td><td> 4,535 </td>
+<td> 0.956 </td> <td> 0.505 </td> <td class="bold"> 0.661 </td>
+<td> 0 </td><td class="right"> 0.000&#37</td></tr>
+
+
+<tr class="odd">
+<td class="text">CroMatcher</td>
+<td> 13,057 </td><td> 6,232 </td>
+<td> 0.586 </td> <td> 0.479 </td> <td class="bold"> 0.527 </td>
+<td> 20,609 </td><td class="right"> 87.1&#37</td></tr>
+
+
+<tr class="even">
+<td class="text">LogMapLite</td>
+<td> 36 </td><td> 1,644 </td>
+<td> 0.968 </td> <td> 0.209 </td> <td class="bold"> 0.343 </td>
+<td> 771 </td><td class="right"> 3.3&#37</td></tr>
+
+
+<tr class="odd">
+<td class="text">RSDLWB</td>
+<td> 36 </td><td> 933 </td>
+<td> 0.980 </td> <td> 0.128 </td> <td class="bold"> 0.226 </td>
+<td> 271 </td><td class="right"> 1.1&#37</td></tr>
+
+
+
+
+
+
+
+
+
+
+<caption><b>Table 1:</b> Results for the largebio task 3.</caption>
+
+</table>
+
+
+<br/><br/>
+
+
+
+<h3>Task 4: FMA whole ontology with SNOMED large fragment</h3>
+
+
+
+<table cellpadding="4" cellspacing="0">
+
+<tr class="header">
+<td  class="header" rowspan="2"> System </td>
+<td  class="header" rowspan="2" colspan="1"> Time (s) </td>
+<td  class="header" rowspan="2" colspan="1"> # Mappings </td> </td>
+<td  class="header" colspan="3"> Scores </td>
+<td  class="header" colspan="2"> Incoherence Analysis</td>
+</tr>
+
+
+<tr class="header">
+<td  class="header"> Precision </td><td  class="header"> &nbsp;Recall&nbsp; </td> <td  class="header"> F-measure </td> 
+<td  class="header"> Unsat.</td> <td  class="header"> Degree </td> 
+</tr>
+
+
+
+
+<tr class="red">
+<td class="text">XMAP-BK *</td>
+<td> 782 </td><td> 9,243 </td>
+<td> 0.769 </td> <td> 0.844 </td> <td class="bold"> 0.805 </td>
+<td> 44,019 </td><td class="right"> 21.8&#37</td></tr>
+
+
+<tr class="even">
+<td class="text">AML</td>
+<td> 509 </td><td> 6,228 </td>
+<td> 0.889 </td> <td> 0.650 </td> <td class="bold"> 0.751 </td>
+<td> 0 </td><td class="right"> 0.000&#37</td></tr>
+
+
+<tr class="odd">
+<td class="text">LogMap</td>
+<td> 768 </td><td> 6,281 </td>
+<td> 0.839 </td> <td> 0.634 </td> <td class="bold"> 0.722 </td>
+<td> 0 </td><td class="right"> 0.000&#37</td></tr>
+
+
+<tr class="even">
+<td class="text">LogMapBio</td>
+<td> 3,248 </td><td> 6,869 </td>
+<td> 0.776 </td> <td> 0.650 </td> <td class="bold"> 0.707 </td>
+<td> 0 </td><td class="right"> 0.000&#37</td></tr>
+
+
+<tr class="odd">
+<td class="text">XMAP</td>
+<td> 698 </td><td> 7,061 </td>
+<td> 0.720 </td> <td> 0.609 </td> <td class="bold"> 0.660 </td>
+<td> 40,056 </td><td class="right"> 19.9&#37</td></tr>
+
+
+<tr class="even">
+<td class="text">LogMapC</td>
+<td> 1,195 </td><td> 4,693 </td>
+<td> 0.852 </td> <td> 0.479 </td> <td class="bold"> 0.613 </td>
+<td> 98 </td><td class="right"> 0.049&#37</td></tr>
+
+
+<tr class="base">
+<td class="header">Average</td>
+<td> 1,004 </td><td> 5,395 </td>
+<td> 0.829 </td> <td> 0.525 </td> <td class="bold"> 0.602 </td>
+<td> 11,157 </td><td class="right"> 5.5&#37</td></tr>
+
+
+<tr class="even">
+<td class="text">LogMapLite</td>
+<td> 419 </td><td> 1,822 </td>
+<td> 0.852 </td> <td> 0.209 </td> <td class="bold"> 0.335 </td>
+<td> 4,389 </td><td class="right"> 2.2&#37</td></tr>
+
+
+<tr class="odd">
+<td class="text">RSDLWB</td>
+<td> 413 </td><td> 968 </td>
+<td> 0.933 </td> <td> 0.127 </td> <td class="bold"> 0.224 </td>
+<td> 698 </td><td class="right"> 0.3&#37</td></tr>
+
+
+
+
+
+
+<caption><b>Table 2:</b> Results for the largebio task 4.</caption>
+</table>
+
+
+
+
+
+
+<br />
+<br />
+
+
+
+<div class="address">
+<div class="footer">
+Contact: ernesto [at] cs [.] ox [.] ac [.] uk <br />
+<a href="http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/">http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/</a></div>
+<!--$Id$-->
+</div>
+</body></html>

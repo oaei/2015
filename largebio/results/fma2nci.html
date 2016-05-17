@@ -1,0 +1,282 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+<title>OAEI 2015::Large BioMed Track</title>
+<link rel="stylesheet" type="text/css" href="http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/style.css">
+</head><body>
+
+<div class="header">
+<a style="color: grey; line-height: 5mm;" href="http://oaei.ontologymatching.org/2015/">Ontology
+  Alignment Evaluation Initiative - OAEI-2015 Campaign</a>
+  <a href="http://oaei.ontologymatching.org/2015">
+  <img src="http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/oaeismall.jpg" style="float: right; margin-left: 10pt; margin-right: 10pt; margin-bottom: 10pt; border-style: none;" width="175px"></a>
+  <a href="http://www.seals-project.eu/">
+<img src="http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/Seals-logo-5.png" style="clear: right; float: right; margin-right: 20pt; margin-left: 10pt; margin-bottom: 10pt; border-style: none;" width="150px"></a>
+</div>
+
+
+<p><b><a href="index.html">Results OAEI 2015::Large BioMed Track</a></b></p>
+
+<h2><u>Results of the FMA-NCI matching problem</u></h2>
+
+<p>
+The following tables summarize the results for the tasks in the FMA-NCI matching problem.
+</p>
+
+
+<p><b>XMAP-BK</b> and <b>AML</b> provided the best results
+in terms of F-measure in Task 1 and Task 2. 
+Note that, the use of background knowledge based on the UML-Metathesaurus has an important impact in the performance of <b>XMAP-BK</b>.
+LogMapBio improves LogMap's recall in both tasks, however precision is damaged specially in Task 2.
+</p>
+
+
+<p>Note that efficiency in Task 2 has decreased with respect to Task 1.
+This is mostly due to the fact that larger ontologies also involves more possible 
+candidate alignments and it is harder to keep high precision values without damaging recall,
+and vice versa. Furthermore, ServOMBI, CroMacther, LiLy, DKP-AOM-Lite and DKP-AOM could not complete Task 2. 
+</p>
+
+
+<p><b>* Uses background knowledge based on the UMLS-Metathesaurus as the LargeBio reference alignments.</b></p>
+
+<br/>
+
+
+
+<h3>Task 1: FMA-NCI small fragments</h3>
+
+
+<table cellpadding="4" cellspacing="0">
+
+<tr class="header">
+<td  class="header" rowspan="2"> System </td>
+<td  class="header" rowspan="2" colspan="1"> Time (s) </td>
+<td  class="header" rowspan="2" colspan="1"> # Mappings </td> </td>
+<td  class="header" colspan="3"> Scores </td>
+<td  class="header" colspan="2"> Incoherence Analysis</td>
+</tr>
+
+
+<tr class="header">
+<td  class="header"> Precision </td><td  class="header"> &nbsp;Recall&nbsp; </td> <td  class="header"> F-measure </td> 
+<td  class="header"> Unsat.</td> <td  class="header"> Degree </td> 
+</tr>
+
+
+<tr class="red">
+<td class="text">XMAP-BK *</td>
+<td> 31 </td><td> 2,714 </td>
+<td> 0.971 </td> <td> 0.902 </td> <td class="bold"> 0.935 </td>
+<td> 2,319 </td><td class="right"> 22.6&#37</td></tr>
+
+
+<tr class="even">
+<td class="text">AML</td>
+<td> 36 </td><td> 2,690 </td>
+<td> 0.960 </td> <td> 0.899 </td> <td class="bold"> 0.928 </td>
+<td> 2 </td><td class="right"> 0.019&#37</td></tr>
+
+
+<tr class="odd">
+<td class="text">LogMap</td>
+<td> 25 </td><td> 2,747 </td>
+<td> 0.949 </td> <td> 0.901 </td> <td class="bold"> 0.924 </td>
+<td> 2 </td><td class="right"> 0.019&#37</td></tr>
+
+
+<tr class="even">
+<td class="text">LogMapBio</td>
+<td> 1,053 </td><td> 2,866 </td>
+<td> 0.926 </td> <td> 0.917 </td> <td class="bold"> 0.921 </td>
+<td> 2 </td><td class="right"> 0.019&#37</td></tr>
+
+
+<tr class="odd">
+<td class="text">LogMapLite</td>
+<td> 16 </td><td> 2,483 </td>
+<td> 0.967 </td> <td> 0.819 </td> <td class="bold"> 0.887 </td>
+<td> 2,045 </td><td class="right"> 19.9&#37</td></tr>
+
+
+<tr class="even">
+<td class="text">ServOMBI</td>
+<td> 234 </td><td> 2,420 </td>
+<td> 0.970 </td> <td> 0.806 </td> <td class="bold"> 0.881 </td>
+<td> 3,216 </td><td class="right"> 31.3&#37</td></tr>
+
+
+<tr class="odd">
+<td class="text">XMAP</td>
+<td> 26 </td><td> 2,376 </td>
+<td> 0.970 </td> <td> 0.784 </td> <td class="bold"> 0.867 </td>
+<td> 2,219 </td><td class="right"> 21.6&#37</td></tr>
+
+
+<tr class="even">
+<td class="text">LogMapC</td>
+<td> 106 </td><td> 2,110 </td>
+<td> 0.963 </td> <td> 0.710 </td> <td class="bold"> 0.817 </td>
+<td> 2 </td><td class="right"> 0.019&#37</td></tr>
+
+
+<tr class="base">
+<td class="header">Average</td>
+<td> 584 </td><td> 2,516 </td>
+<td> 0.854 </td> <td> 0.733 </td> <td class="bold"> 0.777 </td>
+<td> 2,497 </td><td class="right"> 24.3&#37</td></tr>
+
+
+<tr class="even">
+<td class="text">Lily</td>
+<td> 740 </td><td> 3,374 </td>
+<td> 0.602 </td> <td> 0.720 </td> <td class="bold"> 0.656 </td>
+<td> 9,279 </td><td class="right"> 90.2&#37</td></tr>
+
+
+<tr class="odd">
+<td class="text">DKP-AOM-Lite</td>
+<td> 1,579 </td><td> 2,665 </td>
+<td> 0.640 </td> <td> 0.603 </td> <td class="bold"> 0.621 </td>
+<td> 2,139 </td><td class="right"> 20.8&#37</td></tr>
+
+
+<tr class="even">
+<td class="text">DKP-AOM</td>
+<td> 1,491 </td><td> 2,501 </td>
+<td> 0.653 </td> <td> 0.575 </td> <td class="bold"> 0.611 </td>
+<td> 1,921 </td><td class="right"> 18.7&#37</td></tr>
+
+
+<tr class="odd">
+<td class="text">CroMatcher</td>
+<td> 2,248 </td><td> 2,806 </td>
+<td> 0.570 </td> <td> 0.570 </td> <td class="bold"> 0.570 </td>
+<td> 9,301 </td><td class="right"> 90.3&#37</td></tr>
+
+
+<tr class="even">
+<td class="text">RSDLWB</td>
+<td> 17 </td><td> 961 </td>
+<td> 0.964 </td> <td> 0.321 </td> <td class="bold"> 0.482 </td>
+<td> 25 </td><td class="right"> 0.2&#37</td></tr>
+
+
+
+
+
+<caption><b>Table 1:</b> Results for the largebio task 1.</caption>
+</table>
+
+
+<br/><br/>
+
+
+
+<h3>Task 2: FMA-NCI whole ontologies</h3>
+
+
+
+<table cellpadding="4" cellspacing="0">
+
+<tr class="header">
+<td  class="header" rowspan="2"> System </td>
+<td  class="header" rowspan="2" colspan="1"> Time (s) </td>
+<td  class="header" rowspan="2" colspan="1"> # Mappings </td> </td>
+<td  class="header" colspan="3"> Scores </td>
+<td  class="header" colspan="2"> Incoherence Analysis</td>
+</tr>
+
+
+<tr class="header">
+<td  class="header"> Precision </td><td  class="header"> &nbsp;Recall&nbsp; </td> <td  class="header"> F-measure </td> 
+<td  class="header"> Unsat.</td> <td  class="header"> Degree </td> 
+</tr>
+
+<tr class="red">
+<td class="text">XMAP-BK *</td>
+<td> 337 </td><td> 2,802 </td>
+<td> 0.872 </td> <td> 0.849 </td> <td class="bold"> 0.860 </td>
+<td> 1,222 </td><td class="right"> 0.8&#37</td></tr>
+
+
+<tr class="even">
+<td class="text">AML</td>
+<td> 262 </td><td> 2,931 </td>
+<td> 0.832 </td> <td> 0.856 </td> <td class="bold"> 0.844 </td>
+<td> 10 </td><td class="right"> 0.007&#37</td></tr>
+
+
+<tr class="odd">
+<td class="text">LogMap</td>
+<td> 265 </td><td> 2,693 </td>
+<td> 0.854 </td> <td> 0.802 </td> <td class="bold"> 0.827 </td>
+<td> 9 </td><td class="right"> 0.006&#37</td></tr>
+
+
+<tr class="even">
+<td class="text">LogMapBio</td>
+<td> 1,581 </td><td> 3,127 </td>
+<td> 0.773 </td> <td> 0.848 </td> <td class="bold"> 0.809 </td>
+<td> 9 </td><td class="right"> 0.006&#37</td></tr>
+
+
+<tr class="odd">
+<td class="text">XMAP</td>
+<td> 302 </td><td> 2,478 </td>
+<td> 0.866 </td> <td> 0.743 </td> <td class="bold"> 0.800 </td>
+<td> 1,124 </td><td class="right"> 0.8&#37</td></tr>
+
+
+<tr class="base">
+<td class="header">Average</td>
+<td> 467 </td><td> 2,588 </td>
+<td> 0.818 </td> <td> 0.735 </td> <td class="bold"> 0.759 </td>
+<td> 3,742 </td><td class="right"> 2.6&#37</td></tr>
+
+
+<tr class="odd">
+<td class="text">LogMapC</td>
+<td> 569 </td><td> 2,108 </td>
+<td> 0.879 </td> <td> 0.653 </td> <td class="bold"> 0.750 </td>
+<td> 9 </td><td class="right"> 0.006&#37</td></tr>
+
+
+<tr class="even">
+<td class="text">LogMapLite</td>
+<td> 213 </td><td> 3,477 </td>
+<td> 0.673 </td> <td> 0.820 </td> <td class="bold"> 0.739 </td>
+<td> 26,478 </td><td class="right"> 18.1&#37</td></tr>
+
+
+<tr class="odd">
+<td class="text">RSDLWB</td>
+<td> 211 </td><td> 1,094 </td>
+<td> 0.798 </td> <td> 0.307 </td> <td class="bold"> 0.443 </td>
+<td> 1,082 </td><td class="right"> 0.7&#37</td></tr>
+
+
+
+
+
+
+<caption><b>Table 2:</b> Results for the largebio task 2.</caption>
+</table>
+
+
+
+
+
+
+<br />
+<br />
+
+
+
+<div class="address">
+<div class="footer">
+Contact: ernesto [at] cs [.] ox [.] ac [.] uk <br />
+<a href="http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/">http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/</a></div>
+<!--$Id$-->
+</div>
+</body></html>

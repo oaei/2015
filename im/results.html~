@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>OAEI 2015::Instance Matching Track</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="../style.css">
+<link rel="stylesheet" type="text/css" href="css/slimbox2.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/popup.css" media="all" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=UnifrakturMaguntia">
+<link rel="stylesheet" href="css/jqmath-0.4.0.css">
+<script src="js/jquery-1.4.3.min.js"></script>
+<script src="js/jqmath-etc-0.4.0.min.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/slimbox2.js"></script>
+<script type="text/javascript" src="js/popup.js"></script>
+<script type="text/javascript" src="js/hidecode.js"></script>
+</head><body>
+
+<div class="header">
+<a style="color: grey; line-height: 5mm;" href="http://oaei.ontologymatching.org/2015/">Ontology
+  Alignment Evaluation Initiative - OAEI-2015 Campaign</a>
+  <a href="http://oaei.ontologymatching.org/2015">
+  <img src="../../oaeismall.jpg" style="float: right; margin-left: 10pt; margin-right: 10pt; margin-bottom: 10pt; border-style: none;" width="175px"></a>
+  <a href="http://www.seals-project.eu/">
+<img src="../../seals-logo.jpg" style="clear: right; float: right; margin-right: 20pt; margin-left: 10pt; margin-bottom: 10pt; border-style: none;" width="150px"></a>
+</div>
+
+<h1>Results for the Instance Matching Track</h1>
+
+<p>The Instance Matching Track aims at evaluating the performance of matching tools when the goal is to detect the degree of similarity between pairs of items/instances expressed in the form of OWL Aboxes. </p>
+
+<p>The track is organized in the following <strong>five independent tasks</strong>, namely:
+<ul>
+<li><a href="#author-dis">author disambiguation (<i>author-dis task</i>)</a></li>
+<li><a href="#author-rec">author recognition (<i>author-rec task</i>)</a></li>
+<li><a href="#val-sem">value semantics (<i>val-sem task</i>)</a></li>
+<li><a href="#val-struct">value structure (<i>val-struct task</i>)</a></li>
+<li><a href="#val-struct-sem">value structure semantics (<i>val-struct-sem task</i>)</a></li>
+</ul>
+The tasks val-sem, val-struct, and val-sem-struct have been generated through <a href="http://www.ics.forth.gr/isl/spimbench/" target="_blank">SPIMBENCH</a>, an IM benchmark for the assessment of IM techniques based on RDF data with associated schema.
+</p>
+<p>
+To participate to the Instance Matching Track, <strong>submit results related to one, more, or even all the expected tasks</strong>.
+</p>
+
+<p>
+Each task is articulated in two tests with different scales (i.e., number of instances to match):
+<ul>
+<li><strong>Sandbox</strong> (small scale). It contains two datasets called <i>source</i> and <i>target</i> as well as the set of expected mappings (i.e., reference alignment).</li>
+<li><strong>Mainbox</strong> (medium scale). It contains two datasets called <i>source</i> and <i>target</i>. This test is <i>blind</i>, meaning that the reference alignment is not given to the participants.</li>
+</ul>
+In both tests, the goal is to discover the matching pairs (i.e., mappings) among the instances in the source dataset and the instances in the target dataset. 
+</p>
+
+<!-- AUTHOR DISAMBIGUATION -->
+<h2><a name="author-dis">Author Disambiguation Task (author-dis task)</a></h2>
+
+<div class="results"> 
+    <h3>Participants</h3>  
+    <div class="res_content">
+    <ul>
+    <li>EXONA</li>
+    <li>InsMT+</li>
+    <li>Lily</li>
+    <li>LogMap</li>
+    <li>RiMOM</li>
+    </ul>
+    </div>
+    
+    <h3>Expected mappings</h3>  
+    <div class="res_content">
+    The set of <a href="oaei2015_author_dis_mainbox_mappings.rdf" target="_blank">expected mappings for the mainbox test</a> (initially hidden to the participants) is now available.
+    </div>
+    
+    <h3>Analysis by precision, recall, and F-measure</h3>
+    <div class="table-data-left">
+      <table cellpadding="5" cellspacing="2">
+    <tr class="header">
+     <td colspan="6" class="bold">Sandbox task</td>   
+    </tr>
+    <tr class="header">
+    <td class="bold"></td>
+    <td class="bold">Expected mappings</td>
+    <td class="bold">Retrieved mappings</td>
+    <td class="bold">Precision</td>
+    <td class="bold">Recall</td>
+    <td class="bold">F-measure</td>
+    </tr>
+    <tr class="even">
+    <td class="bold">EXONA</td>
+    <td class="text">854</td>
+    <td class="text">854</td>
+    <td class="text">0.941</td>
+    <td class="text">0.941</td>
+    <td class="text">0.941</td>
+    </tr>
+   <tr class="odd">
+    <td class="bold">InsMT+</td>
+    <td class="text">854</td>
+    <td class="text">722</td>
+    <td class="text">0.834</td>
+    <td class="text">0.705</td>
+    <td class="text">0.764</td>
+    </tr>
+    <tr class="even">
+    <td class="bold">Lily</td>
+    <td class="text">854</td>
+    <td class="text">854</td>
+    <td class="text">0.981</td>
+    <td class="text">0.981</td>
+    <td class="text">0.981</td>
+    </tr>
+    <tr class="odd">
+    <td class="bold">LogMap</td>
+    <td class="text">854</td>
+    <td class="text">779</td>
+    <td class="text">0.994</td>
+    <td class="text">0.906</td>
+    <td class="text">0.948</td>
+    </tr>
+    <tr class="even">
+    <td class="bold">RiMOM</td>
+    <td class="text">854</td>
+    <td class="text">854</td>
+    <td class="text">0.929</td>
+    <td class="text">0.929</td>
+    <td class="text">0.929</td>
+    </tr>
+    </table>
+	</div>
+    <div class="table-data-right">
+    <table cellpadding="5" cellspacing="2">
+    <tr class="header">
+     <td colspan="6" class="bold">Mainbox task</td>   
+    </tr>
+    <tr class="header">
+    <td class="bold"></td>
+    <td class="bold">Expected mappings</td>
+    <td class="bold">Retrieved mappings</td>
+    <td class="bold">Precision</td>
+    <td class="bold">Recall</td>
+    <td class="bold">F-measure</td>
+    </tr>
+    <tr class="even">
+    <td class="bold">EXONA</td>
+    <td class="text">8428</td>
+    <td class="text">144827</td>
+    <td class="text">0.0</td>
+    <td class="text">0.0</td>
+    <td class="text">NaN</td>
+    </tr>
+  <tr class="odd">
+    <td class="bold">InsMT+</td>
+    <td class="text">8428</td>
+    <td class="text">7372</td>
+    <td class="text">0.76</td>
+    <td class="text">0.665</td>
+    <td class="text">0.709</td>
+    </tr>
+    <tr class="even">
+    <td class="bold">Lily</td>
+    <td class="text">8428</td>
+    <td class="text">8428</td>
+    <td class="text">0.964</td>
+    <td class="text">0.964</td>
+    <td class="text">0.964</td>
+    </tr>
+    <tr class="odd">
+    <td class="bold">LogMap</td>
+    <td class="text">8428</td>
+    <td class="text">7030</td>
+    <td class="text">0.996</td>
+    <td class="text">0.831</td>
+    <td class="text">0.906</td>
+    </tr>
+    <tr class="even">
+    <td class="bold">RiMOM</td>
+    <td class="text">8428</td>
+    <td class="text">8428</td>
+    <td class="text">0.911</td>
+    <td class="text">0.911</td>
+    <td class="text">0.911</td>
+    </tr>
+    </table>
+    </div>
+
+<!-- AUTHOR RECOGNITION -->
+<h2><a name="author-rec">Author Recognition Task (author-rec task)</a></h2>
+
+<div class="results"> 
+    <h3>Participants</h3>  
+    <div class="res_content">
+    <ul>
+    <li>EXONA</li>
+    <li>InsMT+</li>
+    <li>Lily</li>
+    <li>LogMap</li>
+    <li>RiMOM</li>
+    </ul>
+    </div>
+    
+    <h3>Expected mappings</h3>  
+    <div class="res_content">
+    The set of <a href="oaei2015_author_rec_mainbox_mappings.rdf" target="_blank">expected mappings for the mainbox test</a> (initially hidden to the participants) is now available.
+    </div>
+    
+    <h3>Analysis by precision, recall, and F-measure</h3>
+
+	<div class="table-data-left">
+	<table cellpadding="5" cellspacing="2">
+    <tr class="header">
+     <td colspan="6" class="bold">Sandbox task</td>   
+    </tr>
+    <tr class="header">
+    <td class="bold"></td>
+    <td class="bold">Expected mappings</td>
+    <td class="bold">Retrieved mappings</td>
+    <td class="bold">Precision</td>
+    <td class="bold">Recall</td>
+    <td class="bold">F-measure</td>
+    </tr>
+     <tr class="even">
+    <td class="bold">EXONA</td>
+    <td class="text">854</td>
+    <td class="text">854</td>
+    <td class="text">0.518</td>
+    <td class="text">0.518</td>
+    <td class="text">0.518</td>
+    </tr>   
+    <tr class="odd">
+    <td class="bold">InsMT+</td>
+    <td class="text">854</td>
+    <td class="text">90</td>
+    <td class="text">0.556</td>
+    <td class="text">0.059</td>
+    <td class="text">0.106</td>
+    </tr>
+    <tr class="even">
+    <td class="bold">Lily</td>
+    <td class="text">854</td>
+    <td class="text">854</td>
+    <td class="text">1.0</td>
+    <td class="text">1.0</td>
+    <td class="text">1.0</td>
+    </tr>
+    <tr class="odd">
+    <td class="bold">LogMap</td>
+    <td class="text">854</td>
+    <td class="text">854</td>
+    <td class="text">1.0</td>
+    <td class="text">1.0</td>
+    <td class="text">1.0</td>
+    </tr>
+    <tr class="even">
+    <td class="bold">RiMOM</td>
+    <td class="text">854</td>
+    <td class="text">854</td>
+    <td class="text">1.0</td>
+    <td class="text">1.0</td>
+    <td class="text">1.0</td>
+    </tr>
+    </table>
+	</div>
+    <div class="table-data-right">
+    <table cellpadding="5" cellspacing="2">
+    <tr class="header">
+     <td colspan="6" class="bold">Mainbox task</td>   
+    </tr>
+    <tr class="header">
+    <td class="bold"></td>
+    <td class="bold">Expected mappings</td>
+    <td class="bold">Retrieved mappings</td>
+    <td class="bold">Precision</td>
+    <td class="bold">Recall</td>
+    <td class="bold">F-measure</td>
+    </tr>
+    <tr class="even">
+    <td class="bold">EXONA</td>
+    <td class="text">8428</td>
+    <td class="text">8428</td>
+    <td class="text">0.409</td>
+    <td class="text">0.409</td>
+    <td class="text">0.409</td>
+    </tr>
+    <tr class="odd">
+    <td class="bold">InsMT+</td>
+    <td class="text">8428</td>
+    <td class="text">961</td>
+    <td class="text">0.246</td>
+    <td class="text">0.028</td>
+    <td class="text">0.05</td>
+    </tr>
+    <tr class="even">
+    <td class="bold">Lily</td>
+    <td class="text">8428</td>
+    <td class="text">8424</td>
+    <td class="text">0.999</td>
+    <td class="text">0.998</td>
+    <td class="text">0.999</td>
+    </tr>
+    <tr class="odd">
+    <td class="bold">LogMap</td>
+    <td class="text">8428</td>
+    <td class="text">8436</td>
+    <td class="text">0.999</td>
+    <td class="text">1.0</td>
+    <td class="text">0.999</td>
+    </tr>
+    <tr class="even">
+    <td class="bold">RiMOM</td>
+    <td class="text">8428</td>
+    <td class="text">8428</td>
+    <td class="text">0.999</td>
+    <td class="text">0.999</td>
+    <td class="text">0.999</td>
+    </tr>
+    </table>
+    </div>
+
+</div>
+
+<h2><a name="val-sem">SPIMBENCH Value Semantics (val-sem task)</a></h2>
+
+<div class="results"> 
+    <h3>Participants</h3>  
+    <div class="res_content">
+    <ul>
+    <li>STRIM</li>
+    <li>LogMap</li>
+    </ul>
+    </div>
+    
+    <h3>Expected mappings</h3>  
+    <div class="res_content">
+    The set of <a href="oaei2015_val_sem_mainbox_mappings.rdf" target="_blank">expected mappings for the mainbox test</a> (initially hidden to the participants) is now available.
+    </div>
+    
+    <h3>Analysis by precision, recall, and F-measure</h3>
+	<div class="table-data-left">
+	<table cellpadding="5" cellspacing="2">
+    <tr class="header">
+     <td colspan="6" class="bold">Sandbox task</td>   
+    </tr>
+    <tr class="header">
+    <td class="bold"></td>
+    <td class="bold">Expected mappings</td>
+    <td class="bold">Retrieved mappings</td>
+    <td class="bold">Precision</td>
+    <td class="bold">Recall</td>
+    <td class="bold">F-measure</td>
+    </tr>
+    <tr class="even">
+    <td class="bold">STRIM</td>
+    <td class="text">9649</td>
+    <td class="text">10641</td>
+    <td class="text">0.90583</td>
+    <td class="text">0.99896</td>
+    <td class="text">0.95012</td>
+    </tr>
+    <tr class="odd">
+    <td class="bold">LogMap</td>
+    <td class="text">9649</td>
+    <td class="text">8350</td>
+    <td class="text">0.993770</td>
+    <td class="text">0.85998</td>
+    <td class="text">0.92205</td>
+    </tr>
+    </table>
+	</div>
+    <div class="table-data-right">
+    <table cellpadding="5" cellspacing="2">
+    <tr class="header">
+     <td colspan="6" class="bold">Mainbox task</td>   
+    </tr>
+    <tr class="header">
+    <td class="bold"></td>
+    <td class="bold">Expected mappings</td>
+    <td class="bold">Retrieved mappings</td>
+    <td class="bold">Precision</td>
+    <td class="bold">Recall</td>
+    <td class="bold">F-measure</td>
+    </tr>
+    <tr class="even">
+    <td class="bold">STRIM</td>
+    <td class="text">97256</td>
+    <td class="text">106232</td>
+    <td class="text">0.91261</td>
+    <td class="text">0.99684</td>
+    <td class="text">0.95287</td>
+    </tr>
+    <tr class="odd">
+    <td class="bold">LogMap</td>
+    <td class="text">97256</td>
+    <td class="text">83880</td>
+    <td class="text">0.99600</td>
+    <td class="text">0.85902</td>
+    <td class="text">0.92245</td>
+    </tr>
+    </table>
+    </div>
+
+</div>
+
+<h2><a name="val-struct">SPIMBENCH Value Structure (val-struct task)</a></h2>
+
+<div class="results"> 
+    <h3>Participants</h3>  
+    <div class="res_content">
+    <ul>
+    <li>STRIM</li>
+    <li>LogMap</li>
+    </ul>
+    </div>
+    
+    <h3>Expected mappings</h3>  
+    <div class="res_content">
+    The set of <a href="oaei2015_val_struct_mainbox_mappings.rdf" target="_blank">expected mappings for the mainbox test</a> (initially hidden to the participants) is now available.
+    </div>
+    
+    <h3>Analysis by precision, recall, and F-measure</h3>
+	<div class="table-data-left">
+	<table cellpadding="5" cellspacing="2">
+    <tr class="header">
+     <td colspan="6" class="bold">Sandbox task</td>   
+    </tr>
+    <tr class="header">
+    <td class="bold"></td>
+    <td class="bold">Expected mappings</td>
+    <td class="bold">Retrieved mappings</td>
+    <td class="bold">Precision</td>
+    <td class="bold">Recall</td>
+    <td class="bold">F-measure</td>
+    </tr>
+    <tr class="even">
+    <td class="bold">STRIM</td>
+    <td class="text">10601</td>
+    <td class="text">10657</td>
+    <td class="text">0.99436</td>
+    <td class="text">0.99962</td>
+    <td class="text">0.99698</td>
+    </tr>
+    <tr class="odd">
+    <td class="bold">LogMap</td>
+    <td class="text">10601</td>
+    <td class="text">8779</td>
+    <td class="text">0.99270</td>
+    <td class="text">0.82209</td>
+    <td class="text">0.89938</td>
+    </tr>
+    </table>
+	</div>
+    <div class="table-data-right">
+    <table cellpadding="5" cellspacing="2">
+    <tr class="header">
+     <td colspan="6" class="bold">Mainbox task</td>   
+    </tr>
+    <tr class="header">
+    <td class="bold"></td>
+    <td class="bold">Expected mappings</td>
+    <td class="bold">Retrieved mappings</td>
+    <td class="bold">Precision</td>
+    <td class="bold">Recall</td>
+    <td class="bold">F-measure</td>
+    </tr>
+    <tr class="even">
+    <td class="bold">STRIM</td>
+    <td class="text">106137</td>
+    <td class="text">105352</td>
+    <td class="text">0.99386</td>
+    <td class="text">0.99587</td>
+    <td class="text">0.99486</td>
+    </tr>
+    <tr class="odd">
+    <td class="bold">LogMap</td>
+    <td class="text">106137</td>
+    <td class="text">87137</td>
+    <td class="text">0.99709</td>
+    <td class="text">0.81860</td>
+    <td class="text">0.89907</td>
+    </tr>
+    </table>
+    </div>
+
+</div>
+
+<!-- VALUE STRUCTURE SEMANTICS-->
+<h2><a name="val-struct-sem">SPIMBENCH Value Structure Semantics (val-struct-sem task)</a></h2>
+
+<div class="results"> 
+    <h3>Participants</h3>  
+    <div class="res_content">
+    <ul>
+    <li>STRIM</li>
+    <li>LogMap</li>
+    </ul>
+    </div>
+    
+    <h3>Expected mappings</h3>  
+    <div class="res_content">
+    The set of <a href="oaei2015_val_struct_sem_mainbox_mappings.rdf" target="_blank">expected mappings for the mainbox test</a> (initially hidden to the participants) is now available.
+    </div>
+    
+    <h3>Analysis by precision, recall, and F-measure</h3>
+	<div class="table-data-left">
+	<table cellpadding="5" cellspacing="2">
+    <tr class="header">
+     <td colspan="6" class="bold">Sandbox task</td>   
+    </tr>
+    <tr class="header">
+    <td class="bold"></td>
+    <td class="bold">Expected mappings</td>
+    <td class="bold">Retrieved mappings</td>
+    <td class="bold">Precision</td>
+    <td class="bold">Recall</td>
+    <td class="bold">F-measure</td>
+    </tr>
+    <tr class="even">
+    <td class="bold">STRIM</td>
+    <td class="text">9790</td>
+    <td class="text">10639</td>
+    <td class="text">0.91916</td>
+    <td class="text">0.99887</td>
+    <td class="text">0.95736</td>
+    </tr>
+    <tr class="odd">
+    <td class="bold">LogMap</td>
+    <td class="text">9790</td>
+    <td class="text">7779</td>
+    <td class="text">0.99395</td>
+    <td class="text">0.78978</td>
+    <td class="text">0.88018</td>
+    </tr>
+    </table>
+	</div>
+    <div class="table-data-right">
+    <table cellpadding="5" cellspacing="2">
+    <tr class="header">
+     <td colspan="6" class="bold">Mainbox task</td>   
+    </tr>
+    <tr class="header">
+    <td class="bold"></td>
+    <td class="bold">Expected mappings</td>
+    <td class="bold">Retrieved mappings</td>
+    <td class="bold">Precision</td>
+    <td class="bold">Recall</td>
+    <td class="bold">F-measure</td>
+    </tr>
+    <tr class="even">
+    <td class="bold">STRIM</td>
+    <td class="text">98144</td>
+    <td class="text">106576</td>
+    <td class="text">0.91765</td>
+    <td class="text">0.99649</td>
+    <td class="text">0.95545</td>
+    </tr>
+    <tr class="odd">
+    <td class="bold">LogMap</td>
+    <td class="text">98144</td>
+    <td class="text">77983</td>
+    <td class="text">0.99574</td>
+    <td class="text">0.79119</td>
+    <td class="text">0.88176</td>
+    </tr>
+    </table>
+    </div>
+</div>
+
+<div class="address">
+Original page: <a href="http://islab.di.unimi.it/im_oaei_2015">http://islab.di.unimi.it/im_oaei_2015</a> [cached: 13/05/2016]
+<div class="footer">
+http://oaei.ontologymatching.org/2015/im/results.html
+</div>
+</body></html>

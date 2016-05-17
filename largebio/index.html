@@ -1,0 +1,289 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>OAEI 2015::Largebio Track</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head><body>
+
+<div class="header">
+<a style="color: grey; line-height: 5mm;" href="http://oaei.ontologymatching.org/2015/">Ontology
+  Alignment Evaluation Initiative - OAEI-2015 Campaign</a>
+  <a href="http://oaei.ontologymatching.org/2015">
+  <img src="../../oaeismall.jpg" style="float: right; margin-left: 10pt; margin-right: 10pt; margin-bottom: 10pt; border-style: none;" width="175px"></a>
+  <a href="http://www.seals-project.eu/">
+<img src="../../seals-logo.jpg" style="clear: right; float: right; margin-right: 20pt; margin-left: 10pt; margin-bottom: 10pt; border-style: none;" width="150px"></a>
+</div>
+
+<h1>Large Biomedical Ontology Track</h1>
+
+<h2>General description</h2>
+
+<p>This track consists of finding alignments between the 
+<a href="http://sig.biostr.washington.edu/projects/fm/">Foundational Model of Anatomy</a> (FMA),
+<a href="http://www.ihtsdo.org/index.php?id=545">SNOMED CT</a>, 
+and the <a href="http://ncit.nci.nih.gov/">National Cancer Institute Thesaurus</a> (NCI). These ontologies are semantically rich and 
+contain tens of thousands of classes.</p>
+
+<p><a href="http://www.nlm.nih.gov/research/umls/">UMLS Metathesaurus</a> has been selected as the basis for the 
+track reference alignments.
+
+UMLS is currently the most comprehensive effort for integrating independently-developed medical thesauri and ontologies,
+including FMA, SNOMED CT, and NCI.  
+</p>
+
+<h2>Modalities and SEALS support</h2>
+
+<p>This track has two main objectives. On the one hand, it intends to evaluate the performance of matching systems when matching real large scale
+ontologies (Modality 1). On the other hand, it also aims at creating an error free reference alignment; to this end, mapping repair
+systems are also welcome to participate in the track (Modality 2).
+</p>
+
+<p>Regarding the use of <u>background knowledge</u>, the OAEI rules state that a resource (i.e. a third biomedical ontology) especially  
+designed for the test is not allowed. Particularly, matching systems using UMLS as background knowledge 
+will have an advantage since the reference alignment is also based on UMLS. Nevertheless, it will  
+be interesting to evaluate the performance of a system <u>with</u> and <u>without</u> specialised background knowledge. 
+</p>
+
+<h3>Modality 1: standard matching</h3>
+
+<p>For this modality the generated alignment should be an optimal 
+solution to the matching problem with respect to both recall and 
+precision with respect to the <a href="oaei2015_umls_reference.html">2015 reference alignment</a>.
+</p>
+
+<p>As in 2014, instead of repairing the reference alignments as normal by removing mappings leading to unsatisfiable classes, 
+we flagged the incoherence-causing mappings in the alignment by setting the relation to "?" (unknown). 
+<b>These "?" mappings will neither be considered as positive nor as negative when evaluating the participating ontology matching systems, 
+but will simply be ignored.</b> This way, systems 
+that do not perform mapping repair are not penalized for finding mappings that 
+(despite causing incoherences) may or may not be correct, and systems that do perform mapping repair are not penalized for removing such mappings either.</p>
+ 
+<p>Nevertheless, we will still give a special attention to 
+the <u>number of unsatisfiabilities</u> caused by the mappings computed by a participating system. Thus, we encourage 
+system developers to implement mapping repair techniques or reuse 
+<a href="../../2012/results/largebio/repair2012.html">state-of-the art techniques</a>.  
+</p> 
+
+<p>
+The evaluation of Modality 1 will be run with support of <a href="http://www.seals-project.eu/">SEALS</a>. 
+This requires that you wrap your matching system in a way that allows us to execute it on the 
+SEALS platform (see <a href="../seals-eval.html">OAEI 2015 evaluation details</a>).
+</p>
+
+<p>For practical issues and in order to keep a comparison with previous years, the given Precision and Recall when running a system with 
+the SEALS OMT client will be with respect to the
+<a href="../2013/largebio/oaei2013_umls_reference.html" target="blank">2013 reference alignments</a>. 
+To get the Precision and Recall using the <a href="oaei2015_umls_reference.html">2015 reference alignment</a> 
+(i.e. ignoring mappings flagged as "?") we provide an additional and very easy to use <a href="LargeBioAlignmentEvaluator.zip">evaluation framework</a>. 
+</p>
+ 
+<p>
+<b>The complete datasets for the OAEI 2015 campaign can be downloaded as a zip file (<a href="LargeBio_dataset_oaei2015.zip">LargeBioMed_dataset_oaei2015.zip</a> [17Mb])
+or accessed via the SEALS platform (see <a href="index.html#datasets">dataset identifiers</a> below)</b>.</p>
+
+
+<h3>Modality 2: mapping repair (optional)</h3>
+
+<p>Mapping repair systems are also welcome to provide a revised version of the original UMLS mappings 
+to contribute in the creation of future reference alignments. Currently, <a href="http://web.informatik.uni-mannheim.de/alcomo/" target="_blank">Alcomo</a>, 
+<a href="https://code.google.com/p/logmap-matcher/" target="_blank">LogMap</a> and <a href="http://somer.fc.ul.pt/aml.php" target="_blank">AML</a> have contributed in the
+<a href="oaei2015_umls_reference.html">2015 reference alignment</a>.</p>
+
+<!--<p>The original UMLS-based alignments, which lead to many logical errors, can be downloaded 
+as a zip file (RDF, OWL and TXT formats): <a href="./oaei2013_umls_original_mappings.zip">oaei2013_umls_original_mappings.zip</a> [4.4Mb].</p>-->
+
+<p>Modality 2 will be optional and will be run in an 'off-line' way.</p>
+
+<h2><a name="datasets">Data sets</a></h2>
+
+<p>The Large BioMed Track consists of several matching tasks involving different fragments of the FMA, NCI and SNOMED CT ontologies. 
+<!--The complete datasets for the OAEI 2015 
+campaign can be downloaded as a <a href="./LargeBioMed_dataset_oaei2015.zip">zip file</a> [20Mb]. 
+Information about the reference alignment can be found <a href="./oaei2015_umls_reference.html">here</a>.
+-->
+</p>
+
+<p>Note that the ontologies have been normalised for the OAEI, as a result the 
+synonyms of concept names are provided as "rdfs:label" annotations.
+</p>
+
+<p>Required input for the SEALS OMT client:</p>
+
+
+<p>
+<div class="testsuite">
+<ul>
+<li><b>Repository:</b>  <span class="testsuiteid">http://repositories.seals-project.eu/tdrs/</span></li>
+<li><b>Suite-ID:</b>  <span class="testsuiteid">largebio</span></li>
+<li><b>Version-ID:</b>  <span class="testsuiteid"><i>see specific task</i></span></li>
+</ul>
+</div>
+</p>
+
+<h3>FMA-NCI matching problem</h3>
+
+<h4>Task 1: FMA-NCI small fragments</h3>
+
+<p>
+This task consists of matching two (relatively) small fragments of FMA and NCI.
+The FMA fragment contains 3,696 classes (5% of FMA), while the NCI fragment 
+contains 6,488 classes (10% of NCI).
+</p>
+
+<p>
+<div class="testsuite">
+<ul>
+<li><b>Version-ID:</b> <span class="testsuiteid">largebio-fma_nci_small_2015</span></li>
+</ul>
+</div>
+</p>
+
+<p>With incoherence-causing mappings in the alignment flagged as "?" (unknown). To be used only with latest (i.e. >=2015) version of the SEALS client:</p>
+
+<p>
+<div class="testsuite">
+<ul>
+<li><b>Version-ID:</b> <span class="testsuiteid">largebio-fma_nci_small_flagged_2015</span></li>
+</ul>
+</div>
+</p>
+
+<h4>Task 2: FMA-NCI whole ontologies</h4>
+
+<p>
+This task consists of matching the whole FMA and NCI ontologies, which contains 78,989 and 66,724 classes, respectively. 
+</p>
+
+<p>
+<div class="testsuite">
+<ul>
+<li><b>Version-ID:</b> <span class="testsuiteid">largebio-fma_nci_whole_2015</span></li>
+</ul>
+</div>
+</p>
+
+<p>With incoherence-causing mappings in the alignment flagged as "?" (unknown). To be used only with latest (i.e. >=2015) version of the SEALS client:</p>
+
+<p>
+<div class="testsuite">
+<ul>
+<li><b>Version-ID:</b> <span class="testsuiteid">largebio-fma_nci_whole_flagged_2015</span></li>
+</ul>
+</div>
+</p>
+
+<h3>FMA-SNOMED matching problem</h3>
+
+<h4>Task 3: FMA-SNOMED small fragments</h4>
+
+<p>
+This task consists of matching two (relatively) small fragments of FMA and SNOMED.
+The FMA fragment contains 10,157 classes (13% of FMA), while the SNOMED fragment 
+contains 13,412 classes (5% of SNOMED).
+</p>
+
+<p>
+<div class="testsuite">
+<ul>
+<li><b>Version-ID:</b> <span class="testsuiteid">largebio-fma_snomed_small_2015</span></li>
+</ul>
+</div>
+</p>
+
+<p>With incoherence-causing mappings in the alignment flagged as "?" (unknown). To be used only with latest (i.e. >=2015) version of the SEALS client:</p>
+
+<p>
+<div class="testsuite">
+<ul>
+<li><b>Version-ID:</b> <span class="testsuiteid">largebio-fma_snomed_small_flagged_2015</span></li>
+</ul>
+</div>
+</p>
+
+<h4>Task 4: FMA whole ontology with SNOMED large fragment</h4>
+
+<p>
+This task consists of matching the whole FMA that contains 78,989 classes with a large SNOMED fragment that contains 122,464 classes (40% of SNOMED). 
+</p>
+
+<p>
+<div class="testsuite">
+<ul>
+<li><b>Version-ID:</b> <span class="testsuiteid">largebio-fma_snomed_whole_2015</span></li>
+</ul>
+</div>
+</p>
+
+<p>With incoherence-causing mappings in the alignment flagged as "?" (unknown). To be used only with latest (i.e. >=2015) version of the SEALS client:</p>
+
+<p>
+<div class="testsuite">
+<ul>
+<li><b>Version-ID:</b> <span class="testsuiteid">largebio-fma_snomed_whole_flagged_2015</span></li>
+</ul>
+</div>
+</p>
+
+<h3>SNOMED-NCI matching problem</h3>
+
+
+<h4>Task 5: SNOMED-NCI small fragments</h4>
+
+<p>
+This task consists of matching two (relatively) small fragments of SNOMED and NCI.
+The SNOMED fragment contains 51,128 classes (17% of SNOMED), while the NCI fragment 
+contains 23,958 classes (36% of NCI).
+</p>
+
+<p>
+<div class="testsuite">
+<ul>
+<li><b>Version-ID:</b> <span class="testsuiteid">largebio-snomed_nci_small_2015</span></li>
+</ul>
+</div>
+</p>
+
+<p>With incoherence-causing mappings in the alignment flagged as "?" (unknown). To be used only with latest (i.e. >=2015) version of the SEALS client:</p>
+
+<p>
+<div class="testsuite">
+<ul>
+<li><b>Version-ID:</b> <span class="testsuiteid">largebio-snomed_nci_small_flagged_2015</span></li>
+</ul>
+</div>
+</p>
+
+<h4>Task 6: NCI whole ontology with SNOMED large fragment</h4>
+
+<p>
+This task consists of matching the whole NCI that contains 66,724 classes with a large SNOMED fragment that contains 122,464 classes (40% of SNOMED). 
+</p>
+
+<p>
+<div class="testsuite">
+<ul>
+<li><b>Version-ID:</b> <span class="testsuiteid">largebio-snomed_nci_whole_2015</span></li>
+</ul>
+</div>
+</p>
+
+<p>With incoherence-causing mappings in the alignment flagged as "?" (unknown). To be used only with latest (i.e. >=2015) version of the SEALS client:</p>
+
+<p>
+<div class="testsuite">
+<ul>
+<li><b>Version-ID:</b> <span class="testsuiteid">largebio-snomed_nci_whole_flagged_2015</span></li>
+</ul>
+</div>
+</p>
+
+<p>Contact: ernesto [.] jimenez [.] ruiz [at] gmail [.] com</p>
+
+<div class="address">
+Original page: <a href="http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/">http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/</a> [cached: 13/05/2016]
+<div class="footer">http://oaei.ontologymatching.org/2015/largebio/index.html</div>
+</div>
+</body></html>
+
+
+
+

@@ -1,0 +1,280 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+<title>OAEI 2015::Large BioMed Track</title>
+<link rel="stylesheet" type="text/css" href="http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/style.css">
+</head><body>
+
+<div class="header">
+<a style="color: grey; line-height: 5mm;" href="http://oaei.ontologymatching.org/2015/">Ontology
+  Alignment Evaluation Initiative - OAEI-2015 Campaign</a>
+  <a href="http://oaei.ontologymatching.org/2015">
+  <img src="http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/oaeismall.jpg" style="float: right; margin-left: 10pt; margin-right: 10pt; margin-bottom: 10pt; border-style: none;" width="175px"></a>
+  <a href="http://www.seals-project.eu/">
+<img src="http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/Seals-logo-5.png" style="clear: right; float: right; margin-right: 20pt; margin-left: 10pt; margin-bottom: 10pt; border-style: none;" width="150px"></a>
+</div>
+
+
+<p><b><a href="index.html">Results OAEI 2015::Large BioMed Track</a></b></p>
+
+<h2><u>Runtimes and task completion</u></h2>
+
+<p>
+Table 1 shows which systems were able to complete each of the matching
+tasks in less than 12 hours and the required computation times. Systems have been 
+ordered with respect to the number of completed task and the average time required to complete them. Times are reported in seconds.
+</p>
+
+<p>
+The last column reports the number of tasks that a system could complete. For
+example, 8 system  were able to complete all six tasks. The last row shows
+the number of systems that could finish each of the tasks. The tasks involving
+SNOMED were also harder with respect to both computation times and the number of
+systems that completed the tasks.
+</p>
+
+
+<p><b>* Uses background knowledge based on the UMLS-Metathesaurus as the LargeBio reference alignments.</b></p>
+
+
+<br/>
+
+
+
+
+
+
+<table cellpadding="4" cellspacing="0">
+
+
+<tr class="header">
+<td  class="header" rowspan="2"  colspan="1"> System </td>
+<td  class="header" colspan="2"> FMA-NCI </td>
+<td  class="header" colspan="2"> FMA-SNOMED </td>
+<td  class="header" colspan="2"> SNOMED-NCI </td> 
+<td  class="header" rowspan="2"  colspan="1"> Average </td>
+<td  class="header" rowspan="2"  colspan="1"> # Tasks </td>
+</tr>
+
+
+<tr class="header">
+<td  class="header"> Task 1 </td><td  class="header"> Task 2 </td>
+<td  class="header"> Task 3 </td><td  class="header"> Task 4 </td>
+<td  class="header"> Task 5 </td><td  class="header"> Task 6 </td>  
+</tr>
+
+
+
+
+
+
+
+
+
+
+<tr class="odd">
+<td class="text">LogMapLite</td>
+<td>16 </td>
+<td>213 </td>
+<td>36 </td>
+<td>419 </td>
+<td>212 </td>
+<td>427 </td>
+<td class="header"> 221 </td>
+<td class="header">6</td>
+</tr>
+
+
+<tr class="even">
+<td class="text">RSDLWB</td>
+<td>17 </td>
+<td>211 </td>
+<td>36 </td>
+<td>413 </td>
+<td>221 </td>
+<td>436 </td>
+<td class="header"> 222 </td>
+<td class="header">6</td>
+</tr>
+
+
+<tr class="odd">
+<td class="text">AML</td>
+<td>36 </td>
+<td>262 </td>
+<td>79 </td>
+<td>509 </td>
+<td>470 </td>
+<td>584 </td>
+<td class="header"> 323 </td>
+<td class="header">6</td>
+</tr>
+
+
+<tr class="even">
+<td class="text">XMAP</td>
+<td>26 </td>
+<td>302 </td>
+<td>46 </td>
+<td>698 </td>
+<td>394 </td>
+<td>905 </td>
+<td class="header"> 395 </td>
+<td class="header">6</td>
+</tr>
+
+
+<tr class="red">
+<td class="text">XMAP-BK *</td>
+<td>31 </td>
+<td>337 </td>
+<td>49 </td>
+<td>782 </td>
+<td>396 </td>
+<td>925 </td>
+<td class="header"> 420 </td>
+<td class="header">6</td>
+</tr>
+
+
+<tr class="even">
+<td class="text">LogMap</td>
+<td>25 </td>
+<td>265 </td>
+<td>78 </td>
+<td>768 </td>
+<td>410 </td>
+<td>1,062 </td>
+<td class="header"> 435 </td>
+<td class="header">6</td>
+</tr>
+
+
+<tr class="odd">
+<td class="text">LogMapC</td>
+<td>106 </td>
+<td>569 </td>
+<td>156 </td>
+<td>1,195 </td>
+<td>3,039 </td>
+<td>3,553 </td>
+<td class="header"> 1,436 </td>
+<td class="header">6</td>
+</tr>
+
+
+<tr class="even">
+<td class="text">LogMapBio</td>
+<td>1,053 </td>
+<td>1,581 </td>
+<td>1,204 </td>
+<td>3,248 </td>
+<td>3,298 </td>
+<td>3,327 </td>
+<td class="header"> 2,285 </td>
+<td class="header">6</td>
+</tr>
+
+
+<tr class="odd">
+<td class="text">ServOMBI</td>
+<td>234 </td>
+<td>-  </td>
+<td>532 </td>
+<td>-  </td>
+<td>-  </td>
+<td>-  </td>
+<td class="header"> 383 </td>
+<td class="header">2</td>
+</tr>
+
+
+<tr class="even">
+<td class="text">CroMatcher</td>
+<td>2,248 </td>
+<td>-  </td>
+<td>13,057 </td>
+<td>-  </td>
+<td>-  </td>
+<td>-  </td>
+<td class="header"> 7,653 </td>
+<td class="header">2</td>
+</tr>
+
+
+<tr class="odd">
+<td class="text">Lily</td>
+<td>740 </td>
+<td>-  </td>
+<td>-  </td>
+<td>-  </td>
+<td>-  </td>
+<td>-  </td>
+<td class="header"> 740 </td>
+<td class="header">1</td>
+</tr>
+
+
+<tr class="even">
+<td class="text">DKP-AOM</td>
+<td>1,491 </td>
+<td>-  </td>
+<td>-  </td>
+<td>-  </td>
+<td>-  </td>
+<td>-  </td>
+<td class="header"> 1,491 </td>
+<td class="header">1</td>
+</tr>
+
+
+<tr class="odd">
+<td class="text">DKP-AOM-Lite</td>
+<td>1,579 </td>
+<td>-  </td>
+<td>-  </td>
+<td>-  </td>
+<td>-  </td>
+<td>-  </td>
+<td class="header"> 1,579 </td>
+<td class="header">1</td>
+</tr>
+
+
+<tr class="base">
+<td class="header"> # Systems </td> 
+<td class="header">13 </td>
+<td class="header">8 </td>
+<td class="header">10 </td>
+<td class="header">8 </td>
+<td class="header">8 </td>
+<td class="header">8 </td>
+<td class="header"> 1,353 </td>
+<td class="header">55</td>
+</tr>
+
+
+
+
+
+<caption><b>Table 1:</b> System runtimes (s) and task completion.</caption>
+
+
+
+
+
+</table>
+
+
+<br />
+<br />
+
+
+
+<div class="address">
+<div class="footer">
+Contact: ernesto [.] jimenez [.] ruiz [at] gmail [.] com <br />
+<a href="http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/">http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/</a></div>
+<!--$Id$-->
+</div>
+</body></html>

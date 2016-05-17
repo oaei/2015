@@ -1,0 +1,82 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>OAEI 2015::Largebio Track</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head><body>
+
+<div class="header">
+<a style="color: grey; line-height: 5mm;" href="http://oaei.ontologymatching.org/2015/">Ontology
+  Alignment Evaluation Initiative - OAEI-2015 Campaign</a>
+  <a href="http://oaei.ontologymatching.org/2015">
+  <img src="../../oaeismall.jpg" style="float: right; margin-left: 10pt; margin-right: 10pt; margin-bottom: 10pt; border-style: none;" width="175px"></a>
+  <a href="http://www.seals-project.eu/">
+<img src="../../seals-logo.jpg" style="clear: right; float: right; margin-right: 20pt; margin-left: 10pt; margin-bottom: 10pt; border-style: none;" width="150px"></a>
+</div>
+
+<h1>UMLS-based reference alignment (OAEI 2015)</h1>
+
+<p>UMLS Metathesaurus [1] (2009AA) has been selected as the basis for the 
+track reference alignments. 
+Although the standard UMLS distribution does not directly provide sets of "alignments" (in the OAEI sense) 
+between the integrated ontologies (e.g. FMA, NCI and SNOMED CT), it is relatively straightforward to extract alignment sets from 
+the information provided in the MRCONSO.RRF distribution file (see [2] for details).</p>
+
+<p>It was noticed, however, that the integration of the (formally represented) UMLS alignments together with the input ontologies was leading to numerous unsatisfiable classes [2].</p>
+
+<p>Since alignment coherence is an aspect of ontology matching that we aim to promote in the Large BioMed track, in <a href="../../2013/largebio/oaei2013_umls_reference.html" target="blank">previous editions</a> we provided coherent reference alignments by refining the UMLS mappings using Alcomo (mapping) debugging system [3], LogMap's (mapping) repair facility [4], or both.</p>
+
+<p>However, concerns were raised about the validity and fairness of applying automated mapping repair techniques to make reference alignments coherent [5].</p>
+ 
+<p>It is clear that using the original (incoherent) UMLS alignments would be penalizing to ontology matching systems that perform mapping repair. However, using automatically repaired alignments would penalize systems that do not perform mapping repair and also systems that employ a repair strategy that differs from that used on the reference alignments [5].</p>
+
+<p>Thus, as in the <a href="../../2014/largebio/oaei2014_umls_reference.html" target="blank">2014 edition</a>, we arrived at a compromising solution that should be fair to all ontology matching systems. Instead of repairing the reference alignments as normal, by removing mappings, we flagged the incoherence-causing mappings in the alignments by setting the relation to "?" (unknown). <b>These "?" mappings will neither be considered as positive nor as negative when evaluating the participating ontology matching systems, but will simply be ignored.</b> This way, systems that do not perform mapping repair are not penalized for finding mappings that (despite causing incoherences) may or may not be correct, and systems that do perform mapping repair are not penalized for removing such mappings.</p>
+
+<p>To ensure that this solution was as fair as possible to all mapping repair strategies, we flagged as unknown all mappings repaired by any of Alcomo, LogMap or AgreementMakerLight [6], as well as all mappings repaired in the reference alignments of last year's edition (using Alcomo and LogMap combined).</p>
+
+<p>These refined UMLS alignments with repaired mappings flagged as unknown (i.e. "?") will be the reference alignments for the 2015 edition of the Large BioMed track</p>
+<ul>
+<li><b>FMA-NCI reference alignment:</b> 2,686 "=" mappings, 338 "?" mappings</li>
+<li><b>FMA-SNOMED reference alignment:</b> 6,026 "=" mappings, 2982 "?" mappings</li>
+<li><b>SNOMED-NCI reference alignment:</b> 17,210 "=" mappings, 1634 "?" mappings</li>
+</ul>
+
+
+<p>The refined and flagged UMLS-based reference alignment for the OAEI 2015 campaign can be downloaded 
+as a zip file (RDF format): <a href="oaei2015_umls_flagged_reference.zip">oaei2015_umls_flagged_reference.zip</a></p>
+
+<h3>References</h3>
+
+<p>Please consider citing [1-6] when you use the refined UMLS-based reference alignments.</p>
+
+<p>[1] O. Bodenreider: <i>The Unified Medical Language System (UMLS): integrating
+biomedical terminology</i>. Nucleic acids research 32 (2004)   
+<a href="http://nar.oxfordjournals.org/content/32/suppl_1/D267.full">[url]</a></p>
+
+<p>[2] E. Jimenez-Ruiz, B. Cuenca Grau, I. Horrocks, and R. Berlanga: <i>Logic-based assessment 
+of the compatibility of UMLS ontology sources.</i> J Biomed. Sem. 2 (2011) 
+<a href="http://www.jbiomedsem.com/content/2/S1/S2">[url]</a></p>
+
+<p>[3] Christian Meilicke. <i>Alignment Incoherence in Ontology Matching.</i> University of Mannheim, 
+Chair of Artificial Intelligence (2011) <a href="http://web.informatik.uni-mannheim.de/alcomo/">[url]</a></p>
+
+<p>[4] E. Jimenez-Ruiz, B. Cuenca Grau: <i>Logmap: Logic-based and scalable ontology matching.</i> 
+In: 10th International Semantic Web Conference, 273-288 (2011) 
+<a href="http://code.google.com/p/logmap-matcher/">[url]</a></p>
+
+<p>[5] Catia Pesquita, Daniel Faria, Emanuel Santos, Francisco M. Couto. 
+<i>To repair or not to repair: reconciling correctness and coherence in ontology reference alignments</i>. 
+In OM 2013 workshop. <a href="http://www.dit.unitn.it/~p2p/OM-2013/om2013_Tpaper2.pdf">[pdf]</a></p>
+
+<p>[6] Emanuel Santos, Daniel Faria, Catia Pesquita, Francisco M. Couto. 
+<i>Ontology alignment repair through modularization and confidence-based heuristics</i>. 
+<a href="http://arxiv.org/abs/1307.5322">arXiv:1307.5322</a></p>
+
+<p>Contact: ernesto [at] cs [.] ox [.] ac [.] uk</p>
+
+<div class="address">
+Original page: <a href="http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/">http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/</a> [cached: 13/05/2016]
+<div class="footer">http://oaei.ontologymatching.org/2015/largebio/oaei2015_umls_reference.html
+</div>
+<!--$Id$-->
+</div>
+</body></html>

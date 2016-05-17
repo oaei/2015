@@ -1,6 +1,5 @@
 <html><head>
 <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
-
 <title>OAEI 2015::Interactive Track</title>
 <link rel="stylesheet" type="text/css" href="../style.css">
 </head><body>
@@ -14,44 +13,9 @@
 <img src="../../seals-logo.jpg" style="clear: right; float: right; margin-right: 20pt; margin-left: 10pt; margin-bottom: 10pt; border-style: none;" width="150px"></a>
 </div>
 
-<!--
-<div class="yellowbar">
-    The results of the OAEI 2015, for the Interactive track are available 
-    <a href="results2014.html">here</a>
-</div>
+<h1>Interactive Track</h1>
 
-<p><b><a href="../index.html">Large BioMed Track</a></b></p>
-
--->
-
-<h1>OAEI 2015::Interactive Track</h1>
-
-
-<!--
-<p><b>NEWS:</b>
-<ul>
-	<li><b><a href="results2015.html">2015 results available now!</a></b></li>
-</ul>
-</p>
-</br />
--->
-
-
-<!--
-<a href="http://oaei.ontologymatching.org/">
-<img src="./undercons.jpg" style="border-style: none;" width="175px"></a>
-<a href="http://oaei.ontologymatching.org/">
-<img src="./undercons2.gif" style="border-style: none;" width="140px"></a>
-
-<br />
-
-<p><FONT COLOR="red">The description is still under construction.</FONT></p>
--->
-
-
-
-
-<h2><a name="description"><u>Description</u></a></h2>
+<h2><a name="description">Description</a></h2>
 
 <!--<p>Many Ontology Matching systems have been developed over the last years. After several years of experience, the results can only 
 be slightly improved in terms of the alignment quality (precision/recall resp. F-Measure). Based on this insight, it is clear that 
@@ -83,16 +47,13 @@ fully automatic matching and semi-automatic matching is not evaluated although s
 overview in <a href="#references">(Ivanova et al., 2015)</a>. As long as the evaluation of such systems is not driven forward, 
 it is hardly possible to systematically compare the quality of interactive matching approaches.</p> 
 
- 
- <br/>
-
-<h2><a name="goal"><u>Goal</u></a></h2>
+<h2><a name="goal">Goal</a></h2>
 
 
 <p>The OAEI's interactive track aims at offering a <b>systematic and automated evaluation of matching systems with user interaction</b> to
 compare the quality of interactive matching approaches in terms of F-measure and number of required interactions. 
-To this end we rely on the datasets of the OAEI 2015 <a href="../conference/">Conference</a>, <a href="../anatomy">Anatomy</a> and 
-<a href="http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/">Largebio</a> tracks. We have used the reference alignments of each track as <i>oracles</i> in order 
+To this end we rely on the datasets of the OAEI 2015 <a href="../conference/index.html">conference</a>, <a href="../anatomy/index.html">anatomy</a> and 
+<a href="../largebio/index.html">largebio</a> data sets. We have used the reference alignments of each track as <i>oracles</i> in order 
 to simulate the interaction with a domain expert (see <a href="#references">(Jimenez-Ruiz et al., 2012)</a> and <a href="#references">(Paulheim et al., 2013)</a>).</p>
 
 
@@ -107,17 +68,14 @@ ontology matching systems and methods to overcome the limitations which are caus
 Furthermore, the track will encourage a discussion of different interactive matching techniques as well as a set of relevant interaction primitives.
 Currently, this track does not evaluate the user experience or the user interfaces of the systems.</p>
  
-<br/>
-
-
-<h2><a name="evaluation"><u>Evaluation</u></a></h2>
+<h2><a name="evaluation">Evaluation</a></h2>
 
 <p>
 The evaluation of this track will also be run with support of <a href="http://www.seals-project.eu/">SEALS</a>. 
 This requires that you wrap your matching system in a way that allows us to execute it on the 
-SEALS platform (see <a href="http://oaei.ontologymatching.org/2015/seals-eval.html">OAEI 2015 evaluation details</a>). 
+SEALS platform (see <a href="../seals-eval.html">OAEI 2015 evaluation details</a>). 
 Note that in this track we allow systems to interact with the SEALS client to check if a given alignment is correct or not 
-(see <a href="http://oaei.ontologymatching.org/2015/seals-eval.html#interactive">additional methods for the interactive track</a>).</p>
+(see <a href="../seals-eval.html#interactive">additional methods for the interactive track</a>).</p>
 </p>
 
 <p>
@@ -127,24 +85,17 @@ The error rates (0..1) that will be simulated are: 0.1, 0.2 and 0.3. This can be
 running the SEALS client, please refer to the <a href="../tutorial/tutorialv4.pdf">OAEI 2015 tutorial</a>.  
 </p>
 
- 
+<h2><a name="datasets">Data sets</a></h2>
+
+<p>The interactive track relies on the datasets of the OAEI 2015 <a href="../conference/index.html">conference</a>, <a href="../anatomy/index.html">anatomy</a> and 
+<a href="../largebio/index.html">Largebio</a> datasets.
 
 
-
-<br/>
-
-
-<h2><a name="datasets"><u>Data sets</u></a></h2>
-
-<p>The interactive track relies on the datasets of the OAEI 2015 <a href="../conference/">Conference</a>, <a href="../anatomy">Anatomy</a> and 
-<a href="http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/">Largebio</a> tracks.
-
-
-<p>If you use the <a href="http://oaei.ontologymatching.org/2015/seals-eval.html">2015 version of the SEALS OMT client</a> please refer to the identifiers of each othe tracks 
-(<a href="../conference/">Conference</a>, <a href="../anatomy">Anatomy</a> and <a href="http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/">Largebio</a>) and use the <b>-i</b> parameter 
+<p>If you use the <a href="../seals-eval.html">2015 version of the SEALS OMT client</a> please refer to the identifiers of each othe tracks 
+(<a href="../conference/index.html">conference</a>, <a href="../anatomy/index.html">anatomy</a> and <a href="../largebio/index.html">largebio</a>) and use the <b>-i</b> parameter 
 as described in the <a href="../tutorial/tutorialv4.pdf">OAEI 2015 tutorial</a>.</p>
 
-<p>This is the required input if you use the <a href="http://oaei.ontologymatching.org/2014/seals-eval.html">2014 version of the SEALS OMT client</a>:</p>
+<p>This is the required input if you use the <a href="../2014/seals-eval.html">2014 version of the SEALS OMT client</a>:</p>
 
 <p>
 <div class="testsuite">
@@ -163,12 +114,12 @@ as described in the <a href="../tutorial/tutorialv4.pdf">OAEI 2015 tutorial</a>.
 
  <p>This data set covers 16 ontologies describing the domain of conference organization. 
  Over the last years, the quality of the generated alignments has been constantly increased but only to small amount (by a few percent). 
- In <a href="http://oaei.ontologymatching.org/2013/results/conference/">2013</a>, the best system according to F-Measure (YAM++) achieves a value of 71%. 
+ In <a href="../../2013/results/conference/">2013</a>, the best system according to F-Measure (YAM++) achieves a value of 71%. 
  This shows that there is significant room for improvement, which could be filled by interactive means.
 </p>
 
 
-<p>Id of the task if you use the <a href="http://oaei.ontologymatching.org/2014/seals-eval.html">2014 version of the SEALS OMT client</a>:</p>
+<p>Id of the task if you use the <a href="../../2014/seals-eval.html">2014 version of the SEALS OMT client</a>:</p>
 
 <p>
 <div class="testsuite">
@@ -183,7 +134,7 @@ as described in the <a href="../tutorial/tutorialv4.pdf">OAEI 2015 tutorial</a>.
 
 <p>The Anatomy track consists of finding an alignment between the Adult Mouse Anatomy and a part of the NCI Thesaurus (describing the human anatomy).</p>
 
-<p>Id of the task if you use the <a href="http://oaei.ontologymatching.org/2014/seals-eval.html">2014 version of the SEALS OMT client</a>:</p>
+<p>Id of the task if you use the <a href="../../2014/seals-eval.html">2014 version of the SEALS OMT client</a>:</p>
 
 <p>
 <div class="testsuite">
@@ -202,7 +153,7 @@ The best results without interaction in terms of F-measure were achieved by YAM+
 </p>
 
 
-<p>Id of the task if you use the <a href="http://oaei.ontologymatching.org/2014/seals-eval.html">2014 version of the SEALS OMT client</a>:</p>
+<p>Id of the task if you use the <a href="../../2014/seals-eval.html">2014 version of the SEALS OMT client</a>:</p>
 
 <p>
 <div class="testsuite">
@@ -222,7 +173,7 @@ This task consists of matching the whole FMA that contains 78,989 classes with a
 The best results without interaction in terms of F-measure were achieved by YAM++ (82%) in <a href="http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/2013/results2013_fma2snomed.html">2013</a>. 
 </p>
 
-<p>Id of the task if you use the <a href="http://oaei.ontologymatching.org/2014/seals-eval.html">2014 version of the SEALS OMT client</a>:</p>
+<p>Id of the task if you use the <a href="../../2014/seals-eval.html">2014 version of the SEALS OMT client</a>:</p>
 
 <p>
 <div class="testsuite">
@@ -240,7 +191,7 @@ This task consists of matching the whole NCI that contains 66,724 classes with a
 The best results without interaction in terms of F-measure were achieved by AML (75%) in <a href="http://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/2014/results2014_snomed2nci.html">2014</a>. 
 </p>
 
-<p>Id of the task if you use the <a href="http://oaei.ontologymatching.org/2014/seals-eval.html">2014 version of the SEALS OMT client</a>:</p>
+<p>Id of the task if you use the <a href="../../2014/seals-eval.html">2014 version of the SEALS OMT client</a>:</p>
 
 <p>
 <div class="testsuite">
@@ -251,15 +202,7 @@ The best results without interaction in terms of F-measure were achieved by AML 
 </p>
 
 
-
-
-
-<br />
-
-<a name="references">
-<h2><u>Relevant references</u></h2>
-</a>
-
+<h2><a name="references">References</a></h2>
 
 <p>
 Heiko Paulheim, Sven Hertling, Dominique Ritze. "Towards Evaluating Interactive Ontology Matching Tools". 
@@ -281,25 +224,7 @@ Algorithms and Implementation". ECAI 2012. <a href="https://www.cs.ox.ac.uk/file
  <a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6104044&tag=1">[publisher page]</a> 
 </p>
 
-<br />
-
-<h2><u>Contact</u></h2>
-
-<p>This track is currently organized by 
-<a href="http://www.ida.liu.se/department/contact/contactcard.en.shtml?zladr41">Zlatan Dragisic</a>,
-<a href="http://xldb.fc.ul.pt/~dfaria/">Daniel Faria</a>,
-<a href="http://www.ida.liu.se/department/contact/contactcard.en.shtml?valiv">Valentina Ivanova</a>, 
-<a href="http://www.cs.ox.ac.uk/isg/people/ernesto.jimenez/">Ernesto Jimenez Ruiz</a>,
-<a href="http://www.ida.liu.se/~patla/index.shtml">Patrick Lambrix</a>, and
-<a href="http://www.di.fc.ul.pt/~catiapesquita/">Catia Pesquita</a>.
- 
-If you have any problems working with the ontologies or any suggestions 
-related to this track, feel free to write an email to ernesto 
-[at] cs [.] ox [.] ac [.] uk or ernesto [.] jimenez [.] ruiz [at] gmail [.] com</p>
-
-<br />
-
-<h2><u>Acknowledgements</u></h2>
+<h2>Acknowledgements</h2>
 
 <p>We thank Dominique Ritze and Heiko Paulheim, the organisers of 
 the <a href="../../2013/interactive/">2013</a> and <a href="../../2014/interactive/">2014</a> editions 
@@ -310,21 +235,24 @@ of this track, who were very helpful in the setting up of the 2015 edition.
 The track is partially supported by the <a href="http://www.optique-project.eu/">Optique</a> project.
 </p>
 
+<h2>Contact</h2>
 
-
-
-
-
-
-
-<br />
-<br />
-
+<p>This track is currently organized by 
+<a href="http://www.ida.liu.se/department/contact/contactcard.en.shtml?zladr41">Zlatan Dragisic</a>,
+<a href="http://xldb.fc.ul.pt/~dfaria/">Daniel Faria</a>,
+<a href="http://www.ida.liu.se/department/contact/contactcard.en.shtml?valiv">Valentina Ivanova</a>, 
+<a href="http://www.cs.ox.ac.uk/isg/people/ernesto.jimenez/">Ernesto Jimenez Ruiz</a>,
+<a href="http://www.ida.liu.se/~patla/index.shtml">Patrick Lambrix</a>, and
+<a href="http://www.di.fc.ul.pt/~catiapesquita/">Catia Pesquita</a>.
+</p>
+<p>
+If you have any problems working with the ontologies or any suggestions 
+related to this track, feel free to write an email to ernesto 
+[at] cs [.] ox [.] ac [.] uk or ernesto [.] jimenez [.] ruiz [at] gmail [.] com</p>
 
 <div class="address">
 <div class="footer">
-Contact: ernesto [.] jimenez [.] ruiz [at] gmail [.] com <br />
-<a href="http://oaei.ontologymatching.org/2015/interactive/">http://oaei.ontologymatching.org/2015/interactive/</a></div>
+http://oaei.ontologymatching.org/2015/interactive/</div>
 <!--$Id$-->
 </div>
 </body></html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>OAEI 2015::Instance Matching Track</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+<link rel="stylesheet" type="text/css" href="css/slimbox2.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/popup.css" media="all" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=UnifrakturMaguntia">
+<link rel="stylesheet" href="css/jqmath-0.4.0.css">
+<script src="js/jquery-1.4.3.min.js"></script>
+<script src="js/jqmath-etc-0.4.0.min.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/slimbox2.js"></script>
+<script type="text/javascript" src="js/popup.js"></script>
+<script type="text/javascript" src="js/hidecode.js"></script>
+</head><body>
+
+<div class="header">
+<a style="color: grey; line-height: 5mm;" href="http://oaei.ontologymatching.org/2015/">Ontology
+  Alignment Evaluation Initiative - OAEI-2015 Campaign</a>
+  <a href="http://oaei.ontologymatching.org/2015">
+  <img src="../../oaeismall.jpg" style="float: right; margin-left: 10pt; margin-right: 10pt; margin-bottom: 10pt; border-style: none;" width="175px"></a>
+  <a href="http://www.seals-project.eu/">
+<img src="../../seals-logo.jpg" style="clear: right; float: right; margin-right: 20pt; margin-left: 10pt; margin-bottom: 10pt; border-style: none;" width="150px"></a>
+</div>
+
+<h1>Instance Matching Track</h1>
+
+<p>The Instance Matching Track aims at evaluating the performance of matching tools when the goal is to detect the degree of similarity between pairs of items/instances expressed in the form of OWL Aboxes. </p>
+
+<p>The track is organized in the following <strong>five independent tasks</strong>, namely:
+<ul>
+<li><a href="#author-dis">author disambiguation (<i>author-dis task</i>)</a></li>
+<li><a href="#author-rec">author recognition (<i>author-rec task</i>)</a></li>
+<li><a href="#val-sem">value semantics (<i>val-sem task</i>)</a></li>
+<li><a href="#val-struct">value structure (<i>val-struct task</i>)</a></li>
+<li><a href="#val-struct-sem">value structure semantics (<i>val-struct-sem task</i>)</a></li>
+</ul>
+The tasks val-sem, val-struct, and val-sem-struct have been generated through <a href="http://www.ics.forth.gr/isl/spimbench/" target="_blank">SPIMBENCH</a>, an IM benchmark for the assessment of IM techniques based on RDF data with associated schema.
+</p>
+<p>
+To participate to the Instance Matching Track, <strong>submit results related to one, more, or even all the expected tasks</strong>.
+</p>
+
+<p>
+Each task is articulated in two tests with different scales (i.e., number of instances to match):
+<ul>
+<li><strong>Sandbox</strong> (small scale). It contains two datasets called <i>source</i> and <i>target</i> as well as the set of expected mappings (i.e., reference alignment).</li>
+<li><strong>Mainbox</strong> (medium scale). It contains two datasets called <i>source</i> and <i>target</i>. This test is <i>blind</i>, meaning that the reference alignment is not given to the participants.</li>
+</ul>
+In both tests, the goal is to discover the matching pairs (i.e., mappings) among the instances in the source dataset and the instances in the target dataset. 
+</p>
+
+<br />
+<!-- AUTHOR DISAMBIGUATION -->
+<h2><a name="author-dis">Author Disambiguation Task (author-dis task)</a></h2>
+
+<p>The goal of the author-dis task is to link OWL instances referring to the same person (i.e., author) based on their publications.</p> 
+
+<p>
+<strong>Dataset description</strong>.
+The sandbox scale is around 1k instances. The mainbox scale is around 10k instances.
+</p>
+
+<p>
+<strong>What we expect from participants</strong>. 
+Participants are requested to match **ONLY** the instances of the class <code>http://islab.di.unimi.it/imoaei2015#Person</code> in the source dataset (i.e., ontoA.owl) against the instances of the class <code>http://islab.di.unimi.it/imoaei2015#Person</code> in the target dataset (i.e., ontoB.owl).<br />
+In both datasets, author publications are given as instances of the class <code>http://islab.di.unimi.it/imoaei2015#Publication</code> and they are associated with the corresponding person instance through the property <code>http://islab.di.unimi.it/imoaei2015#author_of</code>. Expected mappings are 1:1 (one person of ontoA.owl corresponds to exactly one person of ontoB.owl and viceversa).<br />
+In the sandbox test, the reference alignment containing the set of expected mappings is also provided (i.e., refalign.rdf).
+</p>
+
+<p>
+<strong>Evaluation strategy</strong>. The mapping produced by the participants will be compared against a reference alignment. Evaluation will be performed through precision, recall, and F-measure.
+</p>
+
+<p>
+<strong>Access to datasets</strong>. Datasets can be downloaded as a zip file: 
+<ul>
+<li><a href="im_oaei2015_author_dis_sandbox.zip">sandbox author-dis task</a></li>
+<li><a href="im_oaei2015_author_dis_mainbox.zip">mainbox author-dis task</a></li>
+</ul>
+</p>
+
+<p>
+<strong>
+Dataset identifiers for the <a target="_blank" href="../seals-eval.html">SEALS OMT client</a></strong>:</p>
+<div class="testsuite">
+<span class="title">Author-dis task - sandbox</span>
+<ul>
+<li><b>Repository:</b> <span class="testsuiteid">http://repositories.seals-project.eu/tdrs/</span></li>
+<li><b>Suite-ID:</b> <span class="testsuiteid">author-dis-sandbox</span></li>
+<li><b>Version-ID:</b> <span class="testsuiteid">author-dis-sandbox-v2</span></li>
+</ul>
+<span class="title">Author-dis task - mainbox</span>
+<ul>
+<li><b>Repository:</b> <span class="testsuiteid">http://repositories.seals-project.eu/tdrs/</span></li>
+<li><b>Suite-ID:</b> <span class="testsuiteid">author-dis-main</span></li>
+<li><b>Version-ID:</b> <span class="testsuiteid">author-dis-main-v1</span></li>
+</ul>
+</div> 
+
+<p>
+<strong>Submission procedure</strong>. The task evaluation will be executed with the support of <a href="http://www.seals-project.eu/" target="_blank">SEALS</a>. 
+Participants are requested to adjust their matching tool in a way that it can be invoked on the SEALS platform (see <a href="../seals-eval.html">OAEI 2015 evaluation details</a>). <br />
+Participants are also requested to provide the results in the TSV format, i.e., <br />
+<code>uri_of_source_instance\turi_of_target_instance\tsimilarity_value\n</code><br />
+and to send a text file containing the mappings to the contact person.
+</p>
+
+<p>
+<strong>Contact person</strong>. For any question, please contact Alfio Ferrara (alfio 'dot' ferrara 'at' unimi 'dot' it).
+</p>
+
+<br />
+<!-- AUTHOR RECOGNITION -->
+<h2><a name="author-rec">Author Recognition Task (author-rec task)</a></h2>
+
+<p>The goal of the author-rec task is to associate a person (i.e., author) with the corresponding <i>publication report</i> containing aggregated information about the publication activity of the person, such as number of publications, h-index, years of activity, number of citations.</p> 
+
+<p>
+<strong>Dataset description</strong>.
+The sandbox scale is around 1k instances. The mainbox scale is around 10k instances.
+</p>
+
+<p>
+<strong>What we expect from participants</strong>. 
+Participants are requested to match **ONLY** the instances of the class <code>http://islab.di.unimi.it/imoaei2015#Person</code> in the source dataset (i.e., ontoA.owl) against the instances of the class <code>http://islab.di.unimi.it/imoaei2015#Person</code> in the target dataset (i.e., ontoB.owl).<br />
+In the source dataset, author publications are given as instances of the class <code>http://islab.di.unimi.it/imoaei2015#Publication</code> and they are associated with the corresponding person instance through the property <code>http://islab.di.unimi.it/imoaei2015#author_of</code>. In the target dataset, each person is only associated with a publication titled &lsquo;Publication report&rsquo; containing aggregated information. The challenge is to link a person in the source dataset with the person in the target dataset containing the corresponding publication report. Expected mappings are 1:1 (one person of ontoA.owl corresponds to exactly one person of ontoB.owl and viceversa).<br />
+In the sandbox test, the reference alignment containing the set of expected mappings is also provided (i.e., refalign.rdf).
+</p>
+
+<p>
+<strong>Evaluation strategy</strong>. The mapping produced by the participants will be compared against a reference alignment. Evaluation will be performed through precision, recall, and F-measure.
+</p>
+
+<p>
+<strong>Access to datasets</strong>. Datasets can be downloaded as a zip file: 
+<ul>
+<li><a href="im_oaei2015_author_rec_sandbox.zip">sandbox author-rec task</a></li>
+<li><a href="im_oaei2015_author_rec_mainbox.zip">mainbox author-rec task</a></li>
+</ul>
+</p>
+
+<p>
+<strong>
+Dataset identifiers for the <a target="_blank" href="../seals-eval.html">SEALS OMT client</a></strong>:</p>
+<div class="testsuite">
+<span class="title">Author-rec task - sandbox</span>
+<ul>
+<li><b>Repository:</b> <span class="testsuiteid">http://repositories.seals-project.eu/tdrs/</span></li>
+<li><b>Suite-ID:</b> <span class="testsuiteid">author-rec-sandbox</span></li>
+<li><b>Version-ID:</b> <span class="testsuiteid">author-rec-sandbox-v1</span></li>
+</ul>
+<span class="title">Author-rec task - mainbox</span>
+<ul>
+<li><b>Repository:</b> <span class="testsuiteid">http://repositories.seals-project.eu/tdrs/</span></li>
+<li><b>Suite-ID:</b> <span class="testsuiteid">author-rec-main</span></li>
+<li><b>Version-ID:</b> <span class="testsuiteid">author-rec-main-v1</span></li>
+</ul>
+</div> 
+
+<p>
+<strong>Submission procedure</strong>. The task evaluation will be executed with the support of <a href="http://www.seals-project.eu/" target="_blank">SEALS</a>. 
+Participants are requested to adjust their matching tool in a way that it can be invoked on the SEALS platform (see <a href="../seals-eval.html">OAEI 2015 evaluation details</a>). <br />
+Participants are also requested to provide the results in the TSV format, i.e., <br />
+<code>uri_of_source_instance\turi_of_target_instance\tsimilarity_value\n</code><br />
+and to send a text file containing the mappings to the contact person.
+</p>
+
+<p>
+<strong>Contact person</strong>. For any question, please contact Alfio Ferrara (alfio 'dot' ferrara 'at' unimi 'dot' it).
+</p>
+
+<!-- VALUE SEMANTICS -->
+<h2><a name="val-sem">SPIMBENCH Value Semantics (val-sem task)</a></h2>
+
+
+<p>The goal of the val-sem task is to determine when two OWL instances describe the same Creative Work. The datasets of the val-sem task have been produced by altering a set of original data through <strong>value-based and semantics-aware transformations</strong>.</p> 
+
+<p>
+<strong>Dataset description</strong>.
+A dataset is composed of a Tbox and corresponding Abox. Source and target datasets share the same Tbox. Ontology instances are described in the source through 22 classes, 31 DatatypeProperty, and 85 ObjectProperty properties. From those properties, we have 1 InverseFunctionalProperty and 2 FunctionalProperties. The sandbox scale is 10k instances. The mainbox scale is 100K instances.
+</p>
+
+<p>
+<strong>What we expect from participants</strong>. 
+Participants are requested to match instances in the source dataset (Abox1.ttl) against the instances of the target dataset (Abox2.ttl). The task goal is to produce a set of mappings between the pairs of matching instances that are found to refer to the same real-world entity. An instance in the source dataset can have none or one matching counterparts in the target dataset. We ask the participants to map ***ONLY*** Creative Works (NewsItem, BlogPost and Programme) and not the instances of the other classes.<br />
+In the sandbox test, the reference alignment containing the set of expected mappings is also provided (i.e., refalign.rdf).
+</p>
+
+<p>
+<strong>Evaluation strategy</strong>. The mapping produced by the participants will be compared against a reference alignment where an instance <code>i</code> in the source dataset is associated with all the instances in the target dataset that represent an altered description of <code>i</code>. Evaluation will be performed through precision, recall, and F-measure.
+</p>
+
+<p>
+<strong>Access to datasets</strong>. Datasets can be downloaded as a zip file: 
+<ul>
+<li><a href="http://users.ics.forth.gr/~jsaveta/OAEI_IM_2015_spimbench/im_oaei2015_val_sem_sandbox.zip">sandbox val-sem task</a></li>
+<li><a href="http://users.ics.forth.gr/~jsaveta/OAEI_IM_2015_spimbench/im_oaei2015_val_sem_mainbox.zip">mainbox val-sem task</a></li>
+</ul>
+</p>
+
+<p>
+<!--<span class="alert-text">Access via the SEALS platform will be activated as soon as possible.</span> -->
+<strong>
+Dataset identifiers for the <a target="_blank" href="../seals-eval.html">SEALS OMT client</a></strong>:</p>
+<div class="testsuite">
+<span class="title">Val-sem task - sandbox</span>
+<ul>
+<li><b>Repository:</b> <span class="testsuiteid">http://repositories.seals-project.eu/tdrs/</span></li>
+<li><b>Suite-ID:</b> <span class="testsuiteid">val_sem_small</span></li>
+<li><b>Version-ID:</b> <span class="testsuiteid">v2</span></li>
+</ul>
+<span class="title">Val-sem task - mainbox</span>
+<ul>
+<li><b>Repository:</b> <span class="testsuiteid">http://repositories.seals-project.eu/tdrs/</span></li>
+<li><b>Suite-ID:</b> <span class="testsuiteid">val_sem_large</span></li>
+<li><b>Version-ID:</b> <span class="testsuiteid">v2</span></li>
+</ul>
+</div> 
+
+<p>
+<strong>Submission procedure</strong>. The task evaluation will be executed with the support of <a href="http://www.seals-project.eu/" target="_blank">SEALS</a>. 
+Participants are requested to adjust their matching tool in a way that it can be invoked on the SEALS platform (see <a href="../seals-eval.html">OAEI 2015 evaluation details</a>). <br />
+Participants are also requested to provide the results in the TSV format, i.e., <br />
+<code>uri_of_source_instance\turi_of_target_instance\tsimilarity_value\n</code><br />
+and to send a text file containing the mappings to the contact person.
+</p>
+
+<p>
+<strong>Contact person</strong>. For any question, please contact Tzanina Saveta (jsaveta 'at' ics 'dot' forth 'dot' gr) and Irini Fundulaki (fundul 'at' ics 'dot' forth 'dot' gr).
+</p>
+
+<!-- VALUE STRUCTURE -->
+<h2><a name="val-struct">SPIMBENCH Value Structure (val-struct task)</a></h2>
+
+
+<p>The goal of the val-struct task is to determine when two OWL instances describe the same Creative Work. The datasets of the val-struct task have been produced by altering a set of original data through <strong>value-based and structure-based transformations</strong>.</p> 
+
+<p>
+<strong>Dataset description</strong>.
+A dataset is composed of a Tbox and corresponding Abox. Source and target datasets share almost the same Tbox (with some difference in the properties' level, due to the structure-based transformations). Ontology instances are described in the source through 22 classes, 31 DatatypeProperty, and 85 ObjectProperty properties. From those properties, we have 1 InverseFunctionalProperty and 2 FunctionalProperties. The sandbox scale is 10k instances. The mainbox scale is 100K instances.
+</p>
+
+<p>
+<strong>What we expect from participants</strong>. 
+Participants are requested to match instances in the source dataset (Abox1.ttl) against the instances of the target dataset (Abox2.ttl). The task goal is to produce a set of mappings between the pairs of matching instances that are found to refer to the same real-world entity. An instance in the source dataset can have none or one matching counterparts in the target dataset. We ask the participants to map ***ONLY*** Creative Works (NewsItem, BlogPost and Programme) and not the instances of the other classes.<br />
+In the sandbox test, the reference alignment containing the set of expected mappings is also provided (i.e., refalign.rdf).
+</p>
+
+<p>
+<strong>Evaluation strategy</strong>. The mapping produced by the participants will be compared against a reference alignment where an instance <code>i</code> in the source dataset is associated with all the instances in the target dataset that represent an altered description of <code>i</code>. Evaluation will be performed through precision, recall, and F-measure.
+</p>
+
+<p>
+<strong>Access to datasets</strong>. Datasets can be downloaded as a zip file: 
+<ul>
+<li><a href="http://users.ics.forth.gr/~jsaveta/OAEI_IM_2015_spimbench/im_oaei2015_val_struct_sandbox.zip">sandbox val-struct task</a></li>
+<li><a href="http://users.ics.forth.gr/~jsaveta/OAEI_IM_2015_spimbench/im_oaei2015_val_struct_mainbox.zip">mainbox val-struct task</a></li>
+</ul>
+</p>
+
+<p>
+<strong>
+Dataset identifiers for the <a target="_blank" href="../seals-eval.html">SEALS OMT client</a></strong>:</p>
+<div class="testsuite">
+<span class="title">Val-struct task - sandbox</span>
+<ul>
+<li><b>Repository:</b> <span class="testsuiteid">http://repositories.seals-project.eu/tdrs/</span></li>
+<li><b>Suite-ID:</b> <span class="testsuiteid">val_str_small</span></li>
+<li><b>Version-ID:</b> <span class="testsuiteid">v2</span></li>
+</ul>
+<span class="title">Val-struct task - mainbox</span>
+<ul>
+<li><b>Repository:</b> <span class="testsuiteid">http://repositories.seals-project.eu/tdrs/</span></li>
+<li><b>Suite-ID:</b> <span class="testsuiteid">val_str_large</span></li>
+<li><b>Version-ID:</b> <span class="testsuiteid">v2</span></li>
+</ul>
+</div> 
+
+<p>
+<strong>Submission procedure</strong>. The task evaluation will be executed with the support of <a href="http://www.seals-project.eu/" target="_blank">SEALS</a>. 
+Participants are requested to adjust their matching tool in a way that it can be invoked on the SEALS platform (see <a href="../seals-eval.html">OAEI 2015 evaluation details</a>). <br />
+Participants are also requested to provide the results in the TSV format, i.e., <br />
+<code>uri_of_source_instance\turi_of_target_instance\tsimilarity_value\n</code><br />
+and to send a text file containing the mappings to the contact person.
+</p>
+
+<p>
+<strong>Contact person</strong>. For any question, please contact Tzanina Saveta (jsaveta 'at' ics 'dot' forth 'dot' gr) and Irini Fundulaki (fundul 'at' ics 'dot' forth 'dot' gr).
+</p>
+
+<!-- VALUE STRUCTURE SEMANTICS-->
+<h2><a name="val-struct-sem">SPIMBENCH Value Structure Semantics (val-struct-sem task)</a></h2>
+
+<p>The goal of the val-struct-sem task is to determine when two OWL instances describe the same Creative Work. The datasets of the val-struct-sem task have been produced by altering a set of original data through <strong>value-based, structure-based and semantics-aware transformations</strong>.</p> 
+
+<p>
+<strong>Dataset description</strong>.
+A dataset is composed of a Tbox and corresponding Abox. Source and target datasets share almost the same Tbox (with some difference in the properties' level, due to the structure-based transformations). Ontology instances are described in the source through 22 classes, 31 DatatypeProperty, and 85 ObjectProperty properties. From those properties, we have 1 InverseFunctionalProperty and 2 FunctionalProperties. The sandbox scale is 10k instances. The mainbox scale is 100K instances.
+</p>
+
+<p>
+<strong>What we expect from participants</strong>. 
+Participants are requested to match instances in the source dataset (Abox1.ttl) against the instances of the target dataset (Abox2.ttl). The task goal is to produce a set of mappings between the pairs of matching instances that are found to refer to the same real-world entity. An instance in the source dataset can have none or one matching counterparts in the target dataset. We ask the participants to map ***ONLY*** Creative Works (NewsItem, BlogPost and Programme) and not the instances of the other classes.<br />
+In the sandbox test, the reference alignment containing the set of expected mappings is also provided (i.e., refalign.rdf).
+</p>
+
+<p>
+<strong>Evaluation strategy</strong>. The mapping produced by the participants will be compared against a reference alignment where an instance <code>i</code> in the source dataset is associated with all the instances in the target dataset that represent an altered description of <code>i</code>. Evaluation will be performed through precision, recall, and F-measure.
+</p>
+
+<p>
+<strong>Access to datasets</strong>. Datasets can be downloaded as a zip file: 
+<ul>
+<li><a href="http://users.ics.forth.gr/~jsaveta/OAEI_IM_2015_spimbench/im_oaei2015_val_struct_sem_sandbox.zip">sandbox val-struct-sem task</a></li>
+<li><a href="http://users.ics.forth.gr/~jsaveta/OAEI_IM_2015_spimbench/im_oaei2015_val_struct_sem_mainbox.zip">mainbox val-struct-sem task</a></li>
+</ul>
+</p>
+
+<p>
+<strong>
+Dataset identifiers for the <a target="_blank" href="../seals-eval.html">SEALS OMT client</a></strong>:</p>
+<div class="testsuite">
+<span class="title">Val-struct-sem task - sandbox</span>
+<ul>
+<li><b>Repository:</b> <span class="testsuiteid">http://repositories.seals-project.eu/tdrs/</span></li>
+<li><b>Suite-ID:</b> <span class="testsuiteid">val_str_sem_small</span></li>
+<li><b>Version-ID:</b> <span class="testsuiteid">v2</span></li>
+</ul>
+<span class="title">Val-struct-sem task - mainbox</span>
+<ul>
+<li><b>Repository:</b> <span class="testsuiteid">http://repositories.seals-project.eu/tdrs/</span></li>
+<li><b>Suite-ID:</b> <span class="testsuiteid">val_str_sem_large</span></li>
+<li><b>Version-ID:</b> <span class="testsuiteid">v2</span></li>
+</ul>
+</div> 
+
+<p>
+<strong>Submission procedure</strong>. The task evaluation will be executed with the support of <a href="http://www.seals-project.eu/" target="_blank">SEALS</a>. 
+Participants are requested to adjust their matching tool in a way that it can be invoked on the SEALS platform (see <a href="../seals-eval.html">OAEI 2015 evaluation details</a>). <br />
+Participants are also requested to provide the results in the TSV format, i.e., <br />
+<code>uri_of_source_instance\turi_of_target_instance\tsimilarity_value\n</code><br />
+and to send a text file containing the mappings to the contact person.
+</p>
+
+<p>
+<strong>Contact person</strong>. For any question, please contact Tzanina Saveta (jsaveta 'at' ics 'dot' forth 'dot' gr) and Irini Fundulaki (fundul 'at' ics 'dot' forth 'dot' gr).
+</p>
+
+<div class="address">
+Original page: <a href="http://islab.di.unimi.it/im_oaei_2015">http://islab.di.unimi.it/im_oaei_2015</a> [cached: 13/05/2016]
+<div class="footer">
+http://oaei.ontologymatching.org/2015/im/index.html
+</div>
+</body></html>
