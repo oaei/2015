@@ -67,7 +67,7 @@ We can observe large differences between the time required for a system to compl
 The table below presents the aggregated results for the open subset, for the test cases of type (i) and (ii). The results have been computed using the Alignment API 4.6. We do not apply any threshold on the confidence measure. We observe significant differences between the results obtained for each type of matching task, specially in terms of precision, for most systems, with lower differences in terms of recall. As expected, in terms of F-measure, the systems implementing cross-lingual techniques outperform the non-cross-lingual systems for test cases of type (i). For these cases, non-specific matchers have good precision but generating very few correspondences. While LogMap has the best precision (at the expense of recall), AML has similar results in terms of precision and recall and outperforms the other systems in terms of F-measure (what is the case for both types of tasks). For type (ii), CroMatcher takes advantage of the ontology structure and performs better than some specific cross-lingual systems. The reader can refer to the <a href="http://om2015.ontologymatching.org/"> OAEI paper</a> for a more detailed discussion on these results. 
 </p>
 
-<table border='2' frame='sides' rules='groups' align='center'">
+<table border='2' frame='sides' rules='groups' align='center'>
 <colgroup align='center'/>
 <colgroup align='center'/>
 <colgroup align='center'/>
@@ -146,7 +146,7 @@ For the group of systems implementing cross-lingual strategies, some pairs invol
 of 4 systems (out of 5, the exception is LYAM++ ): AML - cz-en (.63), cz-ru (.62), cz-es (.61), cz-nl (.60), en-es (.59), CLONA - es-ru (.53), cz-es (.51), es-pt (.51), cz-en (.50) and cz-ru (.49), LogMap - cz-de (.55), cz-pt (.54), cz-ru (.53), cz-nl and cz-en (.52), XMAP - cz-es (.52), cz-pt (.50), en-es (.48), cz-ru (.45), and de-es (.45). LYAM++ is the exception, once it was not able to generate alignments for some of these pairs : es-fr (.56), en-es (.53), es-pt (.52), en-ru (.52) and en-fr (.52). A different behavior is observed for the tasks of type (ii), for which these systems perform better for the pairs en-pt, es-fr, en-fr, de-en and es-pt. The exception is LogMap (es-ru, es-nl and fr-nl).
 </p>
 
-<table border='2' frame='sides' rules='groups' align='center'">
+<table border='2' frame='sides' rules='groups' align='center'>
 <caption>MultiFarm results per pair of languages (H-mean) for the test cases of type (i)</caption>
 <colgroup align='center'/>
 <colgroup align='center' span='3' />
@@ -299,7 +299,7 @@ of 4 systems (out of 5, the exception is LYAM++ ): AML - cz-en (.63), cz-ru (.62
 <p>The table belows presents the aggregated results for the matching tasks involving edas and ekaw ontologies. LYAM++ has participated only in the open test. The overall results here are close to what has been observed for the open evaluation. For both types of tasks, LogMap outperforms all systems in terms of precision and AML in terms of F-measure. Both of them required more time for finishing the tasks due to the fact that new translations were computed on the fly (for Italian). For CLONA, its runtime can be explained by the fact that it may have experimented no (concurrent) problems to access the SEALS repositories. Note again that runtimes this year may not reflect the real time required for finishing the tasks.</p>
 
 
-<table border='2' frame='sides' rules='groups' align='center'">
+<table border='2' frame='sides' rules='groups' align='center'>
 <colgroup align='center'/>
 <colgroup align='center'/>
 <colgroup align='center'/>
@@ -350,7 +350,7 @@ of 4 systems (out of 5, the exception is LYAM++ ): AML - cz-en (.63), cz-ru (.62
 
 <p>With respect to the pairs of languages for test cases of type (i), although the overall results remain relatively stable, new pairs of languages take place in the top-3 F-measure. For non specific systems, it is the case for the pairs es-it and it-pt : CroMatcher (es-it .25, it-pt .25, en-it .24, and en-nl .21), DKP-AOM (es-pt .20, de-en .20, it-pt .17, es-it .16), GMap (it-pt .31, en-it .25, en-fr .19), LogMap-C (de-en .23, es-pt .21, it-pt .20, es-it .19), LogMapLite (de-en .20, es-pt .20, it-pt .17, es-it .16), and Mamba (de-en .27, en-it .26, en-nl .25, it-pt .24). For the group of systems implementing cross-lingual strategies, this fact has been observed for 2 (AML and XMAP) out of 4 systems. For those systems, some pairs involving Czech (cn-cz, cz-de, cz-en ou cz-ru) are again present in the top-5 F-measure of 3 out of 4 systems: AML (es-it .58, en-pt .58 en-nl .57 cz-en .57 nl-pt .57 es-nl .56, cz-nl .55, en-es .55, cz-es .54), CLONA (cn-cz .38, cz-pt .38, de-pt .38, de-en .37, fr-pt .37, pt-ru .36, es-pt .36, es-ru .35, fr-ru .35, cz-de .35), LogMap (en-nl .53, en-pt .51, cz-en .49, en-ru .48, cz-nl .46, cz-ru .46). The exception is XMAP (nl-pt .53, nl-ru .43, it-pt .41, pt-ru .37, fr-ru .37). Finally, with respect to type (ii), the pair it-pt appears in the top-3 F-measure of AML and CLONA. </p>
 
-<table border='2' frame='sides' rules='groups' align='center'">
+<table border='2' frame='sides' rules='groups' align='center'>
 <caption>MultiFarm results per pair of languages () for the test cases of type (i)</caption>
 <colgroup align='center'/>
 <colgroup align='center' span='3' />

@@ -29,11 +29,6 @@ div.address {
     color: grey;
 }
 
-table { 
-    margin-left: auto;
-    margin-right: auto;
-}
-
 div.footer {
     font-size: 90%;
     text-align: center;
@@ -81,13 +76,20 @@ div.testsuite span.testsuiteid {
 	font-family:monospace;
 }
 
+table.res {
+    border: 1;
+    cellpadding: 4;
+    cellspacing: 0;
+    rules: COLS;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 td.text {
     text-align:left; 
 }
 
-td { text-align:center; }
-
-td.res { text-align: left; }
+td.res { text-align: center; }
 
 td.important {
 	border-left: 1px solid black;
